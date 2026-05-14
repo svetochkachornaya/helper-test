@@ -202,7 +202,7 @@
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   gap: 14px;
-  padding: 12px 8vw 20px;
+  padding: 12px 8vw 52px;
   cursor: grab;
 }
 .sv__track::-webkit-scrollbar { display: none; }
@@ -238,9 +238,9 @@
   transition: transform .3s var(--ease), box-shadow .3s ease;
 }
 .sv__card:hover {
-  transform: translateY(-4px) scale(1.012);
+  transform: translateY(-4px);
   box-shadow:
-    0 14px 44px rgba(26,23,20,.10),
+    0 14px 40px rgba(26,23,20,.10),
     0 0 0 1px rgba(255,255,255,.9) inset,
     0 0 0 2px rgba(201,169,110,.14);
 }
@@ -285,7 +285,7 @@
 
 @media (max-width: 540px) {
   .sv__header { padding: 80px 20px 48px; }
-  .sv__track { padding: 12px 20px 20px; gap: 10px; }
+  .sv__track { padding: 12px 20px 48px; gap: 10px; }
   .sv__fade { width: 20px; }
   .sv__fade--left  { background: linear-gradient(90deg,  #f4efe6 0%, transparent 100%); }
   .sv__fade--right { background: linear-gradient(270deg, #f4efe6 0%, transparent 100%); }
