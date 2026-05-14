@@ -199,14 +199,13 @@
 /* ── Grid wrapper ── */
 .sh__wrap {
   position: relative; z-index: 1;
-  max-width: 1280px; margin: 0 auto;
-  /* Правый padding = 0: фото доходит до правого края контейнера */
-  padding: 96px 0 80px 60px;
+  /* Нет max-width — фото тянется до края экрана */
+  padding: 96px 0 80px 8vw;
   display: grid;
-  grid-template-columns: 1fr 420px;
+  grid-template-columns: minmax(0, 640px) minmax(420px, 44vw);
   gap: 0;
   align-items: stretch;
-  min-height: 680px;
+  min-height: 720px;
 }
 
 /* ══════════════════
@@ -214,7 +213,9 @@
 ══════════════════ */
 .sh__left {
   display: flex; flex-direction: column; align-items: flex-start;
-  padding-right: 56px;
+  padding-right: 60px;
+  /* не выходим за разумную ширину текстового столбца */
+  max-width: 640px;
 }
 
 /* Reveal animations */
@@ -369,9 +370,8 @@
 
 .sh__photo-wrap {
   position: absolute;
-  /* Выходит за верх и низ враппера, совпадая с section */
   top: -96px; bottom: -80px;
-  left: 0; right: -60px; /* -60px чтобы выйти за правый padding контейнера */
+  left: 0; right: 0;
   overflow: hidden;
 }
 
@@ -382,14 +382,16 @@
   display: block;
 }
 
-/* Левый blend: плавный переход фото в фон секции */
 .sh__photo-blend {
   position: absolute; inset: 0;
   background:
-    linear-gradient(to right,  #f4efe6 0%, rgba(244,239,230,.85) 16%, rgba(244,239,230,.15) 40%, transparent 60%),
-    linear-gradient(to bottom, #f4efe6 0%, rgba(244,239,230,.7)  12%, transparent 30%),
-    linear-gradient(to top,    #f4efe6 0%, rgba(244,239,230,.7)  12%, transparent 30%),
-    linear-gradient(to left,   #f4efe6 0%, rgba(244,239,230,.45)  8%, transparent 22%);
+    /* левый: плавно сходит на нет к середине фото */
+    linear-gradient(to right,  #f4efe6 0%, rgba(244,239,230,.9) 12%, rgba(244,239,230,.2) 32%, transparent 52%),
+    /* верх и низ */
+    linear-gradient(to bottom, #f4efe6 0%, rgba(244,239,230,.65) 10%, transparent 26%),
+    linear-gradient(to top,    #f4efe6 0%, rgba(244,239,230,.65) 10%, transparent 26%),
+    /* правый край — лёгкий */
+    linear-gradient(to left,   rgba(244,239,230,.35) 0%, transparent 16%);
 }
 
 .sh__photo-vignette { display: none; }
@@ -431,20 +433,11 @@
     padding: 80px 32px 60px;
     min-height: auto;
   }
-  .sh__left { align-items: center; text-align: center; padding-right: 0; }
+  .sh__left { align-items: center; text-align: center; padding-right: 0; max-width: 100%; }
   .sh__desc { text-align: left; }
   .sh__result { justify-content: flex-start; }
-
-  /* На мобайле фото — горизонтальный блок под текстом */
-  .sh__right {
-    width: 100%; height: 380px;
-    margin: 0 -32px;
-    width: calc(100% + 64px);
-  }
-  .sh__photo-wrap {
-    position: absolute;
-    top: 0; bottom: 0; left: 0; right: 0;
-  }
+  .sh__right { height: 420px; margin: 0 -32px; width: calc(100% + 64px); }
+  .sh__photo-wrap { top: 0; bottom: 0; left: 0; right: 0; }
   .sh__photo-blend {
     background:
       linear-gradient(to bottom, #f4efe6 0%, rgba(244,239,230,.7) 14%, transparent 32%),
@@ -459,7 +452,7 @@
   .sh__cta  { flex-direction: column; width: 100%; }
   .sh__btn-primary { justify-content: center; width: 100%; }
   .sh__stats { padding: 14px 16px; }
-  .sh__right { margin: 0 -20px; width: calc(100% + 40px); height: 320px; }
+  .sh__right { margin: 0 -20px; width: calc(100% + 40px); height: 340px; }
 }
 </style>
 
