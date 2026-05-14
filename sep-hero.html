@@ -385,24 +385,14 @@
 /* Левый blend: плавный переход фото в фон секции */
 .sh__photo-blend {
   position: absolute; inset: 0;
-  background: linear-gradient(
-    to right,
-    var(--bg) 0%,
-    rgba(244,239,230,.7) 15%,
-    rgba(244,239,230,.1) 35%,
-    transparent 55%
-  );
+  background:
+    linear-gradient(to right,  #f4efe6 0%, rgba(244,239,230,.85) 16%, rgba(244,239,230,.15) 40%, transparent 60%),
+    linear-gradient(to bottom, #f4efe6 0%, rgba(244,239,230,.7)  12%, transparent 30%),
+    linear-gradient(to top,    #f4efe6 0%, rgba(244,239,230,.7)  12%, transparent 30%),
+    linear-gradient(to left,   #f4efe6 0%, rgba(244,239,230,.45)  8%, transparent 22%);
 }
 
-/* Нижний vignette под именем */
-.sh__photo-vignette {
-  position: absolute; inset: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 55%,
-    rgba(26,23,20,.5) 100%
-  );
-}
+.sh__photo-vignette { display: none; }
 
 /* Floating pill */
 .sh__pill {
@@ -425,11 +415,11 @@
 }
 .sh__photo-name {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 24px; font-weight: 600; color: #fff; line-height: 1;
+  font-size: 24px; font-weight: 600; color: var(--ink); line-height: 1;
 }
 .sh__photo-role {
   font-size: 11px; font-weight: 400; letter-spacing: .07em;
-  color: rgba(255,255,255,.6); text-transform: uppercase;
+  color: var(--ink-40); text-transform: uppercase;
 }
 
 /* ================================================================
@@ -456,12 +446,11 @@
     top: 0; bottom: 0; left: 0; right: 0;
   }
   .sh__photo-blend {
-    background: linear-gradient(
-      to bottom,
-      var(--bg) 0%,
-      rgba(244,239,230,.5) 12%,
-      transparent 30%
-    );
+    background:
+      linear-gradient(to bottom, #f4efe6 0%, rgba(244,239,230,.7) 14%, transparent 32%),
+      linear-gradient(to top,    #f4efe6 0%, rgba(244,239,230,.7) 14%, transparent 32%),
+      linear-gradient(to right,  #f4efe6 0%, transparent 18%),
+      linear-gradient(to left,   #f4efe6 0%, transparent 18%);
   }
 }
 
