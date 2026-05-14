@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Кому подойдёт — Сепарация</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body style="margin:0;background:#f7f3ee;">
+
+<section class="sw" id="separation-fit" aria-labelledby="sw-title">
+
+  <div class="sw__grain" aria-hidden="true"></div>
+
+  <!-- ─── HEADER ─── -->
+  <div class="sw__header" data-sw-reveal>
+    <div class="sw__eyebrow">
+      <span class="sw__pip" aria-hidden="true"></span>
+      Кому подойдёт
+    </div>
+    <h2 class="sw__title" id="sw-title">
+      Ты узнаешь себя
+      <em class="sw__title-em">в этих состояниях</em>
+    </h2>
+  </div>
+
+  <!-- ─── LIST ─── -->
+  <div class="sw__grid" role="list">
+
+    <div class="sw__item" role="listitem" data-sw-reveal>
+      <span class="sw__num" aria-hidden="true">01</span>
+      <p class="sw__text">Ты зависишь от реакции, любви или одобрения других</p>
+    </div>
+
+    <div class="sw__item" role="listitem" data-sw-reveal>
+      <span class="sw__num" aria-hidden="true">02</span>
+      <p class="sw__text">Тяжело переносишь критику, дистанцию или отказ</p>
+    </div>
+
+    <div class="sw__item" role="listitem" data-sw-reveal>
+      <span class="sw__num" aria-hidden="true">03</span>
+      <p class="sw__text">Боишься проявляться и быть видимым</p>
+    </div>
+
+    <div class="sw__item" role="listitem" data-sw-reveal>
+      <span class="sw__num" aria-hidden="true">04</span>
+      <p class="sw__text">Теряешь себя в отношениях</p>
+    </div>
+
+    <div class="sw__item" role="listitem" data-sw-reveal>
+      <span class="sw__num" aria-hidden="true">05</span>
+      <p class="sw__text">Живёшь не своими желаниями, а ожиданиями</p>
+    </div>
+
+    <div class="sw__item sw__item--wide" role="listitem" data-sw-reveal>
+      <span class="sw__num" aria-hidden="true">06</span>
+      <p class="sw__text">Уже пытался работать с самооценкой, уверенностью, контролем — но глубоко ничего не менялось</p>
+    </div>
+
+  </div>
+
+  <!-- ─── BOTTOM ─── -->
+  <div class="sw__bottom" data-sw-reveal>
+    <p class="sw__bottom-lead">
+      Если ты устал искать снаружи<br>
+      любовь, опору и подтверждение —
+    </p>
+    <p class="sw__bottom-accent">
+      <em>эта программа для тебя.</em>
+    </p>
+  </div>
+
+</section>
+
+
+<style>
+/* ================================================================
+   SEP FIT — recognition tile grid
+================================================================ */
+
+.sw {
+  --gold:    #c9a96e;
+  --gold-lt: #e2c98a;
+  --gold-dk: #a07840;
+  --ink:     #1a1714;
+  --ink-55:  rgba(26,23,20,.55);
+  --border:  rgba(201,169,110,.18);
+  --bg:      #f4efe6;
+  --ease:    cubic-bezier(.22,.68,0,1.2);
+}
+
+.sw *, .sw *::before, .sw *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.sw {
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(ellipse 50% 40% at 15% 20%, rgba(201,169,110,.06) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 35% at 85% 85%, rgba(201,169,110,.05) 0%, transparent 50%),
+    linear-gradient(170deg, #ede8df 0%, #f4efe6 45%, #faf8f3 100%);
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+}
+
+.sw__grain {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: .025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+}
+
+/* ══════════════
+   REVEAL
+══════════════ */
+[data-sw-reveal] {
+  opacity: 0; transform: translateY(20px);
+  animation: sw-reveal .75s var(--ease) forwards;
+}
+.sw__header[data-sw-reveal]                      { animation-delay: .04s; }
+.sw__grid [data-sw-reveal]:nth-child(1)          { animation-delay: .10s; }
+.sw__grid [data-sw-reveal]:nth-child(2)          { animation-delay: .16s; }
+.sw__grid [data-sw-reveal]:nth-child(3)          { animation-delay: .22s; }
+.sw__grid [data-sw-reveal]:nth-child(4)          { animation-delay: .28s; }
+.sw__grid [data-sw-reveal]:nth-child(5)          { animation-delay: .34s; }
+.sw__grid [data-sw-reveal]:nth-child(6)          { animation-delay: .40s; }
+.sw__bottom[data-sw-reveal]                      { animation-delay: .20s; }
+@keyframes sw-reveal { to { opacity: 1; transform: translateY(0); } }
+
+/* ══════════════
+   HEADER — centered
+══════════════ */
+.sw__header {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  padding: 100px 8vw 72px;
+}
+
+.sw__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 16px; border-radius: 999px;
+  background: rgba(201,169,110,.10); border: 1px solid var(--border);
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+  color: #9c7a3a; font-weight: 500; margin-bottom: 28px;
+}
+.sw__pip {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,.22);
+  flex-shrink: 0; animation: sw-pip 2.4s ease-in-out infinite;
+}
+@keyframes sw-pip {
+  0%,100% { box-shadow: 0 0 0 3px rgba(201,169,110,.22); }
+  50%      { box-shadow: 0 0 0 7px rgba(201,169,110,.05); }
+}
+
+.sw__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(38px, 4.8vw, 72px);
+  font-weight: 600; line-height: 1.04; letter-spacing: -.025em;
+  color: var(--ink); max-width: 820px;
+}
+.sw__title-em {
+  display: block; font-style: italic; font-weight: 400; margin-top: .08em;
+  background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 45%, var(--gold-dk) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ══════════════
+   GRID
+══════════════ */
+.sw__grid {
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  margin: 0 8vw;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--border); /* gap colour = border colour */
+}
+
+.sw__item {
+  position: relative;
+  display: flex; flex-direction: column; gap: 20px;
+  padding: 40px 44px;
+  background: rgba(250,248,243,.85);
+  backdrop-filter: blur(4px);
+  cursor: default;
+  transition: background .3s ease;
+  overflow: hidden;
+}
+.sw__item::before {
+  content: '';
+  position: absolute; top: 0; left: 0; bottom: 0; width: 2px;
+  background: linear-gradient(180deg, var(--gold-lt), var(--gold));
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.sw__item:hover { background: rgba(255,255,255,.95); }
+.sw__item:hover::before { opacity: 1; }
+
+/* Last item spans full width if 6th */
+.sw__item--wide {
+  grid-column: 1 / -1;
+}
+
+.sw__num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(13px, 1.2vw, 16px);
+  font-weight: 400; letter-spacing: .08em;
+  background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dk) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: .55;
+  transition: opacity .3s ease;
+}
+.sw__item:hover .sw__num { opacity: 1; }
+
+.sw__text {
+  font-size: clamp(15px, 1.4vw, 18px);
+  font-weight: 300; line-height: 1.65;
+  color: var(--ink);
+}
+
+/* ══════════════
+   BOTTOM
+══════════════ */
+.sw__bottom {
+  position: relative; z-index: 1;
+  padding: 72px 8vw 100px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  margin-top: 0;
+}
+
+.sw__bottom-lead {
+  font-size: clamp(14px, 1.3vw, 17px);
+  font-weight: 300; line-height: 1.9;
+  color: var(--ink-55);
+  margin-bottom: 16px;
+}
+
+.sw__bottom-accent {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(26px, 2.8vw, 44px);
+  font-weight: 600; font-style: italic;
+  line-height: 1.1; letter-spacing: -.02em;
+  background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 45%, var(--gold-dk) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+
+@media (max-width: 860px) {
+  .sw__grid { grid-template-columns: 1fr; }
+  .sw__item--wide { grid-column: 1; }
+  .sw__item { padding: 32px 36px; }
+}
+
+@media (max-width: 600px) {
+  .sw__header { padding: 80px 20px 56px; }
+  .sw__grid { margin: 0 20px; }
+  .sw__item { padding: 28px 24px; gap: 14px; }
+  .sw__bottom { padding: 56px 20px 80px; }
+}
+</style>
+
+</body>
+</html>
