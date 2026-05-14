@@ -185,9 +185,7 @@
 /* ── Container ── */
 .sp__container {
   position: relative; z-index: 1;
-  max-width: 1160px;
-  margin: 0 auto;
-  padding: 0 6vw;
+  padding: 0 8vw;
 }
 
 /* ══════════════════
@@ -377,27 +375,27 @@
   display: inline-flex; align-items: center;
   padding: 5px 12px; border-radius: 999px;
   background: rgba(201,169,110,.08); border: 1px solid rgba(201,169,110,.15);
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 10px; font-weight: 600; letter-spacing: .12em;
   text-transform: uppercase; color: #9c7a3a;
   margin-bottom: 14px;
 }
 
-/* Step title — Cormorant */
 .sp__step-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(20px, 1.8vw, 28px);
-  font-weight: 600; line-height: 1.14; letter-spacing: -.01em;
+  font-size: clamp(22px, 1.9vw, 30px);
+  font-weight: 600; line-height: 1.12; letter-spacing: -.01em;
   color: var(--ink); margin: 0 0 14px;
 }
 
-/* List */
 .sp__list {
   list-style: none; padding: 0; margin: 0;
   display: flex; flex-direction: column; gap: 8px;
 }
 .sp__list li {
   position: relative; padding-left: 16px;
-  font-size: 14px; line-height: 1.62; color: rgba(26,23,20,.72);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px; font-weight: 400; line-height: 1.62; color: rgba(26,23,20,.72);
 }
 .sp__list li::before {
   content: '';
@@ -406,21 +404,24 @@
   background: var(--gold); opacity: .75;
 }
 
-/* Text */
-.sp__text { font-size: 15px; line-height: 1.78; color: rgba(26,23,20,.7); margin: 0; }
+.sp__text {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px; font-weight: 400; line-height: 1.78; color: rgba(26,23,20,.7); margin: 0;
+}
 .sp__text--em {
-  font-size: 15px; line-height: 1.72; color: rgba(26,23,20,.8);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px; font-weight: 400; line-height: 1.72; color: rgba(26,23,20,.8);
   font-style: italic;
 }
 
-/* Chips */
 .sp__chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .sp__chips span {
   display: inline-flex; align-items: center;
   padding: 7px 14px; border-radius: 999px;
   background: rgba(255,255,255,.75);
   border: 1px solid rgba(201,169,110,.14);
-  font-size: 13px; color: rgba(26,23,20,.7);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px; font-weight: 400; color: rgba(26,23,20,.7);
   transition: border-color .2s ease;
 }
 .sp__step:hover .sp__chips span { border-color: rgba(201,169,110,.3); }
@@ -504,7 +505,7 @@
 /* ── Small mobile ── */
 @media (max-width: 540px) {
   .sp { padding: 70px 0 76px; }
-  .sp__container { padding: 0 20px; }
+  .sp__container { padding: 0 20px; } /* tighter on small screens */
   .sp__thread { left: 20px; }
   .sp__step { gap: 0 16px; }
   .sp__step-num { width: 44px; height: 44px; font-size: 10px; }
