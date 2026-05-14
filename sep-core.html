@@ -14,18 +14,16 @@
 
   <div class="sc__grain" aria-hidden="true"></div>
 
-  <!-- ─── HEADER ─── -->
+  <!-- ─── HEADER (centered) ─── -->
   <div class="sc__header" data-sc-reveal>
-    <div class="sc__header-inner">
-      <div class="sc__eyebrow">
-        <span class="sc__pip" aria-hidden="true"></span>
-        Что такое сепарация
-      </div>
-      <h2 class="sc__title" id="sc-title">
-        Это не разрыв<br>с родителями.
-        <em class="sc__title-em">Это возвращение<br>себя — себе.</em>
-      </h2>
+    <div class="sc__eyebrow">
+      <span class="sc__pip" aria-hidden="true"></span>
+      Что такое сепарация
     </div>
+    <h2 class="sc__title" id="sc-title">
+      Это не разрыв с родителями.<br>
+      <em class="sc__title-em">Это возвращение себя — себе.</em>
+    </h2>
     <p class="sc__lead">
       Сепарация — это внутренний процесс, в котором ты перестаёшь
       бессознательно искать опору снаружи и начинаешь постепенно
@@ -33,24 +31,20 @@
     </p>
   </div>
 
-  <!-- ─── STATEMENT (full-width editorial pause) ─── -->
+  <!-- ─── STATEMENT ─── -->
   <div class="sc__statement-wrap" data-sc-reveal>
     <div class="sc__statement-line" aria-hidden="true">
-      <span></span>
-      <span class="sc__diamond" aria-hidden="true"></span>
-      <span></span>
+      <span></span><span class="sc__diamond" aria-hidden="true"></span><span></span>
     </div>
     <blockquote class="sc__statement">
       Мама и Папа —<em>теперь это я</em>
     </blockquote>
     <div class="sc__statement-line" aria-hidden="true">
-      <span></span>
-      <span class="sc__diamond" aria-hidden="true"></span>
-      <span></span>
+      <span></span><span class="sc__diamond" aria-hidden="true"></span><span></span>
     </div>
   </div>
 
-  <!-- ─── PROCESS (full-width magazine rows) ─── -->
+  <!-- ─── PROCESS (2-column grid) ─── -->
   <div class="sc__process" role="list">
 
     <div class="sc__step" role="listitem" data-sc-reveal>
@@ -77,7 +71,7 @@
       <p class="sc__step-text">перестаёшь искать родителей в других</p>
     </div>
 
-    <div class="sc__step" role="listitem" data-sc-reveal>
+    <div class="sc__step sc__step--full" role="listitem" data-sc-reveal>
       <div class="sc__step-num" aria-hidden="true">05</div>
       <div class="sc__step-rule" aria-hidden="true"></div>
       <p class="sc__step-text">формируешь внутреннюю опору</p>
@@ -103,18 +97,18 @@
 
 <style>
 /* ================================================================
-   SEP CORE  v3 — editorial magazine layout
+   SEP CORE  v4 — centered header + 2-col process grid
 ================================================================ */
 
 .sc {
-  --gold:     #c9a96e;
-  --gold-lt:  #e2c98a;
-  --gold-dk:  #a07840;
-  --ink:      #1a1714;
-  --ink-55:   rgba(26,23,20,.55);
-  --border:   rgba(201,169,110,.18);
-  --bg:       #f4efe6;
-  --ease:     cubic-bezier(.22,.68,0,1.2);
+  --gold:    #c9a96e;
+  --gold-lt: #e2c98a;
+  --gold-dk: #a07840;
+  --ink:     #1a1714;
+  --ink-55:  rgba(26,23,20,.55);
+  --border:  rgba(201,169,110,.18);
+  --bg:      #f4efe6;
+  --ease:    cubic-bezier(.22,.68,0,1.2);
 }
 
 .sc *, .sc *::before, .sc *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -127,7 +121,6 @@
     linear-gradient(168deg, #ede6da 0%, #f4efe6 38%, #faf8f3 100%);
   font-family: 'Inter', system-ui, sans-serif;
   color: var(--ink);
-  padding-bottom: 0;
 }
 
 .sc__grain {
@@ -144,25 +137,23 @@
   animation: sc-reveal .75s var(--ease) forwards;
 }
 .sc__header[data-sc-reveal]                { animation-delay: .05s; }
-.sc__statement-wrap[data-sc-reveal]        { animation-delay: .18s; }
-.sc__process [data-sc-reveal]:nth-child(1) { animation-delay: .10s; }
-.sc__process [data-sc-reveal]:nth-child(2) { animation-delay: .18s; }
-.sc__process [data-sc-reveal]:nth-child(3) { animation-delay: .26s; }
-.sc__process [data-sc-reveal]:nth-child(4) { animation-delay: .34s; }
-.sc__process [data-sc-reveal]:nth-child(5) { animation-delay: .42s; }
-.sc__bottom[data-sc-reveal]                { animation-delay: .16s; }
+.sc__statement-wrap[data-sc-reveal]        { animation-delay: .16s; }
+.sc__process [data-sc-reveal]:nth-child(1) { animation-delay: .08s; }
+.sc__process [data-sc-reveal]:nth-child(2) { animation-delay: .15s; }
+.sc__process [data-sc-reveal]:nth-child(3) { animation-delay: .22s; }
+.sc__process [data-sc-reveal]:nth-child(4) { animation-delay: .29s; }
+.sc__process [data-sc-reveal]:nth-child(5) { animation-delay: .36s; }
+.sc__bottom[data-sc-reveal]                { animation-delay: .14s; }
 @keyframes sc-reveal { to { opacity: 1; transform: translateY(0); } }
 
 /* ══════════════
-   HEADER
+   HEADER — centered
 ══════════════ */
 .sc__header {
   position: relative; z-index: 1;
-  display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: 80px;
-  align-items: end;
-  padding: 100px 8vw 80px;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  padding: 100px 8vw 72px;
 }
 
 .sc__eyebrow {
@@ -173,7 +164,6 @@
   font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
   color: #9c7a3a; font-weight: 500; margin-bottom: 28px;
 }
-
 .sc__pip {
   width: 5px; height: 5px; border-radius: 50%;
   background: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,.22);
@@ -186,13 +176,12 @@
 
 .sc__title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(42px, 4.8vw, 72px);
+  font-size: clamp(40px, 5vw, 76px);
   font-weight: 600; line-height: 1.04; letter-spacing: -.025em;
-  color: var(--ink);
+  color: var(--ink); max-width: 820px;
 }
 .sc__title-em {
-  display: block; font-style: italic; font-weight: 400;
-  margin-top: .12em;
+  display: block; font-style: italic; font-weight: 400; margin-top: .1em;
   background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 45%, var(--gold-dk) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -201,23 +190,20 @@
 .sc__lead {
   font-family: 'Inter', system-ui, sans-serif;
   font-size: clamp(14px, 1.35vw, 16px); line-height: 1.88; font-weight: 300;
-  color: var(--ink-55);
-  padding-bottom: 6px;
+  color: var(--ink-55); margin-top: 28px; max-width: 560px;
 }
 
 /* ══════════════
-   STATEMENT — full-width editorial pause
+   STATEMENT
 ══════════════ */
 .sc__statement-wrap {
   position: relative; z-index: 1;
-  padding: 56px 8vw 60px;
+  padding: 52px 8vw 56px;
   text-align: center;
   border-top: 1px solid var(--border);
 }
-
 .sc__statement-line {
   display: flex; align-items: center; justify-content: center;
-  gap: 0;
 }
 .sc__statement-line span:not(.sc__diamond) {
   flex: 1; height: 1px; max-width: 240px;
@@ -231,14 +217,12 @@
   background: var(--gold); transform: rotate(45deg);
   margin: 0 18px; opacity: .65;
 }
-
 .sc__statement {
   display: block;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(38px, 4.6vw, 72px);
+  font-size: clamp(36px, 4.4vw, 68px);
   font-weight: 300; line-height: 1.1; letter-spacing: -.02em;
-  color: var(--ink);
-  margin: 28px 0;
+  color: var(--ink); margin: 26px 0;
 }
 .sc__statement em {
   font-style: italic; font-weight: 600; display: block;
@@ -248,31 +232,52 @@
 }
 
 /* ══════════════
-   PROCESS — magazine full-width rows
+   PROCESS — 2-column grid
 ══════════════ */
 .sc__process {
   position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .sc__step {
   display: grid;
-  grid-template-columns: 160px 1px 1fr;
+  grid-template-columns: 120px 1px 1fr;
   align-items: center;
-  gap: 0;
-  padding: 0 8vw;
+  min-height: 128px;
   border-bottom: 1px solid rgba(201,169,110,.12);
-  min-height: 112px;
   cursor: default;
   transition: background .3s ease;
+  /* left-col default padding */
+  padding: 0 5vw 0 8vw;
+  border-right: 1px solid rgba(201,169,110,.15);
 }
-.sc__step:hover { background: rgba(255,255,255,.5); }
-.sc__step:last-child { border-bottom: 1px solid var(--border); }
+/* Right-column items */
+.sc__step:nth-child(even) {
+  padding: 0 8vw 0 5vw;
+  border-right: none;
+}
+/* Last two items: no bottom border */
+.sc__step:nth-child(3),
+.sc__step:nth-child(4) { border-bottom: none; }
+
+/* Item 5 spans full width */
+.sc__step--full {
+  grid-column: span 2;
+  padding: 0 8vw;
+  border-right: none;
+  border-bottom: none;
+  border-top: 1px solid rgba(201,169,110,.12);
+}
+
+.sc__step:hover { background: rgba(255,255,255,.55); }
 
 /* Large decorative number */
 .sc__step-num {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(72px, 7.5vw, 120px);
+  font-size: clamp(72px, 7vw, 116px);
   font-weight: 300; line-height: 1; letter-spacing: -.04em;
   background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dk) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -281,27 +286,24 @@
   transition: opacity .35s ease, transform .4s var(--ease);
   transform-origin: left center;
 }
-.sc__step:hover .sc__step-num { opacity: .75; transform: scale(1.04); }
+.sc__step:hover .sc__step-num { opacity: .7; transform: scale(1.05); }
 
-/* Vertical divider */
+/* Vertical divider between number and text */
 .sc__step-rule {
-  width: 1px;
-  height: 36px;
-  background: linear-gradient(180deg, rgba(201,169,110,.45), rgba(201,169,110,.1));
-  margin: 0 52px 0 0;
-  flex-shrink: 0;
+  width: 1px; height: 36px;
+  background: linear-gradient(180deg, rgba(201,169,110,.5), rgba(201,169,110,.08));
+  margin: 0 44px 0 0;
+  opacity: .65;
   transition: height .3s var(--ease), opacity .3s ease;
-  opacity: .6;
 }
 .sc__step:hover .sc__step-rule { height: 52px; opacity: 1; }
 
 .sc__step-text {
   font-family: 'Inter', system-ui, sans-serif;
-  font-size: clamp(15px, 1.3vw, 18px);
-  font-weight: 300; line-height: 1.5;
+  font-size: clamp(14px, 1.2vw, 17px);
+  font-weight: 300; line-height: 1.55;
   color: rgba(26,23,20,.6);
   transition: color .25s ease;
-  padding-left: 0;
 }
 .sc__step:hover .sc__step-text { color: var(--ink); }
 
@@ -331,42 +333,39 @@
    RESPONSIVE
 ================================================================ */
 
-@media (max-width: 1100px) {
-  .sc__header { gap: 52px; }
-  .sc__step { grid-template-columns: 130px 1px 1fr; }
+@media (max-width: 900px) {
+  .sc__step { grid-template-columns: 100px 1px 1fr; }
+  .sc__step-rule { margin-right: 32px; }
 }
 
 @media (max-width: 800px) {
-  /* Header: single column centred */
-  .sc__header {
-    grid-template-columns: 1fr;
-    gap: 0;
-    padding: 80px 32px 52px;
-    text-align: center;
-  }
-  .sc__header-inner { display: flex; flex-direction: column; align-items: center; }
-  .sc__lead { padding-bottom: 0; }
+  .sc__header { padding: 80px 32px 52px; }
 
-  /* Statement */
-  .sc__statement-wrap { padding: 44px 32px 48px; }
-  .sc__statement { font-size: clamp(34px, 9vw, 52px); }
-  .sc__statement-line span:not(.sc__diamond) { max-width: 120px; }
+  .sc__statement-wrap { padding: 40px 32px 44px; }
+  .sc__statement { font-size: clamp(32px, 9vw, 50px); }
+  .sc__statement-line span:not(.sc__diamond) { max-width: 100px; }
 
-  /* Process: mobile rows — number left, vertical rule, text right */
-  .sc__step {
+  /* Process: back to single column rows */
+  .sc__process { grid-template-columns: 1fr; }
+
+  .sc__step,
+  .sc__step:nth-child(even),
+  .sc__step--full {
     grid-template-columns: 52px 1px 1fr;
-    min-height: auto;
+    grid-column: span 1;
     padding: 18px 32px;
-    gap: 0;
+    min-height: auto;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid rgba(201,169,110,.12);
   }
-  .sc__step-num {
-    font-size: 28px; opacity: 1;
-    width: 52px;
-  }
+  .sc__step:nth-child(3),
+  .sc__step:nth-child(4) { border-bottom: 1px solid rgba(201,169,110,.12); }
+  .sc__step:last-child { border-bottom: none; }
+
+  .sc__step-num { font-size: 28px; opacity: 1; }
   .sc__step:hover .sc__step-num { transform: none; opacity: 1; }
-  .sc__step-rule {
-    height: 28px; margin: 0 20px 0 0; opacity: 1;
-  }
+  .sc__step-rule { height: 28px; margin: 0 20px 0 0; opacity: 1; }
   .sc__step:hover .sc__step-rule { height: 28px; }
   .sc__step-text { font-size: 14px; }
 
@@ -375,8 +374,10 @@
 
 @media (max-width: 540px) {
   .sc__header { padding: 72px 20px 44px; }
-  .sc__statement-wrap { padding: 36px 20px 40px; }
-  .sc__step { padding: 16px 20px; }
+  .sc__statement-wrap { padding: 32px 20px 36px; }
+  .sc__step,
+  .sc__step:nth-child(even),
+  .sc__step--full { padding: 16px 20px; }
   .sc__bottom-wrap { padding: 40px 20px 72px; }
 }
 </style>
