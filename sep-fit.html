@@ -165,30 +165,23 @@
 }
 
 /* ══════════════
-   SLIDER TRACK
+   GRID
 ══════════════ */
 .sw__slider {
   position: relative; z-index: 1;
 }
 
 .sw__track {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  padding: 4px 8vw 8px;
-  scrollbar-width: none;
-  scroll-padding-left: 8vw;
+  padding: 0 8vw;
 }
-.sw__track::-webkit-scrollbar { display: none; }
 
 /* ══════════════
    CARDS
 ══════════════ */
 .sw__card {
-  flex: 0 0 clamp(280px, 30vw, 400px);
-  scroll-snap-align: start;
   position: relative;
   display: flex; flex-direction: column;
   padding: 40px 36px 44px;
@@ -265,13 +258,13 @@
 ================================================================ */
 
 @media (max-width: 860px) {
-  .sw__card { flex: 0 0 clamp(260px, 70vw, 360px); }
+  .sw__track { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 540px) {
   .sw__header { padding: 80px 20px 56px; }
-  .sw__track { padding: 4px 20px 8px; scroll-padding-left: 20px; }
-  .sw__card { flex: 0 0 82vw; padding: 32px 28px 36px; }
+  .sw__track { grid-template-columns: 1fr; padding: 0 20px; }
+  .sw__card { padding: 32px 28px 36px; }
   .sw__bottom { padding: 56px 20px 80px; margin-top: 36px; }
 }
 </style>
