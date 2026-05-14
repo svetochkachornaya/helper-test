@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Отзывы — Сепарация</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body style="margin:0;background:#f7f3ee;">
+
+<section class="sv" id="separation-reviews" aria-labelledby="sv-title">
+
+  <div class="sv__grain" aria-hidden="true"></div>
+
+  <!-- ─── HEADER ─── -->
+  <div class="sv__header" data-sv-reveal>
+    <div class="sv__eyebrow">
+      <span class="sv__pip" aria-hidden="true"></span>
+      Отзывы
+    </div>
+    <h2 class="sv__title" id="sv-title">
+      Что говорят те,
+      <em class="sv__title-em">кто уже прошёл программу</em>
+    </h2>
+  </div>
+
+  <!-- ─── MASONRY GRID ─── -->
+  <div class="sv__grid" data-sv-reveal>
+    <div class="sv__col">
+      <div class="sv__card">
+        <img class="sv__img" src="https://individual-center.com/wp-content/uploads/2026/05/photo_2569-05-15-00.11.03.jpeg" alt="Отзыв клиента" loading="lazy" />
+      </div>
+      <div class="sv__card">
+        <img class="sv__img" src="https://individual-center.com/wp-content/uploads/2026/05/photo_2569-05-15-00.11.09.jpeg" alt="Отзыв клиента" loading="lazy" />
+      </div>
+    </div>
+    <div class="sv__col">
+      <div class="sv__card">
+        <img class="sv__img" src="https://individual-center.com/wp-content/uploads/2026/05/photo_2569-05-15-00.11.05.jpeg" alt="Отзыв клиента" loading="lazy" />
+      </div>
+      <div class="sv__card">
+        <img class="sv__img" src="https://individual-center.com/wp-content/uploads/2026/05/photo_2569-05-15-00.11.11.jpeg" alt="Отзыв клиента" loading="lazy" />
+      </div>
+    </div>
+    <div class="sv__col">
+      <div class="sv__card">
+        <img class="sv__img" src="https://individual-center.com/wp-content/uploads/2026/05/photo_2569-05-15-00.11.06.jpeg" alt="Отзыв клиента" loading="lazy" />
+      </div>
+      <div class="sv__card">
+        <img class="sv__img" src="https://individual-center.com/wp-content/uploads/2026/05/photo_2569-05-15-00.11.13.jpeg" alt="Отзыв клиента" loading="lazy" />
+      </div>
+    </div>
+    <div class="sv__col">
+      <div class="sv__card">
+        <img class="sv__img" src="https://individual-center.com/wp-content/uploads/2026/05/photo_2569-05-15-00.11.15.jpeg" alt="Отзыв клиента" loading="lazy" />
+      </div>
+      <div class="sv__card">
+        <img class="sv__img" src="https://individual-center.com/wp-content/uploads/2026/05/photo_2569-05-15-00.11.16.jpeg" alt="Отзыв клиента" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<style>
+/* ================================================================
+   SEP REVIEWS — masonry screenshot gallery
+================================================================ */
+
+.sv {
+  --gold:    #c9a96e;
+  --gold-lt: #e2c98a;
+  --gold-dk: #a07840;
+  --ink:     #1a1714;
+  --ink-55:  rgba(26,23,20,.55);
+  --border:  rgba(201,169,110,.18);
+  --bg:      #f4efe6;
+  --ease:    cubic-bezier(.22,.68,0,1.2);
+}
+
+.sv *, .sv *::before, .sv *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.sv {
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 10%, rgba(201,169,110,.06) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 35% at 85% 90%, rgba(201,169,110,.05) 0%, transparent 50%),
+    linear-gradient(155deg, #f4efe6 0%, #faf8f3 50%, #ede6da 100%);
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+}
+
+.sv__grain {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: .025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+}
+
+/* ══════════════
+   REVEAL
+══════════════ */
+[data-sv-reveal] {
+  opacity: 0; transform: translateY(24px);
+  animation: sv-reveal .8s var(--ease) forwards;
+}
+.sv__header[data-sv-reveal] { animation-delay: .04s; }
+.sv__grid[data-sv-reveal]   { animation-delay: .18s; }
+@keyframes sv-reveal { to { opacity: 1; transform: translateY(0); } }
+
+/* ══════════════
+   HEADER
+══════════════ */
+.sv__header {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  padding: 100px 8vw 72px;
+}
+
+.sv__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 16px; border-radius: 999px;
+  background: rgba(201,169,110,.10); border: 1px solid var(--border);
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+  color: #9c7a3a; font-weight: 500; margin-bottom: 28px;
+}
+.sv__pip {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,.22);
+  flex-shrink: 0; animation: sv-pip 2.4s ease-in-out infinite;
+}
+@keyframes sv-pip {
+  0%,100% { box-shadow: 0 0 0 3px rgba(201,169,110,.22); }
+  50%      { box-shadow: 0 0 0 7px rgba(201,169,110,.05); }
+}
+
+.sv__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(38px, 4.8vw, 72px);
+  font-weight: 600; line-height: 1.04; letter-spacing: -.025em;
+  color: var(--ink); max-width: 820px;
+}
+.sv__title-em {
+  display: block; font-style: italic; font-weight: 400; margin-top: .08em;
+  background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 45%, var(--gold-dk) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ══════════════
+   MASONRY GRID
+══════════════ */
+.sv__grid {
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 0 8vw 100px;
+}
+
+.sv__col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* offset columns 2 & 4 downward for natural stagger */
+.sv__col:nth-child(2) { margin-top: 40px; }
+.sv__col:nth-child(4) { margin-top: 24px; }
+
+/* ══════════════
+   CARDS
+══════════════ */
+.sv__card {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(201,169,110,.15);
+  box-shadow:
+    0 2px 16px rgba(26,23,20,.06),
+    0 0 0 1px rgba(255,255,255,.7) inset;
+  transition: transform .35s var(--ease), box-shadow .35s ease;
+  background: rgba(255,255,255,.5);
+}
+.sv__card::after {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 6px;
+  background: linear-gradient(160deg, rgba(201,169,110,.06) 0%, transparent 60%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.sv__card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow:
+    0 12px 40px rgba(26,23,20,.10),
+    0 0 0 1px rgba(255,255,255,.9) inset,
+    0 0 0 2px rgba(201,169,110,.12);
+}
+.sv__card:hover::after { opacity: 1; }
+
+.sv__img {
+  display: block;
+  width: 100%; height: auto;
+  border-radius: 6px;
+}
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+
+@media (max-width: 1024px) {
+  .sv__grid { grid-template-columns: repeat(2, 1fr); }
+  .sv__col:nth-child(2) { margin-top: 32px; }
+  .sv__col:nth-child(3) { margin-top: 0; }
+  .sv__col:nth-child(4) { margin-top: 32px; }
+}
+
+@media (max-width: 540px) {
+  .sv__header { padding: 80px 20px 56px; }
+  .sv__grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 20px 72px;
+    gap: 12px;
+  }
+  .sv__col:nth-child(2) { margin-top: 20px; }
+  .sv__col:nth-child(3) { margin-top: 0; }
+  .sv__col:nth-child(4) { margin-top: 20px; }
+}
+</style>
+
+</body>
+</html>
