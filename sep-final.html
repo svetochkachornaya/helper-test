@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Финал — Сепарация</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body style="margin:0;background:#f7f3ee;">
+
+<section class="sn" id="separation-final" aria-labelledby="sn-title">
+
+  <div class="sn__grain" aria-hidden="true"></div>
+
+  <!-- ─── MAIN CONTENT ─── -->
+  <div class="sn__body" data-sn-reveal>
+
+    <div class="sn__eyebrow">
+      <span class="sn__pip" aria-hidden="true"></span>
+      Следующий шаг
+    </div>
+
+    <h2 class="sn__title" id="sn-title">
+      Ты можешь продолжать искать снаружи.
+      <em class="sn__title-em">Или начать опираться на себя.</em>
+    </h2>
+
+    <p class="sn__text">
+      Сепарация — это не про отказ от близости.<br>
+      Это про состояние, в котором ты больше не теряешь себя.
+    </p>
+
+    <button class="sn__btn" type="button">
+      Оставить заявку
+    </button>
+
+    <p class="sn__note">После заявки мы свяжемся с тобой</p>
+
+  </div>
+
+  <!-- ─── DIVIDER ─── -->
+  <div class="sn__rule" data-sn-reveal aria-hidden="true">
+    <span class="sn__rule-diamond"></span>
+  </div>
+
+  <!-- ─── CONTACTS ─── -->
+  <div class="sn__contacts" data-sn-reveal>
+    <p class="sn__contacts-label">Связаться с нами</p>
+
+    <div class="sn__contacts-row">
+
+      <!-- Telegram -->
+      <a class="sn__contact" href="https://t.me/Otdel_Zaboti_Individual" target="_blank" rel="noopener">
+        <span class="sn__contact-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M21.5 3L2 10.5l6.5 2.5 2 6.5 3-4 5 4L21.5 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="sn__contact-text">
+          <span class="sn__contact-name">Telegram</span>
+          <span class="sn__contact-val">@Otdel_Zaboti_Individual</span>
+        </span>
+      </a>
+
+      <!-- WhatsApp -->
+      <a class="sn__contact" href="https://wa.me/359876348245" target="_blank" rel="noopener">
+        <span class="sn__contact-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8.5 8.5c.5 1 1.5 3 3.5 4.5s3.5 2 4.5 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="sn__contact-text">
+          <span class="sn__contact-name">WhatsApp</span>
+          <span class="sn__contact-val">+359 876 348 245</span>
+        </span>
+      </a>
+
+      <!-- BIP -->
+      <a class="sn__contact" href="viber://chat?number=359876348245" target="_blank" rel="noopener">
+        <span class="sn__contact-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 9h2m0 0c0 2 2 3 4 2m-4-2v4m4-6h1a2 2 0 012 2v1a2 2 0 01-2 2h-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="sn__contact-text">
+          <span class="sn__contact-name">BIP</span>
+          <span class="sn__contact-val">+359 876 348 245</span>
+        </span>
+      </a>
+
+    </div>
+  </div>
+
+</section>
+
+
+<style>
+/* ================================================================
+   SEP FINAL — closing CTA + contacts
+================================================================ */
+
+.sn {
+  --gold:    #c9a96e;
+  --gold-lt: #e2c98a;
+  --gold-dk: #a07840;
+  --ink:     #1a1714;
+  --ink-55:  rgba(26,23,20,.55);
+  --border:  rgba(201,169,110,.18);
+  --bg:      #f4efe6;
+  --ease:    cubic-bezier(.22,.68,0,1.2);
+}
+
+.sn *, .sn *::before, .sn *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.sn {
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,169,110,.09) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 10% 100%, rgba(201,169,110,.05) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 30% at 90% 100%, rgba(201,169,110,.05) 0%, transparent 50%),
+    linear-gradient(180deg, #f4efe6 0%, #fdf9f3 50%, #ede6da 100%);
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+}
+
+.sn__grain {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: .025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+}
+
+/* ══════════════
+   REVEAL
+══════════════ */
+[data-sn-reveal] {
+  opacity: 0; transform: translateY(24px);
+  animation: sn-reveal .8s var(--ease) forwards;
+}
+.sn__body[data-sn-reveal]    { animation-delay: .04s; }
+.sn__rule[data-sn-reveal]    { animation-delay: .18s; }
+.sn__contacts[data-sn-reveal]{ animation-delay: .28s; }
+@keyframes sn-reveal { to { opacity: 1; transform: translateY(0); } }
+
+/* ══════════════
+   BODY
+══════════════ */
+.sn__body {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  padding: 120px 8vw 80px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sn__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 16px; border-radius: 999px;
+  background: rgba(201,169,110,.10); border: 1px solid var(--border);
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+  color: #9c7a3a; font-weight: 500; margin-bottom: 36px;
+}
+.sn__pip {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,.22);
+  flex-shrink: 0; animation: sn-pip 2.4s ease-in-out infinite;
+}
+@keyframes sn-pip {
+  0%,100% { box-shadow: 0 0 0 3px rgba(201,169,110,.22); }
+  50%      { box-shadow: 0 0 0 7px rgba(201,169,110,.05); }
+}
+
+.sn__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(38px, 5vw, 76px);
+  font-weight: 600; line-height: 1.02; letter-spacing: -.028em;
+  color: var(--ink); margin-bottom: 32px;
+}
+.sn__title-em {
+  display: block; font-style: italic; font-weight: 400; margin-top: .12em;
+  background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 45%, var(--gold-dk) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sn__text {
+  font-size: clamp(15px, 1.4vw, 18px); font-weight: 300; line-height: 1.85;
+  color: var(--ink-55);
+  margin-bottom: 52px; max-width: 560px;
+}
+
+.sn__btn {
+  padding: 17px 48px;
+  border: none; border-radius: 4px;
+  background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dk) 100%);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(201,169,110,.35);
+  transition: opacity .2s ease, transform .2s var(--ease), box-shadow .2s ease;
+  margin-bottom: 20px;
+}
+.sn__btn:hover {
+  opacity: .88; transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(201,169,110,.42);
+}
+
+.sn__note {
+  font-size: 12px; font-weight: 300; letter-spacing: .04em;
+  color: var(--ink-55);
+}
+
+/* ══════════════
+   DIVIDER
+══════════════ */
+.sn__rule {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  gap: 0;
+  margin: 0 8vw;
+}
+.sn__rule::before,
+.sn__rule::after {
+  content: '';
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,169,110,.3));
+}
+.sn__rule::after {
+  background: linear-gradient(90deg, rgba(201,169,110,.3), transparent);
+}
+.sn__rule-diamond {
+  width: 7px; height: 7px; flex-shrink: 0; margin: 0 16px;
+  border: 1.5px solid var(--gold); transform: rotate(45deg);
+  opacity: .6;
+}
+
+/* ══════════════
+   CONTACTS
+══════════════ */
+.sn__contacts {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 56px 8vw 100px;
+  gap: 32px;
+}
+
+.sn__contacts-label {
+  font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+  font-weight: 500; color: var(--ink-55);
+}
+
+.sn__contacts-row {
+  display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+}
+
+.sn__contact {
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px 28px;
+  border-radius: 4px;
+  background: rgba(255,255,255,.6);
+  border: 1px solid rgba(201,169,110,.2);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 16px rgba(26,23,20,.05), 0 0 0 1px rgba(255,255,255,.7) inset;
+  text-decoration: none; color: inherit;
+  transition: background .25s ease, box-shadow .25s ease, transform .25s var(--ease), border-color .25s ease;
+}
+.sn__contact:hover {
+  background: rgba(255,255,255,.9);
+  border-color: rgba(201,169,110,.4);
+  box-shadow: 0 8px 28px rgba(201,169,110,.12), 0 0 0 1px rgba(255,255,255,.9) inset;
+  transform: translateY(-3px);
+}
+
+.sn__contact-icon {
+  width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(201,169,110,.10); border: 1px solid rgba(201,169,110,.2);
+  color: var(--gold-dk);
+  transition: background .25s ease;
+}
+.sn__contact:hover .sn__contact-icon {
+  background: rgba(201,169,110,.18);
+}
+
+.sn__contact-text {
+  display: flex; flex-direction: column; gap: 3px; text-align: left;
+}
+.sn__contact-name {
+  font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+  font-weight: 600; color: var(--gold-dk);
+}
+.sn__contact-val {
+  font-size: clamp(13px, 1.1vw, 15px); font-weight: 300;
+  color: var(--ink); letter-spacing: .01em;
+}
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+
+@media (max-width: 640px) {
+  .sn__body { padding: 80px 20px 64px; }
+  .sn__contacts { padding: 48px 20px 80px; }
+  .sn__rule { margin: 0 20px; }
+  .sn__contacts-row { flex-direction: column; align-items: stretch; }
+  .sn__contact { justify-content: flex-start; }
+}
+</style>
+
+</body>
+</html>
