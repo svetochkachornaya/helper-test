@@ -51,17 +51,26 @@
       <div class="sc__step" role="listitem" data-sc-reveal>
         <div class="sc__step-num" aria-hidden="true">01</div>
         <div class="sc__step-rule" aria-hidden="true"></div>
-        <p class="sc__step-text">видишь, чего тебе не хватило</p>
+        <div class="sc__step-body">
+          <span class="sc__step-label">осознание</span>
+          <p class="sc__step-text">видишь, чего тебе не хватило</p>
+        </div>
       </div>
       <div class="sc__step" role="listitem" data-sc-reveal>
         <div class="sc__step-num" aria-hidden="true">02</div>
         <div class="sc__step-rule" aria-hidden="true"></div>
-        <p class="sc__step-text">замечаешь, где ищешь это в мире</p>
+        <div class="sc__step-body">
+          <span class="sc__step-label">поиск</span>
+          <p class="sc__step-text">замечаешь, где ищешь это в мире</p>
+        </div>
       </div>
       <div class="sc__step sc__step--last" role="listitem" data-sc-reveal>
         <div class="sc__step-num" aria-hidden="true">03</div>
         <div class="sc__step-rule" aria-hidden="true"></div>
-        <p class="sc__step-text">проживаешь боль и утрату иллюзии</p>
+        <div class="sc__step-body">
+          <span class="sc__step-label">принятие</span>
+          <p class="sc__step-text">проживаешь боль и утрату иллюзии</p>
+        </div>
       </div>
     </div>
 
@@ -69,12 +78,18 @@
       <div class="sc__step" role="listitem" data-sc-reveal>
         <div class="sc__step-num" aria-hidden="true">04</div>
         <div class="sc__step-rule" aria-hidden="true"></div>
-        <p class="sc__step-text">перестаёшь искать родителей в других</p>
+        <div class="sc__step-body">
+          <span class="sc__step-label">отпускание</span>
+          <p class="sc__step-text">перестаёшь искать родителей в других</p>
+        </div>
       </div>
       <div class="sc__step sc__step--last" role="listitem" data-sc-reveal>
         <div class="sc__step-num" aria-hidden="true">05</div>
         <div class="sc__step-rule" aria-hidden="true"></div>
-        <p class="sc__step-text">формируешь внутреннюю опору</p>
+        <div class="sc__step-body">
+          <span class="sc__step-label">опора</span>
+          <p class="sc__step-text">формируешь внутреннюю опору</p>
+        </div>
       </div>
     </div>
 
@@ -252,23 +267,36 @@
 
 .sc__step {
   display: grid;
-  grid-template-columns: 120px 1px 1fr;
+  grid-template-columns: 128px 1px 1fr;
   align-items: center;
-  min-height: 128px;
+  min-height: 140px;
   border-bottom: 1px solid rgba(201,169,110,.12);
   cursor: default;
   transition: background .3s ease;
   padding: 0 5vw 0 8vw;
   flex: 1;
+  position: relative;
 }
 .sc__col:last-child .sc__step {
   padding: 0 8vw 0 5vw;
 }
 .sc__step--last { border-bottom: none; }
 
-.sc__step:hover { background: rgba(255,255,255,.55); }
+.sc__step:hover { background: rgba(255,255,255,.6); }
 
-/* Large decorative number */
+/* Left gold accent bar on hover */
+.sc__step::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 18%; height: 64%;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.sc__step:hover::before { opacity: .55; }
+
+/* Number — more visible */
 .sc__step-num {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(72px, 7vw, 116px);
@@ -276,21 +304,35 @@
   background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dk) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
-  opacity: .22;
+  opacity: .38;
   transition: opacity .35s ease, transform .4s var(--ease);
   transform-origin: left center;
 }
-.sc__step:hover .sc__step-num { opacity: .7; transform: scale(1.05); }
+.sc__step:hover .sc__step-num { opacity: .85; transform: scale(1.05); }
 
-/* Vertical divider between number and text */
+/* Vertical rule */
 .sc__step-rule {
-  width: 1px; height: 36px;
-  background: linear-gradient(180deg, rgba(201,169,110,.5), rgba(201,169,110,.08));
-  margin: 0 44px 0 0;
-  opacity: .65;
+  width: 1px; height: 44px;
+  background: linear-gradient(180deg, rgba(201,169,110,.55), rgba(201,169,110,.05));
+  margin: 0 40px 0 0;
+  opacity: .7;
   transition: height .3s var(--ease), opacity .3s ease;
 }
-.sc__step:hover .sc__step-rule { height: 52px; opacity: 1; }
+.sc__step:hover .sc__step-rule { height: 60px; opacity: 1; }
+
+/* Step body: keyword label + text */
+.sc__step-body {
+  display: flex; flex-direction: column; gap: 7px;
+}
+
+.sc__step-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 9px; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--gold-dk); opacity: .7;
+  transition: opacity .25s ease;
+}
+.sc__step:hover .sc__step-label { opacity: 1; }
 
 .sc__step-text {
   font-family: 'Inter', system-ui, sans-serif;
@@ -357,6 +399,8 @@
   .sc__step:hover .sc__step-num { transform: none; opacity: 1; }
   .sc__step-rule { height: 28px; margin: 0 20px 0 0; opacity: 1; }
   .sc__step:hover .sc__step-rule { height: 28px; }
+  .sc__step-body { gap: 4px; }
+  .sc__step-label { font-size: 8px; }
   .sc__step-text { font-size: 14px; }
 
   .sc__bottom-wrap { padding: 48px 32px 80px; }
