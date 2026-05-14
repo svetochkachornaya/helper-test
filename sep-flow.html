@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Как проходит процесс — Сепарация</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body style="margin:0;background:#f7f3ee;">
+
+<section class="sf" id="separation-flow" aria-labelledby="sf-title">
+
+  <div class="sf__grain" aria-hidden="true"></div>
+
+  <!-- ─── HEADER ─── -->
+  <div class="sf__header" data-sf-reveal>
+    <div class="sf__eyebrow">
+      <span class="sf__pip" aria-hidden="true"></span>
+      Как проходит процесс
+    </div>
+    <h2 class="sf__title" id="sf-title">
+      Это не теория.
+      <em class="sf__title-em">Это постепенный внутренний сдвиг.</em>
+    </h2>
+    <p class="sf__lead">
+      Ты не «исправляешь себя». Ты проходишь процесс,<br>
+      в котором постепенно меняется состояние.
+    </p>
+  </div>
+
+  <!-- ─── TRACK ─── -->
+  <div class="sf__track">
+
+    <!-- horizontal gold thread -->
+    <div class="sf__thread" aria-hidden="true"></div>
+
+    <div class="sf__steps" role="list">
+
+      <div class="sf__step" role="listitem" data-sf-reveal>
+        <div class="sf__node" aria-hidden="true">
+          <span class="sf__diamond"></span>
+        </div>
+        <div class="sf__step-body">
+          <div class="sf__num" aria-hidden="true">01</div>
+          <h3 class="sf__step-title">Осознание</h3>
+          <p class="sf__step-text">видишь, чего тебе не хватило</p>
+        </div>
+      </div>
+
+      <div class="sf__step" role="listitem" data-sf-reveal>
+        <div class="sf__node" aria-hidden="true">
+          <span class="sf__diamond"></span>
+        </div>
+        <div class="sf__step-body">
+          <div class="sf__num" aria-hidden="true">02</div>
+          <h3 class="sf__step-title">Распознавание</h3>
+          <p class="sf__step-text">замечаешь зависимость от внешнего</p>
+        </div>
+      </div>
+
+      <div class="sf__step" role="listitem" data-sf-reveal>
+        <div class="sf__node" aria-hidden="true">
+          <span class="sf__diamond"></span>
+        </div>
+        <div class="sf__step-body">
+          <div class="sf__num" aria-hidden="true">03</div>
+          <h3 class="sf__step-title">Проживание</h3>
+          <p class="sf__step-text">перестаёшь избегать чувства</p>
+        </div>
+      </div>
+
+      <div class="sf__step" role="listitem" data-sf-reveal>
+        <div class="sf__node" aria-hidden="true">
+          <span class="sf__diamond"></span>
+        </div>
+        <div class="sf__step-body">
+          <div class="sf__num" aria-hidden="true">04</div>
+          <h3 class="sf__step-title">Отпускание</h3>
+          <p class="sf__step-text">уходит ожидание от других</p>
+        </div>
+      </div>
+
+      <div class="sf__step" role="listitem" data-sf-reveal>
+        <div class="sf__node" aria-hidden="true">
+          <span class="sf__diamond"></span>
+        </div>
+        <div class="sf__step-body">
+          <div class="sf__num" aria-hidden="true">05</div>
+          <h3 class="sf__step-title">Опора</h3>
+          <p class="sf__step-text">начинаешь опираться на себя</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ─── BOTTOM ─── -->
+  <div class="sf__bottom-wrap">
+    <div class="sf__bottom" data-sf-reveal>
+      <p class="sf__bottom-body">
+        Это не быстрый результат.
+      </p>
+      <p class="sf__bottom-accent">
+        Это состояние,<br>
+        <em>которое остаётся с тобой.</em>
+      </p>
+    </div>
+  </div>
+
+</section>
+
+
+<style>
+/* ================================================================
+   SEP FLOW — horizontal thread with 5 hanging steps
+================================================================ */
+
+.sf {
+  --gold:    #c9a96e;
+  --gold-lt: #e2c98a;
+  --gold-dk: #a07840;
+  --ink:     #1a1714;
+  --ink-55:  rgba(26,23,20,.55);
+  --border:  rgba(201,169,110,.18);
+  --bg:      #f4efe6;
+  --ease:    cubic-bezier(.22,.68,0,1.2);
+}
+
+.sf *, .sf *::before, .sf *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.sf {
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%,  rgba(201,169,110,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 35% at 10% 90%,  rgba(201,169,110,.05) 0%, transparent 50%),
+    linear-gradient(175deg, #f4efe6 0%, #faf8f3 50%, #ede6da 100%);
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+}
+
+.sf__grain {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: .025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+}
+
+/* ══════════════
+   REVEAL
+══════════════ */
+[data-sf-reveal] {
+  opacity: 0; transform: translateY(20px);
+  animation: sf-reveal .75s var(--ease) forwards;
+}
+.sf__header[data-sf-reveal]               { animation-delay: .04s; }
+.sf__steps [data-sf-reveal]:nth-child(1)  { animation-delay: .06s; }
+.sf__steps [data-sf-reveal]:nth-child(2)  { animation-delay: .14s; }
+.sf__steps [data-sf-reveal]:nth-child(3)  { animation-delay: .22s; }
+.sf__steps [data-sf-reveal]:nth-child(4)  { animation-delay: .30s; }
+.sf__steps [data-sf-reveal]:nth-child(5)  { animation-delay: .38s; }
+.sf__bottom[data-sf-reveal]               { animation-delay: .16s; }
+@keyframes sf-reveal { to { opacity: 1; transform: translateY(0); } }
+
+/* ══════════════
+   HEADER — centered
+══════════════ */
+.sf__header {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  padding: 100px 8vw 80px;
+}
+
+.sf__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 16px; border-radius: 999px;
+  background: rgba(201,169,110,.10); border: 1px solid var(--border);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+  color: #9c7a3a; font-weight: 500; margin-bottom: 28px;
+}
+.sf__pip {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,.22);
+  flex-shrink: 0; animation: sf-pip 2.4s ease-in-out infinite;
+}
+@keyframes sf-pip {
+  0%,100% { box-shadow: 0 0 0 3px rgba(201,169,110,.22); }
+  50%      { box-shadow: 0 0 0 7px rgba(201,169,110,.05); }
+}
+
+.sf__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(38px, 4.8vw, 72px);
+  font-weight: 600; line-height: 1.04; letter-spacing: -.025em;
+  color: var(--ink); max-width: 820px;
+}
+.sf__title-em {
+  display: block; font-style: italic; font-weight: 400; margin-top: .1em;
+  background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 45%, var(--gold-dk) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sf__lead {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(14px, 1.3vw, 16px); line-height: 1.88; font-weight: 300;
+  color: var(--ink-55); margin-top: 24px; max-width: 520px;
+}
+
+/* ══════════════
+   TRACK
+══════════════ */
+.sf__track {
+  position: relative; z-index: 1;
+  padding: 0 8vw 0;
+  /* extra top space for the thread + node */
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+/* Horizontal gold thread */
+.sf__thread {
+  position: absolute;
+  top: 32px; left: 8vw; right: 8vw;
+  height: 1px;
+  background: linear-gradient(90deg,
+    rgba(201,169,110,0)   0%,
+    rgba(201,169,110,.45) 8%,
+    rgba(201,169,110,.45) 92%,
+    rgba(201,169,110,0)   100%
+  );
+}
+
+/* 5-column steps grid */
+.sf__steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.sf__step {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  padding: 0 20px 60px;
+  cursor: default;
+  transition: background .3s ease;
+  border-right: 1px solid rgba(201,169,110,.1);
+}
+.sf__step:last-child { border-right: none; }
+.sf__step:hover { background: rgba(255,255,255,.45); }
+
+/* Diamond node sitting on the thread */
+.sf__node {
+  display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px;
+  margin-top: -16px; /* pull up to sit on thread */
+  margin-bottom: 36px;
+  flex-shrink: 0;
+}
+.sf__diamond {
+  display: block; width: 9px; height: 9px;
+  background: var(--bg);
+  border: 1.5px solid var(--gold);
+  transform: rotate(45deg);
+  box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px rgba(201,169,110,.25);
+  transition: background .3s ease, transform .3s var(--ease), box-shadow .3s ease;
+}
+.sf__step:hover .sf__diamond {
+  background: var(--gold);
+  transform: rotate(45deg) scale(1.3);
+  box-shadow: 0 0 0 5px var(--bg), 0 0 0 6px rgba(201,169,110,.35);
+}
+
+/* Step body */
+.sf__step-body {
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+
+/* Large faded number */
+.sf__num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(52px, 5.5vw, 88px);
+  font-weight: 300; line-height: 1; letter-spacing: -.04em;
+  background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dk) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: .3;
+  transition: opacity .35s ease, transform .4s var(--ease);
+}
+.sf__step:hover .sf__num { opacity: .75; transform: translateY(-4px); }
+
+.sf__step-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(20px, 1.8vw, 28px);
+  font-weight: 600; line-height: 1.1; letter-spacing: -.01em;
+  color: var(--ink);
+  transition: color .25s ease;
+}
+.sf__step:hover .sf__step-title { color: var(--gold-dk); }
+
+.sf__step-text {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(12px, 1vw, 14px);
+  font-weight: 300; line-height: 1.6;
+  color: var(--ink-55);
+  transition: color .25s ease;
+}
+.sf__step:hover .sf__step-text { color: rgba(26,23,20,.7); }
+
+/* ══════════════
+   BOTTOM
+══════════════ */
+.sf__bottom-wrap {
+  position: relative; z-index: 1;
+  padding: 64px 8vw 100px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+.sf__bottom { max-width: 480px; margin: 0 auto; }
+
+.sf__bottom-body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(14px, 1.3vw, 16px); font-weight: 300; line-height: 1.88;
+  color: var(--ink-55); margin-bottom: 16px;
+}
+.sf__bottom-accent {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(22px, 2.4vw, 38px);
+  font-weight: 300; line-height: 1.2; letter-spacing: -.01em;
+  color: var(--ink);
+}
+.sf__bottom-accent em {
+  font-style: italic; font-weight: 600;
+  background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 45%, var(--gold-dk) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+
+@media (max-width: 1024px) {
+  .sf__step { padding: 0 14px 52px; }
+  .sf__step-title { font-size: clamp(18px, 1.6vw, 24px); }
+}
+
+@media (max-width: 800px) {
+  .sf__header { padding: 80px 32px 60px; }
+  .sf__lead br { display: none; }
+
+  /* Collapse to vertical list */
+  .sf__track {
+    padding: 0 0 0;
+    border-top: none;
+  }
+  .sf__thread { display: none; }
+
+  .sf__steps {
+    grid-template-columns: 1fr;
+    border-top: 1px solid var(--border);
+  }
+
+  .sf__step {
+    flex-direction: row; align-items: flex-start;
+    text-align: left;
+    padding: 24px 32px;
+    border-right: none;
+    border-bottom: 1px solid rgba(201,169,110,.12);
+    gap: 0;
+  }
+  .sf__step:last-child { border-bottom: 1px solid var(--border); }
+
+  /* Node becomes a small left column */
+  .sf__node {
+    width: 44px; flex-shrink: 0;
+    margin-top: 4px; margin-bottom: 0; margin-right: 20px;
+    align-items: flex-start; justify-content: center;
+  }
+  .sf__diamond { width: 8px; height: 8px; }
+  .sf__step:hover .sf__diamond { transform: rotate(45deg) scale(1.2); }
+
+  .sf__step-body {
+    flex: 1; align-items: flex-start; gap: 6px;
+  }
+  .sf__num { font-size: 28px; opacity: 1; }
+  .sf__step:hover .sf__num { transform: none; opacity: 1; }
+  .sf__step-title { font-size: 18px; }
+  .sf__step-text { font-size: 13px; }
+
+  .sf__bottom-wrap { padding: 48px 32px 80px; }
+}
+
+@media (max-width: 540px) {
+  .sf__header { padding: 72px 20px 52px; }
+  .sf__step { padding: 20px; }
+  .sf__bottom-wrap { padding: 40px 20px 72px; }
+}
+</style>
+
+</body>
+</html>
