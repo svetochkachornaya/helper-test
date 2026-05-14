@@ -26,37 +26,41 @@
     </h2>
   </div>
 
-  <!-- ─── LIST ─── -->
-  <div class="sw__grid" role="list">
+  <!-- ─── STATEMENTS ─── -->
+  <div class="sw__statements">
 
-    <div class="sw__item" role="listitem" data-sw-reveal>
-      <span class="sw__num" aria-hidden="true">01</span>
-      <p class="sw__text">Ты зависишь от реакции, любви или одобрения других</p>
+    <div class="sw__row" data-sw-reveal>
+      <p class="sw__quote">Ты зависишь от реакции,<br>любви или одобрения других</p>
     </div>
 
-    <div class="sw__item" role="listitem" data-sw-reveal>
-      <span class="sw__num" aria-hidden="true">02</span>
-      <p class="sw__text">Тяжело переносишь критику, дистанцию или отказ</p>
+    <div class="sw__sep" aria-hidden="true"><span class="sw__diamond"></span></div>
+
+    <div class="sw__row" data-sw-reveal>
+      <p class="sw__quote">Тяжело переносишь критику,<br>дистанцию или отказ</p>
     </div>
 
-    <div class="sw__item" role="listitem" data-sw-reveal>
-      <span class="sw__num" aria-hidden="true">03</span>
-      <p class="sw__text">Боишься проявляться и быть видимым</p>
+    <div class="sw__sep" aria-hidden="true"><span class="sw__diamond"></span></div>
+
+    <div class="sw__row" data-sw-reveal>
+      <p class="sw__quote">Боишься проявляться<br>и быть видимым</p>
     </div>
 
-    <div class="sw__item" role="listitem" data-sw-reveal>
-      <span class="sw__num" aria-hidden="true">04</span>
-      <p class="sw__text">Теряешь себя в отношениях</p>
+    <div class="sw__sep" aria-hidden="true"><span class="sw__diamond"></span></div>
+
+    <div class="sw__row" data-sw-reveal>
+      <p class="sw__quote">Теряешь себя в отношениях</p>
     </div>
 
-    <div class="sw__item" role="listitem" data-sw-reveal>
-      <span class="sw__num" aria-hidden="true">05</span>
-      <p class="sw__text">Живёшь не своими желаниями, а ожиданиями</p>
+    <div class="sw__sep" aria-hidden="true"><span class="sw__diamond"></span></div>
+
+    <div class="sw__row" data-sw-reveal>
+      <p class="sw__quote">Живёшь не своими желаниями,<br>а ожиданиями</p>
     </div>
 
-    <div class="sw__item sw__item--wide" role="listitem" data-sw-reveal>
-      <span class="sw__num" aria-hidden="true">06</span>
-      <p class="sw__text">Уже пытался работать с самооценкой, уверенностью, контролем — но глубоко ничего не менялось</p>
+    <div class="sw__sep" aria-hidden="true"><span class="sw__diamond"></span></div>
+
+    <div class="sw__row" data-sw-reveal>
+      <p class="sw__quote">Уже пытался работать с самооценкой,<br>уверенностью, контролем —<br>но глубоко ничего не менялось</p>
     </div>
 
   </div>
@@ -77,7 +81,7 @@
 
 <style>
 /* ================================================================
-   SEP FIT — recognition tile grid
+   SEP FIT — centered quote flow with diamond separators
 ================================================================ */
 
 .sw {
@@ -96,9 +100,9 @@
 .sw {
   position: relative; overflow: hidden;
   background:
-    radial-gradient(ellipse 50% 40% at 15% 20%, rgba(201,169,110,.06) 0%, transparent 55%),
-    radial-gradient(ellipse 45% 35% at 85% 85%, rgba(201,169,110,.05) 0%, transparent 50%),
-    linear-gradient(170deg, #ede8df 0%, #f4efe6 45%, #faf8f3 100%);
+    radial-gradient(ellipse 60% 50% at 50% 30%, rgba(201,169,110,.05) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 10% 85%, rgba(201,169,110,.04) 0%, transparent 50%),
+    linear-gradient(175deg, #f4efe6 0%, #faf8f3 50%, #ede8df 100%);
   font-family: 'Inter', system-ui, sans-serif;
   color: var(--ink);
 }
@@ -113,27 +117,28 @@
    REVEAL
 ══════════════ */
 [data-sw-reveal] {
-  opacity: 0; transform: translateY(20px);
-  animation: sw-reveal .75s var(--ease) forwards;
+  opacity: 0; transform: translateY(18px);
+  animation: sw-reveal .8s var(--ease) forwards;
 }
 .sw__header[data-sw-reveal]                      { animation-delay: .04s; }
-.sw__grid [data-sw-reveal]:nth-child(1)          { animation-delay: .10s; }
-.sw__grid [data-sw-reveal]:nth-child(2)          { animation-delay: .16s; }
-.sw__grid [data-sw-reveal]:nth-child(3)          { animation-delay: .22s; }
-.sw__grid [data-sw-reveal]:nth-child(4)          { animation-delay: .28s; }
-.sw__grid [data-sw-reveal]:nth-child(5)          { animation-delay: .34s; }
-.sw__grid [data-sw-reveal]:nth-child(6)          { animation-delay: .40s; }
+.sw__statements [data-sw-reveal]:nth-child(odd)  { animation-delay: .10s; }
+.sw__statements [data-sw-reveal]:nth-of-type(1)  { animation-delay: .08s; }
+.sw__statements [data-sw-reveal]:nth-of-type(2)  { animation-delay: .16s; }
+.sw__statements [data-sw-reveal]:nth-of-type(3)  { animation-delay: .24s; }
+.sw__statements [data-sw-reveal]:nth-of-type(4)  { animation-delay: .32s; }
+.sw__statements [data-sw-reveal]:nth-of-type(5)  { animation-delay: .40s; }
+.sw__statements [data-sw-reveal]:nth-of-type(6)  { animation-delay: .48s; }
 .sw__bottom[data-sw-reveal]                      { animation-delay: .20s; }
 @keyframes sw-reveal { to { opacity: 1; transform: translateY(0); } }
 
 /* ══════════════
-   HEADER — centered
+   HEADER
 ══════════════ */
 .sw__header {
   position: relative; z-index: 1;
   display: flex; flex-direction: column; align-items: center;
   text-align: center;
-  padding: 100px 8vw 72px;
+  padding: 100px 8vw 80px;
 }
 
 .sw__eyebrow {
@@ -167,61 +172,50 @@
 }
 
 /* ══════════════
-   GRID
+   STATEMENTS
 ══════════════ */
-.sw__grid {
+.sw__statements {
   position: relative; z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  margin: 0 8vw;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
-  background: var(--border); /* gap colour = border colour */
+  border-top: 1px solid var(--border);
 }
 
-.sw__item {
-  position: relative;
-  display: flex; flex-direction: column; gap: 20px;
-  padding: 40px 44px;
-  background: rgba(250,248,243,.85);
-  backdrop-filter: blur(4px);
-  cursor: default;
-  transition: background .3s ease;
-  overflow: hidden;
-}
-.sw__item::before {
-  content: '';
-  position: absolute; top: 0; left: 0; bottom: 0; width: 2px;
-  background: linear-gradient(180deg, var(--gold-lt), var(--gold));
-  opacity: 0;
-  transition: opacity .3s ease;
-}
-.sw__item:hover { background: rgba(255,255,255,.95); }
-.sw__item:hover::before { opacity: 1; }
-
-/* Last item spans full width if 6th */
-.sw__item--wide {
-  grid-column: 1 / -1;
+.sw__row {
+  padding: 56px 8vw;
+  text-align: center;
 }
 
-.sw__num {
+.sw__quote {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(13px, 1.2vw, 16px);
-  font-weight: 400; letter-spacing: .08em;
-  background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dk) 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
-  opacity: .55;
-  transition: opacity .3s ease;
-}
-.sw__item:hover .sw__num { opacity: 1; }
-
-.sw__text {
-  font-size: clamp(15px, 1.4vw, 18px);
-  font-weight: 300; line-height: 1.65;
+  font-size: clamp(24px, 2.8vw, 42px);
+  font-weight: 300; font-style: italic;
+  line-height: 1.35; letter-spacing: -.015em;
   color: var(--ink);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ─── Diamond separator ─── */
+.sw__sep {
+  display: flex; align-items: center;
+  padding: 0 8vw;
+}
+.sw__sep::before,
+.sw__sep::after {
+  content: '';
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(201,169,110,.35) 40%,
+    rgba(201,169,110,.35) 60%,
+    transparent 100%
+  );
+}
+.sw__diamond {
+  display: block; width: 7px; height: 7px; flex-shrink: 0;
+  background: var(--gold);
+  transform: rotate(45deg);
+  margin: 0 28px;
+  box-shadow: 0 0 0 3px rgba(201,169,110,.12);
 }
 
 /* ══════════════
@@ -232,19 +226,18 @@
   padding: 72px 8vw 100px;
   text-align: center;
   border-top: 1px solid var(--border);
-  margin-top: 0;
 }
 
 .sw__bottom-lead {
   font-size: clamp(14px, 1.3vw, 17px);
   font-weight: 300; line-height: 1.9;
   color: var(--ink-55);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .sw__bottom-accent {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(26px, 2.8vw, 44px);
+  font-size: clamp(28px, 3vw, 48px);
   font-weight: 600; font-style: italic;
   line-height: 1.1; letter-spacing: -.02em;
   background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 45%, var(--gold-dk) 100%);
@@ -256,17 +249,19 @@
    RESPONSIVE
 ================================================================ */
 
-@media (max-width: 860px) {
-  .sw__grid { grid-template-columns: 1fr; }
-  .sw__item--wide { grid-column: 1; }
-  .sw__item { padding: 32px 36px; }
+@media (max-width: 768px) {
+  .sw__header { padding: 80px 32px 64px; }
+  .sw__row { padding: 44px 32px; }
+  .sw__sep { padding: 0 32px; }
+  .sw__bottom { padding: 56px 32px 80px; }
 }
 
-@media (max-width: 600px) {
-  .sw__header { padding: 80px 20px 56px; }
-  .sw__grid { margin: 0 20px; }
-  .sw__item { padding: 28px 24px; gap: 14px; }
-  .sw__bottom { padding: 56px 20px 80px; }
+@media (max-width: 540px) {
+  .sw__header { padding: 72px 20px 56px; }
+  .sw__row { padding: 36px 20px; }
+  .sw__sep { padding: 0 20px; }
+  .sw__quote { font-size: clamp(22px, 6vw, 30px); }
+  .sw__bottom { padding: 48px 20px 72px; }
 }
 </style>
 
