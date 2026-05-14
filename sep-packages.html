@@ -59,26 +59,26 @@
     <!-- Package 2 — featured -->
     <div class="sk__card sk__card--featured">
       <div class="sk__badge">Рекомендуется</div>
-      <div class="sk__label sk__label--light">Пакет 2</div>
-      <h3 class="sk__name sk__name--light">Программа + архив практик</h3>
+      <div class="sk__label">Пакет 2</div>
+      <h3 class="sk__name">Программа + архив практик</h3>
 
       <div class="sk__price-wrap">
         <span class="sk__currency">$</span>
         <span class="sk__price">55</span>
       </div>
 
-      <div class="sk__divider sk__divider--light" aria-hidden="true"></div>
+      <div class="sk__divider" aria-hidden="true"></div>
 
-      <ul class="sk__list sk__list--light" role="list">
-        <li class="sk__item sk__item--light">всё из базового пакета</li>
-        <li class="sk__item sk__item--light sk__item--accent">+ 1 месяц архива практик</li>
+      <ul class="sk__list" role="list">
+        <li class="sk__item">всё из базового пакета</li>
+        <li class="sk__item sk__item--accent">+ 1 месяц архива практик</li>
       </ul>
 
-      <p class="sk__note">
+      <p class="sk__note sk__note--dark">
         Доступ к архиву практик открывается сразу после оплаты и действует 30 дней.
       </p>
 
-      <button class="sk__btn sk__btn--light" type="button" data-open="popup-archive">
+      <button class="sk__btn sk__btn--dark" type="button" data-open="popup-archive">
         Регистрация
       </button>
     </div>
@@ -245,32 +245,21 @@
   box-shadow: 0 2px 24px rgba(201,169,110,.06), 0 0 0 1px rgba(255,255,255,.7) inset;
 }
 
-/* Card 2 — dark featured */
+/* Card 2 — amber featured */
 .sk__card--featured {
-  background: linear-gradient(150deg, #2c2215 0%, #1e1a0d 100%);
-  border: 1px solid rgba(201,169,110,.25);
+  background: linear-gradient(145deg, #e8d199 0%, #dcc07e 100%);
+  border: 1px solid rgba(201,169,110,.35);
+  box-shadow: 0 4px 32px rgba(201,169,110,.18), 0 0 0 1px rgba(255,255,255,.4) inset;
 }
-.sk__card--featured::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold-lt), var(--gold), var(--gold-lt), transparent);
-}
-.sk__card--featured::after {
-  content: '';
-  position: absolute; inset: 0; z-index: 0;
-  background: radial-gradient(ellipse 70% 55% at 90% 10%, rgba(201,169,110,.08) 0%, transparent 55%);
-  pointer-events: none;
-}
-
-.sk__card--featured > * { position: relative; z-index: 1; }
 
 /* Badge */
 .sk__badge {
   position: absolute; top: 20px; right: 20px; z-index: 2;
   padding: 5px 12px; border-radius: 999px;
-  border: 1px solid rgba(201,169,110,.3);
+  border: 1px solid rgba(26,23,20,.18);
+  background: rgba(26,23,20,.08);
   font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--gold-lt); font-weight: 600;
+  color: var(--ink); font-weight: 600;
 }
 
 /* Label */
@@ -281,10 +270,6 @@
   font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
   color: var(--gold-dk); font-weight: 600;
 }
-.sk__label--light {
-  background: rgba(201,169,110,.12); border-color: rgba(201,169,110,.25);
-  color: var(--gold-lt);
-}
 
 /* Name */
 .sk__name {
@@ -293,7 +278,6 @@
   font-weight: 600; line-height: 1.1; letter-spacing: -.02em;
   color: var(--ink); margin-bottom: 28px;
 }
-.sk__name--light { color: rgba(244,239,230,.92); }
 
 /* Price */
 .sk__price-wrap {
@@ -322,7 +306,6 @@
   height: 1px; margin-bottom: 24px;
   background: rgba(201,169,110,.15);
 }
-.sk__divider--light { background: rgba(201,169,110,.2); }
 
 /* List */
 .sk__list { list-style: none; margin-bottom: 32px; }
@@ -339,25 +322,21 @@
   content: '';
   display: block; flex-shrink: 0;
   width: 6px; height: 6px;
-  background: var(--bg); border: 1.5px solid var(--gold);
+  background: transparent; border: 1.5px solid var(--gold);
   transform: rotate(45deg);
 }
+.sk__card:not(.sk__card--featured) .sk__item::before { background: var(--bg); }
 
-.sk__item--light {
-  color: rgba(244,239,230,.7);
-  border-bottom-color: rgba(201,169,110,.12);
-}
-.sk__item--accent {
-  color: rgba(244,239,230,.92); font-weight: 400;
-}
-.sk__item--accent::before { background: var(--gold); }
+.sk__item--accent { font-weight: 500; }
+.sk__item--accent::before { background: var(--gold-dk); border-color: var(--gold-dk); }
 
 /* Note */
 .sk__note {
   font-size: clamp(12px, 1vw, 13px); font-weight: 300; line-height: 1.7;
-  color: rgba(244,239,230,.4);
+  color: var(--ink-55);
   margin-bottom: 32px; margin-top: auto;
 }
+.sk__note--dark { color: rgba(26,23,20,.5); }
 
 /* Button */
 .sk__btn {
@@ -376,16 +355,14 @@
   box-shadow: 0 8px 28px rgba(201,169,110,.35);
 }
 
-.sk__btn--light {
-  background: transparent;
-  border: 1px solid rgba(201,169,110,.4);
+.sk__btn--dark {
+  background: var(--ink);
   color: var(--gold-lt);
-  box-shadow: none;
+  box-shadow: 0 4px 20px rgba(26,23,20,.2);
 }
-.sk__btn--light:hover {
-  background: rgba(201,169,110,.1);
-  border-color: rgba(201,169,110,.6);
-  box-shadow: none;
+.sk__btn--dark:hover {
+  opacity: .88; transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(26,23,20,.25);
 }
 
 /* ================================================================
