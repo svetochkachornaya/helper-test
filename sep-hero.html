@@ -113,75 +113,31 @@
       <!-- ── Therapist photo card ── -->
       <div class="sh__photo-card">
 
-        <!-- Декоративная рамка -->
         <div class="sh__photo-frame" aria-hidden="true"></div>
 
-        <!-- Фото. Замените src на URL из медиатеки WordPress -->
         <div class="sh__photo-wrap">
           <img
             class="sh__photo"
-            src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=560&q=80"
+            src="https://individual-center.com/wp-content/uploads/2026/05/IMG_1727.png"
             alt="Евгений — терапевт программы"
             width="560"
-            height="660"
+            height="700"
             loading="eager"
           />
-          <!-- Gradient vignette -->
           <div class="sh__photo-vignette" aria-hidden="true"></div>
         </div>
 
-        <!-- Floating name badge -->
         <div class="sh__photo-label">
           <span class="sh__photo-name">Евгений</span>
           <span class="sh__photo-role">Терапевт · 8 лет практики</span>
         </div>
 
-        <!-- Floating result pill -->
         <div class="sh__pill sh__pill--top">
           <span class="sh__pill-dot" aria-hidden="true"></span>
           <span>уже 340+ участников</span>
         </div>
 
       </div><!-- /.sh__photo-card -->
-
-      <!-- ── Video preview card ── -->
-      <div class="sh__video-card">
-
-        <!--
-          Вариант A — настоящее видео (раскомментируйте):
-          <video class="sh__video-el" poster="URL_POSTER" preload="none" playsinline>
-            <source src="URL_VIDEO.mp4" type="video/mp4" />
-          </video>
-        -->
-
-        <!-- Вариант B — превью с кнопкой Play (используется по умолчанию) -->
-        <div class="sh__video-poster">
-          <!-- Замените src на скриншот-превью вашего видео из медиатеки WP -->
-          <img
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=480&q=75"
-            alt="Превью видео о программе"
-            width="480"
-            height="270"
-            loading="lazy"
-          />
-        </div>
-
-        <button class="sh__play" aria-label="Смотреть видео о программе" type="button">
-          <span class="sh__play-ring" aria-hidden="true"></span>
-          <svg class="sh__play-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M8 5.14v14l11-7-11-7z"/>
-          </svg>
-        </button>
-
-        <div class="sh__video-label">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-          </svg>
-          3 мин · о чём эта программа
-        </div>
-
-      </div><!-- /.sh__video-card -->
 
     </div><!-- /.sh__right -->
 
@@ -208,29 +164,6 @@
   </div>
 
 </section>
-
-
-<!-- ── Video modal (activated by JS below) ── -->
-<div class="sh-modal" id="sh-modal" role="dialog" aria-modal="true" aria-label="Видео о программе" hidden>
-  <div class="sh-modal__backdrop" id="sh-modal-backdrop"></div>
-  <div class="sh-modal__box">
-    <button class="sh-modal__close" id="sh-modal-close" aria-label="Закрыть видео" type="button">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-      </svg>
-    </button>
-    <!--
-      Замените src на URL вашего видео из медиатеки WordPress.
-      Либо используйте iframe YouTube:
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1" ...></iframe>
-    -->
-    <video class="sh-modal__video" id="sh-modal-video" controls playsinline preload="none"
-           poster="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=960&q=80">
-      <source src="#" type="video/mp4" />
-      Ваш браузер не поддерживает видео.
-    </video>
-  </div>
-</div>
 
 
 <style>
@@ -451,7 +384,7 @@
    RIGHT COLUMN — MEDIA
 ════════════════════ */
 .sh__right {
-  display: flex; flex-direction: column; gap: 16px;
+  display: flex; flex-direction: column;
   position: relative;
 }
 
@@ -481,7 +414,7 @@
     0 24px 60px rgba(0,0,0,.13),
     0 4px 16px rgba(0,0,0,.07),
     inset 0 0 0 1px rgba(255,255,255,.5);
-  aspect-ratio: 4/5;
+  aspect-ratio: 3/4;
   position: relative;
 }
 
@@ -539,71 +472,6 @@
   animation: sh-pip 2.2s ease-in-out infinite;
 }
 
-/* ── Video card ── */
-.sh__video-card {
-  position: relative;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0,0,0,.10), inset 0 0 0 1px rgba(255,255,255,.5);
-  cursor: pointer;
-  background: #1a1714;
-}
-
-.sh__video-poster {
-  display: block;
-  aspect-ratio: 16/9;
-  overflow: hidden;
-}
-.sh__video-poster img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
-  transition: transform .5s ease, filter .3s ease;
-  filter: brightness(.82);
-}
-.sh__video-card:hover .sh__video-poster img {
-  transform: scale(1.04);
-  filter: brightness(.72);
-}
-
-/* Play button */
-.sh__play {
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -60%);
-  width: 52px; height: 52px; border-radius: 50%;
-  background: rgba(255,255,255,.95);
-  border: none; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--gold-dk);
-  box-shadow: 0 4px 20px rgba(0,0,0,.25);
-  transition: transform .2s var(--ease), background .15s ease;
-  z-index: 2;
-}
-.sh__play-ring {
-  position: absolute; inset: -5px;
-  border: 1.5px solid rgba(255,255,255,.45);
-  border-radius: 50%;
-  animation: sh-ring 2s ease-in-out infinite;
-}
-@keyframes sh-ring {
-  0%,100% { opacity: .6; transform: scale(1); }
-  50%      { opacity: 0; transform: scale(1.3); }
-}
-.sh__play:hover {
-  transform: translate(-50%, -60%) scale(1.1);
-  background: #fff;
-}
-.sh__play-icon { margin-left: 2px; }
-
-.sh__video-label {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 20px 16px 14px;
-  background: linear-gradient(to top, rgba(26,23,20,.7), transparent);
-  display: flex; align-items: center; gap: 6px;
-  font-size: 11px; color: rgba(255,255,255,.7);
-  font-weight: 500; letter-spacing: .04em;
-  z-index: 2;
-}
-
 /* ════════════════════
    BOTTOM STRIP
 ════════════════════ */
@@ -640,46 +508,6 @@
 }
 
 /* ================================================================
-  MODAL
-================================================================ */
-.sh-modal {
-  position: fixed; inset: 0; z-index: 9999;
-  display: flex; align-items: center; justify-content: center;
-  padding: 20px;
-}
-.sh-modal[hidden] { display: none; }
-
-.sh-modal__backdrop {
-  position: absolute; inset: 0;
-  background: rgba(10,8,6,.75);
-  backdrop-filter: blur(4px);
-  cursor: pointer;
-}
-.sh-modal__box {
-  position: relative; z-index: 1;
-  width: 100%; max-width: 860px;
-  border-radius: 16px; overflow: hidden;
-  box-shadow: 0 32px 80px rgba(0,0,0,.5);
-  animation: sh-modal-in .3s var(--ease);
-}
-@keyframes sh-modal-in {
-  from { opacity: 0; transform: scale(.94); }
-  to   { opacity: 1; transform: scale(1); }
-}
-.sh-modal__close {
-  position: absolute; top: 14px; right: 14px; z-index: 2;
-  width: 36px; height: 36px; border-radius: 50%;
-  background: rgba(0,0,0,.45); border: none; cursor: pointer;
-  color: #fff; display: flex; align-items: center; justify-content: center;
-  transition: background .15s ease;
-}
-.sh-modal__close:hover { background: rgba(0,0,0,.7); }
-.sh-modal__video {
-  width: 100%; display: block;
-  aspect-ratio: 16/9; background: #000;
-}
-
-/* ================================================================
   RESPONSIVE
 ================================================================ */
 @media (max-width: 900px) {
@@ -706,38 +534,6 @@
   .sh__pill--top   { display: none; }
 }
 </style>
-
-
-<script>
-/* ── Video modal toggle ── */
-(function () {
-  var btn    = document.querySelector('.sh__play');
-  var modal  = document.getElementById('sh-modal');
-  var video  = document.getElementById('sh-modal-video');
-  var close  = document.getElementById('sh-modal-close');
-  var bkdrop = document.getElementById('sh-modal-backdrop');
-
-  if (!btn || !modal) return;
-
-  function openModal() {
-    modal.hidden = false;
-    document.body.style.overflow = 'hidden';
-    if (video) video.play().catch(function(){});
-  }
-  function closeModal() {
-    modal.hidden = true;
-    document.body.style.overflow = '';
-    if (video) { video.pause(); video.currentTime = 0; }
-  }
-
-  btn.addEventListener('click', openModal);
-  close.addEventListener('click', closeModal);
-  bkdrop.addEventListener('click', closeModal);
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && !modal.hidden) closeModal();
-  });
-}());
-</script>
 
 </body>
 </html>
