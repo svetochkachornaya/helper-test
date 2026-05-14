@@ -93,13 +93,17 @@
   <div class="sk-popup__overlay"></div>
   <div class="sk-popup__box">
     <button class="sk-popup__close" type="button" aria-label="Закрыть">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
     </button>
-    <p class="sk-popup__eyebrow">Пакет 1</p>
-    <h3 class="sk-popup__title">Участие в программе</h3>
-    [contact-form-7 id="98f435a" title="Сепарация"]
+    <div class="sk-popup__head">
+      <p class="sk-popup__eyebrow">Пакет 1</p>
+      <h3 class="sk-popup__title">Участие<br>в программе</h3>
+    </div>
+    <div class="sk-popup__body">
+      [contact-form-7 id="98f435a" title="Сепарация"]
+    </div>
   </div>
 </div>
 
@@ -108,13 +112,17 @@
   <div class="sk-popup__overlay"></div>
   <div class="sk-popup__box">
     <button class="sk-popup__close" type="button" aria-label="Закрыть">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
     </button>
-    <p class="sk-popup__eyebrow">Пакет 2</p>
-    <h3 class="sk-popup__title">Программа + архив практик</h3>
-    [contact-form-7 id="7bd28d8" title="Сепарация с архивом"]
+    <div class="sk-popup__head">
+      <p class="sk-popup__eyebrow">Пакет 2</p>
+      <h3 class="sk-popup__title">Программа<br>+ архив практик</h3>
+    </div>
+    <div class="sk-popup__body">
+      [contact-form-7 id="7bd28d8" title="Сепарация с архивом"]
+    </div>
   </div>
 </div>
 
@@ -373,89 +381,182 @@
   position: fixed; inset: 0; z-index: 9999;
   align-items: center; justify-content: center;
   padding: 24px;
+  animation: sk-popup-in .3s var(--ease);
 }
 .sk-popup.active { display: flex; }
+@keyframes sk-popup-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 
 .sk-popup__overlay {
   position: absolute; inset: 0;
-  background: rgba(26,23,20,.65);
-  backdrop-filter: blur(10px);
+  background: rgba(26,23,20,.72);
+  backdrop-filter: blur(14px);
 }
 
 .sk-popup__box {
   position: relative; z-index: 2;
-  width: 100%; max-width: 480px;
+  width: 100%; max-width: 500px;
   max-height: calc(100vh - 48px); overflow-y: auto;
-  background: #faf8f3;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 52px 44px 44px;
-  box-shadow: 0 32px 80px rgba(26,23,20,.25);
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,169,110,.07) 0%, transparent 60%),
+    linear-gradient(170deg, #fdf9f3 0%, #f9f4ec 100%);
+  border: 1px solid rgba(201,169,110,.22);
+  border-radius: 6px;
+  padding: 0;
+  box-shadow:
+    0 48px 96px rgba(26,23,20,.32),
+    0 0 0 1px rgba(255,255,255,.6) inset;
+  animation: sk-box-in .35s var(--ease);
 }
+@keyframes sk-box-in {
+  from { opacity: 0; transform: translateY(16px) scale(.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* gold top line */
 .sk-popup__box::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold-lt), var(--gold), var(--gold-lt), transparent);
+  background: linear-gradient(90deg, transparent 0%, var(--gold-lt) 25%, var(--gold) 50%, var(--gold-lt) 75%, transparent 100%);
+  border-radius: 6px 6px 0 0;
+}
+
+/* decorative corner diamond */
+.sk-popup__box::after {
+  content: '';
+  position: absolute; top: 22px; left: 44px;
+  width: 5px; height: 5px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  opacity: .5;
+}
+
+/* ── header area ── */
+.sk-popup__head {
+  padding: 48px 44px 32px;
+  border-bottom: 1px solid rgba(201,169,110,.12);
 }
 
 .sk-popup__close {
-  position: absolute; top: 16px; right: 16px;
-  width: 36px; height: 36px; border-radius: 50%;
-  background: rgba(201,169,110,.08); border: 1px solid var(--border);
+  position: absolute; top: 18px; right: 18px;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: transparent; border: 1px solid rgba(201,169,110,.2);
   color: var(--ink-55); cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  transition: background .2s ease, color .2s ease;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
 }
-.sk-popup__close:hover { background: rgba(201,169,110,.15); color: var(--ink); }
+.sk-popup__close:hover {
+  background: rgba(201,169,110,.1);
+  border-color: rgba(201,169,110,.4);
+  color: var(--ink);
+}
 
 .sk-popup__eyebrow {
-  font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--gold-dk); font-weight: 600; margin-bottom: 10px;
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 9px; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--gold-dk); font-weight: 600; margin-bottom: 14px;
+}
+.sk-popup__eyebrow::before {
+  content: '';
+  display: block; width: 16px; height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+.sk-popup__eyebrow::after {
+  content: '';
+  display: block; width: 16px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
 }
 
 .sk-popup__title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(26px, 3vw, 38px);
-  font-weight: 600; line-height: 1.1; letter-spacing: -.02em;
-  color: var(--ink); margin-bottom: 32px;
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 600; line-height: 1.08; letter-spacing: -.025em;
+  color: var(--ink);
 }
 
-/* CF7 form fields */
-.sk-popup .wpcf7-form-control-wrap { display: block; margin-bottom: 12px; }
+/* ── form body ── */
+.sk-popup__body {
+  padding: 32px 44px 40px;
+}
 
+/* CF7 labels */
+.sk-popup label {
+  display: block;
+  font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  font-weight: 500; color: var(--ink-55);
+  margin-bottom: 6px; margin-top: 16px;
+}
+.sk-popup label:first-child { margin-top: 0; }
+
+/* CF7 wraps */
+.sk-popup .wpcf7-form-control-wrap {
+  display: block; margin-bottom: 0;
+}
+
+/* inputs */
 .sk-popup input[type="text"],
 .sk-popup input[type="email"],
 .sk-popup input[type="tel"],
 .sk-popup textarea,
 .sk-popup select {
-  width: 100%; min-height: 48px;
-  padding: 12px 16px;
-  border: 1px solid rgba(201,169,110,.25);
+  width: 100%; min-height: 50px;
+  padding: 13px 18px;
+  border: 1px solid rgba(201,169,110,.22);
   border-radius: 4px;
-  background: rgba(255,255,255,.7);
+  background: rgba(255,255,255,.75);
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 14px; font-weight: 300; color: var(--ink);
   outline: none;
-  transition: border-color .2s ease;
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+  margin-bottom: 12px;
 }
-.sk-popup input:focus,
-.sk-popup textarea:focus,
-.sk-popup select:focus { border-color: var(--gold); }
+.sk-popup input[type="text"]:hover,
+.sk-popup input[type="email"]:hover,
+.sk-popup input[type="tel"]:hover,
+.sk-popup textarea:hover { border-color: rgba(201,169,110,.4); }
 
+.sk-popup input[type="text"]:focus,
+.sk-popup input[type="email"]:focus,
+.sk-popup input[type="tel"]:focus,
+.sk-popup textarea:focus,
+.sk-popup select:focus {
+  border-color: var(--gold);
+  background: rgba(255,255,255,.95);
+  box-shadow: 0 0 0 3px rgba(201,169,110,.10);
+}
+
+.sk-popup textarea { min-height: 100px; resize: vertical; }
+
+/* submit */
 .sk-popup input[type="submit"],
 .sk-popup .wpcf7-submit {
-  width: 100%; min-height: 52px; margin-top: 8px;
+  width: 100%; min-height: 54px; margin-top: 20px;
   border: none; border-radius: 4px;
   background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dk) 100%);
   color: var(--ink);
   font-family: 'Inter', system-ui, sans-serif;
-  font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(201,169,110,.3);
-  transition: opacity .2s ease, transform .2s ease;
+  box-shadow: 0 6px 24px rgba(201,169,110,.35);
+  transition: opacity .2s ease, transform .2s ease, box-shadow .2s ease;
 }
 .sk-popup input[type="submit"]:hover,
-.sk-popup .wpcf7-submit:hover { opacity: .88; transform: translateY(-1px); }
+.sk-popup .wpcf7-submit:hover {
+  opacity: .88; transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(201,169,110,.4);
+}
+
+/* CF7 validation messages */
+.sk-popup .wpcf7-not-valid-tip {
+  font-size: 11px; color: #b0583a; margin-top: 4px; font-weight: 400;
+}
+.sk-popup .wpcf7-response-output {
+  font-size: 12px; margin-top: 16px; padding: 10px 14px;
+  border-radius: 4px; border: 1px solid rgba(201,169,110,.25);
+  color: var(--gold-dk);
+}
 
 /* ================================================================
    RESPONSIVE
@@ -471,7 +572,9 @@
   .sk__header { padding: 80px 20px 56px; }
   .sk__grid { margin: 0 20px 72px; }
   .sk__card { padding: 36px 28px 32px; }
-  .sk-popup__box { padding: 44px 28px 32px; }
+  .sk-popup__head { padding: 40px 28px 28px; }
+  .sk-popup__body { padding: 24px 28px 32px; }
+  .sk-popup__box::after { left: 28px; }
 }
 </style>
 
