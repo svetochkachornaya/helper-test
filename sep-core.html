@@ -44,37 +44,38 @@
     </div>
   </div>
 
-  <!-- ─── PROCESS (2-column grid) ─── -->
+  <!-- ─── PROCESS (left col: 1-3 / right col: 4-5) ─── -->
   <div class="sc__process" role="list">
 
-    <div class="sc__step" role="listitem" data-sc-reveal>
-      <div class="sc__step-num" aria-hidden="true">01</div>
-      <div class="sc__step-rule" aria-hidden="true"></div>
-      <p class="sc__step-text">видишь, чего тебе не хватило</p>
+    <div class="sc__col">
+      <div class="sc__step" role="listitem" data-sc-reveal>
+        <div class="sc__step-num" aria-hidden="true">01</div>
+        <div class="sc__step-rule" aria-hidden="true"></div>
+        <p class="sc__step-text">видишь, чего тебе не хватило</p>
+      </div>
+      <div class="sc__step" role="listitem" data-sc-reveal>
+        <div class="sc__step-num" aria-hidden="true">02</div>
+        <div class="sc__step-rule" aria-hidden="true"></div>
+        <p class="sc__step-text">замечаешь, где ищешь это в мире</p>
+      </div>
+      <div class="sc__step sc__step--last" role="listitem" data-sc-reveal>
+        <div class="sc__step-num" aria-hidden="true">03</div>
+        <div class="sc__step-rule" aria-hidden="true"></div>
+        <p class="sc__step-text">проживаешь боль и утрату иллюзии</p>
+      </div>
     </div>
 
-    <div class="sc__step" role="listitem" data-sc-reveal>
-      <div class="sc__step-num" aria-hidden="true">02</div>
-      <div class="sc__step-rule" aria-hidden="true"></div>
-      <p class="sc__step-text">замечаешь, где ищешь это в мире</p>
-    </div>
-
-    <div class="sc__step" role="listitem" data-sc-reveal>
-      <div class="sc__step-num" aria-hidden="true">03</div>
-      <div class="sc__step-rule" aria-hidden="true"></div>
-      <p class="sc__step-text">проживаешь боль и утрату иллюзии</p>
-    </div>
-
-    <div class="sc__step" role="listitem" data-sc-reveal>
-      <div class="sc__step-num" aria-hidden="true">04</div>
-      <div class="sc__step-rule" aria-hidden="true"></div>
-      <p class="sc__step-text">перестаёшь искать родителей в других</p>
-    </div>
-
-    <div class="sc__step sc__step--full" role="listitem" data-sc-reveal>
-      <div class="sc__step-num" aria-hidden="true">05</div>
-      <div class="sc__step-rule" aria-hidden="true"></div>
-      <p class="sc__step-text">формируешь внутреннюю опору</p>
+    <div class="sc__col">
+      <div class="sc__step" role="listitem" data-sc-reveal>
+        <div class="sc__step-num" aria-hidden="true">04</div>
+        <div class="sc__step-rule" aria-hidden="true"></div>
+        <p class="sc__step-text">перестаёшь искать родителей в других</p>
+      </div>
+      <div class="sc__step sc__step--last" role="listitem" data-sc-reveal>
+        <div class="sc__step-num" aria-hidden="true">05</div>
+        <div class="sc__step-rule" aria-hidden="true"></div>
+        <p class="sc__step-text">формируешь внутреннюю опору</p>
+      </div>
     </div>
 
   </div>
@@ -232,7 +233,7 @@
 }
 
 /* ══════════════
-   PROCESS — 2-column grid
+   PROCESS — left col: 1-3 / right col: 4-5
 ══════════════ */
 .sc__process {
   position: relative; z-index: 1;
@@ -240,6 +241,13 @@
   grid-template-columns: 1fr 1fr;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+}
+
+.sc__col {
+  display: flex; flex-direction: column;
+}
+.sc__col:first-child {
+  border-right: 1px solid rgba(201,169,110,.15);
 }
 
 .sc__step {
@@ -250,27 +258,13 @@
   border-bottom: 1px solid rgba(201,169,110,.12);
   cursor: default;
   transition: background .3s ease;
-  /* left-col default padding */
   padding: 0 5vw 0 8vw;
-  border-right: 1px solid rgba(201,169,110,.15);
+  flex: 1;
 }
-/* Right-column items */
-.sc__step:nth-child(even) {
+.sc__col:last-child .sc__step {
   padding: 0 8vw 0 5vw;
-  border-right: none;
 }
-/* Last two items: no bottom border */
-.sc__step:nth-child(3),
-.sc__step:nth-child(4) { border-bottom: none; }
-
-/* Item 5 spans full width */
-.sc__step--full {
-  grid-column: span 2;
-  padding: 0 8vw;
-  border-right: none;
-  border-bottom: none;
-  border-top: 1px solid rgba(201,169,110,.12);
-}
+.sc__step--last { border-bottom: none; }
 
 .sc__step:hover { background: rgba(255,255,255,.55); }
 
@@ -347,21 +341,17 @@
 
   /* Process: back to single column rows */
   .sc__process { grid-template-columns: 1fr; }
+  .sc__col:first-child { border-right: none; }
 
   .sc__step,
-  .sc__step:nth-child(even),
-  .sc__step--full {
+  .sc__col:last-child .sc__step {
     grid-template-columns: 52px 1px 1fr;
-    grid-column: span 1;
     padding: 18px 32px;
     min-height: auto;
-    border-right: none;
-    border-top: none;
     border-bottom: 1px solid rgba(201,169,110,.12);
   }
-  .sc__step:nth-child(3),
-  .sc__step:nth-child(4) { border-bottom: 1px solid rgba(201,169,110,.12); }
-  .sc__step:last-child { border-bottom: none; }
+  .sc__step--last { border-bottom: 1px solid rgba(201,169,110,.12); }
+  .sc__col:last-child .sc__step--last { border-bottom: none; }
 
   .sc__step-num { font-size: 28px; opacity: 1; }
   .sc__step:hover .sc__step-num { transform: none; opacity: 1; }
