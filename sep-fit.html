@@ -63,28 +63,6 @@
     </div>
   </div>
 
-  <!-- ─── NAV ─── -->
-  <div class="sw__nav" data-sw-reveal>
-    <button class="sw__btn" id="sw-prev" aria-label="Назад">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-        <path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-    <div class="sw__dots" id="sw-dots" aria-hidden="true">
-      <span class="sw__dot sw__dot--on"></span>
-      <span class="sw__dot"></span>
-      <span class="sw__dot"></span>
-      <span class="sw__dot"></span>
-      <span class="sw__dot"></span>
-      <span class="sw__dot"></span>
-    </div>
-    <button class="sw__btn" id="sw-next" aria-label="Вперёд">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-        <path d="M7 4L12 9L7 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-  </div>
-
   <!-- ─── BOTTOM ─── -->
   <div class="sw__bottom" data-sw-reveal>
     <p class="sw__bottom-lead">
@@ -255,45 +233,6 @@
 }
 
 /* ══════════════
-   NAVIGATION
-══════════════ */
-.sw__nav {
-  position: relative; z-index: 1;
-  display: flex; align-items: center; justify-content: center;
-  gap: 24px;
-  padding: 32px 8vw 0;
-}
-
-.sw__btn {
-  display: flex; align-items: center; justify-content: center;
-  width: 40px; height: 40px; border-radius: 50%;
-  background: rgba(255,255,255,.7);
-  border: 1px solid var(--border);
-  color: var(--ink-55);
-  cursor: pointer;
-  transition: background .2s ease, color .2s ease, border-color .2s ease;
-  flex-shrink: 0;
-}
-.sw__btn:hover {
-  background: rgba(255,255,255,.95);
-  border-color: var(--gold);
-  color: var(--gold-dk);
-}
-
-.sw__dots {
-  display: flex; align-items: center; gap: 8px;
-}
-.sw__dot {
-  display: block; width: 6px; height: 6px; border-radius: 50%;
-  background: rgba(201,169,110,.25);
-  transition: background .25s ease, transform .25s ease;
-}
-.sw__dot--on {
-  background: var(--gold);
-  transform: scale(1.3);
-}
-
-/* ══════════════
    BOTTOM
 ══════════════ */
 .sw__bottom {
@@ -301,7 +240,7 @@
   padding: 72px 8vw 100px;
   text-align: center;
   border-top: 1px solid var(--border);
-  margin-top: 64px;
+  margin-top: 48px;
 }
 
 .sw__bottom-lead {
@@ -333,34 +272,11 @@
   .sw__header { padding: 80px 20px 56px; }
   .sw__track { padding: 4px 20px 8px; scroll-padding-left: 20px; }
   .sw__card { flex: 0 0 82vw; padding: 32px 28px 36px; }
-  .sw__nav { padding: 24px 20px 0; }
-  .sw__bottom { padding: 56px 20px 80px; margin-top: 48px; }
+  .sw__bottom { padding: 56px 20px 80px; margin-top: 36px; }
 }
 </style>
 
 
-<script>
-(function () {
-  const track  = document.getElementById('sw-track');
-  const dots   = document.querySelectorAll('.sw__dot');
-  const prev   = document.getElementById('sw-prev');
-  const next   = document.getElementById('sw-next');
-
-  function cardStep() {
-    const card = track.querySelector('.sw__card');
-    return card ? card.offsetWidth + 20 : 300;
-  }
-
-  function updateDots() {
-    const idx = Math.round(track.scrollLeft / cardStep());
-    dots.forEach((d, i) => d.classList.toggle('sw__dot--on', i === idx));
-  }
-
-  prev.addEventListener('click', () => track.scrollBy({ left: -cardStep(), behavior: 'smooth' }));
-  next.addEventListener('click', () => track.scrollBy({ left:  cardStep(), behavior: 'smooth' }));
-  track.addEventListener('scroll', updateDots, { passive: true });
-})();
-</script>
 
 </body>
 </html>
