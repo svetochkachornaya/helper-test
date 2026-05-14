@@ -228,7 +228,7 @@
    CARDS
 ══════════════ */
 .sv__card {
-  flex: 0 0 calc((100vw - 16vw - 2 * 14px - 72px) / 3);
+  flex: 0 0 calc((100vw - 16vw - 3 * 14px - 64px) / 4);
   scroll-snap-align: start;
   border-radius: 8px;
   overflow: hidden;
@@ -281,8 +281,8 @@
 ================================================================ */
 
 @media (max-width: 860px) {
-  /* 2 cards + ~60px peek of third */
-  .sv__card { flex: 0 0 calc((100vw - 16vw - 14px - 60px) / 2); }
+  /* 2 cards + peek of third */
+  .sv__card { flex: 0 0 calc((100vw - 16vw - 2 * 14px - 60px) / 3); }
   .sv__hint span { display: none; }
 }
 
