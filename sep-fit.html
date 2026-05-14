@@ -26,43 +26,63 @@
     </h2>
   </div>
 
-  <!-- ─── STATEMENTS ─── -->
-  <div class="sw__statements">
+  <!-- ─── SLIDER ─── -->
+  <div class="sw__slider" data-sw-reveal>
+    <div class="sw__track" id="sw-track" role="list">
 
-    <div class="sw__row" data-sw-reveal>
-      <p class="sw__quote">Ты зависишь от реакции,<br>любви или одобрения других</p>
+      <div class="sw__card" role="listitem">
+        <span class="sw__num" aria-hidden="true">01</span>
+        <p class="sw__text">Ты зависишь от реакции, любви или одобрения других</p>
+      </div>
+
+      <div class="sw__card" role="listitem">
+        <span class="sw__num" aria-hidden="true">02</span>
+        <p class="sw__text">Тяжело переносишь критику, дистанцию или отказ</p>
+      </div>
+
+      <div class="sw__card" role="listitem">
+        <span class="sw__num" aria-hidden="true">03</span>
+        <p class="sw__text">Боишься проявляться и быть видимым</p>
+      </div>
+
+      <div class="sw__card" role="listitem">
+        <span class="sw__num" aria-hidden="true">04</span>
+        <p class="sw__text">Теряешь себя в отношениях</p>
+      </div>
+
+      <div class="sw__card" role="listitem">
+        <span class="sw__num" aria-hidden="true">05</span>
+        <p class="sw__text">Живёшь не своими желаниями, а ожиданиями</p>
+      </div>
+
+      <div class="sw__card" role="listitem">
+        <span class="sw__num" aria-hidden="true">06</span>
+        <p class="sw__text">Уже пытался работать с самооценкой, уверенностью, контролем — но глубоко ничего не менялось</p>
+      </div>
+
     </div>
+  </div>
 
-    <div class="sw__sep" aria-hidden="true"><span class="sw__diamond"></span></div>
-
-    <div class="sw__row" data-sw-reveal>
-      <p class="sw__quote">Тяжело переносишь критику,<br>дистанцию или отказ</p>
+  <!-- ─── NAV ─── -->
+  <div class="sw__nav" data-sw-reveal>
+    <button class="sw__btn" id="sw-prev" aria-label="Назад">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="sw__dots" id="sw-dots" aria-hidden="true">
+      <span class="sw__dot sw__dot--on"></span>
+      <span class="sw__dot"></span>
+      <span class="sw__dot"></span>
+      <span class="sw__dot"></span>
+      <span class="sw__dot"></span>
+      <span class="sw__dot"></span>
     </div>
-
-    <div class="sw__sep" aria-hidden="true"><span class="sw__diamond"></span></div>
-
-    <div class="sw__row" data-sw-reveal>
-      <p class="sw__quote">Боишься проявляться<br>и быть видимым</p>
-    </div>
-
-    <div class="sw__sep" aria-hidden="true"><span class="sw__diamond"></span></div>
-
-    <div class="sw__row" data-sw-reveal>
-      <p class="sw__quote">Теряешь себя в отношениях</p>
-    </div>
-
-    <div class="sw__sep" aria-hidden="true"><span class="sw__diamond"></span></div>
-
-    <div class="sw__row" data-sw-reveal>
-      <p class="sw__quote">Живёшь не своими желаниями,<br>а ожиданиями</p>
-    </div>
-
-    <div class="sw__sep" aria-hidden="true"><span class="sw__diamond"></span></div>
-
-    <div class="sw__row" data-sw-reveal>
-      <p class="sw__quote">Уже пытался работать с самооценкой,<br>уверенностью, контролем —<br>но глубоко ничего не менялось</p>
-    </div>
-
+    <button class="sw__btn" id="sw-next" aria-label="Вперёд">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <path d="M7 4L12 9L7 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
   </div>
 
   <!-- ─── BOTTOM ─── -->
@@ -81,7 +101,7 @@
 
 <style>
 /* ================================================================
-   SEP FIT — centered quote flow with diamond separators
+   SEP FIT — horizontal card slider
 ================================================================ */
 
 .sw {
@@ -100,9 +120,9 @@
 .sw {
   position: relative; overflow: hidden;
   background:
-    radial-gradient(ellipse 60% 50% at 50% 30%, rgba(201,169,110,.05) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 30% at 10% 85%, rgba(201,169,110,.04) 0%, transparent 50%),
-    linear-gradient(175deg, #f4efe6 0%, #faf8f3 50%, #ede8df 100%);
+    radial-gradient(ellipse 55% 40% at 80% 15%, rgba(201,169,110,.06) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 30% at 15% 90%, rgba(201,169,110,.05) 0%, transparent 50%),
+    linear-gradient(160deg, #f4efe6 0%, #faf8f3 55%, #ede6da 100%);
   font-family: 'Inter', system-ui, sans-serif;
   color: var(--ink);
 }
@@ -117,18 +137,13 @@
    REVEAL
 ══════════════ */
 [data-sw-reveal] {
-  opacity: 0; transform: translateY(18px);
-  animation: sw-reveal .8s var(--ease) forwards;
+  opacity: 0; transform: translateY(20px);
+  animation: sw-reveal .75s var(--ease) forwards;
 }
-.sw__header[data-sw-reveal]                      { animation-delay: .04s; }
-.sw__statements [data-sw-reveal]:nth-child(odd)  { animation-delay: .10s; }
-.sw__statements [data-sw-reveal]:nth-of-type(1)  { animation-delay: .08s; }
-.sw__statements [data-sw-reveal]:nth-of-type(2)  { animation-delay: .16s; }
-.sw__statements [data-sw-reveal]:nth-of-type(3)  { animation-delay: .24s; }
-.sw__statements [data-sw-reveal]:nth-of-type(4)  { animation-delay: .32s; }
-.sw__statements [data-sw-reveal]:nth-of-type(5)  { animation-delay: .40s; }
-.sw__statements [data-sw-reveal]:nth-of-type(6)  { animation-delay: .48s; }
-.sw__bottom[data-sw-reveal]                      { animation-delay: .20s; }
+.sw__header[data-sw-reveal] { animation-delay: .04s; }
+.sw__slider[data-sw-reveal] { animation-delay: .12s; }
+.sw__nav[data-sw-reveal]    { animation-delay: .20s; }
+.sw__bottom[data-sw-reveal] { animation-delay: .16s; }
 @keyframes sw-reveal { to { opacity: 1; transform: translateY(0); } }
 
 /* ══════════════
@@ -138,7 +153,7 @@
   position: relative; z-index: 1;
   display: flex; flex-direction: column; align-items: center;
   text-align: center;
-  padding: 100px 8vw 80px;
+  padding: 100px 8vw 72px;
 }
 
 .sw__eyebrow {
@@ -172,50 +187,110 @@
 }
 
 /* ══════════════
-   STATEMENTS
+   SLIDER TRACK
 ══════════════ */
-.sw__statements {
+.sw__slider {
   position: relative; z-index: 1;
-  border-top: 1px solid var(--border);
 }
 
-.sw__row {
-  padding: 56px 8vw;
-  text-align: center;
+.sw__track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 20px;
+  padding: 4px 8vw 8px;
+  scrollbar-width: none;
+  scroll-padding-left: 8vw;
 }
+.sw__track::-webkit-scrollbar { display: none; }
 
-.sw__quote {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(24px, 2.8vw, 42px);
-  font-weight: 300; font-style: italic;
-  line-height: 1.35; letter-spacing: -.015em;
-  color: var(--ink);
-  max-width: 720px;
-  margin: 0 auto;
+/* ══════════════
+   CARDS
+══════════════ */
+.sw__card {
+  flex: 0 0 clamp(280px, 30vw, 400px);
+  scroll-snap-align: start;
+  position: relative;
+  display: flex; flex-direction: column;
+  padding: 40px 36px 44px;
+  border-radius: 4px;
+  background: rgba(255,255,255,.6);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(201,169,110,.2);
+  box-shadow: 0 2px 16px rgba(201,169,110,.06), 0 0 0 1px rgba(255,255,255,.7) inset;
+  transition: background .3s ease, box-shadow .3s ease, transform .3s var(--ease);
+  overflow: hidden;
 }
-
-/* ─── Diamond separator ─── */
-.sw__sep {
-  display: flex; align-items: center;
-  padding: 0 8vw;
-}
-.sw__sep::before,
-.sw__sep::after {
+.sw__card::before {
   content: '';
-  flex: 1; height: 1px;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    rgba(201,169,110,.35) 40%,
-    rgba(201,169,110,.35) 60%,
-    transparent 100%
-  );
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-lt), var(--gold), var(--gold-lt), transparent);
+  opacity: 0;
+  transition: opacity .3s ease;
 }
-.sw__diamond {
-  display: block; width: 7px; height: 7px; flex-shrink: 0;
+.sw__card:hover {
+  background: rgba(255,255,255,.88);
+  box-shadow: 0 8px 32px rgba(201,169,110,.10), 0 0 0 1px rgba(255,255,255,.9) inset;
+  transform: translateY(-3px);
+}
+.sw__card:hover::before { opacity: 1; }
+
+.sw__num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 13px; font-weight: 400; letter-spacing: .1em;
+  background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dk) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: .6; margin-bottom: 20px;
+  transition: opacity .3s ease;
+}
+.sw__card:hover .sw__num { opacity: 1; }
+
+.sw__text {
+  font-size: clamp(15px, 1.3vw, 17px);
+  font-weight: 300; line-height: 1.7;
+  color: var(--ink);
+  flex: 1;
+}
+
+/* ══════════════
+   NAVIGATION
+══════════════ */
+.sw__nav {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  gap: 24px;
+  padding: 32px 8vw 0;
+}
+
+.sw__btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,.7);
+  border: 1px solid var(--border);
+  color: var(--ink-55);
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+  flex-shrink: 0;
+}
+.sw__btn:hover {
+  background: rgba(255,255,255,.95);
+  border-color: var(--gold);
+  color: var(--gold-dk);
+}
+
+.sw__dots {
+  display: flex; align-items: center; gap: 8px;
+}
+.sw__dot {
+  display: block; width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(201,169,110,.25);
+  transition: background .25s ease, transform .25s ease;
+}
+.sw__dot--on {
   background: var(--gold);
-  transform: rotate(45deg);
-  margin: 0 28px;
-  box-shadow: 0 0 0 3px rgba(201,169,110,.12);
+  transform: scale(1.3);
 }
 
 /* ══════════════
@@ -226,6 +301,7 @@
   padding: 72px 8vw 100px;
   text-align: center;
   border-top: 1px solid var(--border);
+  margin-top: 64px;
 }
 
 .sw__bottom-lead {
@@ -237,7 +313,7 @@
 
 .sw__bottom-accent {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(28px, 3vw, 48px);
+  font-size: clamp(26px, 2.8vw, 44px);
   font-weight: 600; font-style: italic;
   line-height: 1.1; letter-spacing: -.02em;
   background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 45%, var(--gold-dk) 100%);
@@ -249,21 +325,42 @@
    RESPONSIVE
 ================================================================ */
 
-@media (max-width: 768px) {
-  .sw__header { padding: 80px 32px 64px; }
-  .sw__row { padding: 44px 32px; }
-  .sw__sep { padding: 0 32px; }
-  .sw__bottom { padding: 56px 32px 80px; }
+@media (max-width: 860px) {
+  .sw__card { flex: 0 0 clamp(260px, 70vw, 360px); }
 }
 
 @media (max-width: 540px) {
-  .sw__header { padding: 72px 20px 56px; }
-  .sw__row { padding: 36px 20px; }
-  .sw__sep { padding: 0 20px; }
-  .sw__quote { font-size: clamp(22px, 6vw, 30px); }
-  .sw__bottom { padding: 48px 20px 72px; }
+  .sw__header { padding: 80px 20px 56px; }
+  .sw__track { padding: 4px 20px 8px; scroll-padding-left: 20px; }
+  .sw__card { flex: 0 0 82vw; padding: 32px 28px 36px; }
+  .sw__nav { padding: 24px 20px 0; }
+  .sw__bottom { padding: 56px 20px 80px; margin-top: 48px; }
 }
 </style>
+
+
+<script>
+(function () {
+  const track  = document.getElementById('sw-track');
+  const dots   = document.querySelectorAll('.sw__dot');
+  const prev   = document.getElementById('sw-prev');
+  const next   = document.getElementById('sw-next');
+
+  function cardStep() {
+    const card = track.querySelector('.sw__card');
+    return card ? card.offsetWidth + 20 : 300;
+  }
+
+  function updateDots() {
+    const idx = Math.round(track.scrollLeft / cardStep());
+    dots.forEach((d, i) => d.classList.toggle('sw__dot--on', i === idx));
+  }
+
+  prev.addEventListener('click', () => track.scrollBy({ left: -cardStep(), behavior: 'smooth' }));
+  next.addEventListener('click', () => track.scrollBy({ left:  cardStep(), behavior: 'smooth' }));
+  track.addEventListener('scroll', updateDots, { passive: true });
+})();
+</script>
 
 </body>
 </html>
