@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Что такое сепарация — Сепарация</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body style="margin:0;background:#f7f3ee;">
+
+<section class="sc" id="separation-core" aria-labelledby="sc-title">
+
+  <div class="sc__grain" aria-hidden="true"></div>
+
+  <div class="sc__container">
+
+    <!-- ══ HEADER ══ -->
+    <header class="sc__header">
+
+      <div class="sc__eyebrow" data-sc-reveal>
+        <span class="sc__eyebrow-pip" aria-hidden="true"></span>
+        Что такое сепарация
+      </div>
+
+      <h2 class="sc__title" id="sc-title" data-sc-reveal>
+        Это не разрыв с родителями.<br>
+        <em class="sc__title-em">Это возвращение себя себе.</em>
+      </h2>
+
+      <p class="sc__lead" data-sc-reveal>
+        Сепарация — это внутренний процесс, в котором ты перестаёшь
+        бессознательно искать опору снаружи и начинаешь постепенно
+        формировать её внутри.
+      </p>
+
+    </header>
+
+    <!-- ══ STATEMENT — typographic centrepiece ══ -->
+    <div class="sc__statement" data-sc-reveal aria-label="Ключевая мысль">
+      <div class="sc__statement-lines" aria-hidden="true">
+        <span></span><span class="sc__statement-diamond"></span><span></span>
+      </div>
+      <p class="sc__statement-text">
+        Мама и Папа —<br>
+        <em>теперь это я</em>
+      </p>
+      <div class="sc__statement-lines" aria-hidden="true">
+        <span></span><span class="sc__statement-diamond"></span><span></span>
+      </div>
+    </div>
+
+    <!-- ══ PROCESS — numbered editorial list ══ -->
+    <div class="sc__process" role="list">
+
+      <div class="sc__process-item" role="listitem" data-sc-reveal>
+        <div class="sc__num" aria-hidden="true">01</div>
+        <div class="sc__process-rule" aria-hidden="true"></div>
+        <p>видишь, чего тебе не хватило</p>
+      </div>
+
+      <div class="sc__process-item" role="listitem" data-sc-reveal>
+        <div class="sc__num" aria-hidden="true">02</div>
+        <div class="sc__process-rule" aria-hidden="true"></div>
+        <p>замечаешь, где ищешь это в мире</p>
+      </div>
+
+      <div class="sc__process-item" role="listitem" data-sc-reveal>
+        <div class="sc__num" aria-hidden="true">03</div>
+        <div class="sc__process-rule" aria-hidden="true"></div>
+        <p>проживаешь боль и утрату иллюзии</p>
+      </div>
+
+      <div class="sc__process-item" role="listitem" data-sc-reveal>
+        <div class="sc__num" aria-hidden="true">04</div>
+        <div class="sc__process-rule" aria-hidden="true"></div>
+        <p>перестаёшь искать родителей в других</p>
+      </div>
+
+      <div class="sc__process-item" role="listitem" data-sc-reveal>
+        <div class="sc__num" aria-hidden="true">05</div>
+        <div class="sc__process-rule" aria-hidden="true"></div>
+        <p>формируешь внутреннюю опору</p>
+      </div>
+
+    </div><!-- /.sc__process -->
+
+    <!-- ══ BOTTOM ══ -->
+    <div class="sc__bottom" data-sc-reveal>
+      <p>
+        Ты больше не живёшь из ожидания:<br>
+        «меня полюбят — и тогда станет спокойно».
+      </p>
+      <p class="sc__bottom-accent">
+        Спокойствие начинает появляться изнутри.
+      </p>
+    </div>
+
+  </div><!-- /.sc__container -->
+
+</section>
+
+
+<style>
+/* ================================================================
+  SEP CORE — Premium, centred editorial, typographic focus
+================================================================ */
+
+.sc {
+  --gold:    #c9a96e;
+  --gold-lt: #e2c98a;
+  --gold-dk: #a07840;
+  --ink:     #1a1714;
+  --ink-60:  rgba(26,23,20,.6);
+  --ink-40:  rgba(26,23,20,.4);
+  --border:  rgba(201,169,110,.18);
+  --bg:      #f4efe6;
+  --ease:    cubic-bezier(.22,.68,0,1.2);
+}
+
+.sc *, .sc *::before, .sc *::after { box-sizing: border-box; }
+
+.sc {
+  position: relative;
+  overflow: hidden;
+  /* Different radial position — right side glow, vs hero (left) and problem (top-centre) */
+  background:
+    radial-gradient(ellipse 55% 60% at 88% 20%, rgba(201,169,110,.09) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 10% 85%, rgba(201,169,110,.06) 0%, transparent 50%),
+    linear-gradient(170deg, #ede6da 0%, #f4efe6 40%, #faf8f3 100%);
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+  padding: 104px 0 112px;
+}
+
+.sc__grain {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: .025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+}
+
+.sc__container {
+  position: relative; z-index: 1;
+  padding: 0 8vw;
+  text-align: center;
+}
+
+/* ══════════════════
+   REVEAL
+══════════════════ */
+[data-sc-reveal] {
+  opacity: 0; transform: translateY(16px);
+  animation: sc-reveal .7s var(--ease) forwards;
+}
+.sc__header [data-sc-reveal]:nth-child(1) { animation-delay: .04s; }
+.sc__header [data-sc-reveal]:nth-child(2) { animation-delay: .14s; }
+.sc__header [data-sc-reveal]:nth-child(3) { animation-delay: .24s; }
+.sc__statement[data-sc-reveal]            { animation-delay: .32s; }
+.sc__process [data-sc-reveal]:nth-child(1){ animation-delay: .10s; }
+.sc__process [data-sc-reveal]:nth-child(2){ animation-delay: .18s; }
+.sc__process [data-sc-reveal]:nth-child(3){ animation-delay: .26s; }
+.sc__process [data-sc-reveal]:nth-child(4){ animation-delay: .34s; }
+.sc__process [data-sc-reveal]:nth-child(5){ animation-delay: .42s; }
+.sc__bottom[data-sc-reveal]               { animation-delay: .20s; }
+
+@keyframes sc-reveal { to { opacity: 1; transform: translateY(0); } }
+
+/* ══════════════════
+   HEADER
+══════════════════ */
+.sc__header { margin-bottom: 64px; }
+
+.sc__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 16px; border-radius: 999px;
+  background: rgba(201,169,110,.10); border: 1px solid var(--border);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+  color: #9c7a3a; font-weight: 500; margin-bottom: 28px;
+}
+.sc__eyebrow-pip {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,.22);
+  flex-shrink: 0; animation: sc-pip 2.4s ease-in-out infinite;
+}
+@keyframes sc-pip {
+  0%,100% { box-shadow: 0 0 0 3px rgba(201,169,110,.22); }
+  50%      { box-shadow: 0 0 0 7px rgba(201,169,110,.05); }
+}
+
+.sc__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(40px, 4.8vw, 72px);
+  font-weight: 600; line-height: 1.06; letter-spacing: -.02em;
+  margin: 0 auto 24px; color: var(--ink);
+  max-width: 900px;
+}
+.sc__title-em {
+  display: block; font-style: italic; font-weight: 400;
+  background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 45%, var(--gold-dk) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sc__lead {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(15px, 1.5vw, 17px); line-height: 1.82; font-weight: 300;
+  color: var(--ink-60); margin: 0 auto;
+  max-width: 620px;
+}
+
+/* ══════════════════
+   STATEMENT — typographic centrepiece
+   Distinct from hero (photo) and problem (timeline)
+══════════════════ */
+.sc__statement {
+  margin: 64px auto;
+  max-width: 680px;
+  display: flex; flex-direction: column; align-items: center; gap: 28px;
+}
+
+/* Horizontal rule with centre diamond */
+.sc__statement-lines {
+  width: 100%;
+  display: flex; align-items: center; gap: 0;
+}
+.sc__statement-lines span:not(.sc__statement-diamond) {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,169,110,.4));
+}
+.sc__statement-lines span:last-child {
+  background: linear-gradient(90deg, rgba(201,169,110,.4), transparent);
+}
+.sc__statement-diamond {
+  flex: 0 0 auto !important; width: 6px !important; height: 6px !important;
+  background: var(--gold) !important;
+  transform: rotate(45deg);
+  margin: 0 14px;
+  opacity: .7;
+}
+
+.sc__statement-text {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(36px, 4vw, 58px);
+  font-weight: 300; line-height: 1.14; letter-spacing: -.01em;
+  color: var(--ink);
+}
+.sc__statement-text em {
+  font-style: italic; font-weight: 600; display: block;
+  background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 45%, var(--gold-dk) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ══════════════════
+   PROCESS — editorial numbered list
+   Each row: large number | thin rule | description
+   Visually different from timeline cards (screen 2)
+══════════════════ */
+.sc__process {
+  max-width: 760px;
+  margin: 0 auto 72px;
+  text-align: left;
+}
+
+.sc__process-item {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  align-items: center;
+  gap: 0;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(201,169,110,.12);
+  transition: border-color .25s ease;
+}
+.sc__process-item:first-child { border-top: 1px solid rgba(201,169,110,.12); }
+.sc__process-item:hover { border-color: rgba(201,169,110,.3); }
+
+.sc__num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 38px; font-weight: 300; line-height: 1;
+  letter-spacing: -.02em;
+  background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dk) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  flex-shrink: 0;
+  transition: transform .25s var(--ease);
+}
+.sc__process-item:hover .sc__num { transform: translateX(4px); }
+
+.sc__process-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(201,169,110,.2), transparent 80%);
+  margin: 0 24px;
+  transition: opacity .25s ease;
+}
+.sc__process-item:hover .sc__process-rule { opacity: 0; }
+
+.sc__process-item p {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(14px, 1.35vw, 16px); font-weight: 400; line-height: 1.5;
+  color: rgba(26,23,20,.72);
+  transition: color .25s ease;
+}
+.sc__process-item:hover p { color: var(--ink); }
+
+/* ══════════════════
+   BOTTOM
+══════════════════ */
+.sc__bottom {
+  max-width: 600px; margin: 0 auto;
+}
+.sc__bottom p {
+  margin: 0 0 8px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(15px, 1.4vw, 17px); font-weight: 300; line-height: 1.82;
+  color: var(--ink-60);
+}
+.sc__bottom-accent {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: clamp(22px, 2.2vw, 30px) !important;
+  font-style: italic; font-weight: 400 !important;
+  color: var(--ink) !important;
+  margin-top: 16px !important;
+}
+
+/* ================================================================
+  RESPONSIVE
+================================================================ */
+
+@media (max-width: 1024px) {
+  .sc { padding: 88px 0 96px; }
+  .sc__process-item { grid-template-columns: 56px 1fr auto; }
+  .sc__num { font-size: 32px; }
+}
+
+@media (max-width: 800px) {
+  .sc { padding: 80px 0 88px; }
+  .sc__container { text-align: center; }
+  .sc__process { text-align: left; }
+  .sc__statement { margin: 48px auto; gap: 22px; }
+
+  /* On mobile: simpler row — number left, text right, no rule */
+  .sc__process-item {
+    grid-template-columns: 48px 1fr;
+    gap: 0 16px;
+    padding: 18px 0;
+  }
+  .sc__process-rule { display: none; }
+  .sc__num { font-size: 28px; }
+}
+
+@media (max-width: 540px) {
+  .sc { padding: 70px 0 76px; }
+  .sc__container { padding: 0 20px; }
+  .sc__statement-text { font-size: clamp(28px, 8vw, 40px); }
+  .sc__bottom-accent { font-size: 20px !important; }
+}
+</style>
+
+</body>
+</html>
