@@ -14,97 +14,119 @@
 
   <div class="sc__grain" aria-hidden="true"></div>
 
-  <div class="sc__container">
+  <!-- ══ HEADER — two-column: title left, lead right ══ -->
+  <div class="sc__header-wrap">
+    <div class="sc__header-left" data-sc-reveal>
 
-    <!-- ══ HEADER ══ -->
-    <header class="sc__header">
-
-      <div class="sc__eyebrow" data-sc-reveal>
+      <div class="sc__eyebrow">
         <span class="sc__eyebrow-pip" aria-hidden="true"></span>
         Что такое сепарация
       </div>
 
-      <h2 class="sc__title" id="sc-title" data-sc-reveal>
-        Это не разрыв с родителями.<br>
-        <em class="sc__title-em">Это возвращение себя себе.</em>
+      <h2 class="sc__title" id="sc-title">
+        Это не разрыв<br>с родителями.
+        <em class="sc__title-em">Это возвращение<br>себя себе.</em>
       </h2>
 
-      <p class="sc__lead" data-sc-reveal>
+    </div>
+
+    <div class="sc__header-right" data-sc-reveal>
+
+      <p class="sc__lead">
         Сепарация — это внутренний процесс, в котором ты перестаёшь
         бессознательно искать опору снаружи и начинаешь постепенно
         формировать её внутри.
       </p>
 
-    </header>
+      <div class="sc__statement">
+        <span class="sc__statement-rule" aria-hidden="true"></span>
+        <p>Мама и Папа — <em>теперь это я</em></p>
+      </div>
 
-    <!-- ══ STATEMENT — typographic centrepiece ══ -->
-    <div class="sc__statement" data-sc-reveal aria-label="Ключевая мысль">
-      <div class="sc__statement-lines" aria-hidden="true">
-        <span></span><span class="sc__statement-diamond"></span><span></span>
-      </div>
-      <p class="sc__statement-text">
-        Мама и Папа —<br>
-        <em>теперь это я</em>
-      </p>
-      <div class="sc__statement-lines" aria-hidden="true">
-        <span></span><span class="sc__statement-diamond"></span><span></span>
-      </div>
     </div>
+  </div>
 
-    <!-- ══ PROCESS — numbered editorial list ══ -->
-    <div class="sc__process" role="list">
+  <!-- ══ COLUMNS — 5 vertical pillars ══ -->
+  <div class="sc__columns-wrap">
+    <div class="sc__columns" role="list">
 
-      <div class="sc__process-item" role="listitem" data-sc-reveal>
-        <div class="sc__num" aria-hidden="true">01</div>
-        <div class="sc__process-rule" aria-hidden="true"></div>
-        <p>видишь, чего тебе не хватило</p>
-      </div>
+      <article class="sc__col" role="listitem" data-sc-reveal>
+        <div class="sc__col-top">
+          <span class="sc__col-num" aria-hidden="true">01</span>
+        </div>
+        <div class="sc__col-line" aria-hidden="true"></div>
+        <div class="sc__col-body">
+          <div class="sc__col-label">Осознание</div>
+          <p class="sc__col-text">видишь, чего тебе не хватило</p>
+        </div>
+      </article>
 
-      <div class="sc__process-item" role="listitem" data-sc-reveal>
-        <div class="sc__num" aria-hidden="true">02</div>
-        <div class="sc__process-rule" aria-hidden="true"></div>
-        <p>замечаешь, где ищешь это в мире</p>
-      </div>
+      <article class="sc__col" role="listitem" data-sc-reveal>
+        <div class="sc__col-top">
+          <span class="sc__col-num" aria-hidden="true">02</span>
+        </div>
+        <div class="sc__col-line" aria-hidden="true"></div>
+        <div class="sc__col-body">
+          <div class="sc__col-label">Наблюдение</div>
+          <p class="sc__col-text">замечаешь, где ищешь это в мире</p>
+        </div>
+      </article>
 
-      <div class="sc__process-item" role="listitem" data-sc-reveal>
-        <div class="sc__num" aria-hidden="true">03</div>
-        <div class="sc__process-rule" aria-hidden="true"></div>
-        <p>проживаешь боль и утрату иллюзии</p>
-      </div>
+      <article class="sc__col" role="listitem" data-sc-reveal>
+        <div class="sc__col-top">
+          <span class="sc__col-num" aria-hidden="true">03</span>
+        </div>
+        <div class="sc__col-line" aria-hidden="true"></div>
+        <div class="sc__col-body">
+          <div class="sc__col-label">Проживание</div>
+          <p class="sc__col-text">проживаешь боль и утрату иллюзии</p>
+        </div>
+      </article>
 
-      <div class="sc__process-item" role="listitem" data-sc-reveal>
-        <div class="sc__num" aria-hidden="true">04</div>
-        <div class="sc__process-rule" aria-hidden="true"></div>
-        <p>перестаёшь искать родителей в других</p>
-      </div>
+      <article class="sc__col" role="listitem" data-sc-reveal>
+        <div class="sc__col-top">
+          <span class="sc__col-num" aria-hidden="true">04</span>
+        </div>
+        <div class="sc__col-line" aria-hidden="true"></div>
+        <div class="sc__col-body">
+          <div class="sc__col-label">Отпускание</div>
+          <p class="sc__col-text">перестаёшь искать родителей в других</p>
+        </div>
+      </article>
 
-      <div class="sc__process-item" role="listitem" data-sc-reveal>
-        <div class="sc__num" aria-hidden="true">05</div>
-        <div class="sc__process-rule" aria-hidden="true"></div>
-        <p>формируешь внутреннюю опору</p>
-      </div>
+      <article class="sc__col sc__col--last" role="listitem" data-sc-reveal>
+        <div class="sc__col-top">
+          <span class="sc__col-num" aria-hidden="true">05</span>
+        </div>
+        <div class="sc__col-line" aria-hidden="true"></div>
+        <div class="sc__col-body">
+          <div class="sc__col-label">Опора</div>
+          <p class="sc__col-text">формируешь внутреннюю опору</p>
+        </div>
+      </article>
 
-    </div><!-- /.sc__process -->
+    </div>
+  </div>
 
-    <!-- ══ BOTTOM ══ -->
+  <!-- ══ BOTTOM ══ -->
+  <div class="sc__bottom-wrap">
     <div class="sc__bottom" data-sc-reveal>
       <p>
-        Ты больше не живёшь из ожидания:<br>
+        Ты больше не живёшь из ожидания:
         «меня полюбят — и тогда станет спокойно».
       </p>
       <p class="sc__bottom-accent">
         Спокойствие начинает появляться изнутри.
       </p>
     </div>
-
-  </div><!-- /.sc__container -->
+  </div>
 
 </section>
 
 
 <style>
 /* ================================================================
-  SEP CORE — Premium, centred editorial, typographic focus
+  SEP CORE — Горизонтальные колонны
 ================================================================ */
 
 .sc {
@@ -124,14 +146,13 @@
 .sc {
   position: relative;
   overflow: hidden;
-  /* Different radial position — right side glow, vs hero (left) and problem (top-centre) */
   background:
-    radial-gradient(ellipse 55% 60% at 88% 20%, rgba(201,169,110,.09) 0%, transparent 55%),
-    radial-gradient(ellipse 40% 35% at 10% 85%, rgba(201,169,110,.06) 0%, transparent 50%),
-    linear-gradient(170deg, #ede6da 0%, #f4efe6 40%, #faf8f3 100%);
+    radial-gradient(ellipse 50% 55% at 95% 10%,  rgba(201,169,110,.08) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 5%  90%,  rgba(201,169,110,.07) 0%, transparent 50%),
+    linear-gradient(155deg, #ede6da 0%, #f4efe6 35%, #faf8f3 100%);
   font-family: 'Inter', system-ui, sans-serif;
   color: var(--ink);
-  padding: 104px 0 112px;
+  padding: 100px 0 0;
 }
 
 .sc__grain {
@@ -140,36 +161,35 @@
   background-size: 180px;
 }
 
-.sc__container {
-  position: relative; z-index: 1;
-  padding: 0 8vw;
-  text-align: center;
-}
-
 /* ══════════════════
    REVEAL
 ══════════════════ */
 [data-sc-reveal] {
-  opacity: 0; transform: translateY(16px);
+  opacity: 0; transform: translateY(18px);
   animation: sc-reveal .7s var(--ease) forwards;
 }
-.sc__header [data-sc-reveal]:nth-child(1) { animation-delay: .04s; }
-.sc__header [data-sc-reveal]:nth-child(2) { animation-delay: .14s; }
-.sc__header [data-sc-reveal]:nth-child(3) { animation-delay: .24s; }
-.sc__statement[data-sc-reveal]            { animation-delay: .32s; }
-.sc__process [data-sc-reveal]:nth-child(1){ animation-delay: .10s; }
-.sc__process [data-sc-reveal]:nth-child(2){ animation-delay: .18s; }
-.sc__process [data-sc-reveal]:nth-child(3){ animation-delay: .26s; }
-.sc__process [data-sc-reveal]:nth-child(4){ animation-delay: .34s; }
-.sc__process [data-sc-reveal]:nth-child(5){ animation-delay: .42s; }
-.sc__bottom[data-sc-reveal]               { animation-delay: .20s; }
+.sc__header-left[data-sc-reveal]          { animation-delay: .04s; }
+.sc__header-right[data-sc-reveal]         { animation-delay: .16s; }
+.sc__columns [data-sc-reveal]:nth-child(1){ animation-delay: .06s; }
+.sc__columns [data-sc-reveal]:nth-child(2){ animation-delay: .14s; }
+.sc__columns [data-sc-reveal]:nth-child(3){ animation-delay: .22s; }
+.sc__columns [data-sc-reveal]:nth-child(4){ animation-delay: .30s; }
+.sc__columns [data-sc-reveal]:nth-child(5){ animation-delay: .38s; }
+.sc__bottom[data-sc-reveal]               { animation-delay: .12s; }
 
 @keyframes sc-reveal { to { opacity: 1; transform: translateY(0); } }
 
 /* ══════════════════
-   HEADER
+   HEADER — two-column
 ══════════════════ */
-.sc__header { margin-bottom: 64px; }
+.sc__header-wrap {
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  padding: 0 8vw 80px;
+}
 
 .sc__eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
@@ -191,173 +211,208 @@
 
 .sc__title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(40px, 4.8vw, 72px);
-  font-weight: 600; line-height: 1.06; letter-spacing: -.02em;
-  margin: 0 auto 24px; color: var(--ink);
-  max-width: 900px;
+  font-size: clamp(36px, 3.8vw, 58px);
+  font-weight: 600; line-height: 1.08; letter-spacing: -.02em;
+  margin: 0; color: var(--ink);
 }
 .sc__title-em {
-  display: block; font-style: italic; font-weight: 400;
+  display: block; font-style: italic; font-weight: 400; margin-top: .1em;
   background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 45%, var(--gold-dk) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+.sc__header-right { padding-top: 56px; }
 
 .sc__lead {
   font-family: 'Inter', system-ui, sans-serif;
-  font-size: clamp(15px, 1.5vw, 17px); line-height: 1.82; font-weight: 300;
-  color: var(--ink-60); margin: 0 auto;
-  max-width: 620px;
+  font-size: clamp(14px, 1.4vw, 16px); line-height: 1.84; font-weight: 300;
+  color: var(--ink-60); margin: 0 0 36px;
 }
 
-/* ══════════════════
-   STATEMENT — typographic centrepiece
-   Distinct from hero (photo) and problem (timeline)
-══════════════════ */
+/* Statement — в правой колонке под лидом */
 .sc__statement {
-  margin: 64px auto;
-  max-width: 680px;
-  display: flex; flex-direction: column; align-items: center; gap: 28px;
+  display: flex; align-items: center; gap: 18px;
 }
-
-/* Horizontal rule with centre diamond */
-.sc__statement-lines {
-  width: 100%;
-  display: flex; align-items: center; gap: 0;
+.sc__statement-rule {
+  flex-shrink: 0; width: 32px; height: 1px;
+  background: linear-gradient(90deg, var(--gold), rgba(201,169,110,.3));
 }
-.sc__statement-lines span:not(.sc__statement-diamond) {
-  flex: 1; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(201,169,110,.4));
-}
-.sc__statement-lines span:last-child {
-  background: linear-gradient(90deg, rgba(201,169,110,.4), transparent);
-}
-.sc__statement-diamond {
-  flex: 0 0 auto !important; width: 6px !important; height: 6px !important;
-  background: var(--gold) !important;
-  transform: rotate(45deg);
-  margin: 0 14px;
-  opacity: .7;
-}
-
-.sc__statement-text {
+.sc__statement p {
   margin: 0;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(36px, 4vw, 58px);
-  font-weight: 300; line-height: 1.14; letter-spacing: -.01em;
-  color: var(--ink);
+  font-size: clamp(20px, 1.8vw, 26px);
+  font-weight: 400; line-height: 1.2; color: var(--ink);
+  font-style: italic;
 }
-.sc__statement-text em {
-  font-style: italic; font-weight: 600; display: block;
-  background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 45%, var(--gold-dk) 100%);
+.sc__statement p em {
+  font-weight: 600; font-style: normal;
+  background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 50%, var(--gold-dk) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 /* ══════════════════
-   PROCESS — editorial numbered list
-   Each row: large number | thin rule | description
-   Visually different from timeline cards (screen 2)
+   COLUMNS — 5 vertical pillars
+   Full-width, no side padding — pillars stretch edge to edge
 ══════════════════ */
-.sc__process {
-  max-width: 760px;
-  margin: 0 auto 72px;
-  text-align: left;
+.sc__columns-wrap {
+  position: relative; z-index: 1;
+  border-top: 1px solid rgba(201,169,110,.15);
 }
 
-.sc__process-item {
+.sc__columns {
   display: grid;
-  grid-template-columns: 64px 1fr auto;
-  align-items: center;
-  gap: 0;
-  padding: 20px 0;
-  border-bottom: 1px solid rgba(201,169,110,.12);
-  transition: border-color .25s ease;
+  grid-template-columns: repeat(5, 1fr);
 }
-.sc__process-item:first-child { border-top: 1px solid rgba(201,169,110,.12); }
-.sc__process-item:hover { border-color: rgba(201,169,110,.3); }
 
-.sc__num {
+.sc__col {
+  display: flex; flex-direction: column;
+  border-right: 1px solid rgba(201,169,110,.13);
+  min-height: 380px;
+  transition: background .3s ease;
+  cursor: default;
+}
+.sc__col:first-child { border-left: none; }
+.sc__col--last { border-right: none; }
+
+.sc__col:hover {
+  background: rgba(255,255,255,.42);
+}
+
+/* Top — large number */
+.sc__col-top {
+  padding: 44px 32px 28px;
+  flex-shrink: 0;
+}
+
+.sc__col-num {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 38px; font-weight: 300; line-height: 1;
-  letter-spacing: -.02em;
+  font-size: clamp(64px, 5.5vw, 96px);
+  font-weight: 300; line-height: 1; letter-spacing: -.03em;
   background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dk) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
-  flex-shrink: 0;
-  transition: transform .25s var(--ease);
+  display: block;
+  opacity: .55;
+  transition: opacity .3s ease, transform .35s var(--ease);
 }
-.sc__process-item:hover .sc__num { transform: translateX(4px); }
+.sc__col:hover .sc__col-num {
+  opacity: 1;
+  transform: translateY(-4px);
+}
 
-.sc__process-rule {
+/* Thin horizontal gold line */
+.sc__col-line {
+  height: 1px; margin: 0 32px;
+  background: linear-gradient(90deg, rgba(201,169,110,.35), rgba(201,169,110,.1));
+  transition: background .3s ease;
+}
+.sc__col:hover .sc__col-line {
+  background: linear-gradient(90deg, rgba(201,169,110,.7), rgba(201,169,110,.2));
+}
+
+/* Bottom — label + text */
+.sc__col-body {
+  padding: 24px 32px 40px;
   flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(201,169,110,.2), transparent 80%);
-  margin: 0 24px;
+}
+
+.sc__col-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 9px; font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: #9c7a3a;
+  margin-bottom: 12px;
+  opacity: .7;
   transition: opacity .25s ease;
 }
-.sc__process-item:hover .sc__process-rule { opacity: 0; }
+.sc__col:hover .sc__col-label { opacity: 1; }
 
-.sc__process-item p {
+.sc__col-text {
   margin: 0;
   font-family: 'Inter', system-ui, sans-serif;
-  font-size: clamp(14px, 1.35vw, 16px); font-weight: 400; line-height: 1.5;
-  color: rgba(26,23,20,.72);
+  font-size: clamp(13px, 1.1vw, 15px); font-weight: 400;
+  line-height: 1.62; color: rgba(26,23,20,.65);
   transition: color .25s ease;
 }
-.sc__process-item:hover p { color: var(--ink); }
+.sc__col:hover .sc__col-text { color: var(--ink); }
 
 /* ══════════════════
    BOTTOM
 ══════════════════ */
-.sc__bottom {
-  max-width: 600px; margin: 0 auto;
+.sc__bottom-wrap {
+  position: relative; z-index: 1;
+  border-top: 1px solid rgba(201,169,110,.15);
+  padding: 56px 8vw 100px;
+  text-align: center;
 }
+
+.sc__bottom { max-width: 580px; margin: 0 auto; }
+
 .sc__bottom p {
-  margin: 0 0 8px;
+  margin: 0 0 6px;
   font-family: 'Inter', system-ui, sans-serif;
-  font-size: clamp(15px, 1.4vw, 17px); font-weight: 300; line-height: 1.82;
+  font-size: clamp(14px, 1.35vw, 16px); font-weight: 300; line-height: 1.84;
   color: var(--ink-60);
 }
 .sc__bottom-accent {
+  display: block;
+  margin-top: 18px !important;
   font-family: 'Cormorant Garamond', Georgia, serif !important;
-  font-size: clamp(22px, 2.2vw, 30px) !important;
-  font-style: italic; font-weight: 400 !important;
+  font-size: clamp(22px, 2.2vw, 32px) !important;
+  font-style: italic; font-weight: 400 !important; line-height: 1.2 !important;
   color: var(--ink) !important;
-  margin-top: 16px !important;
 }
 
 /* ================================================================
   RESPONSIVE
 ================================================================ */
 
-@media (max-width: 1024px) {
-  .sc { padding: 88px 0 96px; }
-  .sc__process-item { grid-template-columns: 56px 1fr auto; }
-  .sc__num { font-size: 32px; }
+@media (max-width: 1100px) {
+  .sc__col-top    { padding: 36px 24px 22px; }
+  .sc__col-body   { padding: 20px 24px 36px; }
+  .sc__col-line   { margin: 0 24px; }
 }
 
-@media (max-width: 800px) {
-  .sc { padding: 80px 0 88px; }
-  .sc__container { text-align: center; }
-  .sc__process { text-align: left; }
-  .sc__statement { margin: 48px auto; gap: 22px; }
+@media (max-width: 900px) {
+  .sc { padding: 88px 0 0; }
 
-  /* On mobile: simpler row — number left, text right, no rule */
-  .sc__process-item {
-    grid-template-columns: 48px 1fr;
-    gap: 0 16px;
-    padding: 18px 0;
+  .sc__header-wrap {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 64px;
   }
-  .sc__process-rule { display: none; }
-  .sc__num { font-size: 28px; }
+  .sc__header-right { padding-top: 0; }
+
+  /* 2+3 on tablet */
+  .sc__columns { grid-template-columns: repeat(2, 1fr); }
+  .sc__col { min-height: 300px; border-right: 1px solid rgba(201,169,110,.13); }
+  .sc__col:nth-child(2n) { border-right: none; }
+  .sc__col--last { border-right: none; }
+  .sc__col:nth-child(n+3) { border-top: 1px solid rgba(201,169,110,.13); }
 }
 
-@media (max-width: 540px) {
-  .sc { padding: 70px 0 76px; }
-  .sc__container { padding: 0 20px; }
-  .sc__statement-text { font-size: clamp(28px, 8vw, 40px); }
-  .sc__bottom-accent { font-size: 20px !important; }
+@media (max-width: 600px) {
+  .sc { padding: 80px 0 0; }
+
+  .sc__header-wrap { padding: 0 20px 56px; }
+  .sc__bottom-wrap { padding: 44px 20px 80px; }
+
+  /* Single column on mobile */
+  .sc__columns { grid-template-columns: 1fr; }
+  .sc__col {
+    min-height: auto;
+    flex-direction: row;
+    align-items: center;
+    border-right: none;
+    border-bottom: 1px solid rgba(201,169,110,.13);
+  }
+  .sc__col:first-child { border-top: 1px solid rgba(201,169,110,.13); }
+  .sc__col-top    { padding: 20px 20px; flex-shrink: 0; width: 72px; }
+  .sc__col-num    { font-size: 44px; }
+  .sc__col-line   { width: 1px; height: auto; margin: 16px 0; flex-shrink: 0;
+                    background: linear-gradient(180deg, rgba(201,169,110,.35), rgba(201,169,110,.1)); }
+  .sc__col-body   { padding: 20px 20px 20px 16px; }
 }
 </style>
 
