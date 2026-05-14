@@ -14,64 +14,44 @@
 
   <div class="sp__grain" aria-hidden="true"></div>
 
-  <!-- ══ INTRO — two-column: text left, photo right (bleeds to edge) ══ -->
-  <div class="sp__intro-wrap">
+  <div class="sp__container">
 
-    <div class="sp__intro-left">
+    <!-- ══ HEADER ══ -->
+    <header class="sp__header">
 
       <div class="sp__eyebrow" data-sp-reveal>
         <span class="sp__eyebrow-pip" aria-hidden="true"></span>
         Почему это не проходит само
       </div>
 
-      <h2 class="sp__title" id="sp-title" data-sp-reveal>
-        Ты можешь долго
-        работать над собой,
-        <em class="sp__title-em">но застревать в одном и том же</em>
-      </h2>
-
-      <p class="sp__lead" data-sp-reveal>
-        Потому что проблема часто решается не там, где она начинается.
-        Снаружи кажется, что не хватает уверенности, самооценки или контроля.
-        Но глубже остаётся внутреннее ожидание, что любовь, безопасность
-        и подтверждение придут извне.
-      </p>
-
-      <a href="#application" class="sp__cta-link" data-sp-reveal>
-        Хочу разобраться
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-          <line x1="5" y1="12" x2="19" y2="12"/>
-          <polyline points="12 5 19 12 12 19"/>
-        </svg>
-      </a>
-
-    </div>
-
-    <div class="sp__intro-right" aria-hidden="true">
-      <div class="sp__photo-wrap">
-        <img
-          class="sp__photo"
-          src="https://individual-center.com/wp-content/uploads/2026/05/IMG_1727.png"
-          alt=""
-          width="600" height="800"
-          loading="lazy"
-        />
-        <div class="sp__photo-blend"></div>
+      <div class="sp__headline-grid" data-sp-reveal>
+        <h2 class="sp__title" id="sp-title">
+          Ты можешь долго<br>
+          работать над собой,
+          <em class="sp__title-em">но застревать<br>в одном и том же</em>
+        </h2>
+        <div class="sp__header-aside">
+          <p class="sp__lead">
+            Потому что проблема часто решается не там, где она начинается.
+            Снаружи кажется, что не хватает уверенности, самооценки или контроля.
+            Но глубже остаётся внутреннее ожидание, что любовь, безопасность
+            и подтверждение придут извне.
+          </p>
+          <div class="sp__header-rule" aria-hidden="true"></div>
+        </div>
       </div>
-    </div>
 
-  </div><!-- /.sp__intro-wrap -->
+    </header>
 
-  <!-- ══ STEPS — 2×2 card grid ══ -->
-  <div class="sp__body">
+    <!-- ══ TIMELINE ══ -->
+    <div class="sp__timeline" role="list">
 
-    <div class="sp__divider" aria-hidden="true"></div>
+      <!-- Thread line down the center -->
+      <div class="sp__thread" aria-hidden="true"></div>
 
-    <div class="sp__steps" role="list">
-
-      <article class="sp__step" role="listitem" data-sp-reveal>
-        <div class="sp__step-num" aria-hidden="true">01</div>
-        <div class="sp__step-inner">
+      <!-- Step 01 — left -->
+      <div class="sp__step sp__step--l" role="listitem" data-sp-reveal>
+        <div class="sp__step-card">
           <div class="sp__step-label">Что обычно делают</div>
           <h3 class="sp__step-title">Пытаются исправить себя на поверхности</h3>
           <ul class="sp__list" role="list">
@@ -83,11 +63,19 @@
             <li>найти «правильные» отношения</li>
           </ul>
         </div>
-      </article>
+        <div class="sp__step-node" aria-hidden="true">
+          <span class="sp__step-num">01</span>
+        </div>
+        <div class="sp__step-spacer"></div>
+      </div>
 
-      <article class="sp__step sp__step--accent" role="listitem" data-sp-reveal>
-        <div class="sp__step-num" aria-hidden="true">02</div>
-        <div class="sp__step-inner">
+      <!-- Step 02 — right -->
+      <div class="sp__step sp__step--r" role="listitem" data-sp-reveal>
+        <div class="sp__step-spacer"></div>
+        <div class="sp__step-node" aria-hidden="true">
+          <span class="sp__step-num">02</span>
+        </div>
+        <div class="sp__step-card sp__step-card--accent">
           <div class="sp__step-label">Почему это не удерживается</div>
           <h3 class="sp__step-title">Изменения есть, но внутри ничего не сдвигается</h3>
           <p class="sp__text">
@@ -96,11 +84,11 @@
             и тогда мне станет спокойно.
           </p>
         </div>
-      </article>
+      </div>
 
-      <article class="sp__step" role="listitem" data-sp-reveal>
-        <div class="sp__step-num" aria-hidden="true">03</div>
-        <div class="sp__step-inner">
+      <!-- Step 03 — left -->
+      <div class="sp__step sp__step--l" role="listitem" data-sp-reveal>
+        <div class="sp__step-card">
           <div class="sp__step-label">Как это выглядит в жизни</div>
           <h3 class="sp__step-title">Опора всё время ищется снаружи</h3>
           <div class="sp__chips" role="list">
@@ -112,23 +100,37 @@
             <span role="listitem">через стабильность</span>
           </div>
         </div>
-      </article>
+        <div class="sp__step-node" aria-hidden="true">
+          <span class="sp__step-num">03</span>
+        </div>
+        <div class="sp__step-spacer"></div>
+      </div>
 
-      <article class="sp__step sp__step--final" role="listitem" data-sp-reveal>
-        <div class="sp__step-num" aria-hidden="true">04</div>
-        <div class="sp__step-inner">
+      <!-- Step 04 — right -->
+      <div class="sp__step sp__step--r" role="listitem" data-sp-reveal>
+        <div class="sp__step-spacer"></div>
+        <div class="sp__step-node" aria-hidden="true">
+          <span class="sp__step-num">04</span>
+        </div>
+        <div class="sp__step-card sp__step-card--final">
           <div class="sp__step-label">В чём настоящая причина</div>
           <h3 class="sp__step-title">Проблема не в слабости</h3>
-          <p class="sp__text sp__text--strong">
+          <p class="sp__text sp__text--em">
             Проблема в том, что внутри всё ещё не завершён переход
             от зависимости к внутренней опоре.
           </p>
         </div>
-      </article>
+      </div>
 
-    </div><!-- /.sp__steps -->
+    </div><!-- /.sp__timeline -->
 
+    <!-- ══ BOTTOM QUOTE ══ -->
     <div class="sp__bottom" data-sp-reveal>
+      <div class="sp__bottom-deco" aria-hidden="true">
+        <svg width="32" height="24" viewBox="0 0 32 24" fill="none">
+          <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l1.6 2.4C10.4 3.6 7.6 6.4 7.2 10.4H12V24H0ZM20 24V14.4C20 6.4 24.8 1.6 34.4 0L36 2.4C30.4 3.6 27.6 6.4 27.2 10.4H32V24H20Z" fill="currentColor"/>
+        </svg>
+      </div>
       <p>
         Сепарация нужна не для того, чтобы стать холоднее или жёстче.
         Она нужна, чтобы перестать жить в ожидании, что мир наконец даст тебе то,
@@ -136,14 +138,14 @@
       </p>
     </div>
 
-  </div><!-- /.sp__body -->
+  </div><!-- /.sp__container -->
 
 </section>
 
 
 <style>
 /* ================================================================
-  SEP PROBLEM — Premium Light, matching Hero
+  SEP PROBLEM — Premium editorial timeline, no photo
 ================================================================ */
 
 .sp {
@@ -153,7 +155,7 @@
   --ink:     #1a1714;
   --ink-60:  rgba(26,23,20,.6);
   --ink-40:  rgba(26,23,20,.4);
-  --border:  rgba(201,169,110,.2);
+  --border:  rgba(201,169,110,.18);
   --bg:      #f4efe6;
   --ease:    cubic-bezier(.22,.68,0,1.2);
 }
@@ -163,64 +165,60 @@
 .sp {
   position: relative;
   overflow: hidden;
+  /* Slightly different gradient position from hero — centre-top glow */
   background:
-    radial-gradient(ellipse 55% 45% at 72% 8%,  rgba(201,169,110,.09) 0%, transparent 55%),
-    radial-gradient(ellipse 40% 35% at 12% 92%, rgba(201,169,110,.06) 0%, transparent 50%),
-    linear-gradient(175deg, #faf8f3 0%, #f4efe6 50%, #ede6da 100%);
+    radial-gradient(ellipse 70% 50% at 50% -5%, rgba(201,169,110,.10) 0%, transparent 60%),
+    radial-gradient(ellipse 35% 30% at 8%  90%, rgba(201,169,110,.06) 0%, transparent 50%),
+    linear-gradient(180deg, #faf8f3 0%, #f4efe6 60%, #ede6da 100%);
   font-family: 'Inter', system-ui, sans-serif;
   color: var(--ink);
+  padding: 100px 0 110px;
 }
 
+/* Grain — same as hero */
 .sp__grain {
   position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: .025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 180px;
 }
 
+/* ── Container ── */
+.sp__container {
+  position: relative; z-index: 1;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 6vw;
+}
+
 /* ══════════════════
-   REVEAL ANIMATIONS
+   REVEAL
 ══════════════════ */
 [data-sp-reveal] {
-  opacity: 0; transform: translateY(16px);
-  animation: sp-reveal .65s var(--ease) forwards;
+  opacity: 0; transform: translateY(18px);
+  animation: sp-reveal .7s var(--ease) forwards;
 }
-.sp__intro-left [data-sp-reveal]:nth-child(1) { animation-delay: .06s; }
-.sp__intro-left [data-sp-reveal]:nth-child(2) { animation-delay: .16s; }
-.sp__intro-left [data-sp-reveal]:nth-child(3) { animation-delay: .26s; }
-.sp__intro-left [data-sp-reveal]:nth-child(4) { animation-delay: .36s; }
-.sp__steps [data-sp-reveal]:nth-child(1) { animation-delay: .10s; }
-.sp__steps [data-sp-reveal]:nth-child(2) { animation-delay: .20s; }
-.sp__steps [data-sp-reveal]:nth-child(3) { animation-delay: .30s; }
-.sp__steps [data-sp-reveal]:nth-child(4) { animation-delay: .40s; }
-.sp__body > [data-sp-reveal] { animation-delay: .50s; }
+.sp__header [data-sp-reveal]:nth-child(1) { animation-delay: .04s; }
+.sp__header [data-sp-reveal]:nth-child(2) { animation-delay: .14s; }
+.sp__timeline [data-sp-reveal]:nth-child(odd)  { animation-delay: .08s; }
+.sp__timeline [data-sp-reveal]:nth-child(even) { animation-delay: .18s; }
+.sp__bottom[data-sp-reveal] { animation-delay: .12s; }
 
 @keyframes sp-reveal { to { opacity: 1; transform: translateY(0); } }
 
 /* ══════════════════
-   INTRO — two-column grid
-   Left: text | Right: photo (bleeds to screen edge)
+   HEADER
 ══════════════════ */
-.sp__intro-wrap {
-  position: relative; z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(0, 800px) 1fr;
-  align-items: stretch;
-  min-height: 580px;
+.sp__header {
+  margin-bottom: 72px;
 }
 
-.sp__intro-left {
-  padding: 96px 64px 80px 8vw;
-  display: flex; flex-direction: column; align-items: flex-start;
-  max-width: 820px;
-}
-
-/* Eyebrow */
+/* Eyebrow — same pill style as hero */
 .sp__eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 7px 16px; border-radius: 999px;
   background: rgba(201,169,110,.10); border: 1px solid var(--border);
   font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
-  color: #9c7a3a; font-weight: 500; margin-bottom: 28px;
+  color: #9c7a3a; font-weight: 500; margin-bottom: 32px;
 }
 .sp__eyebrow-pip {
   width: 5px; height: 5px; border-radius: 50%;
@@ -232,208 +230,224 @@
   50%      { box-shadow: 0 0 0 7px rgba(201,169,110,.05); }
 }
 
-/* Title */
+/* Headline grid — title left, aside right */
+.sp__headline-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 48px;
+  align-items: start;
+}
+
 .sp__title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(40px, 4.6vw, 68px);
+  font-size: clamp(38px, 4.4vw, 66px);
   font-weight: 600; line-height: 1.06; letter-spacing: -.015em;
-  margin: 0 0 24px; color: var(--ink);
+  margin: 0; color: var(--ink);
 }
 .sp__title-em {
-  display: block; font-style: italic; font-weight: 400;
+  display: block; font-style: italic; font-weight: 400; margin-top: .06em;
   background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 45%, var(--gold-dk) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Lead */
+.sp__header-aside {
+  padding-top: 8px;
+}
+
 .sp__lead {
-  font-size: clamp(14px, 1.5vw, 17px); line-height: 1.78;
-  color: var(--ink-60); margin: 0 0 32px; font-weight: 300;
+  font-size: clamp(14px, 1.4vw, 16px); line-height: 1.82;
+  color: var(--ink-60); margin: 0 0 28px; font-weight: 300;
 }
 
-/* CTA link */
-.sp__cta-link {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 13px; font-weight: 500; color: var(--gold-dk);
-  text-decoration: none; border-bottom: 1px solid rgba(160,120,64,.28);
-  padding-bottom: 2px; transition: gap .2s var(--ease), border-color .15s;
-}
-.sp__cta-link:hover { gap: 12px; border-color: rgba(160,120,64,.55); }
-.sp__cta-link svg { transition: transform .2s var(--ease); flex-shrink: 0; }
-.sp__cta-link:hover svg { transform: translateX(3px); }
-
-/* ── RIGHT — photo, bleeds to screen edge ── */
-.sp__intro-right {
-  position: relative;
-  align-self: stretch;
-}
-
-.sp__photo-wrap {
-  position: absolute;
-  top: -0px; bottom: 0;
-  left: 0; right: 0;
-  overflow: hidden;
-}
-
-.sp__photo {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
-
-.sp__photo-blend {
-  position: absolute; inset: 0;
-  background:
-    linear-gradient(to right,  #f4efe6 0%, rgba(244,239,230,.88) 10%, rgba(244,239,230,.18) 28%, transparent 50%),
-    linear-gradient(to bottom, #f4efe6 0%, rgba(244,239,230,.55) 8%,  transparent 22%),
-    linear-gradient(to top,    #f4efe6 0%, rgba(244,239,230,.55) 8%,  transparent 22%),
-    linear-gradient(to left,   rgba(244,239,230,.3) 0%, transparent 14%);
+/* Short gold rule under lead */
+.sp__header-rule {
+  width: 48px; height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  opacity: .65;
 }
 
 /* ══════════════════
-   BODY — steps + bottom
+   TIMELINE
 ══════════════════ */
-.sp__body {
-  position: relative; z-index: 1;
-  padding: 0 8vw 100px;
-}
-
-/* Gold divider line */
-.sp__divider {
-  height: 1px; max-width: 1200px; margin: 0 auto 72px;
-  background: linear-gradient(90deg, transparent, rgba(201,169,110,.35) 30%, rgba(201,169,110,.35) 70%, transparent);
-}
-
-/* Steps 2×2 grid */
-.sp__steps {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto 40px;
-}
-
-/* Step card */
-.sp__step {
+.sp__timeline {
   position: relative;
-  background: rgba(255,255,255,.55);
+  display: flex; flex-direction: column;
+  gap: 0;
+  margin-bottom: 72px;
+}
+
+/* Vertical gold thread — runs down the centre */
+.sp__thread {
+  position: absolute;
+  left: 50%; top: 0; bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(201,169,110,.5) 6%,
+    rgba(201,169,110,.25) 85%,
+    transparent 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Each step row — 3 columns: card | node | spacer (or reverse) ── */
+.sp__step {
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 52px 1fr;
+  gap: 0 40px;
+  align-items: center;
+  padding: 28px 0;
+}
+
+/* Step node (gold circle on the thread) */
+.sp__step-node {
+  display: flex; align-items: center; justify-content: center;
+  grid-column: 2;
+}
+
+.sp__step-num {
+  width: 52px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dk) 100%);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 600; letter-spacing: .12em;
+  /* White ring to separate node from thread */
+  box-shadow:
+    0 0 0 6px var(--bg),
+    0 0 0 7px rgba(201,169,110,.25),
+    0 8px 24px rgba(201,169,110,.28);
+  flex-shrink: 0;
+  transition: transform .35s var(--ease), box-shadow .35s ease;
+}
+.sp__step:hover .sp__step-num {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 0 6px var(--bg),
+    0 0 0 8px rgba(201,169,110,.35),
+    0 14px 32px rgba(201,169,110,.36);
+}
+
+/* Left step: card is col 1, spacer is col 3 */
+.sp__step--l .sp__step-card { grid-column: 1; }
+.sp__step--l .sp__step-node { grid-column: 2; }
+.sp__step--l .sp__step-spacer { grid-column: 3; }
+
+/* Right step: spacer is col 1, card is col 3 */
+.sp__step--r .sp__step-spacer { grid-column: 1; }
+.sp__step--r .sp__step-node { grid-column: 2; }
+.sp__step--r .sp__step-card { grid-column: 3; }
+
+/* Card */
+.sp__step-card {
+  padding: 26px 28px 24px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.62);
   border: 1px solid rgba(201,169,110,.12);
-  border-radius: 24px;
-  padding: 0;
-  overflow: hidden;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 16px rgba(26,23,20,.04);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 18px rgba(26,23,20,.04);
   transition: transform .3s var(--ease), box-shadow .3s ease, border-color .3s ease;
 }
-.sp__step:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(26,23,20,.08);
-  border-color: rgba(201,169,110,.28);
+.sp__step:hover .sp__step-card {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(26,23,20,.07);
+  border-color: rgba(201,169,110,.26);
 }
 
-.sp__step--accent {
-  background: linear-gradient(160deg, rgba(255,255,255,.7) 0%, rgba(244,239,230,.55) 100%);
-  border-color: rgba(201,169,110,.22);
-  box-shadow: 0 4px 24px rgba(201,169,110,.10);
+.sp__step-card--accent {
+  background: linear-gradient(155deg, rgba(255,255,255,.7) 0%, rgba(244,239,230,.52) 100%);
+  border-color: rgba(201,169,110,.20);
+  box-shadow: 0 4px 24px rgba(201,169,110,.09);
 }
 
-.sp__step--final {
-  background: linear-gradient(160deg, rgba(255,255,255,.72) 0%, rgba(244,239,230,.6) 100%);
-  border-color: rgba(201,169,110,.25);
-  box-shadow: 0 4px 28px rgba(201,169,110,.13);
+.sp__step-card--final {
+  background: linear-gradient(155deg, rgba(255,255,255,.72) 0%, rgba(244,239,230,.58) 100%);
+  border-color: rgba(201,169,110,.24);
+  box-shadow: 0 4px 28px rgba(201,169,110,.12);
 }
 
-/* Step number — large Cormorant, top-right corner */
-.sp__step-num {
-  position: absolute; top: 22px; right: 24px;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 56px; font-weight: 300; line-height: 1;
-  color: rgba(201,169,110,.22); letter-spacing: -.02em;
-  pointer-events: none; user-select: none;
-  transition: color .3s ease;
-}
-.sp__step:hover .sp__step-num { color: rgba(201,169,110,.38); }
-
-.sp__step-inner {
-  padding: 28px 28px 26px;
-}
-
-/* Step label pill */
+/* Step label */
 .sp__step-label {
   display: inline-flex; align-items: center;
   padding: 5px 12px; border-radius: 999px;
-  background: rgba(201,169,110,.08); border: 1px solid rgba(201,169,110,.16);
+  background: rgba(201,169,110,.08); border: 1px solid rgba(201,169,110,.15);
   font-size: 10px; font-weight: 600; letter-spacing: .12em;
   text-transform: uppercase; color: #9c7a3a;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
-/* Step title */
+/* Step title — Cormorant */
 .sp__step-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(22px, 2vw, 30px);
-  font-weight: 600; line-height: 1.12; letter-spacing: -.01em;
-  color: var(--ink); margin: 0 0 16px;
+  font-size: clamp(20px, 1.8vw, 28px);
+  font-weight: 600; line-height: 1.14; letter-spacing: -.01em;
+  color: var(--ink); margin: 0 0 14px;
 }
 
 /* List */
 .sp__list {
   list-style: none; padding: 0; margin: 0;
-  display: flex; flex-direction: column; gap: 9px;
+  display: flex; flex-direction: column; gap: 8px;
 }
 .sp__list li {
-  position: relative; padding-left: 18px;
-  font-size: 14px; line-height: 1.6; color: rgba(26,23,20,.72);
+  position: relative; padding-left: 16px;
+  font-size: 14px; line-height: 1.62; color: rgba(26,23,20,.72);
 }
 .sp__list li::before {
   content: '';
-  position: absolute; left: 0; top: 7px;
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--gold); opacity: .7;
+  position: absolute; left: 0; top: 6px;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--gold); opacity: .75;
 }
 
-/* Body text */
-.sp__text {
-  font-size: 15px; line-height: 1.78; color: rgba(26,23,20,.7); margin: 0;
-}
-.sp__text--strong {
-  font-size: 16px; line-height: 1.7; color: rgba(26,23,20,.82); font-weight: 500;
+/* Text */
+.sp__text { font-size: 15px; line-height: 1.78; color: rgba(26,23,20,.7); margin: 0; }
+.sp__text--em {
+  font-size: 15px; line-height: 1.72; color: rgba(26,23,20,.8);
+  font-style: italic;
 }
 
 /* Chips */
-.sp__chips {
-  display: flex; flex-wrap: wrap; gap: 8px;
-}
+.sp__chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .sp__chips span {
   display: inline-flex; align-items: center;
-  padding: 8px 14px; border-radius: 999px;
-  background: rgba(255,255,255,.7);
+  padding: 7px 14px; border-radius: 999px;
+  background: rgba(255,255,255,.75);
   border: 1px solid rgba(201,169,110,.14);
-  font-size: 13px; font-weight: 400; color: rgba(26,23,20,.7);
-  transition: border-color .2s ease, background .2s ease;
+  font-size: 13px; color: rgba(26,23,20,.7);
+  transition: border-color .2s ease;
 }
-.sp__step:hover .sp__chips span {
-  border-color: rgba(201,169,110,.28);
-  background: rgba(255,255,255,.9);
-}
+.sp__step:hover .sp__chips span { border-color: rgba(201,169,110,.3); }
 
-/* Bottom summary */
+/* ══════════════════
+   BOTTOM QUOTE
+══════════════════ */
 .sp__bottom {
-  max-width: 880px; margin: 0 auto;
-  padding: 28px 32px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, rgba(201,169,110,.10) 0%, rgba(230,221,212,.20) 100%);
-  border: 1px solid rgba(201,169,110,.16);
+  max-width: 760px; margin: 0 auto;
   text-align: center;
+  padding: 36px 40px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(201,169,110,.09) 0%, rgba(230,221,212,.18) 100%);
+  border: 1px solid rgba(201,169,110,.15);
+  position: relative;
+}
+.sp__bottom-deco {
+  color: rgba(201,169,110,.22);
+  margin-bottom: 18px;
+  display: flex; justify-content: center;
 }
 .sp__bottom p {
   margin: 0;
-  font-size: clamp(15px, 1.5vw, 18px); line-height: 1.8;
-  color: rgba(26,23,20,.75); font-weight: 300;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-size: clamp(17px, 1.7vw, 22px);
+  font-style: italic; font-weight: 400; line-height: 1.68;
+  color: rgba(26,23,20,.72);
 }
 
 /* ================================================================
@@ -442,63 +456,61 @@
 
 /* ── Tablet ── */
 @media (max-width: 1024px) {
-  .sp__intro-wrap {
-    grid-template-columns: 1fr minmax(0, 380px);
-    min-height: 520px;
-  }
-  .sp__intro-left { padding: 80px 48px 64px 6vw; }
-  .sp__steps { gap: 18px; }
-  .sp__step-num { font-size: 44px; top: 18px; right: 18px; }
-  .sp__step-inner { padding: 24px 22px; }
+  .sp { padding: 88px 0 96px; }
+  .sp__headline-grid { gap: 36px; }
+  .sp__step { gap: 0 28px; padding: 22px 0; }
+  .sp__step-card { padding: 22px 22px 20px; }
 }
 
-/* ── Mobile: stack ── */
+/* ── Collapse timeline to single column ── */
 @media (max-width: 800px) {
-  .sp__intro-wrap {
+  .sp { padding: 80px 0 88px; }
+
+  .sp__headline-grid {
     grid-template-columns: 1fr;
-    min-height: auto;
+    gap: 20px;
   }
-  .sp__intro-left {
-    padding: 80px 32px 56px;
-    align-items: center;
-    text-align: center;
-    max-width: 100%;
-  }
-  .sp__lead { text-align: left; }
+  .sp__header { margin-bottom: 52px; }
 
-  .sp__intro-right {
-    height: 480px;
-    margin: 0 -32px;
-    width: calc(100% + 64px);
-    /* reset align-self so height works */
-    align-self: auto;
+  /* Thread moves to left edge */
+  .sp__thread { left: 26px; transform: none; }
+
+  /* Steps: all single column, indent for thread */
+  .sp__step {
+    grid-template-columns: 52px 1fr !important;
+    grid-template-rows: auto;
+    gap: 0 20px;
+    padding: 20px 0;
+    align-items: start;
   }
-  .sp__photo-wrap { position: absolute; inset: 0; }
-  .sp__photo-blend {
-    background:
-      linear-gradient(to bottom, #f4efe6 0%, rgba(244,239,230,.7) 14%, transparent 32%),
-      linear-gradient(to top,    #f4efe6 0%, rgba(244,239,230,.7) 14%, transparent 32%),
-      linear-gradient(to right,  #f4efe6 0%, transparent 18%),
-      linear-gradient(to left,   #f4efe6 0%, transparent 18%);
+  .sp__step-node  { grid-column: 1 !important; grid-row: 1; }
+  .sp__step-card  { grid-column: 2 !important; grid-row: 1; }
+  .sp__step-spacer { display: none; }
+
+  /* Node aligns with card top */
+  .sp__step-node { align-self: start; padding-top: 2px; }
+
+  /* White ring references left-edge bg */
+  .sp__step-num {
+    box-shadow:
+      0 0 0 5px var(--bg),
+      0 0 0 6px rgba(201,169,110,.22),
+      0 6px 18px rgba(201,169,110,.22);
   }
 
-  .sp__body { padding: 0 32px 80px; }
-  .sp__divider { margin-bottom: 48px; }
-
-  .sp__steps {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .sp__step-num { font-size: 40px; }
+  .sp__bottom { padding: 28px 28px; }
 }
 
 /* ── Small mobile ── */
 @media (max-width: 540px) {
-  .sp__intro-left  { padding: 70px 20px 48px; }
-  .sp__intro-right { height: 380px; margin: 0 -20px; width: calc(100% + 40px); }
-  .sp__body { padding: 0 20px 64px; }
-  .sp__bottom { padding: 20px 20px; border-radius: 14px; }
-  .sp__step-inner { padding: 20px 18px; }
+  .sp { padding: 70px 0 76px; }
+  .sp__container { padding: 0 20px; }
+  .sp__thread { left: 20px; }
+  .sp__step { gap: 0 16px; }
+  .sp__step-num { width: 44px; height: 44px; font-size: 10px; }
+  .sp__step-card { padding: 18px 16px; border-radius: 16px; }
+  .sp__bottom { padding: 22px 20px; border-radius: 16px; }
+  .sp__bottom p { font-size: 16px; }
 }
 </style>
 
