@@ -14,105 +14,84 @@
 
   <div class="sc__grain" aria-hidden="true"></div>
 
-  <!-- ══ HEADER — two-column: title left, lead right ══ -->
+  <!-- HEADER: two-column on desktop, stacked on mobile -->
   <div class="sc__header-wrap">
-    <div class="sc__header-left" data-sc-reveal>
 
+    <div class="sc__header-left" data-sc-reveal>
       <div class="sc__eyebrow">
         <span class="sc__eyebrow-pip" aria-hidden="true"></span>
         Что такое сепарация
       </div>
-
       <h2 class="sc__title" id="sc-title">
-        Это не разрыв<br>с родителями.
-        <em class="sc__title-em">Это возвращение<br>себя себе.</em>
+        Это не разрыв с родителями.<br>
+        <em class="sc__title-em">Это возвращение себя себе.</em>
       </h2>
-
     </div>
 
     <div class="sc__header-right" data-sc-reveal>
-
       <p class="sc__lead">
         Сепарация — это внутренний процесс, в котором ты перестаёшь
         бессознательно искать опору снаружи и начинаешь постепенно
         формировать её внутри.
       </p>
 
+      <!-- Statement lives in right column on desktop -->
       <div class="sc__statement">
-        <span class="sc__statement-rule" aria-hidden="true"></span>
-        <p>Мама и Папа — <em>теперь это я</em></p>
+        <div class="sc__statement-lines" aria-hidden="true">
+          <span></span><span class="sc__statement-diamond"></span><span></span>
+        </div>
+        <p class="sc__statement-text">
+          Мама и Папа —<br>
+          <em>теперь это я</em>
+        </p>
+        <div class="sc__statement-lines" aria-hidden="true">
+          <span></span><span class="sc__statement-diamond"></span><span></span>
+        </div>
       </div>
-
     </div>
-  </div>
 
-  <!-- ══ COLUMNS — 5 vertical pillars ══ -->
-  <div class="sc__columns-wrap">
-    <div class="sc__columns" role="list">
+  </div><!-- /.sc__header-wrap -->
 
-      <article class="sc__col" role="listitem" data-sc-reveal>
-        <div class="sc__col-top">
-          <span class="sc__col-num" aria-hidden="true">01</span>
-        </div>
-        <div class="sc__col-line" aria-hidden="true"></div>
-        <div class="sc__col-body">
-          <div class="sc__col-label">Осознание</div>
-          <p class="sc__col-text">видишь, чего тебе не хватило</p>
-        </div>
-      </article>
+  <!-- PROCESS: full-width 5 columns on desktop, rows on mobile -->
+  <div class="sc__process" role="list">
 
-      <article class="sc__col" role="listitem" data-sc-reveal>
-        <div class="sc__col-top">
-          <span class="sc__col-num" aria-hidden="true">02</span>
-        </div>
-        <div class="sc__col-line" aria-hidden="true"></div>
-        <div class="sc__col-body">
-          <div class="sc__col-label">Наблюдение</div>
-          <p class="sc__col-text">замечаешь, где ищешь это в мире</p>
-        </div>
-      </article>
-
-      <article class="sc__col" role="listitem" data-sc-reveal>
-        <div class="sc__col-top">
-          <span class="sc__col-num" aria-hidden="true">03</span>
-        </div>
-        <div class="sc__col-line" aria-hidden="true"></div>
-        <div class="sc__col-body">
-          <div class="sc__col-label">Проживание</div>
-          <p class="sc__col-text">проживаешь боль и утрату иллюзии</p>
-        </div>
-      </article>
-
-      <article class="sc__col" role="listitem" data-sc-reveal>
-        <div class="sc__col-top">
-          <span class="sc__col-num" aria-hidden="true">04</span>
-        </div>
-        <div class="sc__col-line" aria-hidden="true"></div>
-        <div class="sc__col-body">
-          <div class="sc__col-label">Отпускание</div>
-          <p class="sc__col-text">перестаёшь искать родителей в других</p>
-        </div>
-      </article>
-
-      <article class="sc__col sc__col--last" role="listitem" data-sc-reveal>
-        <div class="sc__col-top">
-          <span class="sc__col-num" aria-hidden="true">05</span>
-        </div>
-        <div class="sc__col-line" aria-hidden="true"></div>
-        <div class="sc__col-body">
-          <div class="sc__col-label">Опора</div>
-          <p class="sc__col-text">формируешь внутреннюю опору</p>
-        </div>
-      </article>
-
+    <div class="sc__process-item" role="listitem" data-sc-reveal>
+      <div class="sc__num" aria-hidden="true">01</div>
+      <div class="sc__process-rule" aria-hidden="true"></div>
+      <p>видишь, чего тебе не хватило</p>
     </div>
-  </div>
 
-  <!-- ══ BOTTOM ══ -->
+    <div class="sc__process-item" role="listitem" data-sc-reveal>
+      <div class="sc__num" aria-hidden="true">02</div>
+      <div class="sc__process-rule" aria-hidden="true"></div>
+      <p>замечаешь, где ищешь это в мире</p>
+    </div>
+
+    <div class="sc__process-item" role="listitem" data-sc-reveal>
+      <div class="sc__num" aria-hidden="true">03</div>
+      <div class="sc__process-rule" aria-hidden="true"></div>
+      <p>проживаешь боль и утрату иллюзии</p>
+    </div>
+
+    <div class="sc__process-item" role="listitem" data-sc-reveal>
+      <div class="sc__num" aria-hidden="true">04</div>
+      <div class="sc__process-rule" aria-hidden="true"></div>
+      <p>перестаёшь искать родителей в других</p>
+    </div>
+
+    <div class="sc__process-item" role="listitem" data-sc-reveal>
+      <div class="sc__num" aria-hidden="true">05</div>
+      <div class="sc__process-rule" aria-hidden="true"></div>
+      <p>формируешь внутреннюю опору</p>
+    </div>
+
+  </div><!-- /.sc__process -->
+
+  <!-- BOTTOM -->
   <div class="sc__bottom-wrap">
     <div class="sc__bottom" data-sc-reveal>
       <p>
-        Ты больше не живёшь из ожидания:
+        Ты больше не живёшь из ожидания:<br>
         «меня полюбят — и тогда станет спокойно».
       </p>
       <p class="sc__bottom-accent">
@@ -126,7 +105,7 @@
 
 <style>
 /* ================================================================
-  SEP CORE — Горизонтальные колонны
+  SEP CORE — desktop: two-col header + 5-pillar process
 ================================================================ */
 
 .sc {
@@ -144,12 +123,11 @@
 .sc *, .sc *::before, .sc *::after { box-sizing: border-box; }
 
 .sc {
-  position: relative;
-  overflow: hidden;
+  position: relative; overflow: hidden;
   background:
-    radial-gradient(ellipse 50% 55% at 95% 10%,  rgba(201,169,110,.08) 0%, transparent 55%),
-    radial-gradient(ellipse 45% 40% at 5%  90%,  rgba(201,169,110,.07) 0%, transparent 50%),
-    linear-gradient(155deg, #ede6da 0%, #f4efe6 35%, #faf8f3 100%);
+    radial-gradient(ellipse 55% 60% at 88% 20%, rgba(201,169,110,.09) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 10% 85%, rgba(201,169,110,.06) 0%, transparent 50%),
+    linear-gradient(170deg, #ede6da 0%, #f4efe6 40%, #faf8f3 100%);
   font-family: 'Inter', system-ui, sans-serif;
   color: var(--ink);
   padding: 100px 0 0;
@@ -165,28 +143,28 @@
    REVEAL
 ══════════════════ */
 [data-sc-reveal] {
-  opacity: 0; transform: translateY(18px);
+  opacity: 0; transform: translateY(16px);
   animation: sc-reveal .7s var(--ease) forwards;
 }
 .sc__header-left[data-sc-reveal]          { animation-delay: .04s; }
 .sc__header-right[data-sc-reveal]         { animation-delay: .16s; }
-.sc__columns [data-sc-reveal]:nth-child(1){ animation-delay: .06s; }
-.sc__columns [data-sc-reveal]:nth-child(2){ animation-delay: .14s; }
-.sc__columns [data-sc-reveal]:nth-child(3){ animation-delay: .22s; }
-.sc__columns [data-sc-reveal]:nth-child(4){ animation-delay: .30s; }
-.sc__columns [data-sc-reveal]:nth-child(5){ animation-delay: .38s; }
-.sc__bottom[data-sc-reveal]               { animation-delay: .12s; }
+.sc__process [data-sc-reveal]:nth-child(1){ animation-delay: .06s; }
+.sc__process [data-sc-reveal]:nth-child(2){ animation-delay: .13s; }
+.sc__process [data-sc-reveal]:nth-child(3){ animation-delay: .20s; }
+.sc__process [data-sc-reveal]:nth-child(4){ animation-delay: .27s; }
+.sc__process [data-sc-reveal]:nth-child(5){ animation-delay: .34s; }
+.sc__bottom[data-sc-reveal]               { animation-delay: .14s; }
 
 @keyframes sc-reveal { to { opacity: 1; transform: translateY(0); } }
 
 /* ══════════════════
-   HEADER — two-column
+   HEADER — two-column desktop
 ══════════════════ */
 .sc__header-wrap {
   position: relative; z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  gap: 72px;
   align-items: start;
   padding: 0 8vw 80px;
 }
@@ -211,143 +189,122 @@
 
 .sc__title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(36px, 3.8vw, 58px);
-  font-weight: 600; line-height: 1.08; letter-spacing: -.02em;
+  font-size: clamp(38px, 4.2vw, 64px);
+  font-weight: 600; line-height: 1.06; letter-spacing: -.02em;
   margin: 0; color: var(--ink);
 }
 .sc__title-em {
-  display: block; font-style: italic; font-weight: 400; margin-top: .1em;
+  display: block; font-style: italic; font-weight: 400; margin-top: .06em;
   background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 45%, var(--gold-dk) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.sc__header-right { padding-top: 56px; }
+.sc__header-right { padding-top: 52px; }
 
 .sc__lead {
   font-family: 'Inter', system-ui, sans-serif;
   font-size: clamp(14px, 1.4vw, 16px); line-height: 1.84; font-weight: 300;
-  color: var(--ink-60); margin: 0 0 36px;
+  color: var(--ink-60); margin: 0 0 40px;
 }
 
-/* Statement — в правой колонке под лидом */
+/* Statement — in right col on desktop, between lead and process */
 .sc__statement {
-  display: flex; align-items: center; gap: 18px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 20px;
 }
-.sc__statement-rule {
-  flex-shrink: 0; width: 32px; height: 1px;
-  background: linear-gradient(90deg, var(--gold), rgba(201,169,110,.3));
+
+.sc__statement-lines {
+  width: 100%; display: flex; align-items: center;
 }
-.sc__statement p {
+.sc__statement-lines span:not(.sc__statement-diamond) {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,169,110,.4));
+}
+.sc__statement-lines span:last-child {
+  background: linear-gradient(90deg, rgba(201,169,110,.4), transparent);
+}
+.sc__statement-diamond {
+  flex: 0 0 auto !important; width: 6px !important; height: 6px !important;
+  background: var(--gold) !important;
+  transform: rotate(45deg); margin: 0 14px; opacity: .7;
+}
+
+.sc__statement-text {
   margin: 0;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(20px, 1.8vw, 26px);
-  font-weight: 400; line-height: 1.2; color: var(--ink);
-  font-style: italic;
+  font-size: clamp(28px, 2.8vw, 44px);
+  font-weight: 300; line-height: 1.18; letter-spacing: -.01em;
+  color: var(--ink);
 }
-.sc__statement p em {
-  font-weight: 600; font-style: normal;
-  background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 50%, var(--gold-dk) 100%);
+.sc__statement-text em {
+  font-style: italic; font-weight: 600; display: block;
+  background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 45%, var(--gold-dk) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 /* ══════════════════
-   COLUMNS — 5 vertical pillars
-   Full-width, no side padding — pillars stretch edge to edge
+   PROCESS — 5-column pillar on desktop
 ══════════════════ */
-.sc__columns-wrap {
+.sc__process {
   position: relative; z-index: 1;
-  border-top: 1px solid rgba(201,169,110,.15);
-}
-
-.sc__columns {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid rgba(201,169,110,.18);
+  border-bottom: 1px solid rgba(201,169,110,.18);
 }
 
-.sc__col {
+.sc__process-item {
   display: flex; flex-direction: column;
+  align-items: flex-start;
+  padding: 48px 40px 52px;
   border-right: 1px solid rgba(201,169,110,.13);
-  min-height: 380px;
   transition: background .3s ease;
   cursor: default;
 }
-.sc__col:first-child { border-left: none; }
-.sc__col--last { border-right: none; }
+.sc__process-item:last-child { border-right: none; }
+.sc__process-item:hover { background: rgba(255,255,255,.45); }
 
-.sc__col:hover {
-  background: rgba(255,255,255,.42);
-}
-
-/* Top — large number */
-.sc__col-top {
-  padding: 44px 32px 28px;
-  flex-shrink: 0;
-}
-
-.sc__col-num {
+/* Large Cormorant number */
+.sc__num {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(64px, 5.5vw, 96px);
+  font-size: clamp(56px, 5vw, 88px);
   font-weight: 300; line-height: 1; letter-spacing: -.03em;
   background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dk) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
-  display: block;
-  opacity: .55;
+  opacity: .45; margin-bottom: 24px;
   transition: opacity .3s ease, transform .35s var(--ease);
 }
-.sc__col:hover .sc__col-num {
-  opacity: 1;
-  transform: translateY(-4px);
-}
+.sc__process-item:hover .sc__num { opacity: 1; transform: translateY(-3px); }
 
-/* Thin horizontal gold line */
-.sc__col-line {
-  height: 1px; margin: 0 32px;
-  background: linear-gradient(90deg, rgba(201,169,110,.35), rgba(201,169,110,.1));
-  transition: background .3s ease;
+/* Thin horizontal rule between number and text */
+.sc__process-rule {
+  width: 32px; height: 1px; margin-bottom: 20px;
+  background: linear-gradient(90deg, var(--gold), rgba(201,169,110,.2));
+  opacity: .6;
+  transition: width .3s var(--ease), opacity .3s ease;
 }
-.sc__col:hover .sc__col-line {
-  background: linear-gradient(90deg, rgba(201,169,110,.7), rgba(201,169,110,.2));
-}
+.sc__process-item:hover .sc__process-rule { width: 48px; opacity: 1; }
 
-/* Bottom — label + text */
-.sc__col-body {
-  padding: 24px 32px 40px;
-  flex: 1;
-}
-
-.sc__col-label {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 9px; font-weight: 600; letter-spacing: .16em;
-  text-transform: uppercase; color: #9c7a3a;
-  margin-bottom: 12px;
-  opacity: .7;
-  transition: opacity .25s ease;
-}
-.sc__col:hover .sc__col-label { opacity: 1; }
-
-.sc__col-text {
+.sc__process-item p {
   margin: 0;
   font-family: 'Inter', system-ui, sans-serif;
-  font-size: clamp(13px, 1.1vw, 15px); font-weight: 400;
-  line-height: 1.62; color: rgba(26,23,20,.65);
+  font-size: clamp(13px, 1.05vw, 15px); font-weight: 400; line-height: 1.65;
+  color: rgba(26,23,20,.65);
   transition: color .25s ease;
 }
-.sc__col:hover .sc__col-text { color: var(--ink); }
+.sc__process-item:hover p { color: var(--ink); }
 
 /* ══════════════════
    BOTTOM
 ══════════════════ */
 .sc__bottom-wrap {
   position: relative; z-index: 1;
-  border-top: 1px solid rgba(201,169,110,.15);
-  padding: 56px 8vw 100px;
+  padding: 64px 8vw 100px;
   text-align: center;
 }
-
-.sc__bottom { max-width: 580px; margin: 0 auto; }
+.sc__bottom { max-width: 560px; margin: 0 auto; }
 
 .sc__bottom p {
   margin: 0 0 6px;
@@ -356,8 +313,7 @@
   color: var(--ink-60);
 }
 .sc__bottom-accent {
-  display: block;
-  margin-top: 18px !important;
+  display: block; margin-top: 16px !important;
   font-family: 'Cormorant Garamond', Georgia, serif !important;
   font-size: clamp(22px, 2.2vw, 32px) !important;
   font-style: italic; font-weight: 400 !important; line-height: 1.2 !important;
@@ -365,54 +321,66 @@
 }
 
 /* ================================================================
-  RESPONSIVE
+  RESPONSIVE — mobile keeps the original row layout
 ================================================================ */
 
-@media (max-width: 1100px) {
-  .sc__col-top    { padding: 36px 24px 22px; }
-  .sc__col-body   { padding: 20px 24px 36px; }
-  .sc__col-line   { margin: 0 24px; }
+@media (max-width: 1024px) {
+  .sc__header-wrap { gap: 48px; }
+  .sc__process-item { padding: 40px 28px 44px; }
 }
 
-@media (max-width: 900px) {
-  .sc { padding: 88px 0 0; }
-
-  .sc__header-wrap {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding-bottom: 64px;
-  }
-  .sc__header-right { padding-top: 0; }
-
-  /* 2+3 on tablet */
-  .sc__columns { grid-template-columns: repeat(2, 1fr); }
-  .sc__col { min-height: 300px; border-right: 1px solid rgba(201,169,110,.13); }
-  .sc__col:nth-child(2n) { border-right: none; }
-  .sc__col--last { border-right: none; }
-  .sc__col:nth-child(n+3) { border-top: 1px solid rgba(201,169,110,.13); }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .sc { padding: 80px 0 0; }
 
-  .sc__header-wrap { padding: 0 20px 56px; }
-  .sc__bottom-wrap { padding: 44px 20px 80px; }
-
-  /* Single column on mobile */
-  .sc__columns { grid-template-columns: 1fr; }
-  .sc__col {
-    min-height: auto;
-    flex-direction: row;
-    align-items: center;
-    border-right: none;
-    border-bottom: 1px solid rgba(201,169,110,.13);
+  /* Header: single column, centred */
+  .sc__header-wrap {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0 32px 56px;
+    text-align: center;
   }
-  .sc__col:first-child { border-top: 1px solid rgba(201,169,110,.13); }
-  .sc__col-top    { padding: 20px 20px; flex-shrink: 0; width: 72px; }
-  .sc__col-num    { font-size: 44px; }
-  .sc__col-line   { width: 1px; height: auto; margin: 16px 0; flex-shrink: 0;
-                    background: linear-gradient(180deg, rgba(201,169,110,.35), rgba(201,169,110,.1)); }
-  .sc__col-body   { padding: 20px 20px 20px 16px; }
+  .sc__header-right { padding-top: 24px; }
+  .sc__lead { margin-bottom: 32px; }
+
+  /* Statement: centred on mobile */
+  .sc__statement { align-items: center; gap: 22px; }
+  .sc__statement-text { text-align: center; font-size: clamp(28px, 8vw, 42px); }
+
+  /* Process: back to original mobile rows */
+  .sc__process {
+    grid-template-columns: 1fr;
+    border-top: 1px solid rgba(201,169,110,.18);
+    border-bottom: none;
+  }
+  .sc__process-item {
+    flex-direction: row; align-items: center;
+    padding: 18px 32px; gap: 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(201,169,110,.12);
+  }
+  .sc__process-item:last-child { border-bottom: 1px solid rgba(201,169,110,.18); }
+  .sc__num {
+    font-size: 28px; opacity: 1; margin-bottom: 0;
+    flex-shrink: 0; width: 52px;
+  }
+  .sc__process-item:hover .sc__num { transform: none; }
+  .sc__process-rule {
+    width: 1px; height: 28px; margin: 0 20px 0 0;
+    background: linear-gradient(180deg, rgba(201,169,110,.35), rgba(201,169,110,.1));
+    flex-shrink: 0;
+  }
+  .sc__process-item:hover .sc__process-rule { width: 1px; }
+  .sc__process-item p { font-size: 14px; }
+
+  .sc__bottom-wrap { padding: 48px 32px 80px; }
+}
+
+@media (max-width: 540px) {
+  .sc__header-wrap { padding: 0 20px 48px; }
+  .sc__process-item { padding: 16px 20px; }
+  .sc__num { width: 44px; font-size: 24px; }
+  .sc__process-rule { margin: 0 14px 0 0; }
+  .sc__bottom-wrap { padding: 40px 20px 72px; }
 }
 </style>
 
