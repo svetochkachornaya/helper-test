@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Стоимость участия — Сепарация</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body style="margin:0;background:#f7f3ee;">
+
+<section class="sk" id="separation-packages" aria-labelledby="sk-title">
+
+  <div class="sk__grain" aria-hidden="true"></div>
+
+  <!-- ─── HEADER ─── -->
+  <div class="sk__header" data-sk-reveal>
+    <div class="sk__eyebrow">
+      <span class="sk__pip" aria-hidden="true"></span>
+      Стоимость участия
+    </div>
+    <h2 class="sk__title" id="sk-title">
+      Два формата участия
+      <em class="sk__title-em">выберите свой вариант</em>
+    </h2>
+    <div class="sk__start">Старт 6 мая</div>
+  </div>
+
+  <!-- ─── CARDS ─── -->
+  <div class="sk__grid" data-sk-reveal>
+
+    <!-- Package 1 -->
+    <div class="sk__card">
+      <div class="sk__label">Пакет 1</div>
+      <h3 class="sk__name">Участие в программе</h3>
+
+      <div class="sk__price-wrap">
+        <span class="sk__currency">$</span>
+        <span class="sk__price">45</span>
+      </div>
+
+      <div class="sk__divider" aria-hidden="true"></div>
+
+      <ul class="sk__list" role="list">
+        <li class="sk__item">эфиры с практиками</li>
+        <li class="sk__item">все записи программы</li>
+        <li class="sk__item">общий чат с Евгением</li>
+        <li class="sk__item">вопросы и обратная связь</li>
+        <li class="sk__item">10 проработок</li>
+        <li class="sk__item">5 недель работы</li>
+      </ul>
+
+      <button class="sk__btn" type="button" data-open="popup-basic">
+        Регистрация
+      </button>
+    </div>
+
+    <!-- Package 2 — featured -->
+    <div class="sk__card sk__card--featured">
+      <div class="sk__badge">Рекомендуется</div>
+      <div class="sk__label sk__label--light">Пакет 2</div>
+      <h3 class="sk__name sk__name--light">Программа + архив практик</h3>
+
+      <div class="sk__price-wrap">
+        <span class="sk__currency">$</span>
+        <span class="sk__price">55</span>
+      </div>
+
+      <div class="sk__divider sk__divider--light" aria-hidden="true"></div>
+
+      <ul class="sk__list sk__list--light" role="list">
+        <li class="sk__item sk__item--light">всё из базового пакета</li>
+        <li class="sk__item sk__item--light sk__item--accent">+ 1 месяц архива практик</li>
+      </ul>
+
+      <p class="sk__note">
+        Доступ к архиву практик открывается сразу после оплаты и действует 30 дней.
+      </p>
+
+      <button class="sk__btn sk__btn--light" type="button" data-open="popup-archive">
+        Регистрация
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ─── POPUP 1 ─── -->
+<div class="sk-popup" id="popup-basic" role="dialog" aria-modal="true" aria-label="Участие в программе">
+  <div class="sk-popup__overlay"></div>
+  <div class="sk-popup__box">
+    <button class="sk-popup__close" type="button" aria-label="Закрыть">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <p class="sk-popup__eyebrow">Пакет 1</p>
+    <h3 class="sk-popup__title">Участие в программе</h3>
+    [contact-form-7 id="98f435a" title="Сепарация"]
+  </div>
+</div>
+
+<!-- ─── POPUP 2 ─── -->
+<div class="sk-popup" id="popup-archive" role="dialog" aria-modal="true" aria-label="Программа + архив">
+  <div class="sk-popup__overlay"></div>
+  <div class="sk-popup__box">
+    <button class="sk-popup__close" type="button" aria-label="Закрыть">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <p class="sk-popup__eyebrow">Пакет 2</p>
+    <h3 class="sk-popup__title">Программа + архив практик</h3>
+    [contact-form-7 id="7bd28d8" title="Сепарация с архивом"]
+  </div>
+</div>
+
+
+<style>
+/* ================================================================
+   SEP PACKAGES — two-card pricing
+================================================================ */
+
+.sk {
+  --gold:    #c9a96e;
+  --gold-lt: #e2c98a;
+  --gold-dk: #a07840;
+  --ink:     #1a1714;
+  --ink-55:  rgba(26,23,20,.55);
+  --border:  rgba(201,169,110,.18);
+  --bg:      #f4efe6;
+  --ease:    cubic-bezier(.22,.68,0,1.2);
+}
+
+.sk *, .sk *::before, .sk *::after,
+.sk-popup, .sk-popup * { box-sizing: border-box; margin: 0; padding: 0; }
+
+.sk {
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(ellipse 55% 45% at 50% 0%, rgba(201,169,110,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 10% 90%, rgba(201,169,110,.05) 0%, transparent 50%),
+    linear-gradient(165deg, #f4efe6 0%, #faf8f3 55%, #ede6da 100%);
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+}
+
+.sk__grain {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: .025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+}
+
+/* ══════════════
+   REVEAL
+══════════════ */
+[data-sk-reveal] {
+  opacity: 0; transform: translateY(20px);
+  animation: sk-reveal .75s var(--ease) forwards;
+}
+.sk__header[data-sk-reveal] { animation-delay: .04s; }
+.sk__grid[data-sk-reveal]   { animation-delay: .14s; }
+@keyframes sk-reveal { to { opacity: 1; transform: translateY(0); } }
+
+/* ══════════════
+   HEADER
+══════════════ */
+.sk__header {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  padding: 100px 8vw 72px;
+}
+
+.sk__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 16px; border-radius: 999px;
+  background: rgba(201,169,110,.10); border: 1px solid var(--border);
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+  color: #9c7a3a; font-weight: 500; margin-bottom: 28px;
+}
+.sk__pip {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,.22);
+  flex-shrink: 0; animation: sk-pip 2.4s ease-in-out infinite;
+}
+@keyframes sk-pip {
+  0%,100% { box-shadow: 0 0 0 3px rgba(201,169,110,.22); }
+  50%      { box-shadow: 0 0 0 7px rgba(201,169,110,.05); }
+}
+
+.sk__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(38px, 4.8vw, 72px);
+  font-weight: 600; line-height: 1.04; letter-spacing: -.025em;
+  color: var(--ink); max-width: 820px;
+}
+.sk__title-em {
+  display: block; font-style: italic; font-weight: 400; margin-top: .08em;
+  background: linear-gradient(128deg, var(--gold-lt) 0%, var(--gold) 45%, var(--gold-dk) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sk__start {
+  display: inline-flex; align-items: center;
+  margin-top: 24px;
+  padding: 8px 20px; border-radius: 999px;
+  background: rgba(201,169,110,.10); border: 1px solid var(--border);
+  font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold-dk); font-weight: 600;
+}
+
+/* ══════════════
+   GRID
+══════════════ */
+.sk__grid {
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 0 8vw 100px;
+  align-items: stretch;
+}
+
+/* ══════════════
+   CARDS
+══════════════ */
+.sk__card {
+  position: relative;
+  display: flex; flex-direction: column;
+  padding: 48px 44px 44px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Card 1 — light */
+.sk__card:not(.sk__card--featured) {
+  background: rgba(255,255,255,.6);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(201,169,110,.2);
+  box-shadow: 0 2px 24px rgba(201,169,110,.06), 0 0 0 1px rgba(255,255,255,.7) inset;
+}
+
+/* Card 2 — dark featured */
+.sk__card--featured {
+  background: linear-gradient(150deg, #2c2215 0%, #1e1a0d 100%);
+  border: 1px solid rgba(201,169,110,.25);
+}
+.sk__card--featured::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-lt), var(--gold), var(--gold-lt), transparent);
+}
+.sk__card--featured::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse 70% 55% at 90% 10%, rgba(201,169,110,.08) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.sk__card--featured > * { position: relative; z-index: 1; }
+
+/* Badge */
+.sk__badge {
+  position: absolute; top: 20px; right: 20px; z-index: 2;
+  padding: 5px 12px; border-radius: 999px;
+  border: 1px solid rgba(201,169,110,.3);
+  font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold-lt); font-weight: 600;
+}
+
+/* Label */
+.sk__label {
+  display: inline-flex; align-self: flex-start;
+  padding: 5px 14px; border-radius: 999px; margin-bottom: 20px;
+  background: rgba(201,169,110,.1); border: 1px solid rgba(201,169,110,.2);
+  font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold-dk); font-weight: 600;
+}
+.sk__label--light {
+  background: rgba(201,169,110,.12); border-color: rgba(201,169,110,.25);
+  color: var(--gold-lt);
+}
+
+/* Name */
+.sk__name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(22px, 2.2vw, 32px);
+  font-weight: 600; line-height: 1.1; letter-spacing: -.02em;
+  color: var(--ink); margin-bottom: 28px;
+}
+.sk__name--light { color: rgba(244,239,230,.92); }
+
+/* Price */
+.sk__price-wrap {
+  display: flex; align-items: flex-start; gap: 4px;
+  margin-bottom: 28px;
+}
+.sk__currency {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(22px, 2.2vw, 32px);
+  font-weight: 300; margin-top: .25em;
+  background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dk) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.sk__price {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(64px, 6vw, 96px);
+  font-weight: 300; line-height: 1; letter-spacing: -.04em;
+  background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dk) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Divider */
+.sk__divider {
+  height: 1px; margin-bottom: 24px;
+  background: rgba(201,169,110,.15);
+}
+.sk__divider--light { background: rgba(201,169,110,.2); }
+
+/* List */
+.sk__list { list-style: none; margin-bottom: 32px; }
+
+.sk__item {
+  display: flex; align-items: center; gap: 16px;
+  padding: 11px 0;
+  font-size: clamp(13px, 1.1vw, 15px); font-weight: 300; line-height: 1.5;
+  color: var(--ink);
+  border-bottom: 1px solid rgba(201,169,110,.07);
+}
+.sk__item:last-child { border-bottom: none; }
+.sk__item::before {
+  content: '';
+  display: block; flex-shrink: 0;
+  width: 6px; height: 6px;
+  background: var(--bg); border: 1.5px solid var(--gold);
+  transform: rotate(45deg);
+}
+
+.sk__item--light {
+  color: rgba(244,239,230,.7);
+  border-bottom-color: rgba(201,169,110,.12);
+}
+.sk__item--accent {
+  color: rgba(244,239,230,.92); font-weight: 400;
+}
+.sk__item--accent::before { background: var(--gold); }
+
+/* Note */
+.sk__note {
+  font-size: clamp(12px, 1vw, 13px); font-weight: 300; line-height: 1.7;
+  color: rgba(244,239,230,.4);
+  margin-bottom: 32px; margin-top: auto;
+}
+
+/* Button */
+.sk__btn {
+  width: 100%; padding: 16px 24px;
+  border: none; border-radius: 4px;
+  background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dk) 100%);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  cursor: pointer; margin-top: auto;
+  transition: opacity .2s ease, transform .2s ease, box-shadow .2s ease;
+  box-shadow: 0 4px 20px rgba(201,169,110,.3);
+}
+.sk__btn:hover {
+  opacity: .88; transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(201,169,110,.35);
+}
+
+.sk__btn--light {
+  background: transparent;
+  border: 1px solid rgba(201,169,110,.4);
+  color: var(--gold-lt);
+  box-shadow: none;
+}
+.sk__btn--light:hover {
+  background: rgba(201,169,110,.1);
+  border-color: rgba(201,169,110,.6);
+  box-shadow: none;
+}
+
+/* ================================================================
+   POPUP
+================================================================ */
+.sk-popup {
+  display: none;
+  position: fixed; inset: 0; z-index: 9999;
+  align-items: center; justify-content: center;
+  padding: 24px;
+}
+.sk-popup.active { display: flex; }
+
+.sk-popup__overlay {
+  position: absolute; inset: 0;
+  background: rgba(26,23,20,.65);
+  backdrop-filter: blur(10px);
+}
+
+.sk-popup__box {
+  position: relative; z-index: 2;
+  width: 100%; max-width: 480px;
+  max-height: calc(100vh - 48px); overflow-y: auto;
+  background: #faf8f3;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 52px 44px 44px;
+  box-shadow: 0 32px 80px rgba(26,23,20,.25);
+}
+.sk-popup__box::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-lt), var(--gold), var(--gold-lt), transparent);
+}
+
+.sk-popup__close {
+  position: absolute; top: 16px; right: 16px;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(201,169,110,.08); border: 1px solid var(--border);
+  color: var(--ink-55); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s ease, color .2s ease;
+}
+.sk-popup__close:hover { background: rgba(201,169,110,.15); color: var(--ink); }
+
+.sk-popup__eyebrow {
+  font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold-dk); font-weight: 600; margin-bottom: 10px;
+}
+
+.sk-popup__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 600; line-height: 1.1; letter-spacing: -.02em;
+  color: var(--ink); margin-bottom: 32px;
+}
+
+/* CF7 form fields */
+.sk-popup .wpcf7-form-control-wrap { display: block; margin-bottom: 12px; }
+
+.sk-popup input[type="text"],
+.sk-popup input[type="email"],
+.sk-popup input[type="tel"],
+.sk-popup textarea,
+.sk-popup select {
+  width: 100%; min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid rgba(201,169,110,.25);
+  border-radius: 4px;
+  background: rgba(255,255,255,.7);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px; font-weight: 300; color: var(--ink);
+  outline: none;
+  transition: border-color .2s ease;
+}
+.sk-popup input:focus,
+.sk-popup textarea:focus,
+.sk-popup select:focus { border-color: var(--gold); }
+
+.sk-popup input[type="submit"],
+.sk-popup .wpcf7-submit {
+  width: 100%; min-height: 52px; margin-top: 8px;
+  border: none; border-radius: 4px;
+  background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dk) 100%);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(201,169,110,.3);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.sk-popup input[type="submit"]:hover,
+.sk-popup .wpcf7-submit:hover { opacity: .88; transform: translateY(-1px); }
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+
+@media (max-width: 860px) {
+  .sk__grid { grid-template-columns: 1fr; margin: 0 8vw 80px; }
+  .sk__badge { position: static; align-self: flex-start; margin-bottom: 8px; }
+  .sk__card--featured { padding-top: 32px; }
+}
+
+@media (max-width: 540px) {
+  .sk__header { padding: 80px 20px 56px; }
+  .sk__grid { margin: 0 20px 72px; }
+  .sk__card { padding: 36px 28px 32px; }
+  .sk-popup__box { padding: 44px 28px 32px; }
+}
+</style>
+
+
+<script>
+(function () {
+  document.querySelectorAll('[data-open]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var p = document.getElementById(btn.getAttribute('data-open'));
+      if (p) { p.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    });
+  });
+
+  function closePopup(popup) {
+    popup.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.sk-popup__close, .sk-popup__overlay').forEach(function (el) {
+    el.addEventListener('click', function () { closePopup(el.closest('.sk-popup')); });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.sk-popup.active').forEach(closePopup);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
