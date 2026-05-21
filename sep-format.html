@@ -40,9 +40,9 @@
     </div>
 
     <div class="sfo__stat">
-      <div class="sfo__stat-val sfo__stat-val--word">эфиры</div>
-      <div class="sfo__stat-unit">+ практики</div>
-      <div class="sfo__stat-label">Формат</div>
+      <div class="sfo__stat-val">2</div>
+      <div class="sfo__stat-unit">урока в неделю</div>
+      <div class="sfo__stat-label">Ритм</div>
     </div>
 
     <div class="sfo__stat">
@@ -52,7 +52,7 @@
     </div>
 
     <div class="sfo__stat">
-      <div class="sfo__stat-val">2</div>
+      <div class="sfo__stat-val">3</div>
       <div class="sfo__stat-unit">месяца</div>
       <div class="sfo__stat-label">Доступ</div>
     </div>
@@ -65,21 +65,23 @@
     <div class="sfo__col sfo__col--list" data-sfo-reveal>
       <h3 class="sfo__col-title">В программе есть</h3>
       <ul class="sfo__list" role="list">
-        <li class="sfo__item">живые эфиры с практиками</li>
-        <li class="sfo__item">записи всех встреч</li>
-        <li class="sfo__item">общий чат с участниками</li>
-        <li class="sfo__item">возможность задавать вопросы</li>
-        <li class="sfo__item">обратная связь по процессу</li>
+        <li class="sfo__item">уроки и терапия в записи</li>
+        <li class="sfo__item">ритм — 2 урока в неделю</li>
+        <li class="sfo__item">доступ — 3 месяца с дня покупки</li>
+        <li class="sfo__item sfo__item--has-note">
+          <span class="sfo__item-main">общий чат с участниками</span>
+          <span class="sfo__item-note">делитесь опытом и переживаниями, поддерживайте друг друга, уточняйте у других участников</span>
+        </li>
       </ul>
     </div>
 
     <div class="sfo__col sfo__col--accent" data-sfo-reveal>
-      <span class="sfo__accent-tag">Важно</span>
-      <p class="sfo__accent-lead">Программа живая.</p>
+      <span class="sfo__accent-tag">Опыт</span>
+      <p class="sfo__accent-lead">10 000+ человек</p>
       <p class="sfo__accent-body">
-        Евгений адаптирует процесс под участников:
-        добавляет практики, усиливает темы,
-        разбирает реальные ситуации.
+        В основе программы — опыт Евгения, через которого прошли 10 000+ человек.
+        Он видит сепарацию как микросхему и точно знает,
+        что нужно отсоединить и присоединить, чтобы и в тебя сработало.
       </p>
     </div>
 
@@ -88,8 +90,8 @@
   <!-- ─── BOTTOM ─── -->
   <div class="sfo__bottom" data-sfo-reveal>
     <p class="sfo__bottom-text">
-      Это не просто курс.<br>
-      <em>Это процесс, который подстраивается под тебя.</em>
+      Всё в записи — смотришь когда тебе удобно.<br>
+      <em>В своём темпе, без спешки.</em>
     </p>
   </div>
 
@@ -306,6 +308,14 @@
   transition: background .2s ease;
 }
 .sfo__item:hover::before { background: var(--gold); }
+
+.sfo__item--has-note { align-items: flex-start; }
+.sfo__item-main { display: block; }
+.sfo__item-note {
+  display: block; margin-top: 5px;
+  font-size: 11px; font-weight: 300; line-height: 1.6;
+  color: var(--ink-55);
+}
 
 /* Right: accent warm card */
 .sfo__col--accent {

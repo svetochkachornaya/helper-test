@@ -74,6 +74,24 @@
     </p>
   </div>
 
+  <!-- ─── LINKS ─── -->
+  <div class="sw__links" data-sw-reveal>
+    <p class="sw__links-cta">Посмотри — и возвращайся к нам</p>
+    <p class="sw__links-sub">Как несепарированность влияет на тебя конкретно</p>
+    <div class="sw__links-row">
+      <a class="sw__link-btn" href="ВСТАВЬТЕ_ССЫЛКУ_YOUTUBE" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M21.8 8s-.2-1.5-.85-2.1c-.8-.85-1.7-.85-2.1-.9C15.6 4.8 12 4.8 12 4.8s-3.6 0-6.85.2c-.4.05-1.3.05-2.1.9C2.4 6.5 2.2 8 2.2 8S2 9.75 2 11.5v1.65c0 1.75.2 3.5.2 3.5s.2 1.5.85 2.1c.8.85 1.85.82 2.32.9C6.8 19.9 12 19.9 12 19.9s3.6 0 6.85-.25c.4-.05 1.3-.05 2.1-.9.65-.6.85-2.1.85-2.1S22 15.4 22 13.65V12c0-1.75-.2-4-.2-4z" fill="currentColor"/>
+          <path d="M9.5 15.5v-7l7 3.5-7 3.5z" fill="white"/>
+        </svg>
+        Первый урок курса на YouTube
+      </a>
+      <a class="sw__link-btn sw__link-btn--ghost" href="ВСТАВЬТЕ_ССЫЛКУ_ЭФИРА" target="_blank" rel="noopener">
+        Эфир-диагностика
+      </a>
+    </div>
+  </div>
+
 </section>
 
 
@@ -230,11 +248,61 @@
 ══════════════ */
 .sw__bottom {
   position: relative; z-index: 1;
-  padding: 72px 8vw 100px;
+  padding: 72px 8vw 56px;
   text-align: center;
   border-top: 1px solid var(--border);
   margin-top: 48px;
 }
+
+/* ══════════════
+   LINKS
+══════════════ */
+.sw__links {
+  position: relative; z-index: 1;
+  padding: 48px 8vw 100px;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.sw__links-cta {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(22px, 2.2vw, 34px);
+  font-weight: 400; font-style: italic; line-height: 1.2;
+  color: var(--ink);
+}
+
+.sw__links-sub {
+  font-size: 12px; font-weight: 300; letter-spacing: .04em;
+  color: var(--ink-55); margin-top: -4px;
+}
+
+.sw__links-row {
+  display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+  margin-top: 4px;
+}
+
+.sw__link-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: 4px;
+  background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dk) 100%);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(201,169,110,.3);
+  transition: opacity .2s ease, transform .2s var(--ease);
+}
+.sw__link-btn:hover { opacity: .88; transform: translateY(-2px); }
+
+.sw__link-btn--ghost {
+  background: rgba(255,255,255,.6);
+  border: 1px solid rgba(201,169,110,.3);
+  box-shadow: 0 2px 12px rgba(201,169,110,.08);
+  backdrop-filter: blur(6px);
+  color: var(--gold-dk);
+}
+.sw__link-btn--ghost:hover { background: rgba(255,255,255,.9); }
 
 .sw__bottom-lead {
   font-size: clamp(14px, 1.3vw, 17px);
@@ -265,7 +333,8 @@
   .sw__header { padding: 80px 20px 56px; }
   .sw__track { grid-template-columns: 1fr; padding: 0 20px; }
   .sw__card { padding: 32px 28px 36px; }
-  .sw__bottom { padding: 56px 20px 80px; margin-top: 36px; }
+  .sw__bottom { padding: 56px 20px 48px; margin-top: 36px; }
+  .sw__links { padding: 40px 20px 80px; }
 }
 </style>
 
