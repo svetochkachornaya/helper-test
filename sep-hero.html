@@ -87,6 +87,13 @@
         <a href="#problem" class="sh__btn-ghost">
           Почему это не проходит само
         </a>
+        <a href="https://youtu.be/WFkicxcXO5o" target="_blank" rel="noopener" class="sh__btn-yt">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21.8 8s-.2-1.5-.85-2.1c-.8-.85-1.7-.85-2.1-.9C15.6 4.8 12 4.8 12 4.8s-3.6 0-6.85.2c-.4.05-1.3.05-2.1.9C2.4 6.5 2.2 8 2.2 8S2 9.75 2 11.5v1.65c0 1.75.2 3.5.2 3.5s.2 1.5.85 2.1c.8.85 1.85.82 2.32.9C6.8 19.9 12 19.9 12 19.9s3.6 0 6.85-.25c.4-.05 1.3-.05 2.1-.9.65-.6.85-2.1.85-2.1S22 15.4 22 13.65V12c0-1.75-.2-4-.2-4z" fill="currentColor"/>
+            <path d="M9.5 15.5v-7l7 3.5-7 3.5z" fill="white"/>
+          </svg>
+          Первый урок бесплатно
+        </a>
       </div>
 
       <div class="sh__stats" data-sh-reveal>
@@ -328,6 +335,14 @@
   transition: color .15s ease, border-color .15s ease;
 }
 .sh__btn-ghost:hover { color: var(--ink-60); border-color: rgba(26,23,20,.35); }
+
+.sh__btn-yt {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13px; color: var(--gold-dk); text-decoration: none; font-weight: 500;
+  border-bottom: 1px solid rgba(201,169,110,.3); padding-bottom: 2px;
+  transition: color .15s ease, border-color .15s ease;
+}
+.sh__btn-yt:hover { color: var(--gold); border-color: rgba(201,169,110,.6); }
 
 /* Stats */
 .sh__stats {
