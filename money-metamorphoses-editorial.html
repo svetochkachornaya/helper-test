@@ -6,7 +6,7 @@
 <title>Денежные Метаморфозы</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
 <style>
 
 /* ═══════════════════════════════════════════════
@@ -27,7 +27,7 @@
   --muted:       #7C7258;
   --border:      rgba(155,115,40,.15);
   --cormorant:   'Cormorant Garamond', Georgia, serif;
-  --inter:       'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --inter:       'Cormorant Garamond', Georgia, serif;
 }
 
 /* ═══════════════════════════════════════════════
@@ -476,96 +476,80 @@ a { text-decoration: none; color: inherit; }
 ═══════════════════════════════════════════════ */
 .results { background: var(--bg); }
 .results-head {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 60px;
-  align-items: end;
-  margin-bottom: 80px;
-  padding-bottom: 40px;
+  padding-bottom: 48px;
   border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
 }
-.results-big-num {
-  font-family: var(--cormorant);
-  font-size: clamp(80px, 12vw, 160px);
-  font-weight: 300;
-  color: rgba(155,115,40,.08);
-  line-height: 1;
-  letter-spacing: -0.04em;
-  user-select: none;
-}
-.results-grid {
+.results-list {}
+.res-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-}
-.res-item {
-  padding: 44px 48px 44px 0;
+  grid-template-columns: 72px 1fr;
+  gap: 40px;
+  padding: 44px 0;
   border-bottom: 1px solid var(--border);
-  position: relative;
-  transition: padding-left .3s;
+  align-items: start;
+  transition: background .2s;
 }
-.res-item:nth-child(odd)  { border-right: 1px solid var(--border); padding-right: 48px; }
-.res-item:nth-child(even) { padding-left: 48px; padding-right: 0; }
-.res-item:nth-last-child(-n+2) { border-bottom: none; }
-.res-item:hover { background: var(--gold-pale); }
-.res-item-num {
+.res-row:hover { background: var(--gold-pale); }
+.res-num {
   font-family: var(--cormorant);
   font-size: 13px;
+  font-weight: 400;
   color: var(--gold);
   letter-spacing: 2px;
-  margin-bottom: 14px;
-  display: block;
+  padding-top: 6px;
 }
-.res-item .serif-md { margin-bottom: 10px; line-height: 1.3; }
-.res-item p { font-size: 13px; color: var(--muted); line-height: 1.8; }
-.res-item-5 {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 48px;
-  align-items: center;
-  padding: 44px 0 0;
-  border-right: none !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+.res-title {
+  font-family: var(--cormorant);
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.15;
+}
+.res-desc {
+  font-family: var(--cormorant);
+  font-size: clamp(15px, 1.7vw, 18px);
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.78;
 }
 
 /* ═══════════════════════════════════════════════
    6. PHILOSOPHY — pull-quote
 ═══════════════════════════════════════════════ */
 .philosophy { background: var(--bg-2); }
-.phil-items { margin-top: 72px; }
+.phil-items { margin-top: 64px; }
 .phil-item {
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 48px;
   padding: 56px 0;
   border-bottom: 1px solid var(--border);
-  align-items: start;
+  max-width: 720px;
 }
 .phil-item:last-child { border-bottom: none; }
 .phil-n {
   font-family: var(--cormorant);
-  font-size: 64px;
-  font-weight: 300;
-  color: rgba(155,115,40,.18);
-  line-height: 1;
-  padding-top: 6px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 24px;
 }
-.phil-body {}
 .phil-title {
   font-family: var(--cormorant);
-  font-size: clamp(22px, 2.8vw, 32px);
+  font-size: clamp(26px, 3.5vw, 44px);
   font-weight: 400;
   color: var(--ink);
-  margin-bottom: 16px;
-  line-height: 1.2;
+  margin-bottom: 20px;
+  line-height: 1.1;
 }
 .phil-text {
-  font-size: 14px;
+  font-family: var(--cormorant);
+  font-size: clamp(16px, 1.8vw, 19px);
+  font-weight: 300;
   color: var(--muted);
   line-height: 1.9;
-  max-width: 540px;
 }
 
 /* ═══════════════════════════════════════════════
@@ -1034,11 +1018,6 @@ a { text-decoration: none; color: inherit; }
 @media (max-width: 840px) {
   .fw-header     { grid-template-columns: 1fr; gap: 24px; }
   .problem-grid  { grid-template-columns: 1fr; gap: 40px; }
-  .results-head  { grid-template-columns: 1fr; gap: 16px; }
-  .results-grid  { grid-template-columns: 1fr; }
-  .res-item:nth-child(odd)  { border-right: none; padding-right: 0; }
-  .res-item:nth-child(even) { padding-left: 0; }
-  .res-item-5    { grid-template-columns: 1fr; gap: 16px; }
   .tools-head    { grid-template-columns: 1fr; gap: 24px; }
   .energy-grid   { grid-template-columns: 1fr; }
   .energy-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
@@ -1059,13 +1038,35 @@ a { text-decoration: none; color: inherit; }
   .ht1     { font-size: clamp(56px, 13vw, 80px); }
   .ht2     { font-size: clamp(48px, 11vw, 72px); margin-left: 24px; }
   .hero-corner, .hero-corner-bl { display: none; }
-  .phil-item     { grid-template-columns: 40px 1fr; gap: 20px; }
-  .phil-n        { font-size: 40px; }
+  .phil-item     { padding: 40px 0; }
+  .phil-title    { font-size: clamp(22px, 6vw, 34px); }
   .tool-item     { grid-template-columns: 48px 1fr; gap: 20px; }
   .free-box      { padding: 40px 24px; }
   .month-card    { padding: 44px 28px; }
   .keynote       { padding: 80px 0; }
 }
+
+/* ─── Cormorant single-font size corrections ─── */
+/* Inter was rendered smaller — bump up sizes for small-scale UI */
+.label               { font-size: 13px; letter-spacing: 2.5px; }
+.stat-label          { font-size: 13px; letter-spacing: 2px; }
+.btn-fill            { font-size: 16px; letter-spacing: 1.5px; }
+.btn-bare            { font-size: 15px; }
+.btn-outline-dark    { font-size: 15px; letter-spacing: 1px; }
+.header-cta          { font-size: 14px; letter-spacing: 1.5px; }
+.hero-eyebrow        { font-size: 13px; letter-spacing: 2.5px; }
+.body-sm             { font-size: 15px; }
+.testi-role          { font-size: 13px; letter-spacing: 1.5px; }
+.month-tag           { font-size: 13px; letter-spacing: 2px; }
+.tool-num            { font-size: 13px; letter-spacing: 2px; }
+.path-tag            { font-size: 13px; letter-spacing: 2px; }
+.footer-doc          { font-size: 13px; letter-spacing: 1px; }
+.footer-copy         { font-size: 13px; }
+.footer-tagline      { font-size: 14px; }
+.contact-handle      { font-size: 15px; }
+.free-badge          { font-size: 13px; letter-spacing: 2px; }
+.testi-footnote      { font-size: 16px; }
+.energy-col-label    { font-size: 13px; letter-spacing: 2px; }
 
 /* ═══════════════════════════════════════════
    SITE HEADER
@@ -1520,39 +1521,44 @@ a { text-decoration: none; color: inherit; }
 ═══════════════════════════════════════════ -->
 <section class="sec results" id="results">
   <div class="wrap">
-    <div class="results-head">
-      <div class="results-big-num r">5</div>
-      <div class="r d1">
-        <span class="label">Результат</span>
-        <h2 class="serif-xl" style="margin-top:16px;">Что вы получите</h2>
-      </div>
+    <div class="results-head r">
+      <span class="label">Результат</span>
+      <h2 class="serif-xl" style="margin-top:16px;">Что вы получите</h2>
     </div>
-    <div class="results-grid">
-      <div class="res-item r">
-        <span class="res-item-num">01</span>
-        <h3 class="serif-md">Эмоциональный покой</h3>
-        <p>Вы перестанете жить в постоянном ожидании проблем и потерь.</p>
-      </div>
-      <div class="res-item r d1">
-        <span class="res-item-num">02</span>
-        <h3 class="serif-md">Новую финансовую идентичность</h3>
-        <p>Рост перестанет восприниматься как опасность или подвиг.</p>
-      </div>
-      <div class="res-item r d2">
-        <span class="res-item-num">03</span>
-        <h3 class="serif-md">Синхронизацию желаний и действий</h3>
-        <p>Внутренний конфликт между «хочу» и «страшно» исчезнет.</p>
-      </div>
-      <div class="res-item r d3">
-        <span class="res-item-num">04</span>
-        <h3 class="serif-md">Энергию для реализации</h3>
-        <p>Силы перестанут уходить на тревогу, внутреннюю борьбу и самосаботаж.</p>
-      </div>
-      <div class="res-item res-item-5 r d4">
-        <span class="res-item-num">05</span>
+    <div class="results-list">
+      <div class="res-row r">
+        <span class="res-num">01</span>
         <div>
-          <h3 class="serif-md">Авторскую позицию</h3>
-          <p>Вы перестанете ждать разрешения, удачного момента или внешнего одобрения.</p>
+          <h3 class="res-title">Эмоциональный покой</h3>
+          <p class="res-desc">Вы перестанете жить в постоянном ожидании проблем и потерь.</p>
+        </div>
+      </div>
+      <div class="res-row r d1">
+        <span class="res-num">02</span>
+        <div>
+          <h3 class="res-title">Новую финансовую идентичность</h3>
+          <p class="res-desc">Рост перестанет восприниматься как опасность или подвиг.</p>
+        </div>
+      </div>
+      <div class="res-row r d2">
+        <span class="res-num">03</span>
+        <div>
+          <h3 class="res-title">Синхронизацию желаний и действий</h3>
+          <p class="res-desc">Внутренний конфликт между «хочу» и «страшно» исчезнет.</p>
+        </div>
+      </div>
+      <div class="res-row r d3">
+        <span class="res-num">04</span>
+        <div>
+          <h3 class="res-title">Энергию для реализации</h3>
+          <p class="res-desc">Силы перестанут уходить на тревогу, внутреннюю борьбу и самосаботаж.</p>
+        </div>
+      </div>
+      <div class="res-row r d4">
+        <span class="res-num">05</span>
+        <div>
+          <h3 class="res-title">Авторскую позицию</h3>
+          <p class="res-desc">Вы перестанете ждать разрешения, удачного момента или внешнего одобрения.</p>
         </div>
       </div>
     </div>
@@ -1570,25 +1576,19 @@ a { text-decoration: none; color: inherit; }
     </div>
     <div class="phil-items">
       <div class="phil-item r">
-        <div class="phil-n">1</div>
-        <div class="phil-body">
-          <h3 class="phil-title">Сначала состояние — потом результат</h3>
-          <p class="phil-text">Когда человек действует из тревоги и дефицита — он сам разрушает собственный рост. Когда появляется внутреннее расширение и устойчивость — деньги становятся следствием нового состояния.</p>
-        </div>
+        <span class="phil-n">Принцип 01</span>
+        <h3 class="phil-title">Сначала состояние — потом результат</h3>
+        <p class="phil-text">Когда человек действует из тревоги и дефицита — он сам разрушает собственный рост. Когда появляется внутреннее расширение и устойчивость — деньги становятся следствием нового состояния.</p>
       </div>
       <div class="phil-item r d1">
-        <div class="phil-n">2</div>
-        <div class="phil-body">
-          <h3 class="phil-title">Главная валюта — энергия и интерес</h3>
-          <p class="phil-text">Невозможно долго расти через насилие над собой. Настоящий финансовый рост начинается там, где появляется живой интерес, драйв и внутреннее разрешение хотеть большего.</p>
-        </div>
+        <span class="phil-n">Принцип 02</span>
+        <h3 class="phil-title">Главная валюта — энергия и интерес</h3>
+        <p class="phil-text">Невозможно долго расти через насилие над собой. Настоящий финансовый рост начинается там, где появляется живой интерес, драйв и внутреннее разрешение хотеть большего.</p>
       </div>
       <div class="phil-item r d2">
-        <div class="phil-n">3</div>
-        <div class="phil-body">
-          <h3 class="phil-title">Действие должно быть свободным, а не вынужденным</h3>
-          <p class="phil-text">Курс не учит «визуализировать миллионы». Он убирает внутреннее сопротивление, которое мешает вам делать нужные действия спокойно, точно и системно.</p>
-        </div>
+        <span class="phil-n">Принцип 03</span>
+        <h3 class="phil-title">Действие должно быть свободным, а не вынужденным</h3>
+        <p class="phil-text">Курс не учит «визуализировать миллионы». Он убирает внутреннее сопротивление, которое мешает вам делать нужные действия спокойно, точно и системно.</p>
       </div>
     </div>
   </div>
