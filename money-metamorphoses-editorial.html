@@ -385,10 +385,11 @@ a { text-decoration: none; color: inherit; }
 .fw-list li:first-child { border-top: 1px solid var(--border); }
 .fw-num {
   font-family: var(--cormorant);
-  font-size: 13px;
-  font-weight: 400;
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 300;
   color: var(--gold);
-  padding-top: 3px;
+  line-height: 1;
+  padding-top: 4px;
   letter-spacing: 1px;
 }
 .fw-text {
@@ -493,10 +494,11 @@ a { text-decoration: none; color: inherit; }
 .res-row:hover { background: var(--gold-pale); }
 .res-num {
   font-family: var(--cormorant);
-  font-size: 13px;
-  font-weight: 400;
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 300;
   color: var(--gold);
-  letter-spacing: 2px;
+  line-height: 1;
+  letter-spacing: 1px;
   padding-top: 6px;
 }
 .res-title {
@@ -528,7 +530,7 @@ a { text-decoration: none; color: inherit; }
 .phil-item:last-child { border-bottom: none; }
 .phil-n {
   font-family: var(--cormorant);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 400;
   color: var(--gold);
   letter-spacing: 3px;
@@ -659,11 +661,12 @@ a { text-decoration: none; color: inherit; }
 .tool-item:last-child { border-bottom: none; }
 .tool-n {
   font-family: var(--cormorant);
-  font-size: 13px;
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 300;
   color: var(--gold);
-  letter-spacing: 2px;
+  line-height: 1;
+  letter-spacing: 1px;
   padding-top: 5px;
-  font-weight: 400;
 }
 .tool-body {}
 .tool-name {
@@ -703,7 +706,7 @@ a { text-decoration: none; color: inherit; }
   font-family: var(--cormorant);
   font-size: 80px;
   font-weight: 300;
-  color: rgba(255,255,255,.06);
+  color: rgba(155,115,40,.45);
   line-height: 1;
   letter-spacing: -0.03em;
   text-align: right;
@@ -712,7 +715,7 @@ a { text-decoration: none; color: inherit; }
 }
 .path-body { padding-left: 0; }
 .path-tag {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--gold-lt);
