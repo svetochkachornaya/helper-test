@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Денежные Метаморфозы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════ */
+:root {
+  --bg:          #F2EDE1;
+  --bg-2:        #E8E2D2;
+  --bg-warm:     #FAF7F0;
+  --dark:        #17140C;
+  --dark-2:      #211D14;
+  --gold:        #9B7328;
+  --gold-lt:     #C09035;
+  --gold-pale:   rgba(155,115,40,.09);
+  --gold-line:   rgba(155,115,40,.2);
+  --ink:         #1A1710;
+  --text:        #3C3825;
+  --muted:       #7C7258;
+  --border:      rgba(155,115,40,.15);
+  --cormorant:   'Cormorant Garamond', Georgia, serif;
+  --inter:       'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ═══════════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--inter);
+  font-weight: 300;
+  line-height: 1.78;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+
+/* ═══════════════════════════════════════════════
+   PROGRESS BAR
+═══════════════════════════════════════════════ */
+#pgbar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 1px;
+  width: 0%;
+  background: var(--gold);
+  z-index: 9999;
+  transition: width .08s linear;
+}
+
+/* ═══════════════════════════════════════════════
+   REVEAL ANIMATION
+═══════════════════════════════════════════════ */
+.r {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .9s cubic-bezier(.16,1,.3,1),
+              transform .9s cubic-bezier(.16,1,.3,1);
+}
+.r.in { opacity: 1; transform: translateY(0); }
+.r.d1 { transition-delay: .1s; }
+.r.d2 { transition-delay: .22s; }
+.r.d3 { transition-delay: .36s; }
+.r.d4 { transition-delay: .5s; }
+.r.d5 { transition-delay: .64s; }
+
+/* ═══════════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════════ */
+.wrap    { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+.wrap-sm { max-width: 680px; margin: 0 auto; padding: 0 40px; }
+.sec     { padding: 120px 0; }
+.sec-sm  { padding: 80px 0; }
+
+/* ═══════════════════════════════════════════════
+   TYPOGRAPHY UTILITIES
+═══════════════════════════════════════════════ */
+.label {
+  font-family: var(--inter);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.serif-xl {
+  font-family: var(--cormorant);
+  font-size: clamp(42px, 5.5vw, 72px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.serif-lg {
+  font-family: var(--cormorant);
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.serif-md {
+  font-family: var(--cormorant);
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 400;
+  color: var(--ink);
+}
+.body-sm { font-size: 14px; line-height: 1.85; color: var(--muted); }
+.gold    { color: var(--gold); }
+.muted   { color: var(--muted); }
+.center  { text-align: center; }
+
+/* ═══════════════════════════════════════════════
+   THIN RULE
+═══════════════════════════════════════════════ */
+.rule { width: 100%; height: 1px; background: var(--border); }
+.rule-gold { width: 48px; height: 1px; background: var(--gold); }
+.rule-full-gold {
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, var(--gold) 0%, transparent 60%);
+}
+
+/* ═══════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════ */
+.btn-fill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  font-family: var(--inter);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--bg-warm);
+  background: var(--ink);
+  padding: 18px 48px;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: color .35s;
+}
+.btn-fill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: translateX(-101%);
+  transition: transform .4s cubic-bezier(.4,0,.2,1);
+}
+.btn-fill:hover::before { transform: translateX(0); }
+.btn-fill span { position: relative; z-index: 1; }
+
+.btn-bare {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--inter);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  transition: color .3s, border-color .3s;
+}
+.btn-bare:hover { color: var(--gold); border-color: var(--gold); }
+
+.btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--inter);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid rgba(60,50,20,.25);
+  padding: 16px 40px;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  transition: color .35s;
+}
+.btn-outline-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  transform: translateY(101%);
+  transition: transform .4s cubic-bezier(.4,0,.2,1);
+}
+.btn-outline-dark:hover { color: var(--bg-warm); }
+.btn-outline-dark:hover::before { transform: translateY(0); }
+.btn-outline-dark span { position: relative; z-index: 1; }
+
+/* ═══════════════════════════════════════════════
+   1. HERO
+═══════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+}
+.hero-blob {
+  position: absolute;
+  top: -15%;
+  right: -5%;
+  width: 55%;
+  height: 130%;
+  background: radial-gradient(ellipse 60% 70% at 60% 40%,
+    rgba(155,115,40,.065) 0%, transparent 65%);
+  will-change: transform;
+  pointer-events: none;
+}
+.hero-corner {
+  position: absolute;
+  top: 48px; right: 48px;
+  width: 80px; height: 80px;
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  pointer-events: none;
+}
+.hero-corner-bl {
+  position: absolute;
+  bottom: 48px; left: 48px;
+  width: 80px; height: 80px;
+  border-bottom: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative;
+  padding: 60px 0;
+}
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+.hero-eyebrow-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.hero-title-wrap {
+  margin-bottom: 40px;
+  will-change: transform;
+}
+.ht1 {
+  font-family: var(--cormorant);
+  font-size: clamp(80px, 12vw, 148px);
+  font-weight: 400;
+  line-height: 0.92;
+  color: var(--ink);
+  letter-spacing: -0.025em;
+  display: block;
+}
+.ht2 {
+  font-family: var(--cormorant);
+  font-size: clamp(72px, 11vw, 136px);
+  font-weight: 300;
+  line-height: 0.92;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  display: block;
+  margin-left: clamp(40px, 8vw, 120px);
+}
+.ht2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hero-rule {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold) 0%, transparent 55%);
+  margin-bottom: 36px;
+}
+.hero-subtitle {
+  font-family: var(--cormorant);
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+  max-width: 520px;
+  margin-bottom: 48px;
+  line-height: 1.6;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  flex-wrap: wrap;
+  margin-bottom: 64px;
+}
+.hero-tags {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.hero-tags span {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-family: var(--inter);
+}
+.hero-tags .sep { color: var(--gold); opacity: .5; }
+
+/* ═══════════════════════════════════════════════
+   2. STATS STRIP
+═══════════════════════════════════════════════ */
+.stats-strip {
+  background: var(--ink);
+  padding: 0;
+  overflow: hidden;
+}
+.stats-inner {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr;
+  align-items: stretch;
+}
+.stat-divider { background: rgba(255,255,255,.08); }
+.stat-item {
+  padding: 56px 56px;
+  text-align: center;
+  position: relative;
+}
+.stat-num {
+  font-family: var(--cormorant);
+  font-size: clamp(52px, 7vw, 88px);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-num em { font-style: normal; color: var(--gold-lt); }
+.stat-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  font-family: var(--inter);
+  font-weight: 400;
+}
+
+/* ═══════════════════════════════════════════════
+   3. FOR WHOM
+═══════════════════════════════════════════════ */
+.for-whom { background: var(--bg-warm); }
+.fw-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+  margin-bottom: 72px;
+}
+.fw-list { list-style: none; }
+.fw-list li {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 24px;
+  align-items: start;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  transition: background .2s;
+}
+.fw-list li:first-child { border-top: 1px solid var(--border); }
+.fw-num {
+  font-family: var(--cormorant);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gold);
+  padding-top: 3px;
+  letter-spacing: 1px;
+}
+.fw-text {
+  font-family: var(--cormorant);
+  font-size: clamp(17px, 2vw, 21px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════
+   4. PROBLEM — dark chapter
+═══════════════════════════════════════════════ */
+.problem { background: var(--dark); padding: 120px 0; }
+.problem .label { color: rgba(155,115,40,.7); }
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  margin-top: 60px;
+}
+.problem-quote {
+  font-family: var(--cormorant);
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(250,247,240,.85);
+  line-height: 1.45;
+  position: relative;
+  padding-left: 28px;
+}
+.problem-quote::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--gold);
+  opacity: .6;
+}
+.problem-body { padding-top: 8px; }
+.problem-body .body-sm {
+  color: rgba(250,247,240,.45);
+  margin-bottom: 28px;
+  line-height: 1.9;
+  font-size: 14px;
+}
+.problem-triggers {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.problem-triggers li {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  font-size: 14px;
+  color: rgba(250,247,240,.5);
+  font-family: var(--inter);
+  font-weight: 300;
+  letter-spacing: .3px;
+}
+.problem-triggers li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: .6;
+}
+.problem-footer {
+  margin-top: 32px;
+  font-family: var(--cormorant);
+  font-style: italic;
+  font-size: 16px;
+  color: rgba(250,247,240,.3);
+  line-height: 1.65;
+}
+
+/* ═══════════════════════════════════════════════
+   5. RESULTS
+═══════════════════════════════════════════════ */
+.results { background: var(--bg); }
+.results-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 60px;
+  align-items: end;
+  margin-bottom: 80px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+.results-big-num {
+  font-family: var(--cormorant);
+  font-size: clamp(80px, 12vw, 160px);
+  font-weight: 300;
+  color: rgba(155,115,40,.08);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  user-select: none;
+}
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.res-item {
+  padding: 44px 48px 44px 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  transition: padding-left .3s;
+}
+.res-item:nth-child(odd)  { border-right: 1px solid var(--border); padding-right: 48px; }
+.res-item:nth-child(even) { padding-left: 48px; padding-right: 0; }
+.res-item:nth-last-child(-n+2) { border-bottom: none; }
+.res-item:hover { background: var(--gold-pale); }
+.res-item-num {
+  font-family: var(--cormorant);
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+  display: block;
+}
+.res-item .serif-md { margin-bottom: 10px; line-height: 1.3; }
+.res-item p { font-size: 13px; color: var(--muted); line-height: 1.8; }
+.res-item-5 {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 44px 0 0;
+  border-right: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* ═══════════════════════════════════════════════
+   6. PHILOSOPHY — pull-quote
+═══════════════════════════════════════════════ */
+.philosophy { background: var(--bg-2); }
+.phil-items { margin-top: 72px; }
+.phil-item {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 48px;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.phil-item:last-child { border-bottom: none; }
+.phil-n {
+  font-family: var(--cormorant);
+  font-size: 64px;
+  font-weight: 300;
+  color: rgba(155,115,40,.18);
+  line-height: 1;
+  padding-top: 6px;
+}
+.phil-body {}
+.phil-title {
+  font-family: var(--cormorant);
+  font-size: clamp(22px, 2.8vw, 32px);
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.phil-text {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.9;
+  max-width: 540px;
+}
+
+/* ═══════════════════════════════════════════════
+   7. ENERGY
+═══════════════════════════════════════════════ */
+.energy { background: var(--bg-warm); }
+.energy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+}
+.energy-col {
+  padding: 64px 56px;
+}
+.energy-col:first-child {
+  border-right: 1px solid var(--border);
+}
+.energy-col-label {
+  font-size: 10px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-family: var(--inter);
+  font-weight: 500;
+  margin-bottom: 28px;
+  display: block;
+}
+.energy-quote-text {
+  font-family: var(--cormorant);
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.45;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.energy-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.energy-list li {
+  font-size: 14px;
+  color: var(--muted);
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.65;
+}
+.energy-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 11px;
+  top: 3px;
+}
+.energy-check {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.energy-check li {
+  display: flex;
+  gap: 16px;
+  font-size: 15px;
+  font-family: var(--cormorant);
+  font-weight: 400;
+  color: var(--ink);
+  align-items: flex-start;
+  line-height: 1.4;
+}
+.energy-check .ck {
+  color: var(--gold);
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-family: var(--inter);
+}
+
+/* ═══════════════════════════════════════════════
+   8. TOOLS
+═══════════════════════════════════════════════ */
+.tools { background: var(--bg); }
+.tools-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+}
+.tool-item {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 36px;
+  padding: 44px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+  transition: background .2s;
+}
+.tool-item:last-child { border-bottom: none; }
+.tool-n {
+  font-family: var(--cormorant);
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  padding-top: 5px;
+  font-weight: 400;
+}
+.tool-body {}
+.tool-name {
+  font-family: var(--cormorant);
+  font-size: clamp(20px, 2.4vw, 27px);
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+.tool-desc { font-size: 14px; color: var(--muted); line-height: 1.85; }
+
+/* ═══════════════════════════════════════════════
+   9. PATH — 60-day steps
+═══════════════════════════════════════════════ */
+.path { background: var(--dark); }
+.path .label { color: rgba(155,115,40,.65); }
+.path-steps { margin-top: 72px; }
+.path-step {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 60px;
+  align-items: start;
+  padding: 64px 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  position: relative;
+}
+.path-step:last-child { border-bottom: none; }
+.path-step::before {
+  content: '';
+  position: absolute;
+  left: 100px; top: 0; bottom: 0;
+  width: 1px;
+  background: rgba(155,115,40,.15);
+}
+.path-step-num {
+  font-family: var(--cormorant);
+  font-size: 80px;
+  font-weight: 300;
+  color: rgba(255,255,255,.06);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-align: right;
+  padding-top: 4px;
+  user-select: none;
+}
+.path-body { padding-left: 0; }
+.path-tag {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  font-family: var(--inter);
+  font-weight: 400;
+  margin-bottom: 16px;
+  display: block;
+}
+.path-title {
+  font-family: var(--cormorant);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 400;
+  color: rgba(250,247,240,.9);
+  margin-bottom: 18px;
+  line-height: 1.15;
+}
+.path-intro { font-size: 14px; color: rgba(250,247,240,.4); margin-bottom: 24px; line-height: 1.8; }
+.path-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.path-list li {
+  font-size: 14px;
+  color: rgba(250,247,240,.45);
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.65;
+  font-weight: 300;
+}
+.path-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 11px;
+  opacity: .6;
+  top: 3px;
+}
+
+/* ═══════════════════════════════════════════════
+   10. FREE MODULE
+═══════════════════════════════════════════════ */
+.free { background: var(--bg-warm); }
+.free-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding: 80px 72px;
+  border: 1px solid var(--border);
+}
+.free-left {}
+.free-badge {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: var(--inter);
+  color: var(--bg-warm);
+  background: var(--gold);
+  padding: 6px 16px;
+  margin-bottom: 28px;
+}
+.free-title {
+  font-family: var(--cormorant);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.free-sub {
+  font-family: var(--cormorant);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--gold);
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+.free-right {}
+.free-benefits {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 40px;
+}
+.free-benefits li {
+  display: flex;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  align-items: flex-start;
+}
+.free-benefits li:first-child { border-top: 1px solid var(--border); }
+.free-benefits li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-top: 8px;
+}
+.free-note {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 36px;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════
+   11. FINAL CTA
+═══════════════════════════════════════════════ */
+.final { background: var(--bg); padding: 120px 0 100px; }
+.final-inner {
+  max-width: 640px;
+}
+.final-eyebrow { margin-bottom: 32px; }
+.final-quote {
+  font-family: var(--cormorant);
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.25;
+  margin-bottom: 24px;
+}
+.final-quote em { font-style: italic; color: var(--gold); }
+.final-sub {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-bottom: 52px;
+  max-width: 460px;
+}
+.final-rule { width: 100%; height: 1px; background: var(--border); margin-bottom: 52px; }
+
+/* ═══════════════════════════════════════════════
+   12. START GUIDE
+═══════════════════════════════════════════════ */
+.start { background: var(--bg-2); }
+.start-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-top: 64px;
+}
+.start-col-head {
+  font-size: 10px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-family: var(--inter);
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+.start-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.start-list li {
+  display: flex;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  align-items: flex-start;
+}
+.start-list li:first-child { border-top: 1px solid var(--border); }
+.start-list li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: .6;
+  margin-top: 8px;
+}
+
+/* ═══════════════════════════════════════════════
+   13. MONTHS
+═══════════════════════════════════════════════ */
+.months { background: var(--bg-warm); }
+.months-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-top: 64px;
+}
+.month-card {
+  background: var(--bg-warm);
+  padding: 56px 52px;
+  position: relative;
+  transition: background .3s;
+}
+.month-card:hover { background: var(--bg-warm); }
+.month-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+.month-tag {
+  font-size: 10px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-family: var(--inter);
+  font-weight: 500;
+  margin-bottom: 20px;
+  display: block;
+}
+.month-title {
+  font-family: var(--cormorant);
+  font-size: clamp(22px, 2.8vw, 32px);
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.month-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-bottom: 28px;
+}
+.month-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+.month-list li {
+  font-size: 13px;
+  color: var(--muted);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.6;
+}
+.month-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 10px;
+  top: 3px;
+}
+.month-rule { height: 1px; background: var(--border); margin: 28px 0; }
+.month-checks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.month-checks li {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  align-items: flex-start;
+}
+.month-checks .ck { color: var(--gold); font-size: 12px; flex-shrink: 0; margin-top: 2px; }
+
+/* ═══════════════════════════════════════════════
+   14. KEYNOTE — closing dark
+═══════════════════════════════════════════════ */
+.keynote { background: var(--dark); padding: 120px 0; }
+.keynote-inner { max-width: 720px; }
+.keynote-label { color: rgba(155,115,40,.6); margin-bottom: 48px; }
+.keynote-line {
+  font-family: var(--cormorant);
+  font-size: clamp(24px, 3.5vw, 44px);
+  font-weight: 300;
+  color: rgba(250,247,240,.75);
+  line-height: 1.45;
+  margin-bottom: 16px;
+}
+.keynote-line em { font-style: italic; color: var(--gold-lt); }
+.keynote-rule {
+  width: 60px; height: 1px;
+  background: rgba(155,115,40,.3);
+  margin: 52px 0;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media (max-width: 840px) {
+  .fw-header     { grid-template-columns: 1fr; gap: 24px; }
+  .problem-grid  { grid-template-columns: 1fr; gap: 40px; }
+  .results-head  { grid-template-columns: 1fr; gap: 16px; }
+  .results-grid  { grid-template-columns: 1fr; }
+  .res-item:nth-child(odd)  { border-right: none; padding-right: 0; }
+  .res-item:nth-child(even) { padding-left: 0; }
+  .res-item-5    { grid-template-columns: 1fr; gap: 16px; }
+  .tools-head    { grid-template-columns: 1fr; gap: 24px; }
+  .energy-grid   { grid-template-columns: 1fr; }
+  .energy-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+  .path-step     { grid-template-columns: 60px 1fr; gap: 28px; }
+  .path-step::before { left: 60px; }
+  .path-step-num { font-size: 44px; }
+  .free-box      { grid-template-columns: 1fr; gap: 48px; padding: 48px 36px; }
+  .start-grid    { grid-template-columns: 1fr; gap: 40px; }
+  .months-grid   { grid-template-columns: 1fr; gap: 0; }
+  .stat-item     { padding: 36px 24px; }
+  .stats-inner   { grid-template-columns: 1fr; }
+  .stat-divider  { display: none; }
+}
+@media (max-width: 600px) {
+  .wrap    { padding: 0 24px; }
+  .wrap-sm { padding: 0 24px; }
+  .sec     { padding: 80px 0; }
+  .ht1     { font-size: clamp(56px, 13vw, 80px); }
+  .ht2     { font-size: clamp(48px, 11vw, 72px); margin-left: 24px; }
+  .hero-corner, .hero-corner-bl { display: none; }
+  .phil-item     { grid-template-columns: 40px 1fr; gap: 20px; }
+  .phil-n        { font-size: 40px; }
+  .tool-item     { grid-template-columns: 48px 1fr; gap: 20px; }
+  .free-box      { padding: 40px 24px; }
+  .month-card    { padding: 44px 28px; }
+  .keynote       { padding: 80px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- Progress bar -->
+<div id="pgbar"></div>
+
+<!-- ═══════════════════════════════════════════
+     1. HERO
+═══════════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-blob" id="heroBlob"></div>
+  <div class="hero-corner"></div>
+  <div class="hero-corner-bl"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+
+      <div class="hero-eyebrow r">
+        <span class="hero-eyebrow-dot"></span>
+        <span class="label" style="color:var(--gold);">Авторский курс</span>
+        <span style="color:var(--gold);opacity:.4;">·</span>
+        <span class="label" style="color:var(--gold);">60 дней</span>
+        <span class="hero-eyebrow-dot"></span>
+      </div>
+
+      <div class="hero-title-wrap" id="heroTitle">
+        <span class="ht1 r d1">Денежные</span>
+        <span class="ht2 r d2"><em>Метаморфозы</em></span>
+      </div>
+
+      <div class="hero-rule r d3"></div>
+
+      <p class="hero-subtitle r d3">
+        Системный выход из финансовых тупиков<br>без выгорания и вечной тревоги
+      </p>
+
+      <div class="hero-actions r d4">
+        <a href="#free-module" class="btn-fill"><span>Начать бесплатно</span></a>
+        <a href="#about" class="btn-bare">О курсе <span>↓</span></a>
+      </div>
+
+      <div class="hero-tags r d5">
+        <span>внутренний покой</span>
+        <span class="sep">·</span>
+        <span>энергия без насилия</span>
+        <span class="sep">·</span>
+        <span>рост без откатов</span>
+        <span class="sep">·</span>
+        <span>деньги без угрозы</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     2. STATS STRIP
+═══════════════════════════════════════════ -->
+<div class="stats-strip">
+  <div class="wrap" style="padding:0;">
+    <div class="stats-inner">
+      <div class="stat-item r">
+        <div class="stat-num"><em>60</em></div>
+        <div class="stat-label">дней трансформации</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item r d1">
+        <div class="stat-num">3</div>
+        <div class="stat-label">этапа программы</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item r d2">
+        <div class="stat-num" style="font-size:clamp(36px,5vw,60px); line-height:1.3;">1 система</div>
+        <div class="stat-label">без откатов</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     3. FOR WHOM
+═══════════════════════════════════════════ -->
+<section class="sec for-whom" id="about">
+  <div class="wrap">
+    <div class="fw-header">
+      <div class="r">
+        <span class="label">Для кого</span>
+        <div style="margin-top:20px;">
+          <div class="rule-gold" style="margin:0 0 20px;"></div>
+        </div>
+      </div>
+      <h2 class="serif-xl r d1">Этот курс для вас, если:</h2>
+    </div>
+    <ul class="fw-list">
+      <li class="r">
+        <span class="fw-num">01</span>
+        <span class="fw-text">Вы постоянно работаете, но внутри ощущение, что «что-то держит»</span>
+      </li>
+      <li class="r d1">
+        <span class="fw-num">02</span>
+        <span class="fw-text">Доход растёт, а чувство безопасности — нет</span>
+      </li>
+      <li class="r d2">
+        <span class="fw-num">03</span>
+        <span class="fw-text">Вы устали жить в режиме напряжения и внутренней гонки</span>
+      </li>
+      <li class="r d3">
+        <span class="fw-num">04</span>
+        <span class="fw-text">Вы откладываете масштаб из-за страха ошибок, ответственности или потери контроля</span>
+      </li>
+      <li class="r d4">
+        <span class="fw-num">05</span>
+        <span class="fw-text">Вы понимаете, что проблема уже не в знаниях, а в состоянии</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     4. PROBLEM
+═══════════════════════════════════════════ -->
+<section class="problem">
+  <div class="wrap">
+    <span class="label r">Главная причина</span>
+    <div class="problem-grid">
+      <div class="r d1">
+        <p class="problem-quote">
+          Проблема не в отсутствии навыков.<br>
+          Проблема — в дефицитарном финансовом сценарии.
+        </p>
+      </div>
+      <div class="problem-body r d2">
+        <p class="body-sm" style="color:rgba(250,247,240,.45);">
+          Это внутренний механизм, который заставляет психику выбирать:
+          не рост — а безопасность, не реализацию — а выживание.
+          Именно поэтому возникают:
+        </p>
+        <ul class="problem-triggers">
+          <li>откаты после успеха</li>
+          <li>хроническая тревога</li>
+          <li>прокрастинация</li>
+          <li>эмоциональное выгорание</li>
+          <li>ощущение «бьюсь головой в потолок»</li>
+        </ul>
+        <p class="problem-footer">
+          Пока этот сценарий активен — любые техники мотивации работают временно.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     5. RESULTS
+═══════════════════════════════════════════ -->
+<section class="sec results" id="results">
+  <div class="wrap">
+    <div class="results-head">
+      <div class="results-big-num r">5</div>
+      <div class="r d1">
+        <span class="label">Результат</span>
+        <h2 class="serif-xl" style="margin-top:16px;">Что вы получите</h2>
+      </div>
+    </div>
+    <div class="results-grid">
+      <div class="res-item r">
+        <span class="res-item-num">01</span>
+        <h3 class="serif-md">Эмоциональный покой</h3>
+        <p>Вы перестанете жить в постоянном ожидании проблем и потерь.</p>
+      </div>
+      <div class="res-item r d1">
+        <span class="res-item-num">02</span>
+        <h3 class="serif-md">Новую финансовую идентичность</h3>
+        <p>Рост перестанет восприниматься как опасность или подвиг.</p>
+      </div>
+      <div class="res-item r d2">
+        <span class="res-item-num">03</span>
+        <h3 class="serif-md">Синхронизацию желаний и действий</h3>
+        <p>Внутренний конфликт между «хочу» и «страшно» исчезнет.</p>
+      </div>
+      <div class="res-item r d3">
+        <span class="res-item-num">04</span>
+        <h3 class="serif-md">Энергию для реализации</h3>
+        <p>Силы перестанут уходить на тревогу, внутреннюю борьбу и самосаботаж.</p>
+      </div>
+      <div class="res-item res-item-5 r d4">
+        <span class="res-item-num">05</span>
+        <div>
+          <h3 class="serif-md">Авторскую позицию</h3>
+          <p>Вы перестанете ждать разрешения, удачного момента или внешнего одобрения.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     6. PHILOSOPHY
+═══════════════════════════════════════════ -->
+<section class="sec philosophy">
+  <div class="wrap">
+    <div class="r" style="padding-bottom:24px; border-bottom:1px solid var(--border);">
+      <span class="label">Философия курса</span>
+      <h2 class="serif-xl" style="margin-top:16px;">Три принципа «Денежных Метаморфоз»</h2>
+    </div>
+    <div class="phil-items">
+      <div class="phil-item r">
+        <div class="phil-n">1</div>
+        <div class="phil-body">
+          <h3 class="phil-title">Сначала состояние — потом результат</h3>
+          <p class="phil-text">Когда человек действует из тревоги и дефицита — он сам разрушает собственный рост. Когда появляется внутреннее расширение и устойчивость — деньги становятся следствием нового состояния.</p>
+        </div>
+      </div>
+      <div class="phil-item r d1">
+        <div class="phil-n">2</div>
+        <div class="phil-body">
+          <h3 class="phil-title">Главная валюта — энергия и интерес</h3>
+          <p class="phil-text">Невозможно долго расти через насилие над собой. Настоящий финансовый рост начинается там, где появляется живой интерес, драйв и внутреннее разрешение хотеть большего.</p>
+        </div>
+      </div>
+      <div class="phil-item r d2">
+        <div class="phil-n">3</div>
+        <div class="phil-body">
+          <h3 class="phil-title">Действие должно быть свободным, а не вынужденным</h3>
+          <p class="phil-text">Курс не учит «визуализировать миллионы». Он убирает внутреннее сопротивление, которое мешает вам делать нужные действия спокойно, точно и системно.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     7. ENERGY
+═══════════════════════════════════════════ -->
+<section class="sec energy">
+  <div class="wrap">
+    <div class="r" style="margin-bottom:52px;">
+      <span class="label">Возражение</span>
+      <h2 class="serif-xl" style="margin-top:16px;">«У меня сейчас нет времени»</h2>
+    </div>
+    <div class="energy-grid r d1">
+      <div class="energy-col">
+        <span class="energy-col-label">Что происходит на самом деле</span>
+        <p class="energy-quote-text">На самом деле это симптом перегруженной психики.</p>
+        <p class="body-sm" style="margin-bottom:20px;">Большая часть энергии в дефицитарном сценарии уходит на:</p>
+        <ul class="energy-list">
+          <li>тревогу о будущем</li>
+          <li>внутреннюю борьбу</li>
+          <li>мысленную жвачку</li>
+          <li>попытки всё контролировать</li>
+          <li>страх ошибок и потерь</li>
+        </ul>
+        <p class="body-sm" style="margin-top:20px; font-style:italic;">Из-за этого даже простые действия начинают ощущаться тяжёлыми.</p>
+      </div>
+      <div class="energy-col">
+        <span class="energy-col-label">После прохождения курса</span>
+        <ul class="energy-check">
+          <li><span class="ck">✔</span>появляется свободная энергия</li>
+          <li><span class="ck">✔</span>снижается внутреннее напряжение</li>
+          <li><span class="ck">✔</span>возвращается ясность мышления</li>
+          <li><span class="ck">✔</span>действия перестают требовать постоянного насилия над собой</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     8. TOOLS
+═══════════════════════════════════════════ -->
+<section class="sec tools">
+  <div class="wrap">
+    <div class="tools-head">
+      <div class="r">
+        <span class="label">Инструменты</span>
+        <h2 class="serif-xl" style="margin-top:16px;">Что внутри программы</h2>
+      </div>
+      <p class="body-sm r d1" style="max-width:340px;">Авторские методологии, разработанные для работы с финансовыми сценариями на уровне психики.</p>
+    </div>
+    <div class="tool-item r">
+      <span class="tool-n">01</span>
+      <div class="tool-body">
+        <h3 class="tool-name">Технология «Анти-тупик»</h3>
+        <p class="tool-desc">Алгоритм выхода из финансовых и эмоциональных зависаний. Вы перестанете застревать в состоянии бессилия и научитесь быстро возвращать движение.</p>
+      </div>
+    </div>
+    <div class="tool-item r d1">
+      <span class="tool-n">02</span>
+      <div class="tool-body">
+        <h3 class="tool-name">Методология «5 пазлов»</h3>
+        <p class="tool-desc">Система синхронизации подсознания, эмоций, поведения, целей и финансовых решений — чтобы рост перестал сопровождаться откатами.</p>
+      </div>
+    </div>
+    <div class="tool-item r d2">
+      <span class="tool-n">03</span>
+      <div class="tool-body">
+        <h3 class="tool-name">Навык «Наблюдателя»</h3>
+        <p class="tool-desc">Техника выхода из тревоги и эмоционального падения до того, как оно захватит вас полностью.</p>
+      </div>
+    </div>
+    <div class="tool-item r d3">
+      <span class="tool-n">04</span>
+      <div class="tool-body">
+        <h3 class="tool-name">Энергетический аудит</h3>
+        <p class="tool-desc">Диагностика внутренних утечек: где вы теряете силы, почему быстро выгораете, что поддерживает состояние дефицита.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     9. 60-DAY PATH
+═══════════════════════════════════════════ -->
+<section class="sec path">
+  <div class="wrap">
+    <span class="label r">Программа</span>
+    <h2 class="serif-xl r d1" style="margin-top:20px; color:rgba(250,247,240,.85);">Ваш путь трансформации<br>за 60 дней</h2>
+    <div class="path-steps">
+      <div class="path-step r">
+        <div class="path-step-num">01</div>
+        <div class="path-body">
+          <span class="path-tag">Этап 1 · 14 дней</span>
+          <h3 class="path-title">Финансовый рентген</h3>
+          <p class="path-intro">Диагностика вашего финансового сценария. Вы увидите:</p>
+          <ul class="path-list">
+            <li>почему стоите на месте</li>
+            <li>где теряется энергия</li>
+            <li>какие страхи управляют решениями</li>
+            <li>что запускает самосаботаж</li>
+          </ul>
+        </div>
+      </div>
+      <div class="path-step r d1">
+        <div class="path-step-num">02</div>
+        <div class="path-body">
+          <span class="path-tag">Этап 2</span>
+          <h3 class="path-title">Внутренняя перепрошивка</h3>
+          <p class="path-intro">Устранение эмоциональных блоков и дефицитарных реакций. Работа с:</p>
+          <ul class="path-list">
+            <li>тревогой</li>
+            <li>страхом масштаба</li>
+            <li>потребностью в одобрении</li>
+            <li>внутренним запретом на большие деньги</li>
+          </ul>
+        </div>
+      </div>
+      <div class="path-step r d2">
+        <div class="path-step-num">03</div>
+        <div class="path-body">
+          <span class="path-tag">Этап 3</span>
+          <h3 class="path-title">Реализация и действие</h3>
+          <p class="path-intro">Переход в состояние:</p>
+          <ul class="path-list">
+            <li>устойчивости</li>
+            <li>ясности</li>
+            <li>спокойного роста</li>
+          </ul>
+          <p style="margin-top:20px; font-family:var(--cormorant); font-style:italic; font-size:16px; color:rgba(250,247,240,.3); line-height:1.7;">
+            Без постоянных откатов и внутренней войны с собой.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     10. FREE MODULE
+═══════════════════════════════════════════ -->
+<section class="sec free" id="free-module">
+  <div class="wrap">
+    <div class="free-box r">
+      <div class="free-left">
+        <span class="free-badge">★ Бесплатно</span>
+        <h2 class="free-title">Пройдите первый<br>модуль бесплатно</h2>
+        <p class="free-sub">«Финансовый рентген» — 14 дней диагностики в подарок</p>
+        <p class="body-sm" style="margin-bottom:36px; max-width:340px;">
+          Этот модуль даёт полную карту того, что именно мешает вам выйти на новый финансовый уровень.
+          В полном курсе — пошаговая система устранения этих ограничений.
+        </p>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+          <a href="#" class="btn-fill"><span>Получить бесплатно</span></a>
+        </div>
+      </div>
+      <div class="free-right">
+        <p class="body-sm" style="margin-bottom:4px; text-transform:uppercase; letter-spacing:2px; font-size:10px; color:var(--gold); font-weight:500;">Вы сможете:</p>
+        <ul class="free-benefits">
+          <li>Определить свой финансовый сценарий</li>
+          <li>Увидеть главные причины тревоги и самосаботажа</li>
+          <li>Понять, почему доход не растёт даже при усилиях</li>
+          <li>Найти основные утечки энергии</li>
+        </ul>
+        <a href="#months" class="btn-outline-dark" style="width:100%; margin-top:8px;"><span>Купить полный курс</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     11. FINAL CTA
+═══════════════════════════════════════════ -->
+<section class="final">
+  <div class="wrap">
+    <div class="final-inner">
+      <div class="final-eyebrow r">
+        <span class="label">Выбор за вами</span>
+      </div>
+      <div class="final-rule r d1"></div>
+      <p class="final-quote r d1">
+        Вы можете продолжать жить в режиме <em>выживания</em> — или наконец перестать тратить жизнь на внутреннюю борьбу.
+      </p>
+      <p class="final-sub r d2">
+        Рост начинается не тогда, когда вы «ещё сильнее напряглись».<br>
+        А тогда, когда психика перестала воевать против вас.
+      </p>
+      <div class="r d3" style="display:flex; gap:24px; flex-wrap:wrap; align-items:center;">
+        <a href="#free-module" class="btn-fill"><span>Начать с бесплатного модуля</span></a>
+        <a href="#months" class="btn-bare">Купить курс <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     12. WHERE TO START
+═══════════════════════════════════════════ -->
+<section class="sec start">
+  <div class="wrap">
+    <div class="r">
+      <span class="label">С чего начать</span>
+      <h2 class="serif-xl" style="margin-top:16px;">Начните с диагностики</h2>
+    </div>
+    <div class="start-grid">
+      <div class="r d1">
+        <p class="start-col-head">Если вы не понимаете:</p>
+        <ul class="start-list">
+          <li>почему застряли</li>
+          <li>куда уходит энергия</li>
+          <li>что вызывает тревогу и откаты</li>
+          <li>почему сложно пробить финансовый потолок</li>
+        </ul>
+        <p class="body-sm" style="margin-top:20px; font-style:italic;">— тогда начните именно с диагностики.</p>
+      </div>
+      <div class="r d2">
+        <p class="start-col-head">Этот этап покажет:</p>
+        <ul class="start-list">
+          <li>ваши внутренние ограничения</li>
+          <li>точки самосаботажа</li>
+          <li>скрытые страхи</li>
+          <li>причины эмоционального выгорания</li>
+          <li>что держит вас в режиме выживания</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:60px;" class="r d3">
+      <a href="#free-module" class="btn-fill"><span>Получить бесплатный модуль</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     13. MONTHS
+═══════════════════════════════════════════ -->
+<section class="sec months" id="months">
+  <div class="wrap">
+    <div class="r">
+      <span class="label">Полный курс</span>
+      <h2 class="serif-xl" style="margin-top:16px;">Два месяца — два фокуса</h2>
+      <p class="body-sm" style="margin-top:12px; max-width:420px;">Каждый месяц доступен отдельно — выберите то, с чего нужно начать именно вам</p>
+    </div>
+    <div class="months-grid">
+      <div class="month-card r">
+        <span class="month-tag">Месяц 1</span>
+        <h3 class="month-title">Перепрошивка дефицитарного сценария</h3>
+        <p class="month-desc">Первый месяц — не про «достигаторство». Это этап глубокой внутренней работы.</p>
+        <ul class="month-list">
+          <li>устранение внутренних конфликтов</li>
+          <li>снижение тревоги</li>
+          <li>восстановление энергии</li>
+          <li>выход из режима постоянного напряжения</li>
+          <li>формирование внутренней устойчивости</li>
+        </ul>
+        <div class="month-rule"></div>
+        <p class="body-sm" style="font-style:italic; margin-bottom:28px;">
+          Здесь вы перестаёте жить в состоянии «надо выживать», «нужно заслужить», «я не справлюсь».
+        </p>
+        <a href="#" class="btn-outline-dark" style="display:block; text-align:center;"><span>Купить 1-й месяц</span></a>
+      </div>
+      <div class="month-card r d1">
+        <span class="month-tag">Месяц 2</span>
+        <h3 class="month-title">Реализация, деньги и действие</h3>
+        <p class="month-desc">Второй месяц — про конкретные результаты и финансовый рост.</p>
+        <ul class="month-list" style="margin-bottom:16px;">
+          <li>масштабирование целей</li>
+          <li>устранение сопротивления действиям</li>
+          <li>системная реализация</li>
+          <li>финансовый рост</li>
+          <li>переход к конкретным результатам</li>
+        </ul>
+        <div class="month-rule"></div>
+        <p class="body-sm" style="margin-bottom:12px;">Подойдёт вам сразу, если:</p>
+        <ul class="month-checks">
+          <li><span class="ck">✔</span>есть энергия и ясность</li>
+          <li><span class="ck">✔</span>понимаете свои цели</li>
+          <li><span class="ck">✔</span>нет сильной тревоги и качелей</li>
+          <li><span class="ck">✔</span>проблема не в состоянии, а в реализации</li>
+        </ul>
+        <div class="month-rule"></div>
+        <a href="#" class="btn-fill" style="display:block; text-align:center; border-radius:2px;"><span>Купить 2-й месяц</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     14. KEYNOTE
+═══════════════════════════════════════════ -->
+<section class="keynote">
+  <div class="wrap">
+    <div class="keynote-inner">
+      <span class="label keynote-label r">Главное</span>
+      <p class="keynote-line r d1">
+        Если внутри <em>хаос</em> — психика будет саботировать даже идеальный план.
+      </p>
+      <p class="keynote-line r d2">
+        Если внутри есть <em>устойчивость</em> — действия начинают давать результат значительно быстрее.
+      </p>
+      <div class="keynote-rule r d3"></div>
+      <a href="#free-module" class="btn-fill r d3"><span>Начать с бесплатного модуля</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     JS
+═══════════════════════════════════════════ -->
+<script>
+(function () {
+
+  /* ── progress bar ── */
+  var pg = document.getElementById('pgbar');
+  function updateProgress() {
+    var s = document.documentElement.scrollTop || document.body.scrollTop;
+    var h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    pg.style.width = (h > 0 ? (s / h) * 100 : 0) + '%';
+  }
+
+  /* ── parallax ── */
+  var heroTitle = document.getElementById('heroTitle');
+  var heroBlob  = document.getElementById('heroBlob');
+  var ticking   = false;
+
+  function onScroll() {
+    updateProgress();
+    if (!ticking) {
+      requestAnimationFrame(function () {
+        var y = window.pageYOffset;
+        if (heroTitle && y < window.innerHeight * 1.2) {
+          heroTitle.style.transform = 'translateY(' + (y * 0.16) + 'px)';
+        }
+        if (heroBlob && y < window.innerHeight * 1.5) {
+          heroBlob.style.transform = 'translateY(' + (y * 0.32) + 'px)';
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ── reveal on scroll ── */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.r').forEach(function (el) { io.observe(el); });
+  } else {
+    /* fallback: show everything */
+    document.querySelectorAll('.r').forEach(function (el) {
+      el.classList.add('in');
+    });
+  }
+
+  /* ── init ── */
+  updateProgress();
+
+})();
+</script>
+
+</body>
+</html>
