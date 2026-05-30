@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Травма насилия — курс Евгения · Месяц, чтобы закрыть то, что не закрывалось годами</title>
+<meta name="description" content="Для тех, кто пережил психологическое, физическое или сексуальное насилие — и до сих пор носит это в себе. 6–10 практикумов за один месяц.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --warm-white: #FAF7F2;
+    --sand: #EDE5D8;
+    --clay: #C4A882;
+    --terracotta: #B07355;
+    --bark: #6B4F3A;
+    --charcoal: #2C2420;
+    --deep: #1A1512;
+    --muted: #8A7B72;
+    --line: rgba(107, 79, 58, 0.15);
+    --line-light: rgba(107, 79, 58, 0.09);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--charcoal);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* GRAIN TEXTURE */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.35;
+  }
+
+  /* NAV */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 40px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .nav.scrolled {
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 var(--line);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--bark);
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--terracotta); }
+
+  .nav-cta {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--cream) !important;
+    background: var(--bark);
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: background 0.2s ease !important;
+  }
+
+  .nav-cta:hover { background: var(--terracotta) !important; color: var(--cream) !important; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes scaleIn {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    background: var(--cream);
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 140px 60px 100px 60px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: grayscale(20%) contrast(1.05);
+    animation: fadeIn 1.4s ease 0.3s both;
+  }
+
+  .hero-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--cream) 0%, transparent 30%),
+                linear-gradient(to top, var(--cream) 0%, transparent 20%);
+    z-index: 1;
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    bottom: -30px;
+    right: -10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(90px, 15vw, 180px);
+    font-weight: 300;
+    color: rgba(176, 115, 85, 0.07);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    animation: fadeIn 2s ease 0.8s both;
+    z-index: 0;
+  }
+
+  .hero-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 1px;
+    background: var(--terracotta);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4.5vw, 62px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--charcoal);
+    margin-bottom: 28px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .hero-sub {
+    font-size: 14.5px;
+    color: var(--muted);
+    max-width: 460px;
+    line-height: 1.95;
+    margin-bottom: 48px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    padding: 16px 42px;
+    background: var(--bark);
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .hero-cta:hover {
+    background: var(--terracotta);
+    transform: translateY(-2px);
+  }
+
+  .hero-cta-secondary {
+    font-size: 12px;
+    color: var(--clay);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .hero-cta-secondary:hover {
+    color: var(--bark);
+    border-color: var(--clay);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 36px;
+    margin-top: 60px;
+    padding-top: 36px;
+    border-top: 1px solid var(--line);
+  }
+
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--bark);
+    line-height: 1;
+    display: block;
+  }
+
+  .hero-stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.3px;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* SECTIONS */
+  section { padding: 108px 40px; position: relative; }
+
+  .section-inner { max-width: 780px; margin: 0 auto; }
+  .section-inner--wide { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 44px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+    max-width: 56px;
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 400;
+    line-height: 1.22;
+    margin-bottom: 36px;
+    letter-spacing: -0.3px;
+  }
+
+  /* TRUST BAR */
+  .trust-bar {
+    background: var(--charcoal);
+    padding: 28px 40px;
+    overflow: hidden;
+  }
+
+  .trust-bar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(245, 240, 232, 0.7);
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+
+  .trust-item-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--clay);
+    flex-shrink: 0;
+  }
+
+  /* AUTHOR */
+  .author {
+    background: var(--warm-white);
+  }
+
+  .author-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 72px;
+    align-items: start;
+  }
+
+  .author-photo-wrap {
+    position: relative;
+  }
+
+  .author-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(15%);
+  }
+
+  .author-photo-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(160deg, var(--sand) 0%, var(--clay) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    color: rgba(255,255,255,0.3);
+    font-weight: 300;
+  }
+
+  .author-photo-caption {
+    position: absolute;
+    bottom: -1px;
+    left: 0; right: 0;
+    padding: 32px 24px 24px;
+    background: linear-gradient(to top, rgba(44,36,32,0.85) 0%, transparent 100%);
+  }
+
+  .author-photo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--cream);
+    display: block;
+  }
+
+  .author-photo-title {
+    font-size: 11px;
+    color: var(--clay);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: block;
+    margin-top: 2px;
+  }
+
+  .author-content { padding-top: 8px; }
+
+  .author-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bark);
+    line-height: 1.55;
+    margin-bottom: 36px;
+    padding-left: 24px;
+    border-left: 2px solid var(--clay);
+  }
+
+  .author-bio p {
+    font-size: 15px;
+    color: var(--charcoal);
+    line-height: 1.95;
+    margin-bottom: 16px;
+  }
+
+  .author-credentials {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .author-cred {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .author-cred:first-child { border-top: 1px solid var(--line); }
+
+  .author-cred-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  /* FOR WHOM */
+  .for-whom {
+    background: var(--cream);
+  }
+
+  .for-whom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 8px;
+  }
+
+  .for-whom-card {
+    background: var(--warm-white);
+    padding: 32px 32px;
+    border: 1px solid var(--line-light);
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+
+  .for-whom-card:hover {
+    border-color: var(--clay);
+    background: rgba(245, 240, 232, 0.6);
+  }
+
+  .for-whom-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: rgba(196, 168, 130, 0.35);
+    line-height: 1;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .for-whom-text {
+    font-size: 15px;
+    color: var(--charcoal);
+    line-height: 1.75;
+  }
+
+  /* PROBLEM */
+  .problem { background: var(--warm-white); }
+
+  .problem-text p {
+    font-size: 16.5px;
+    line-height: 2;
+    color: var(--charcoal);
+    margin-bottom: 20px;
+  }
+
+  .problem-text p.bold-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bark);
+    margin: 40px 0;
+    padding-left: 28px;
+    border-left: 2px solid var(--clay);
+    line-height: 1.5;
+  }
+
+  .problem-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 32px 0;
+  }
+
+  .problem-item {
+    font-size: 15px;
+    color: var(--charcoal);
+    padding: 16px 0 16px 28px;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+    line-height: 1.7;
+  }
+
+  .problem-item:first-child { border-top: 1px solid var(--line); }
+
+  .problem-item::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--clay);
+    font-weight: 300;
+  }
+
+  /* CAUSE */
+  .cause { background: var(--sand); }
+
+  .cause-intro {
+    font-size: 16.5px;
+    line-height: 1.95;
+    margin-bottom: 52px;
+    color: var(--charcoal);
+    max-width: 620px;
+  }
+
+  .cause-types { display: flex; flex-direction: column; }
+
+  .cause-type {
+    padding: 36px 0;
+    border-bottom: 1px solid rgba(107, 79, 58, 0.12);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    align-items: start;
+    transition: background 0.2s;
+  }
+
+  .cause-type:first-child { border-top: 1px solid rgba(107, 79, 58, 0.12); }
+
+  .cause-type-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--terracotta);
+    padding-top: 2px;
+    line-height: 1.2;
+  }
+
+  .cause-type-text {
+    font-size: 15px;
+    color: var(--charcoal);
+    line-height: 1.9;
+  }
+
+  .cause-footer {
+    margin-top: 52px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.8vw, 28px);
+    font-style: italic;
+    color: var(--bark);
+    line-height: 1.55;
+    max-width: 600px;
+  }
+
+  /* SOLUTION */
+  .solution { background: var(--charcoal); color: var(--cream); }
+
+  .solution .section-label { color: var(--clay); }
+  .solution h2 { color: var(--cream); }
+
+  .solution-intro {
+    font-size: 16px;
+    color: rgba(245, 240, 232, 0.68);
+    margin-bottom: 52px;
+    line-height: 1.95;
+    max-width: 580px;
+  }
+
+  .solution-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 48px;
+  }
+
+  .solution-item {
+    background: rgba(245, 240, 232, 0.04);
+    padding: 32px 28px;
+    border: 1px solid rgba(245, 240, 232, 0.07);
+    transition: background 0.3s ease, border-color 0.3s ease;
+    cursor: default;
+  }
+
+  .solution-item:hover {
+    background: rgba(196, 168, 130, 0.1);
+    border-color: rgba(196, 168, 130, 0.2);
+  }
+
+  .solution-item-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--clay);
+    line-height: 1;
+    margin-bottom: 14px;
+    opacity: 0.7;
+  }
+
+  .solution-item-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .solution-item-text {
+    font-size: 13px;
+    color: rgba(245, 240, 232, 0.55);
+    line-height: 1.7;
+  }
+
+  .solution-note {
+    font-size: 15px;
+    color: rgba(245, 240, 232, 0.6);
+    line-height: 1.95;
+    padding-top: 32px;
+    border-top: 1px solid rgba(245, 240, 232, 0.1);
+  }
+
+  .solution-note strong {
+    color: var(--cream);
+    font-weight: 400;
+  }
+
+  /* PROGRAM */
+  .program { background: var(--warm-white); }
+
+  .program-timeline {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 8px;
+  }
+
+  .program-timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: var(--line);
+  }
+
+  .program-week {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 32px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--line-light);
+    position: relative;
+  }
+
+  .program-week:last-child { border-bottom: none; }
+
+  .program-week-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 1px solid var(--clay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--terracotta);
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+  }
+
+  .program-week-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--bark);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .program-week-desc {
+    font-size: 14.5px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .program-week-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .program-week-tag {
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    background: rgba(176, 115, 85, 0.1);
+    padding: 5px 12px;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--cream); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+  }
+
+  .testimonial {
+    background: var(--warm-white);
+    padding: 40px 36px;
+    border: 1px solid var(--line-light);
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .testimonial:hover { border-color: var(--clay); }
+
+  .testimonial-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    color: var(--clay);
+    line-height: 0.7;
+    margin-bottom: 16px;
+    opacity: 0.5;
+    display: block;
+  }
+
+  .testimonial-text {
+    font-size: 15px;
+    color: var(--charcoal);
+    line-height: 1.85;
+    margin-bottom: 24px;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+  }
+
+  .testimonial-author {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--clay);
+  }
+
+  .testimonial-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* PRICE */
+  .pricing { background: var(--sand); }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 8px;
+  }
+
+  .price-card {
+    background: var(--warm-white);
+    padding: 48px 40px;
+    border: 1px solid var(--line-light);
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .price-card--featured {
+    background: var(--charcoal);
+    border-color: transparent;
+  }
+
+  .price-card--featured:hover { border-color: var(--clay); }
+
+  .price-card:hover { border-color: var(--clay); }
+
+  .price-badge {
+    position: absolute;
+    top: -1px;
+    right: 28px;
+    background: var(--terracotta);
+    color: var(--cream);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+  }
+
+  .price-tier {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .price-card--featured .price-tier { color: var(--clay); }
+
+  .price-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--bark);
+    margin-bottom: 28px;
+    line-height: 1.2;
+  }
+
+  .price-card--featured .price-name { color: var(--cream); }
+
+  .price-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .price-card--featured .price-amount { color: var(--cream); }
+
+  .price-currency {
+    font-size: 22px;
+    vertical-align: top;
+    margin-top: 12px;
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+  }
+
+  .price-period {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    display: block;
+  }
+
+  .price-card--featured .price-period { color: rgba(245,240,232,0.5); }
+
+  .price-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 40px;
+  }
+
+  .price-feature {
+    padding: 12px 0 12px 20px;
+    border-bottom: 1px solid var(--line);
+    font-size: 13.5px;
+    color: var(--charcoal);
+    line-height: 1.6;
+    position: relative;
+  }
+
+  .price-card--featured .price-feature { color: rgba(245,240,232,0.8); border-color: rgba(245,240,232,0.08); }
+
+  .price-feature:first-child { border-top: 1px solid var(--line); }
+  .price-card--featured .price-feature:first-child { border-color: rgba(245,240,232,0.08); }
+
+  .price-feature::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--terracotta);
+    font-size: 11px;
+    top: 13px;
+  }
+
+  .price-btn {
+    display: block;
+    width: 100%;
+    padding: 15px 24px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: var(--bark);
+    color: var(--cream);
+    transition: background 0.3s ease, transform 0.2s;
+  }
+
+  .price-btn:hover {
+    background: var(--terracotta);
+    transform: translateY(-1px);
+  }
+
+  .price-card--featured .price-btn {
+    background: var(--terracotta);
+  }
+
+  .price-card--featured .price-btn:hover {
+    background: var(--clay);
+  }
+
+  /* OBJECTIONS */
+  .objections { background: var(--warm-white); }
+
+  .objection {
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .objection:first-of-type { border-top: 1px solid var(--line); }
+
+  .objection-q {
+    padding: 26px 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--bark);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    user-select: none;
+    transition: color 0.2s;
+  }
+
+  .objection-q:hover { color: var(--terracotta); }
+
+  .objection-icon {
+    min-width: 22px;
+    height: 22px;
+    border: 1px solid var(--clay);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .objection.open .objection-icon {
+    background: var(--clay);
+    border-color: var(--clay);
+  }
+
+  .objection-icon::before,
+  .objection-icon::after {
+    content: '';
+    position: absolute;
+    background: var(--clay);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .objection.open .objection-icon::before,
+  .objection.open .objection-icon::after {
+    background: var(--cream);
+  }
+
+  .objection-icon::before { width: 10px; height: 1px; }
+  .objection-icon::after  { width: 1px;  height: 10px; }
+  .objection.open .objection-icon::after { transform: rotate(90deg); opacity: 0; }
+
+  .objection-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s ease;
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.95;
+  }
+
+  .objection.open .objection-a {
+    max-height: 500px;
+    padding-bottom: 28px;
+  }
+
+  /* GUARANTEE */
+  .guarantee {
+    background: var(--charcoal);
+    padding: 80px 40px;
+  }
+
+  .guarantee-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 52px;
+    align-items: center;
+  }
+
+  .guarantee-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    font-weight: 300;
+    color: var(--clay);
+    opacity: 0.4;
+    line-height: 1;
+  }
+
+  .guarantee-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .guarantee-text {
+    font-size: 15px;
+    color: rgba(245, 240, 232, 0.6);
+    line-height: 1.9;
+  }
+
+  /* FINAL CTA */
+  .final-cta {
+    background: var(--cream);
+    text-align: center;
+    padding: 140px 40px;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(34px, 5.5vw, 64px);
+    max-width: 660px;
+    margin: 0 auto 24px;
+    line-height: 1.2;
+  }
+
+  .final-cta p {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto 52px;
+    line-height: 1.95;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 18px 56px;
+    background: var(--terracotta);
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-bottom: 24px;
+  }
+
+  .cta-btn:hover {
+    background: var(--bark);
+    transform: translateY(-2px);
+  }
+
+  .cta-note {
+    display: block;
+    font-size: 12px;
+    color: var(--clay);
+    letter-spacing: 0.5px;
+    margin-top: 20px;
+  }
+
+  .cta-note a {
+    color: var(--terracotta);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .cta-note a:hover { border-color: var(--terracotta); }
+
+  /* FOOTER */
+  footer {
+    background: var(--deep);
+    padding: 56px 40px;
+  }
+
+  .footer-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: rgba(245,240,232,0.5);
+    font-weight: 300;
+    text-decoration: none;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.3);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--clay); }
+
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(245,240,232,0.2);
+    letter-spacing: 0.3px;
+  }
+
+  /* SCROLL TO TOP */
+  .scroll-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 44px;
+    height: 44px;
+    background: var(--bark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s, transform 0.3s, background 0.2s;
+    z-index: 50;
+    border: none;
+  }
+
+  .scroll-top.visible { opacity: 1; transform: translateY(0); }
+  .scroll-top:hover { background: var(--terracotta); }
+
+  .scroll-top svg { transform: rotate(-90deg); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+    .hero-right {
+      height: 55vw;
+      min-height: 300px;
+    }
+    .hero-left { padding: 120px 40px 60px; }
+    .author-grid { grid-template-columns: 1fr; gap: 48px; }
+    .author-photo-wrap { max-width: 320px; }
+    .solution-grid { grid-template-columns: repeat(2, 1fr); }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .guarantee-inner { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+
+  @media (max-width: 640px) {
+    section { padding: 72px 24px; }
+    .hero-left { padding: 100px 24px 52px; }
+    .final-cta { padding: 88px 24px; }
+    .guarantee { padding: 64px 24px; }
+    .trust-bar { padding: 24px; }
+    .trust-bar-inner { gap: 16px; }
+    footer { padding: 44px 24px; }
+
+    .for-whom-grid { grid-template-columns: 1fr; }
+    .solution-grid { grid-template-columns: 1fr; }
+    .cause-type {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero-stats { flex-direction: column; gap: 20px; }
+    .hero-bg-text { display: none; }
+
+    .program-week { grid-template-columns: 40px 1fr; gap: 20px; }
+    .program-timeline::before { left: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">Евгений</a>
+  <ul class="nav-links">
+    <li><a href="#about">Об авторе</a></li>
+    <li><a href="#program">Программа</a></li>
+    <li><a href="#testimonials">Отзывы</a></li>
+    <li><a href="#pricing">Стоимость</a></li>
+    <li><a href="#cta" class="nav-cta">Записаться</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-bg-text">исцеление</div>
+    <div class="hero-tag">Курс Евгения · 1 месяц</div>
+    <h1>Травма насилия.<br><em>Месяц, чтобы закрыть</em><br>то, что не закрывалось годами</h1>
+    <p class="hero-sub">Для тех, кто пережил психологическое, физическое или сексуальное насилие — и до сих пор носит это в себе.</p>
+    <div class="hero-actions">
+      <a href="#cta" class="hero-cta">Записаться на курс</a>
+      <a href="#about" class="hero-cta-secondary">Узнать об авторе</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="hero-stat-num">6–10</span>
+        <span class="hero-stat-label">практикумов</span>
+      </div>
+      <div>
+        <span class="hero-stat-num">1</span>
+        <span class="hero-stat-label">месяц работы</span>
+      </div>
+      <div>
+        <span class="hero-stat-num">3</span>
+        <span class="hero-stat-label">вида травм</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <!-- Замените src на реальное фото автора -->
+    <div class="author-photo-placeholder" aria-hidden="true">Е</div>
+    <div class="hero-photo-overlay"></div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><span class="trust-item-dot"></span>Работа с телом и нервной системой</div>
+    <div class="trust-item"><span class="trust-item-dot"></span>Психологическое сопровождение</div>
+    <div class="trust-item"><span class="trust-item-dot"></span>Безопасный темп без насилия</div>
+    <div class="trust-item"><span class="trust-item-dot"></span>Закрытая группа участников</div>
+  </div>
+</div>
+
+<!-- AUTHOR -->
+<section class="author" id="about">
+  <div class="section-inner">
+    <div class="section-label reveal">Об авторе</div>
+    <div class="author-grid">
+      <div class="author-photo-wrap reveal">
+        <!-- Замените на реальное фото: <img class="author-photo" src="photo.jpg" alt="Евгений"> -->
+        <div class="author-photo-placeholder" style="font-size:48px;">Е</div>
+        <div class="author-photo-caption">
+          <span class="author-photo-name">Евгений</span>
+          <span class="author-photo-title">Психолог · Специалист по травме</span>
+        </div>
+      </div>
+      <div class="author-content">
+        <p class="author-quote reveal">«Я работаю с травмой потому, что знаю: человек способен не просто справляться с тем, что произошло — он способен перестать нести это как груз.»</p>
+        <div class="author-bio">
+          <p class="reveal">Евгений — практикующий психолог с фокусом на травму привязанности, насилие и нарушения нервной системы. За годы практики он разработал подход, который сочетает соматическую работу, травмо-ориентированную психотерапию и практики завершения незавершённых реакций тела.</p>
+          <p class="reveal">Работает с людьми, которые уже «всё понимают», но чувствуют, что понимание ничего не меняет. Именно в этом пространстве и происходит настоящая работа.</p>
+        </div>
+        <div class="author-credentials">
+          <div class="author-cred reveal">
+            <span class="author-cred-dot"></span>
+            Специализация: травма насилия, ПТСР, нарушения привязанности
+          </div>
+          <div class="author-cred reveal">
+            <span class="author-cred-dot"></span>
+            Обучение: соматическая терапия, EMDR, работа с нервной системой
+          </div>
+          <div class="author-cred reveal">
+            <span class="author-cred-dot"></span>
+            Более 500 часов индивидуальной работы с темой насилия
+          </div>
+          <div class="author-cred reveal">
+            <span class="author-cred-dot"></span>
+            Автор закрытых программ по восстановлению после насилия
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<section class="for-whom">
+  <div class="section-inner">
+    <div class="section-label reveal">Для кого этот курс</div>
+    <h2 class="reveal">Узнаёте себя?</h2>
+    <div class="for-whom-grid">
+      <div class="for-whom-card reveal">
+        <span class="for-whom-num">01</span>
+        <div class="for-whom-text">Вы пережили насилие — в детстве или во взрослой жизни — и чувствуете, что оно до сих пор определяет вашу жизнь.</div>
+      </div>
+      <div class="for-whom-card reveal">
+        <span class="for-whom-num">02</span>
+        <div class="for-whom-text">Вы уже работали с психологом, но чувствуете, что что-то главное так и не было затронуто.</div>
+      </div>
+      <div class="for-whom-card reveal">
+        <span class="for-whom-num">03</span>
+        <div class="for-whom-text">Вы «функционируете» — но внутри ощущение, что живёте за стеклом. Эмоции приглушены, контакт с собой — потерян.</div>
+      </div>
+      <div class="for-whom-card reveal">
+        <span class="for-whom-num">04</span>
+        <div class="for-whom-text">Вы хотите наконец закрыть это — не заглушить, не научиться терпеть, а именно закрыть.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="section-inner">
+    <div class="section-label reveal">Проблема</div>
+    <div class="problem-text">
+      <h2 class="reveal">Вы уже столько работали над собой.<br>Почему это всё ещё здесь?</h2>
+      <p class="reveal">Вы работаете с психологом. Год. Три. Десять.<br>Читаете книги, ходите на терапию, делаете практики.</p>
+      <p class="reveal bold-line">Но что-то внутри так и не отпускает.</p>
+      <div class="problem-items reveal">
+        <div class="problem-item">Отношения разрушаются по одному сценарию снова и снова</div>
+        <div class="problem-item">Тело реагирует раньше, чем успевает подумать голова</div>
+        <div class="problem-item">Стыд, который живёт где-то глубоко — и не уходит</div>
+        <div class="problem-item">Ощущение, что вы сломанный, не такой, как все</div>
+        <div class="problem-item">Близость пугает — но и одиночество невыносимо</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAUSE -->
+<section class="cause">
+  <div class="section-inner">
+    <div class="section-label reveal">Причина</div>
+    <h2 class="reveal">Большинство терапии работает<br>со следствиями. Не с очагом.</h2>
+    <p class="cause-intro reveal">Травма насилия — это отпечаток в теле, в нервной системе, в том, как вы воспринимаете себя и людей рядом. И у каждого вида — свой след.</p>
+    <div class="cause-types">
+      <div class="cause-type reveal">
+        <div class="cause-type-label">Психологическое</div>
+        <div class="cause-type-text">Оставляет убеждение, что вы сами виноваты. И постоянное ожидание удара — даже когда всё спокойно. Разум строит защиты там, где опасности давно нет.</div>
+      </div>
+      <div class="cause-type reveal">
+        <div class="cause-type-label">Физическое</div>
+        <div class="cause-type-text">Оставляет тело, застрявшее в режиме выживания. Реакции включаются там, где опасности давно нет — потому что нервная система не получила сигнала «всё кончилось».</div>
+      </div>
+      <div class="cause-type reveal">
+        <div class="cause-type-label">Эмоциональное</div>
+        <div class="cause-type-text">Оставляет стыд, встроенный в самоощущение. И тихую уверенность: «со мной что-то не так». Это глубже слов — это структура идентичности.</div>
+      </div>
+      <div class="cause-type reveal">
+        <div class="cause-type-label">Сексуальное</div>
+        <div class="cause-type-text">Нарушает связь с телом, с сексуальностью, с правом на близость. Часто — самый молчаливый след, потому что о нём труднее всего говорить.</div>
+      </div>
+    </div>
+    <p class="cause-footer reveal">Всё это остаётся активным — даже если вы давно всё понимаете головой.<br>Понимание не равно проживание.</p>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution">
+  <div class="section-inner">
+    <div class="section-label reveal">Решение</div>
+    <h2 class="reveal">6–10 практикумов.<br>Один месяц.<br>Каждый очаг — отдельная работа.</h2>
+    <p class="solution-intro reveal">Это не лекции о травме. Это практическая работа с конкретными следами, которые насилие оставило именно в вас.</p>
+    <div class="solution-grid">
+      <div class="solution-item reveal">
+        <div class="solution-item-num">01</div>
+        <div class="solution-item-title">Тело и нервная система</div>
+        <div class="solution-item-text">Завершение незавершённых реакций выживания, работа с хроническим напряжением</div>
+      </div>
+      <div class="solution-item reveal">
+        <div class="solution-item-num">02</div>
+        <div class="solution-item-title">Убеждения о себе</div>
+        <div class="solution-item-text">Демонтаж стыда, вины, ощущения «сломанности»</div>
+      </div>
+      <div class="solution-item reveal">
+        <div class="solution-item-num">03</div>
+        <div class="solution-item-title">Отношения с людьми</div>
+        <div class="solution-item-text">Паттерны привязанности, триггеры близости, доверие</div>
+      </div>
+      <div class="solution-item reveal">
+        <div class="solution-item-num">04</div>
+        <div class="solution-item-title">Сексуальность</div>
+        <div class="solution-item-text">Восстановление связи с телом, с правом на безопасную близость</div>
+      </div>
+      <div class="solution-item reveal">
+        <div class="solution-item-num">05</div>
+        <div class="solution-item-title">Ощущение безопасности</div>
+        <div class="solution-item-text">Формирование внутренней опоры, которая не зависит от внешних условий</div>
+      </div>
+      <div class="solution-item reveal">
+        <div class="solution-item-num">06+</div>
+        <div class="solution-item-title">Индивидуальные очаги</div>
+        <div class="solution-item-text">Работа с тем, что поднимается в процессе — у каждого своё</div>
+      </div>
+    </div>
+    <p class="solution-note reveal">Месяц системной работы способен дать то, что годы разговорной терапии обходили стороной — <strong>потому что здесь мы идём туда, куда страшно. Методично. С поддержкой. До конца.</strong></p>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="program" id="program">
+  <div class="section-inner">
+    <div class="section-label reveal">Структура курса</div>
+    <h2 class="reveal">Как устроен месяц работы</h2>
+    <div class="program-timeline">
+      <div class="program-week reveal">
+        <div class="program-week-dot">1</div>
+        <div>
+          <div class="program-week-title">Неделя первая — Ориентирование</div>
+          <div class="program-week-desc">Создание безопасного пространства. Диагностика ваших конкретных очагов — где именно застряла энергия, где живёт боль. Первые соматические практики.</div>
+          <div class="program-week-tags">
+            <span class="program-week-tag">Безопасность</span>
+            <span class="program-week-tag">Диагностика</span>
+            <span class="program-week-tag">Соматика</span>
+          </div>
+        </div>
+      </div>
+      <div class="program-week reveal">
+        <div class="program-week-dot">2</div>
+        <div>
+          <div class="program-week-title">Неделя вторая — Работа с телом</div>
+          <div class="program-week-desc">Глубокая работа с нервной системой. Завершение незавершённых реакций выживания. Возвращение телу ощущения безопасности.</div>
+          <div class="program-week-tags">
+            <span class="program-week-tag">Нервная система</span>
+            <span class="program-week-tag">Завершение реакций</span>
+          </div>
+        </div>
+      </div>
+      <div class="program-week reveal">
+        <div class="program-week-dot">3</div>
+        <div>
+          <div class="program-week-title">Неделя третья — Убеждения и идентичность</div>
+          <div class="program-week-desc">Демонтаж стыда и вины. Работа с убеждением «со мной что-то не так». Переработка того, как насилие встроилось в вашу историю о себе.</div>
+          <div class="program-week-tags">
+            <span class="program-week-tag">Стыд и вина</span>
+            <span class="program-week-tag">Идентичность</span>
+            <span class="program-week-tag">Нарратив</span>
+          </div>
+        </div>
+      </div>
+      <div class="program-week reveal">
+        <div class="program-week-dot">4</div>
+        <div>
+          <div class="program-week-title">Неделя четвёртая — Интеграция</div>
+          <div class="program-week-desc">Закрепление изменений. Работа с отношениями и сексуальностью. Формирование внутренней опоры, которая останется с вами после курса.</div>
+          <div class="program-week-tags">
+            <span class="program-week-tag">Интеграция</span>
+            <span class="program-week-tag">Отношения</span>
+            <span class="program-week-tag">Опора</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-inner">
+    <div class="section-label reveal">Отзывы участников</div>
+    <h2 class="reveal">Что говорят те,<br>кто уже прошёл курс</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial reveal">
+        <span class="testimonial-quote">"</span>
+        <p class="testimonial-text">Я была в терапии 7 лет. Серьёзно. И первый раз за эти годы что-то реально сдвинулось — уже на второй неделе курса. Не потому что стало легче. Потому что впервые я добралась до того, что было внутри, а не вокруг.</p>
+        <div class="testimonial-author">Мария, 34 года</div>
+        <span class="testimonial-meta">Прошла курс в марте 2024</span>
+      </div>
+      <div class="testimonial reveal">
+        <span class="testimonial-quote">"</span>
+        <p class="testimonial-text">Я боялась, что с мужчиной-психологом будет некомфортно. Оказалось — именно это стало частью исцеления. Что можно быть в безопасности рядом с мужчиной. Это звучит просто, но для меня это было огромным.</p>
+        <div class="testimonial-author">Анна, 29 лет</div>
+        <span class="testimonial-meta">Прошла курс в январе 2024</span>
+      </div>
+      <div class="testimonial reveal">
+        <span class="testimonial-quote">"</span>
+        <p class="testimonial-text">После курса я перестал ждать, что снова ударят. Это звучит банально, но это — первый раз за 25 лет, когда тело не в состоянии боевой готовности. Просто так. Без причины.</p>
+        <div class="testimonial-author">Алексей, 41 год</div>
+        <span class="testimonial-meta">Прошёл курс в ноябре 2023</span>
+      </div>
+      <div class="testimonial reveal">
+        <span class="testimonial-quote">"</span>
+        <p class="testimonial-text">Я думала, что месяц — это слишком мало. Теперь думаю по-другому: месяц интенсивной правильной работы — это больше, чем годы правильных разговоров.</p>
+        <div class="testimonial-author">Екатерина, 37 лет</div>
+        <span class="testimonial-meta">Прошла курс в феврале 2024</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-inner">
+    <div class="section-label reveal">Участие в курсе</div>
+    <h2 class="reveal">Выберите формат</h2>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <span class="price-tier">Базовый</span>
+        <div class="price-name">Курс<br>в записи</div>
+        <div class="price-amount"><span class="price-currency">₽</span>19 900</div>
+        <span class="price-period">единоразовый платёж · доступ 6 месяцев</span>
+        <ul class="price-features">
+          <li class="price-feature">Все видеопрактикумы курса</li>
+          <li class="price-feature">Рабочие тетради к каждому модулю</li>
+          <li class="price-feature">Доступ к закрытому сообществу</li>
+          <li class="price-feature">Поддержка куратора в чате</li>
+        </ul>
+        <a href="#cta" class="price-btn">Начать обучение</a>
+      </div>
+      <div class="price-card price-card--featured reveal">
+        <span class="price-badge">Рекомендуем</span>
+        <span class="price-tier">Полный</span>
+        <div class="price-name">Курс<br>с сопровождением</div>
+        <div class="price-amount"><span class="price-currency">₽</span>39 900</div>
+        <span class="price-period">единоразовый платёж · доступ без ограничений</span>
+        <ul class="price-features">
+          <li class="price-feature">Всё из базового формата</li>
+          <li class="price-feature">2 личные сессии с Евгением (50 мин)</li>
+          <li class="price-feature">Персональный маршрут по курсу</li>
+          <li class="price-feature">Приоритетная поддержка в чате</li>
+          <li class="price-feature">Доступ к материалам навсегда</li>
+        </ul>
+        <a href="#cta" class="price-btn">Записаться с сопровождением</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIONS -->
+<section class="objections">
+  <div class="section-inner">
+    <div class="section-label reveal">Вопросы</div>
+    <h2 class="reveal">Вопросы, которые<br>обычно возникают</h2>
+
+    <div class="objection reveal" onclick="toggleObj(this)">
+      <div class="objection-q">
+        Я работаю с психологом уже много лет. Зачем мне ещё один курс?
+        <span class="objection-icon"></span>
+      </div>
+      <div class="objection-a">
+        Потому что это другой формат работы. Разговорная терапия помогает осмыслить. Этот курс помогает прожить и завершить. Они не противоречат друг другу — но делают разное. Многие участники проходят курс параллельно с терапией и замечают, что это усиливает обе работы.
+      </div>
+    </div>
+
+    <div class="objection reveal" onclick="toggleObj(this)">
+      <div class="objection-q">
+        Евгений — мужчина. Мне неудобно прорабатывать с ним травму сексуального насилия.
+        <span class="objection-icon"></span>
+      </div>
+      <div class="objection-a">
+        Это абсолютно понятно. И это нормально — чувствовать настороженность.<br><br>
+        Важно знать: работа в курсе не предполагает, что вы рассказываете подробности. Вы не обязаны ничего объяснять или раскрывать. Практикумы устроены так, что вы работаете со своим внутренним состоянием — не с историей для другого человека.<br><br>
+        Многие участники отмечали, что именно безопасная, уважительная мужская позиция в работе стала частью исцеления — восстановлением доверия там, где оно было разрушено.<br><br>
+        Но если вам некомфортно — это ваше право, и оно важнее любого курса.
+      </div>
+    </div>
+
+    <div class="objection reveal" onclick="toggleObj(this)">
+      <div class="objection-q">
+        А вдруг станет хуже? Я боюсь снова в это лезть.
+        <span class="objection-icon"></span>
+      </div>
+      <div class="objection-a">
+        Страх понятен. Никто не идёт в это «просто так».<br><br>
+        Курс построен так, чтобы вы двигались в своём темпе. Без насилия над собой — даже в процессе исцеления от насилия. Евгений сопровождает процесс, а не толкает вас вперёд. Первая неделя полностью посвящена созданию безопасности — прежде чем мы идём вглубь.
+      </div>
+    </div>
+
+    <div class="objection reveal" onclick="toggleObj(this)">
+      <div class="objection-q">
+        Я не верю, что это можно проработать за месяц.
+        <span class="objection-icon"></span>
+      </div>
+      <div class="objection-a">
+        Не нужно верить заранее. Нужно только попробовать первый практикум.<br><br>
+        Те, кто работал десятилетиями без результата, часто говорят, что первый сдвиг произошёл в первые две недели — просто потому, что впервые работа шла в нужном направлении. Месяц — это не «вылечиться». Это сдвинуть то, что застряло.
+      </div>
+    </div>
+
+    <div class="objection reveal" onclick="toggleObj(this)">
+      <div class="objection-q">
+        Это онлайн-формат. Как это вообще может работать?
+        <span class="objection-icon"></span>
+      </div>
+      <div class="objection-a">
+        Соматическая работа и практики завершения не требуют физического присутствия. Вы работаете у себя дома, в своём пространстве — и это часто делает процесс более безопасным, потому что вы в знакомой, контролируемой среде.<br><br>
+        Десятки участников прошли курс онлайн и отметили, что именно формат «у себя дома» позволил быть более открытыми, чем в кабинете психолога.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<div class="guarantee">
+  <div class="guarantee-inner reveal">
+    <div class="guarantee-icon">◇</div>
+    <div>
+      <div class="guarantee-title">Если в первые 7 дней вы поймёте,<br>что это не то — мы вернём деньги полностью.</div>
+      <p class="guarantee-text">Без вопросов. Без объяснений. Потому что работа с травмой требует доверия — и доверие начинается с безопасности.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="cta">
+  <h2 class="reveal">Вы уже достаточно долго<br><em style="font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--terracotta);">несёте это.</em></h2>
+  <p class="reveal">Месяц работы — и то, что казалось вечным грузом, может стать просто частью вашей истории. Не тем, что управляет вами.</p>
+  <div class="reveal">
+    <a href="#pricing" class="cta-btn">Записаться на курс</a>
+    <span class="cta-note">Есть вопросы? <a href="#">Напишите Евгению напрямую</a></span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="#" class="footer-logo">Евгений</a>
+    <ul class="footer-links">
+      <li><a href="#about">Об авторе</a></li>
+      <li><a href="#program">Программа</a></li>
+      <li><a href="#pricing">Стоимость</a></li>
+      <li><a href="#">Политика конфиденциальности</a></li>
+    </ul>
+    <span class="footer-copy">© 2024 Евгений · Курс по травме насилия</span>
+  </div>
+</footer>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M7 12V2M2 7l5-5 5 5" stroke="#FAF7F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+
+  // Scroll reveal with stagger
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('section').forEach(section => {
+    section.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 75}ms`;
+      observer.observe(el);
+    });
+  });
+
+  // Also observe elements outside sections
+  document.querySelectorAll('.reveal:not(section .reveal)').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Accordion
+  function toggleObj(el) {
+    const isOpen = el.classList.contains('open');
+    document.querySelectorAll('.objection.open').forEach(o => o.classList.remove('open'));
+    if (!isOpen) el.classList.add('open');
+  }
+</script>
+</body>
+</html>
