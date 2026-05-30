@@ -45,7 +45,7 @@
     opacity: 0.35;
   }
 
-  /* NAV */
+  /* ─── NAV ─── */
   .nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -106,7 +106,7 @@
 
   .nav-cta:hover { background: var(--terracotta) !important; color: var(--cream) !important; }
 
-  /* ANIMATIONS */
+  /* ─── ANIMATIONS ─── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(32px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -114,10 +114,6 @@
   @keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }
-  }
-  @keyframes scaleIn {
-    from { transform: scaleX(0); }
-    to   { transform: scaleX(1); }
   }
 
   .reveal {
@@ -128,7 +124,7 @@
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* HERO */
+  /* ─── HERO ─── */
   .hero {
     min-height: 100vh;
     display: grid;
@@ -293,11 +289,9 @@
     display: block;
   }
 
-  /* SECTIONS */
+  /* ─── SHARED SECTION STYLES ─── */
   section { padding: 108px 40px; position: relative; }
-
   .section-inner { max-width: 780px; margin: 0 auto; }
-  .section-inner--wide { max-width: 1100px; margin: 0 auto; }
 
   .section-label {
     font-size: 10px;
@@ -328,7 +322,7 @@
     letter-spacing: -0.3px;
   }
 
-  /* TRUST BAR */
+  /* ─── TRUST BAR ─── */
   .trust-bar {
     background: var(--charcoal);
     padding: 28px 40px;
@@ -362,10 +356,8 @@
     flex-shrink: 0;
   }
 
-  /* AUTHOR */
-  .author {
-    background: var(--warm-white);
-  }
+  /* ─── AUTHOR ─── */
+  .author { background: var(--warm-white); }
 
   .author-grid {
     display: grid;
@@ -374,9 +366,7 @@
     align-items: start;
   }
 
-  .author-photo-wrap {
-    position: relative;
-  }
+  .author-photo-wrap { position: relative; }
 
   .author-photo {
     width: 100%;
@@ -384,19 +374,6 @@
     object-fit: cover;
     display: block;
     filter: grayscale(15%);
-  }
-
-  .author-photo-placeholder {
-    width: 100%;
-    aspect-ratio: 3/4;
-    background: linear-gradient(160deg, var(--sand) 0%, var(--clay) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 80px;
-    color: rgba(255,255,255,0.3);
-    font-weight: 300;
   }
 
   .author-photo-caption {
@@ -450,7 +427,6 @@
     margin-top: 36px;
     display: flex;
     flex-direction: column;
-    gap: 0;
   }
 
   .author-cred {
@@ -475,10 +451,8 @@
     flex-shrink: 0;
   }
 
-  /* FOR WHOM */
-  .for-whom {
-    background: var(--cream);
-  }
+  /* ─── FOR WHOM ─── */
+  .for-whom { background: var(--cream); }
 
   .for-whom-grid {
     display: grid;
@@ -489,7 +463,7 @@
 
   .for-whom-card {
     background: var(--warm-white);
-    padding: 32px 32px;
+    padding: 32px;
     border: 1px solid var(--line-light);
     transition: border-color 0.3s ease, background 0.3s ease;
   }
@@ -515,7 +489,7 @@
     line-height: 1.75;
   }
 
-  /* PROBLEM */
+  /* ─── PROBLEM ─── */
   .problem { background: var(--warm-white); }
 
   .problem-text p {
@@ -540,7 +514,6 @@
   .problem-items {
     display: flex;
     flex-direction: column;
-    gap: 0;
     margin: 32px 0;
   }
 
@@ -563,7 +536,7 @@
     font-weight: 300;
   }
 
-  /* CAUSE */
+  /* ─── CAUSE ─── */
   .cause { background: var(--sand); }
 
   .cause-intro {
@@ -583,7 +556,6 @@
     grid-template-columns: 200px 1fr;
     gap: 40px;
     align-items: start;
-    transition: background 0.2s;
   }
 
   .cause-type:first-child { border-top: 1px solid rgba(107, 79, 58, 0.12); }
@@ -613,9 +585,8 @@
     max-width: 600px;
   }
 
-  /* SOLUTION */
+  /* ─── SOLUTION ─── */
   .solution { background: var(--charcoal); color: var(--cream); }
-
   .solution .section-label { color: var(--clay); }
   .solution h2 { color: var(--cream); }
 
@@ -684,7 +655,7 @@
     font-weight: 400;
   }
 
-  /* PROGRAM */
+  /* ─── PROGRAM ─── */
   .program { background: var(--warm-white); }
 
   .program-timeline {
@@ -764,7 +735,7 @@
     padding: 5px 12px;
   }
 
-  /* TESTIMONIALS */
+  /* ─── TESTIMONIALS ─── */
   .testimonials { background: var(--cream); }
 
   .testimonials-grid {
@@ -794,13 +765,12 @@
   }
 
   .testimonial-text {
-    font-size: 15px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
     color: var(--charcoal);
     line-height: 1.85;
     margin-bottom: 24px;
-    font-style: italic;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 17px;
   }
 
   .testimonial-author {
@@ -818,7 +788,7 @@
     display: block;
   }
 
-  /* PRICE */
+  /* ─── PRICING ─── */
   .pricing { background: var(--sand); }
 
   .pricing-grid {
@@ -836,14 +806,14 @@
     transition: border-color 0.3s;
   }
 
+  .price-card:hover { border-color: var(--clay); }
+
   .price-card--featured {
     background: var(--charcoal);
     border-color: transparent;
   }
 
   .price-card--featured:hover { border-color: var(--clay); }
-
-  .price-card:hover { border-color: var(--clay); }
 
   .price-badge {
     position: absolute;
@@ -868,8 +838,6 @@
     display: block;
   }
 
-  .price-card--featured .price-tier { color: var(--clay); }
-
   .price-name {
     font-family: 'Cormorant Garamond', serif;
     font-size: 28px;
@@ -893,12 +861,12 @@
   .price-card--featured .price-amount { color: var(--cream); }
 
   .price-currency {
+    font-family: 'Cormorant Garamond', serif;
     font-size: 22px;
+    font-weight: 300;
     vertical-align: top;
     margin-top: 12px;
     display: inline-block;
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
   }
 
   .price-period {
@@ -908,13 +876,12 @@
     display: block;
   }
 
-  .price-card--featured .price-period { color: rgba(245,240,232,0.5); }
+  .price-card--featured .price-period { color: rgba(245, 240, 232, 0.5); }
 
   .price-features {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0;
     margin-bottom: 40px;
   }
 
@@ -927,18 +894,24 @@
     position: relative;
   }
 
-  .price-card--featured .price-feature { color: rgba(245,240,232,0.8); border-color: rgba(245,240,232,0.08); }
-
   .price-feature:first-child { border-top: 1px solid var(--line); }
-  .price-card--featured .price-feature:first-child { border-color: rgba(245,240,232,0.08); }
+
+  .price-card--featured .price-feature {
+    color: rgba(245, 240, 232, 0.8);
+    border-color: rgba(245, 240, 232, 0.08);
+  }
+
+  .price-card--featured .price-feature:first-child {
+    border-color: rgba(245, 240, 232, 0.08);
+  }
 
   .price-feature::before {
     content: '✓';
     position: absolute;
     left: 0;
+    top: 13px;
     color: var(--terracotta);
     font-size: 11px;
-    top: 13px;
   }
 
   .price-btn {
@@ -961,15 +934,10 @@
     transform: translateY(-1px);
   }
 
-  .price-card--featured .price-btn {
-    background: var(--terracotta);
-  }
+  .price-card--featured .price-btn { background: var(--terracotta); }
+  .price-card--featured .price-btn:hover { background: var(--clay); }
 
-  .price-card--featured .price-btn:hover {
-    background: var(--clay);
-  }
-
-  /* OBJECTIONS */
+  /* ─── OBJECTIONS ─── */
   .objections { background: var(--warm-white); }
 
   .objection {
@@ -1027,7 +995,7 @@
   }
 
   .objection-icon::before { width: 10px; height: 1px; }
-  .objection-icon::after  { width: 1px;  height: 10px; }
+  .objection-icon::after  { width: 1px; height: 10px; }
   .objection.open .objection-icon::after { transform: rotate(90deg); opacity: 0; }
 
   .objection-a {
@@ -1044,7 +1012,7 @@
     padding-bottom: 28px;
   }
 
-  /* GUARANTEE */
+  /* ─── GUARANTEE ─── */
   .guarantee {
     background: var(--charcoal);
     padding: 80px 40px;
@@ -1083,7 +1051,7 @@
     line-height: 1.9;
   }
 
-  /* FINAL CTA */
+  /* ─── FINAL CTA ─── */
   .final-cta {
     background: var(--cream);
     text-align: center;
@@ -1141,7 +1109,7 @@
 
   .cta-note a:hover { border-color: var(--terracotta); }
 
-  /* FOOTER */
+  /* ─── FOOTER ─── */
   footer {
     background: var(--deep);
     padding: 56px 40px;
@@ -1159,7 +1127,7 @@
   .footer-logo {
     font-family: 'Cormorant Garamond', serif;
     font-size: 22px;
-    color: rgba(245,240,232,0.5);
+    color: rgba(245, 240, 232, 0.5);
     font-weight: 300;
     text-decoration: none;
   }
@@ -1174,7 +1142,7 @@
     font-size: 11px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: rgba(245,240,232,0.3);
+    color: rgba(245, 240, 232, 0.3);
     text-decoration: none;
     transition: color 0.2s;
   }
@@ -1183,11 +1151,11 @@
 
   .footer-copy {
     font-size: 11px;
-    color: rgba(245,240,232,0.2);
+    color: rgba(245, 240, 232, 0.2);
     letter-spacing: 0.3px;
   }
 
-  /* SCROLL TO TOP */
+  /* ─── SCROLL TO TOP ─── */
   .scroll-top {
     position: fixed;
     bottom: 32px;
@@ -1209,18 +1177,10 @@
   .scroll-top.visible { opacity: 1; transform: translateY(0); }
   .scroll-top:hover { background: var(--terracotta); }
 
-  .scroll-top svg { transform: rotate(-90deg); }
-
-  /* RESPONSIVE */
+  /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
-    .hero {
-      grid-template-columns: 1fr;
-      min-height: auto;
-    }
-    .hero-right {
-      height: 55vw;
-      min-height: 300px;
-    }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { height: 55vw; min-height: 300px; }
     .hero-left { padding: 120px 40px 60px; }
     .author-grid { grid-template-columns: 1fr; gap: 48px; }
     .author-photo-wrap { max-width: 320px; }
@@ -1240,18 +1200,13 @@
     .trust-bar { padding: 24px; }
     .trust-bar-inner { gap: 16px; }
     footer { padding: 44px 24px; }
-
     .for-whom-grid { grid-template-columns: 1fr; }
     .solution-grid { grid-template-columns: 1fr; }
-    .cause-type {
-      grid-template-columns: 1fr;
-      gap: 8px;
-    }
+    .cause-type { grid-template-columns: 1fr; gap: 8px; }
     .nav { padding: 0 24px; }
     .nav-links { display: none; }
     .hero-stats { flex-direction: column; gap: 20px; }
     .hero-bg-text { display: none; }
-
     .program-week { grid-template-columns: 40px 1fr; gap: 20px; }
     .program-timeline::before { left: 18px; }
   }
@@ -1298,7 +1253,9 @@
     </div>
   </div>
   <div class="hero-right">
-    <img class="hero-photo" src="https://individual-center.com/wp-content/uploads/2026/05/IMG_1727.png" alt="Евгений — психолог, автор курса">
+    <img class="hero-photo"
+         src="https://individual-center.com/wp-content/uploads/2026/05/IMG_1727.png"
+         alt="Евгений — психолог, автор курса">
     <div class="hero-photo-overlay"></div>
   </div>
 </section>
@@ -1319,7 +1276,9 @@
     <div class="section-label reveal">Об авторе</div>
     <div class="author-grid">
       <div class="author-photo-wrap reveal">
-        <img class="author-photo" src="https://individual-center.com/wp-content/uploads/2026/05/IMG_1727.png" alt="Евгений — психолог">
+        <img class="author-photo"
+             src="https://individual-center.com/wp-content/uploads/2026/05/IMG_1727.png"
+             alt="Евгений — психолог">
         <div class="author-photo-caption">
           <span class="author-photo-name">Евгений</span>
           <span class="author-photo-title">Психолог · Специалист по травме</span>
@@ -1659,7 +1618,6 @@
         Десятки участников прошли курс онлайн и отметили, что именно формат «у себя дома» позволил быть более открытыми, чем в кабинете психолога.
       </div>
     </div>
-
   </div>
 </section>
 
@@ -1706,14 +1664,14 @@
 </button>
 
 <script>
-  // Nav scroll state
   const nav = document.getElementById('nav');
+  const scrollTopBtn = document.getElementById('scrollTop');
+
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
-    document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
   }, { passive: true });
 
-  // Scroll reveal with stagger
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -1730,12 +1688,10 @@
     });
   });
 
-  // Also observe elements outside sections
   document.querySelectorAll('.reveal:not(section .reveal)').forEach(el => {
     observer.observe(el);
   });
 
-  // Accordion
   function toggleObj(el) {
     const isOpen = el.classList.contains('open');
     document.querySelectorAll('.objection.open').forEach(o => o.classList.remove('open'));
