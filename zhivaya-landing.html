@@ -990,12 +990,104 @@
   .reveal-delay-4 { transition-delay: 0.4s; }
   .reveal-delay-5 { transition-delay: 0.5s; }
 
+  /* ─── FOOTER REDESIGN ─── */
+  .footer { background: var(--bg); border-top: 1px solid rgba(245,238,230,0.05); }
+
+  .footer__main { padding: 72px 0 56px; }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+  }
+
+  .footer__logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+  }
+
+  .footer__brand-desc {
+    font-size: 0.85rem;
+    color: rgba(245,238,230,0.4);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .footer__contacts { display: flex; flex-direction: column; gap: 10px; }
+
+  .footer__contact {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.82rem;
+    color: rgba(245,238,230,0.5);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+  .footer__contact:hover { color: var(--gold); }
+
+  .footer__contact-icon {
+    color: var(--gold);
+    font-size: 0.7rem;
+    flex-shrink: 0;
+  }
+
+  .footer__col-title {
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .footer__links {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+
+  .footer__links a {
+    font-size: 0.88rem;
+    color: rgba(245,238,230,0.5);
+    text-decoration: none;
+    transition: color 0.25s;
+    line-height: 1.4;
+  }
+  .footer__links a:hover { color: var(--cream); }
+
+  .footer__bar {
+    border-top: 1px solid rgba(245,238,230,0.06);
+    padding: 20px 0;
+    background: rgba(10,6,4,0.6);
+  }
+
+  .footer__bar-inner {
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+
+  .footer__bar-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: rgba(245,238,230,0.6);
+  }
+  .footer__bar-text em { color: var(--gold); font-style: italic; }
+
+  .footer__bar-btn { font-size: 0.75rem; padding: 12px 28px; white-space: nowrap; }
+
   /* ─── RESPONSIVE ─── */
   @media (max-width: 1024px) {
     .results__grid { grid-template-columns: repeat(2, 1fr); }
     .testimonials__grid { grid-template-columns: repeat(2, 1fr); }
     .author__inner { grid-template-columns: 1fr; gap: 48px; }
     .author__avatar-wrap { max-width: 340px; }
+  }
+
+  @media (max-width: 1024px) {
+    .footer__grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    .footer__brand { grid-column: 1 / -1; }
   }
 
   @media (max-width: 768px) {
@@ -1008,7 +1100,8 @@
     .nav__cta { display: none; }
     .pricing__card { padding: 40px 28px; }
     .author__stats { justify-content: center; }
-    .footer__inner { justify-content: center; text-align: center; flex-direction: column; }
+    .footer__grid { grid-template-columns: 1fr; }
+    .footer__bar-inner { flex-direction: column; text-align: center; }
   }
 </style>
 </head>
@@ -1464,10 +1557,75 @@
 
 <!-- ─── FOOTER ─── -->
 <footer class="footer">
-  <div class="footer__inner">
-    <div class="footer__logo">Моя <span>Оргазмичность</span></div>
-    <div class="footer__copy">«Моя Оргазмичность» — практикум женской чувственности и близости<br>© Евгений Декань · Все права защищены</div>
-    <div></div>
+  <div class="footer__main">
+    <div class="container--wide">
+      <div class="footer__grid">
+
+        <!-- Brand -->
+        <div class="footer__brand">
+          <div class="footer__logo">Моя <span>Оргазмичность</span></div>
+          <p class="footer__brand-desc">Практикум женской чувственности и близости.<br>Психолог · Астролог · 8+ лет практики.</p>
+          <div class="footer__contacts">
+            <a href="https://t.me/Otdel_Zaboti_Individual" class="footer__contact">
+              <span class="footer__contact-icon">✈</span> Telegram: @Otdel_Zaboti_Individual
+            </a>
+            <a href="https://wa.me/359876348245" class="footer__contact">
+              <span class="footer__contact-icon">●</span> WhatsApp: +359 876 348 245
+            </a>
+            <a href="#" class="footer__contact">
+              <span class="footer__contact-icon">◆</span> BIP: +359 876 348 245
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="footer__col">
+          <div class="footer__col-title">Навигация</div>
+          <ul class="footer__links">
+            <li><a href="#recognition">Для кого практикум</a></li>
+            <li><a href="#author">Об авторе</a></li>
+            <li><a href="#program">Программа</a></li>
+            <li><a href="#testimonials">Отзывы</a></li>
+            <li><a href="#faq">Вопросы и ответы</a></li>
+            <li><a href="#pricing">Стоимость</a></li>
+          </ul>
+        </div>
+
+        <!-- Other courses -->
+        <div class="footer__col">
+          <div class="footer__col-title">Другие программы</div>
+          <ul class="footer__links">
+            <li><a href="#">Деньги по-женски</a></li>
+            <li><a href="#">Все программы</a></li>
+            <li><a href="#">Индивидуальная работа</a></li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="footer__col">
+          <div class="footer__col-title">Поддержка</div>
+          <ul class="footer__links">
+            <li><a href="#">Политика конфиденциальности</a></li>
+            <li><a href="#">Договор оферты</a></li>
+            <li><a href="#">Условия возврата</a></li>
+            <li><a href="https://t.me/Otdel_Zaboti_Individual">Написать в Telegram</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer__bar">
+    <div class="container--wide">
+      <div class="footer__bar-inner">
+        <p class="footer__bar-text">
+          Готова вернуть себе живость? <em>Начни прямо сейчас</em>
+        </p>
+        <a href="#pricing" class="btn btn--primary footer__bar-btn">Получить доступ →</a>
+      </div>
+    </div>
   </div>
 </footer>
 
