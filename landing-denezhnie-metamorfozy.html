@@ -1628,47 +1628,125 @@
   ============================================================ */
   .site-footer {
     background: var(--dark);
-    padding: 60px 0 40px;
+    padding: 72px 0 0;
     border-top: 1px solid rgba(255,255,255,0.05);
   }
 
-  .footer-inner {
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 56px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .footer-brand {}
+
+  .footer-logo {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    color: var(--gold-light);
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .footer-brand-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .footer-contacts {}
+
+  .footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    transition: color 0.3s;
+  }
+
+  .footer-contact-item:hover { color: var(--gold-light); }
+
+  .footer-contact-icon {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+    color: var(--gold);
+  }
+
+  .footer-col-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .footer-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-nav a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    transition: color 0.3s;
+    letter-spacing: 0.3px;
+    line-height: 1.4;
+  }
+
+  .footer-nav a:hover { color: var(--gold-light); }
+
+  .footer-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 16px;
+    padding: 24px 0;
   }
 
-  .footer-logo {
-    font-family: var(--font-serif);
-    font-size: 20px;
-    color: var(--gold-light);
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.3px;
   }
 
-  .footer-links {
+  .footer-legal {
     display: flex;
     gap: 24px;
     list-style: none;
   }
 
-  .footer-links a {
-    font-size: 12px;
-    color: rgba(255,255,255,0.35);
+  .footer-legal a {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
     transition: color 0.3s;
     letter-spacing: 0.5px;
   }
 
-  .footer-links a:hover { color: var(--gold-light); }
+  .footer-legal a:hover { color: var(--gold-light); }
 
-  .footer-copy {
-    font-size: 12px;
-    color: rgba(255,255,255,0.25);
-    width: 100%;
-    text-align: center;
-    margin-top: 24px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.05);
+  @media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  }
+
+  @media (max-width: 600px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
   }
 
   /* ============================================================
@@ -2484,15 +2562,77 @@
 ============================================================ -->
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-inner">
-      <div class="footer-logo"><em>Денежные</em> Метаморфозы</div>
-      <ul class="footer-links">
+
+    <div class="footer-grid">
+
+      <!-- Бренд + контакты -->
+      <div class="footer-brand">
+        <span class="footer-logo"><em>Денежные</em> Метаморфозы</span>
+        <p class="footer-brand-desc">Авторский курс по выходу из финансовых тупиков.<br>Психолог · Эксперт по финансовой идентичности.</p>
+        <div class="footer-contacts">
+          <a href="mailto:info@example.com" class="footer-contact-item">
+            <div class="footer-contact-icon">✉</div>
+            <span>info@example.com</span>
+          </a>
+          <a href="tel:+79000000000" class="footer-contact-item">
+            <div class="footer-contact-icon">☎</div>
+            <span>+7 900 000-00-00</span>
+          </a>
+          <a href="https://t.me/example" target="_blank" class="footer-contact-item">
+            <div class="footer-contact-icon">✈</div>
+            <span>Telegram: @example</span>
+          </a>
+          <a href="https://instagram.com/example" target="_blank" class="footer-contact-item">
+            <div class="footer-contact-icon">◉</div>
+            <span>Instagram: @example</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Навигация -->
+      <div>
+        <div class="footer-col-title">Навигация</div>
+        <ul class="footer-nav">
+          <li><a href="#for-whom">Для кого курс</a></li>
+          <li><a href="#author">Об авторе</a></li>
+          <li><a href="#program">Программа</a></li>
+          <li><a href="#testimonials">Отзывы</a></li>
+          <li><a href="#faq">Вопросы и ответы</a></li>
+          <li><a href="#pricing">Стоимость</a></li>
+        </ul>
+      </div>
+
+      <!-- Другие курсы -->
+      <div>
+        <div class="footer-col-title">Другие курсы</div>
+        <ul class="footer-nav">
+          <li><a href="#">Курс «Сепарация»</a></li>
+          <li><a href="#">Все программы</a></li>
+          <li><a href="#">Индивидуальная работа</a></li>
+        </ul>
+      </div>
+
+      <!-- Поддержка -->
+      <div>
+        <div class="footer-col-title">Поддержка</div>
+        <ul class="footer-nav">
+          <li><a href="#">Политика конфиденциальности</a></li>
+          <li><a href="#">Договор оферты</a></li>
+          <li><a href="#">Условия возврата</a></li>
+          <li><a href="mailto:support@example.com">support@example.com</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 «Денежные Метаморфозы». Все права защищены.</div>
+      <ul class="footer-legal">
         <li><a href="#">Политика конфиденциальности</a></li>
-        <li><a href="#">Договор оферты</a></li>
-        <li><a href="#">Контакты</a></li>
+        <li><a href="#">Оферта</a></li>
       </ul>
     </div>
-    <div class="footer-copy">© 2024 «Денежные Метаморфозы». Все права защищены. Информация на сайте носит образовательный характер.</div>
+
   </div>
 </footer>
 
@@ -2502,8 +2642,8 @@
 <div class="sticky-bar" id="sticky-bar">
   <div class="container">
     <div class="sticky-bar-inner">
-      <div class="sticky-bar-text"><em>Денежные Метаморфозы</em> · <span>60 дней трансформации</span></div>
-      <a href="#pricing" class="btn-primary" style="padding: 12px 28px; font-size: 11px;">Хочу на курс</a>
+      <div class="sticky-bar-text">Готовы выйти из финансового тупика? <span>Начните прямо сейчас</span></div>
+      <a href="#pricing" class="btn-primary" style="padding: 12px 32px; font-size: 11px;">Записаться на курс</a>
     </div>
   </div>
 </div>
