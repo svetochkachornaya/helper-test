@@ -345,112 +345,136 @@
       margin-top: 12px;
     }
 
-    /* ── COURSES GRID ── */
-    .courses-grid {
+    /* ── COURSES LIST ── */
+    .courses-list {
       max-width: 1300px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
+      border-top: 1px solid var(--border);
     }
-    .course-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 48px 40px;
-      position: relative;
-      overflow: hidden;
+    .course-row {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      align-items: center;
+      gap: 0 48px;
+      padding: 0 0;
+      border-bottom: 1px solid var(--border);
       text-decoration: none;
       color: inherit;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      transition: border-color 0.4s, transform 0.4s;
+      position: relative;
+      overflow: hidden;
       cursor: pointer;
+      transition: background 0.4s;
     }
-    .course-card::before {
+    .course-row::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: var(--card-glow, radial-gradient(circle at 80% 20%, rgba(201,169,110,0.08), transparent 60%));
+      background: var(--row-glow, rgba(201,169,110,0.04));
       opacity: 0;
       transition: opacity 0.4s;
     }
-    .course-card:hover { border-color: rgba(201,169,110,0.3); transform: translateY(-4px); }
-    .course-card:hover::before { opacity: 1; }
+    .course-row:hover { background: rgba(255,255,255,0.015); }
+    .course-row:hover::after { opacity: 1; }
 
-    .course-num {
+    /* number column */
+    .cr-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 72px;
+      font-size: 13px;
       font-weight: 300;
       color: var(--text-dim);
-      line-height: 1;
-      margin-bottom: 32px;
+      letter-spacing: 0.15em;
+      padding: 40px 0 40px 0;
+      align-self: start;
+      padding-top: 44px;
       transition: color 0.4s;
+      position: relative;
+      z-index: 1;
     }
-    .course-card:hover .course-num { color: var(--gold-dim); }
+    .course-row:hover .cr-num { color: var(--gold); }
 
-    .course-tag {
+    /* main content */
+    .cr-body {
+      padding: 40px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 80px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .cr-left { }
+    .cr-tag {
       font-size: 9px;
       letter-spacing: 0.4em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 16px;
+      margin-bottom: 12px;
+      opacity: 0.7;
+      transition: opacity 0.4s;
     }
-    .course-name {
+    .course-row:hover .cr-tag { opacity: 1; }
+    .cr-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
+      font-size: clamp(32px, 3.5vw, 52px);
       font-weight: 300;
-      line-height: 1.15;
-      margin-bottom: 20px;
+      line-height: 1.05;
+      color: var(--text);
+      transition: color 0.4s;
     }
-    .course-sub {
-      font-size: 13px;
+    .course-row:hover .cr-name { color: #fff; }
+    .cr-right {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cr-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
       font-style: italic;
       color: var(--text-muted);
-      margin-bottom: 24px;
-      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.45;
     }
-    .course-desc {
+    .cr-desc {
       font-size: 13px;
-      color: var(--text-muted);
+      color: var(--text-dim);
       line-height: 1.75;
-      flex: 1;
-      margin-bottom: 36px;
+      transition: color 0.4s;
     }
-    .course-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
+    .course-row:hover .cr-desc { color: var(--text-muted); }
+
+    /* arrow column */
+    .cr-arrow {
+      padding: 40px 0;
+      position: relative;
+      z-index: 1;
     }
-    .course-price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      color: var(--gold);
-    }
-    .course-arrow {
-      width: 40px;
-      height: 40px;
+    .cr-arrow-circle {
+      width: 52px;
+      height: 52px;
       border: 1px solid var(--border);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: border-color 0.3s, background 0.3s;
+      transition: border-color 0.4s, background 0.4s, transform 0.4s;
     }
-    .course-card:hover .course-arrow {
+    .course-row:hover .cr-arrow-circle {
       border-color: var(--gold);
       background: var(--gold);
+      transform: rotate(45deg);
     }
-    .course-arrow svg { transition: stroke 0.3s; }
-    .course-card:hover .course-arrow svg path { stroke: var(--void); }
+    .cr-arrow-circle svg { transition: stroke 0.4s; }
+    .course-row:hover .cr-arrow-circle svg path { stroke: var(--void); }
 
-    /* FEATURED CARD */
-    .course-card.featured {
-      grid-column: span 2;
-      background: linear-gradient(135deg, #0f1a35 0%, #1a0f35 100%);
+    @media (max-width: 1024px) {
+      .course-row { grid-template-columns: 48px 1fr auto; gap: 0 24px; }
+      .cr-body { grid-template-columns: 1fr; gap: 16px; }
+      .cr-right { display: none; }
+      .cr-name { font-size: 28px; }
+      .cr-body { padding: 28px 0; }
+      .cr-num { padding-top: 32px; padding-bottom: 28px; }
+      .cr-arrow { padding: 28px 0; }
     }
-    .course-card.featured .course-name { font-size: 44px; }
 
     /* ── PHILOSOPHY ── */
     .philosophy {
@@ -720,8 +744,6 @@
       nav { padding: 20px 30px; }
       .nav-links { display: none; }
       section { padding: 80px 30px; }
-      .courses-grid { grid-template-columns: 1fr; }
-      .course-card.featured { grid-column: span 1; }
       .section-header { grid-template-columns: 1fr; gap: 20px; }
       .stats-bar { grid-template-columns: repeat(2, 1fr); }
       .philosophy-inner { grid-template-columns: 1fr; gap: 60px; }
@@ -820,23 +842,24 @@
       </div>
     </div>
 
-    <div class="courses-grid">
+    <div class="courses-list">
 
-      <!-- Card 1 — Импульс -->
-      <a href="https://individual-center.com/impulse/" class="course-card" target="_blank"
-         style="--card-glow: radial-gradient(circle at 80% 20%, rgba(255,140,60,0.1), transparent 60%);">
-        <span class="course-num">01</span>
-        <p class="course-tag">Энергия · Действие · Жизнь</p>
-        <h3 class="course-name">Импульс</h3>
-        <p class="course-sub">Когда пора — наконец — сдвинуться</p>
-        <p class="course-desc">
-          Ты знаешь, чего хочешь — но что-то внутри тормозит. Impulse — это программа
-          для тех, кто готов разблокировать внутреннюю энергию и начать двигаться
-          из самого себя, а не из страха или давления извне.
-        </p>
-        <div class="course-footer">
-          <span class="course-price">Узнать стоимость →</span>
-          <div class="course-arrow">
+      <!-- Row 1 — Импульс -->
+      <a href="https://individual-center.com/impulse/" class="course-row" target="_blank"
+         style="--row-glow: rgba(255,140,60,0.05);">
+        <span class="cr-num">01</span>
+        <div class="cr-body">
+          <div class="cr-left">
+            <p class="cr-tag">Энергия · Действие · Жизнь</p>
+            <h3 class="cr-name">Импульс</h3>
+          </div>
+          <div class="cr-right">
+            <p class="cr-sub">Когда пора — наконец — сдвинуться</p>
+            <p class="cr-desc">Программа для тех, кто готов разблокировать внутреннюю энергию и начать двигаться из самого себя, а не из страха или давления извне.</p>
+          </div>
+        </div>
+        <div class="cr-arrow">
+          <div class="cr-arrow-circle">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -844,21 +867,22 @@
         </div>
       </a>
 
-      <!-- Card 2 — Прорыв -->
-      <a href="https://individual-center.com/proryv/" class="course-card" target="_blank"
-         style="--card-glow: radial-gradient(circle at 20% 80%, rgba(100,60,255,0.12), transparent 60%);">
-        <span class="course-num">02</span>
-        <p class="course-tag">Ограничения · Свобода · Рост</p>
-        <h3 class="course-name">Прорыв</h3>
-        <p class="course-sub">Сквозь стены, которые ты сам и построил</p>
-        <p class="course-desc">
-          Где-то внутри живёт человек больше, чем твоя текущая жизнь. Прорыв —
-          это интенсивная работа с убеждениями, паттернами и страхами, которые
-          удерживают тебя в меньшей версии себя.
-        </p>
-        <div class="course-footer">
-          <span class="course-price">Узнать стоимость →</span>
-          <div class="course-arrow">
+      <!-- Row 2 — Прорыв -->
+      <a href="https://individual-center.com/proryv/" class="course-row" target="_blank"
+         style="--row-glow: rgba(100,60,255,0.06);">
+        <span class="cr-num">02</span>
+        <div class="cr-body">
+          <div class="cr-left">
+            <p class="cr-tag">Ограничения · Свобода · Рост</p>
+            <h3 class="cr-name">Прорыв</h3>
+          </div>
+          <div class="cr-right">
+            <p class="cr-sub">Сквозь стены, которые ты сам и построил</p>
+            <p class="cr-desc">Интенсивная работа с убеждениями, паттернами и страхами, которые удерживают тебя в меньшей версии себя.</p>
+          </div>
+        </div>
+        <div class="cr-arrow">
+          <div class="cr-arrow-circle">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -866,21 +890,22 @@
         </div>
       </a>
 
-      <!-- Card 3 — Оргазмичность (FEATURED) -->
-      <a href="https://individual-center.com/orgazmichnost/" class="course-card featured" target="_blank"
-         style="--card-glow: radial-gradient(circle at 60% 30%, rgba(201,169,110,0.15), transparent 60%);">
-        <span class="course-num">03</span>
-        <p class="course-tag">Тело · Чувственность · Присутствие</p>
-        <h3 class="course-name">Оргазмичность</h3>
-        <p class="course-sub">Восстановить связь с телом как источником жизни</p>
-        <p class="course-desc">
-          Оргазмичность — это не про секс. Это про способность проживать жизнь
-          полностью: ощущать, принимать, отдаваться моменту без зажимов.
-          Курс возвращает телу его природную мудрость и чувствительность.
-        </p>
-        <div class="course-footer">
-          <span class="course-price">Узнать стоимость →</span>
-          <div class="course-arrow">
+      <!-- Row 3 — Оргазмичность -->
+      <a href="https://individual-center.com/orgazmichnost/" class="course-row" target="_blank"
+         style="--row-glow: rgba(201,169,110,0.07);">
+        <span class="cr-num">03</span>
+        <div class="cr-body">
+          <div class="cr-left">
+            <p class="cr-tag">Тело · Чувственность · Присутствие</p>
+            <h3 class="cr-name">Оргазмичность</h3>
+          </div>
+          <div class="cr-right">
+            <p class="cr-sub">Восстановить связь с телом как источником жизни</p>
+            <p class="cr-desc">Про способность проживать жизнь полностью: ощущать, принимать, отдаваться моменту без зажимов.</p>
+          </div>
+        </div>
+        <div class="cr-arrow">
+          <div class="cr-arrow-circle">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -888,21 +913,22 @@
         </div>
       </a>
 
-      <!-- Card 4 — Обнуление -->
-      <a href="https://individual-center.com/obnulenie/" class="course-card" target="_blank"
-         style="--card-glow: radial-gradient(circle at 50% 50%, rgba(60,180,180,0.1), transparent 60%);">
-        <span class="course-num">04</span>
-        <p class="course-tag">Перезагрузка · Ясность · Начало</p>
-        <h3 class="course-name">Обнуление</h3>
-        <p class="course-sub">Когда надо начать с чистого листа</p>
-        <p class="course-desc">
-          Иногда путь вперёд начинается с полного обнуления: старых историй,
-          ролей, масок. Эта программа — мягкая, но глубокая перезагрузка
-          идентичности и внутренних ориентиров.
-        </p>
-        <div class="course-footer">
-          <span class="course-price">Узнать стоимость →</span>
-          <div class="course-arrow">
+      <!-- Row 4 — Обнуление -->
+      <a href="https://individual-center.com/obnulenie/" class="course-row" target="_blank"
+         style="--row-glow: rgba(60,180,180,0.05);">
+        <span class="cr-num">04</span>
+        <div class="cr-body">
+          <div class="cr-left">
+            <p class="cr-tag">Перезагрузка · Ясность · Начало</p>
+            <h3 class="cr-name">Обнуление</h3>
+          </div>
+          <div class="cr-right">
+            <p class="cr-sub">Когда надо начать с чистого листа</p>
+            <p class="cr-desc">Мягкая, но глубокая перезагрузка идентичности и внутренних ориентиров — через освобождение от старых историй и ролей.</p>
+          </div>
+        </div>
+        <div class="cr-arrow">
+          <div class="cr-arrow-circle">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -910,21 +936,22 @@
         </div>
       </a>
 
-      <!-- Card 5 — Травма насилия -->
-      <a href="https://individual-center.com/travma-nasiliya/" class="course-card" target="_blank"
-         style="--card-glow: radial-gradient(circle at 30% 70%, rgba(180,60,60,0.1), transparent 60%);">
-        <span class="course-num">05</span>
-        <p class="course-tag">Исцеление · Безопасность · Сила</p>
-        <h3 class="course-name">Травма насилия</h3>
-        <p class="course-sub">Путь от выживания к полноценной жизни</p>
-        <p class="course-desc">
-          Специализированная программа для тех, кто пережил насилие. Бережная,
-          структурированная работа с травматическим опытом — чтобы прошлое
-          перестало управлять настоящим.
-        </p>
-        <div class="course-footer">
-          <span class="course-price">Узнать стоимость →</span>
-          <div class="course-arrow">
+      <!-- Row 5 — Травма насилия -->
+      <a href="https://individual-center.com/travma-nasiliya/" class="course-row" target="_blank"
+         style="--row-glow: rgba(180,60,60,0.05);">
+        <span class="cr-num">05</span>
+        <div class="cr-body">
+          <div class="cr-left">
+            <p class="cr-tag">Исцеление · Безопасность · Сила</p>
+            <h3 class="cr-name">Травма насилия</h3>
+          </div>
+          <div class="cr-right">
+            <p class="cr-sub">Путь от выживания к полноценной жизни</p>
+            <p class="cr-desc">Бережная, структурированная работа с травматическим опытом — чтобы прошлое перестало управлять настоящим.</p>
+          </div>
+        </div>
+        <div class="cr-arrow">
+          <div class="cr-arrow-circle">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -932,21 +959,22 @@
         </div>
       </a>
 
-      <!-- Card 6 — Сепарация -->
-      <a href="https://individual-center.com/separaciya/" class="course-card" target="_blank"
-         style="--card-glow: radial-gradient(circle at 70% 50%, rgba(60,100,200,0.1), transparent 60%);">
-        <span class="course-num">06</span>
-        <p class="course-tag">Автономия · Границы · Я</p>
-        <h3 class="course-name">Сепарация</h3>
-        <p class="course-sub">Стать по-настоящему собой рядом с другими</p>
-        <p class="course-desc">
-          Психологическая сепарация — это не отдаление. Это способность любить,
-          не теряя себя. Программа для тех, кто хочет выстроить зрелые отношения
-          с близкими, оставаясь целостным.
-        </p>
-        <div class="course-footer">
-          <span class="course-price">Узнать стоимость →</span>
-          <div class="course-arrow">
+      <!-- Row 6 — Сепарация -->
+      <a href="https://individual-center.com/separaciya/" class="course-row" target="_blank"
+         style="--row-glow: rgba(60,100,200,0.05);">
+        <span class="cr-num">06</span>
+        <div class="cr-body">
+          <div class="cr-left">
+            <p class="cr-tag">Автономия · Границы · Я</p>
+            <h3 class="cr-name">Сепарация</h3>
+          </div>
+          <div class="cr-right">
+            <p class="cr-sub">Стать по-настоящему собой рядом с другими</p>
+            <p class="cr-desc">Способность любить, не теряя себя. Программа для тех, кто хочет выстроить зрелые отношения с близкими, оставаясь целостным.</p>
+          </div>
+        </div>
+        <div class="cr-arrow">
+          <div class="cr-arrow-circle">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
