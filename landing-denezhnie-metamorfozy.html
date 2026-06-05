@@ -1475,6 +1475,85 @@
     background: var(--gold-light);
   }
 
+  /* CF7 form inside pricing cards */
+  .pricing-form { margin-top: 4px; }
+
+  .pricing-form .wpcf7 { margin: 0; }
+
+  .pricing-form .wpcf7-form { display: flex; flex-direction: column; gap: 8px; }
+
+  .pricing-form .wpcf7-form p { margin: 0; }
+
+  .pricing-form input[type="text"],
+  .pricing-form input[type="email"],
+  .pricing-form input[type="tel"] {
+    width: 100%;
+    padding: 11px 14px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: var(--radius);
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    font-family: var(--font-sans);
+    outline: none;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .pricing-form input[type="text"]:focus,
+  .pricing-form input[type="email"]:focus,
+  .pricing-form input[type="tel"]:focus {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.07);
+  }
+
+  .pricing-form input[type="text"]::placeholder,
+  .pricing-form input[type="email"]::placeholder,
+  .pricing-form input[type="tel"]::placeholder {
+    color: rgba(255,255,255,0.3);
+  }
+
+  .pricing-form input[type="submit"],
+  .pricing-form .wpcf7-submit {
+    display: block;
+    width: 100%;
+    padding: 13px 24px;
+    background: var(--gold);
+    color: var(--dark);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-family: var(--font-sans);
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 4px;
+  }
+
+  .pricing-form input[type="submit"]:hover,
+  .pricing-form .wpcf7-submit:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .pricing-form .wpcf7-not-valid-tip {
+    color: #e57373;
+    font-size: 11px;
+    margin-top: 3px;
+    display: block;
+  }
+
+  .pricing-form .wpcf7-response-output {
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--gold-light);
+    margin-top: 8px;
+    background: rgba(201,168,76,0.06);
+  }
+
   .pricing-guarantee {
     text-align: center;
     margin-top: 48px;
@@ -2419,7 +2498,9 @@
           <li>Страх успеха и откаты</li>
           <li>Запись уроков навсегда</li>
         </ul>
-        <a href="#" class="btn-pricing">Выбрать</a>
+        <div class="pricing-form">
+          [contact-form-7 id="e8d8e1a" title="Денежные метаморфозы 1 месяц"]
+        </div>
       </div>
 
       <!-- 2-й месяц -->
@@ -2436,7 +2517,9 @@
           <li>Новая мотивация и ясность</li>
           <li>Запись уроков навсегда</li>
         </ul>
-        <a href="#" class="btn-pricing">Выбрать</a>
+        <div class="pricing-form">
+          [contact-form-7 id="afe271c" title="Денежные метаморфозы 2 месяц"]
+        </div>
       </div>
 
       <!-- 3-й месяц — featured -->
@@ -2455,7 +2538,9 @@
           <li>Глубокая внутренняя перестройка</li>
           <li>Новая финансовая траектория</li>
         </ul>
-        <a href="#" class="btn-pricing">Выбрать</a>
+        <div class="pricing-form">
+          [contact-form-7 id="78a3540" title="Денежные метаморфозы полный курс"]
+        </div>
       </div>
 
     </div>
