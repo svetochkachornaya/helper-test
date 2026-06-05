@@ -829,6 +829,72 @@
     margin-top: 4px;
   }
 
+  /* ─── CF7 FORM STYLES ─── */
+  .cf7-wrap { margin-bottom: 8px; }
+
+  .cf7-wrap .wpcf7 { width: 100%; }
+
+  .cf7-wrap .wpcf7-form { display: flex; flex-direction: column; gap: 12px; }
+
+  .cf7-wrap input[type="text"],
+  .cf7-wrap input[type="email"],
+  .cf7-wrap input[type="tel"] {
+    width: 100%;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 2px;
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    outline: none;
+    transition: border-color 0.25s;
+  }
+  .cf7-wrap input[type="text"]:focus,
+  .cf7-wrap input[type="email"]:focus,
+  .cf7-wrap input[type="tel"]:focus {
+    border-color: var(--gold);
+    background: rgba(201,169,110,0.06);
+  }
+  .cf7-wrap input::placeholder { color: rgba(245,238,230,0.3); }
+
+  .cf7-wrap input[type="submit"] {
+    width: 100%;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--blush) 100%);
+    color: var(--ink);
+    border: none;
+    border-radius: 2px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 8px 40px rgba(201,169,110,0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .cf7-wrap input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 50px rgba(201,169,110,0.4);
+  }
+
+  .cf7-wrap .wpcf7-not-valid-tip {
+    font-size: 0.75rem;
+    color: var(--blush);
+    margin-top: 4px;
+  }
+
+  .cf7-wrap .wpcf7-response-output {
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-radius: 2px;
+    font-size: 0.82rem;
+    border: 1px solid rgba(201,169,110,0.3);
+    color: var(--gold-lt);
+    background: rgba(201,169,110,0.06);
+  }
+
   .pricing__note {
     margin-top: 20px;
     font-size: 0.78rem;
@@ -1147,7 +1213,7 @@
       <div class="hero__card">
         <span class="hero__card-icon">🌹</span>
         <div class="hero__card-label">Практикум «ЖиваЯ»</div>
-        <div class="hero__price">$19</div>
+        <div class="hero__price">$13</div>
         <div class="hero__price-note">разовый платёж · запись навсегда</div>
         <ul class="hero__list">
           <li>4-часовой практикум-погружение</li>
@@ -1446,7 +1512,7 @@
         <div class="pricing__card-title">«ЖиваЯ»</div>
         <div class="pricing__amount">
           <span class="pricing__currency">$</span>
-          <span class="pricing__num">19</span>
+          <span class="pricing__num">13</span>
         </div>
         <div class="pricing__period">разовый платёж · запись навсегда</div>
 
@@ -1458,9 +1524,10 @@
           <li>Доступ навсегда — возвращайся столько раз, сколько нужно</li>
         </ul>
 
-        <a href="#" class="btn btn--primary" style="width:100%; text-align:center; font-size:0.88rem; padding: 18px 40px;">
-          Получить доступ →
-        </a>
+        <!-- Contact Form 7 -->
+        <div class="cf7-wrap">
+          [contact-form-7 id="a5b83b4" title="Моя оргазмичность"]
+        </div>
 
         <p class="pricing__note">
           Каждая практика открывается по-новому при повторном прохождении. Многие возвращаются несколько раз.
@@ -1550,7 +1617,7 @@
       </a>
     </div>
     <div style="margin-top: 20px;" class="reveal reveal-delay-3">
-      <span class="muted">$19 · Доступ навсегда · Без риска</span>
+      <span class="muted">$13 · Доступ навсегда · Без риска</span>
     </div>
   </div>
 </section>
