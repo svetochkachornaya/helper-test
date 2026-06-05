@@ -14,18 +14,18 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --cream:    #F5EEE6;
-    --warm:     #EDE0D4;
-    --blush:    #D4A89A;
-    --rose:     #B07B6F;
-    --deep:     #6B3D35;
-    --ink:      #1C1410;
-    --muted:    #7A6860;
-    --gold:     #C9A96E;
-    --gold-lt:  #E8D5B0;
-    --bg:       #0F0A08;
-    --bg2:      #180F0C;
-    --bg3:      #221510;
+    --cream:    #EDF0EC;
+    --warm:     #D8E4D8;
+    --blush:    #8BBF9F;
+    --rose:     #5C8F72;
+    --deep:     #2E5C42;
+    --ink:      #0E1A14;
+    --muted:    #6B8070;
+    --gold:     #A8C86A;
+    --gold-lt:  #D4E8A8;
+    --bg:       #080F0C;
+    --bg2:      #0D1710;
+    --bg3:      #112015;
   }
 
   html { scroll-behavior: smooth; }
@@ -78,17 +78,17 @@
     background: linear-gradient(135deg, var(--gold) 0%, var(--blush) 100%);
     color: var(--ink);
     border: none;
-    box-shadow: 0 8px 40px rgba(201,169,110,0.25);
+    box-shadow: 0 8px 40px rgba(120,180,100,0.25);
   }
   .btn--primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 50px rgba(201,169,110,0.4);
+    box-shadow: 0 16px 50px rgba(120,180,100,0.4);
   }
 
   .btn--ghost {
     background: transparent;
     color: var(--cream);
-    border: 1px solid rgba(245,238,230,0.3);
+    border: 1px solid rgba(237,240,236,0.3);
   }
   .btn--ghost:hover {
     border-color: var(--gold);
@@ -100,9 +100,9 @@
     position: fixed; top: 0; left: 0; right: 0;
     z-index: 100;
     padding: 20px 0;
-    background: linear-gradient(180deg, rgba(15,10,8,0.95) 0%, transparent 100%);
+    background: linear-gradient(180deg, rgba(8,15,12,0.95) 0%, transparent 100%);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(245,238,230,0.06);
+    border-bottom: 1px solid rgba(237,240,236,0.06);
     transition: background 0.3s;
   }
   .nav__inner {
@@ -132,9 +132,9 @@
   .hero__bg {
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 70% 60% at 70% 40%, rgba(176,123,111,0.18) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 80% at 20% 80%, rgba(107,61,53,0.25) 0%, transparent 60%),
-      radial-gradient(ellipse 80% 40% at 50% 0%, rgba(201,169,110,0.08) 0%, transparent 50%);
+      radial-gradient(ellipse 70% 60% at 70% 40%, rgba(92,143,114,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 20% 80%, rgba(46,92,66,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 40% at 50% 0%, rgba(120,180,100,0.08) 0%, transparent 50%);
   }
 
   .hero__orb {
@@ -145,13 +145,13 @@
   }
   .hero__orb--1 {
     width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(176,123,111,0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(92,143,114,0.15) 0%, transparent 70%);
     top: -100px; right: -100px;
     animation: float1 12s ease-in-out infinite;
   }
   .hero__orb--2 {
     width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(201,169,110,0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(120,180,100,0.1) 0%, transparent 70%);
     bottom: 0; left: 10%;
     animation: float2 15s ease-in-out infinite;
   }
@@ -211,7 +211,7 @@
 
   .hero__desc {
     font-size: 0.95rem;
-    color: rgba(245,238,230,0.7);
+    color: rgba(237,240,236,0.7);
     margin-bottom: 40px;
     max-width: 480px;
     line-height: 1.8;
@@ -222,8 +222,8 @@
   .hero__badge {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 8px 16px;
-    background: rgba(201,169,110,0.08);
-    border: 1px solid rgba(201,169,110,0.2);
+    background: rgba(120,180,100,0.08);
+    border: 1px solid rgba(120,180,100,0.2);
     border-radius: 100px;
     font-size: 0.78rem;
     color: var(--gold-lt);
@@ -243,8 +243,8 @@
     position: relative;
     width: 360px;
     padding: 48px 40px;
-    background: linear-gradient(145deg, rgba(34,21,16,0.9) 0%, rgba(24,15,12,0.95) 100%);
-    border: 1px solid rgba(201,169,110,0.15);
+    background: linear-gradient(145deg, rgba(14,32,20,0.9) 0%, rgba(10,23,15,0.95) 100%);
+    border: 1px solid rgba(120,180,100,0.15);
     border-radius: 4px;
     text-align: center;
   }
@@ -291,7 +291,7 @@
   .hero__list li {
     display: flex; gap: 10px; align-items: flex-start;
     font-size: 0.85rem;
-    color: rgba(245,238,230,0.75);
+    color: rgba(237,240,236,0.75);
   }
   .hero__list li::before {
     content: '—';
@@ -321,7 +321,7 @@
 
   .section-lead {
     font-size: 1.05rem;
-    color: rgba(245,238,230,0.65);
+    color: rgba(237,240,236,0.65);
     line-height: 1.8;
     max-width: 580px;
   }
@@ -338,14 +338,14 @@
 
   .rec-card {
     padding: 36px 32px;
-    background: rgba(34,21,16,0.6);
-    border: 1px solid rgba(245,238,230,0.06);
+    background: rgba(14,32,20,0.6);
+    border: 1px solid rgba(237,240,236,0.06);
     border-radius: 3px;
     position: relative;
     transition: border-color 0.3s, transform 0.3s;
   }
   .rec-card:hover {
-    border-color: rgba(201,169,110,0.2);
+    border-color: rgba(120,180,100,0.2);
     transform: translateY(-4px);
   }
 
@@ -353,7 +353,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 3.5rem;
     font-weight: 300;
-    color: rgba(201,169,110,0.18);
+    color: rgba(120,180,100,0.18);
     line-height: 1;
     margin-bottom: 12px;
   }
@@ -381,7 +381,7 @@
     font-style: italic;
     color: var(--blush);
     padding: 28px 40px;
-    border: 1px solid rgba(176,123,111,0.2);
+    border: 1px solid rgba(92,143,114,0.2);
     border-radius: 3px;
     max-width: 640px;
     margin-left: auto;
@@ -398,7 +398,7 @@
     font-size: clamp(6rem, 15vw, 18rem);
     font-weight: 300;
     font-style: italic;
-    color: rgba(201,169,110,0.03);
+    color: rgba(120,180,100,0.03);
     white-space: nowrap;
     pointer-events: none;
     user-select: none;
@@ -420,7 +420,7 @@
     font-style: italic;
     color: var(--blush);
     line-height: 1.6;
-    background: rgba(201,169,110,0.04);
+    background: rgba(120,180,100,0.04);
     border-radius: 0 3px 3px 0;
   }
   .why__quote cite {
@@ -440,12 +440,12 @@
   .why__stat {
     display: flex; align-items: center; gap: 20px;
     padding: 24px 28px;
-    background: rgba(34,21,16,0.7);
-    border: 1px solid rgba(245,238,230,0.06);
+    background: rgba(14,32,20,0.7);
+    border: 1px solid rgba(237,240,236,0.06);
     border-radius: 3px;
     transition: border-color 0.3s;
   }
-  .why__stat:hover { border-color: rgba(201,169,110,0.2); }
+  .why__stat:hover { border-color: rgba(120,180,100,0.2); }
 
   .why__stat-num {
     font-family: 'Cormorant Garamond', serif;
@@ -459,7 +459,7 @@
 
   .why__stat-label {
     font-size: 0.88rem;
-    color: rgba(245,238,230,0.65);
+    color: rgba(237,240,236,0.65);
   }
 
   /* ─── RESULTS ─── */
@@ -471,7 +471,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2px;
-    background: rgba(201,169,110,0.08);
+    background: rgba(120,180,100,0.08);
     border-radius: 4px;
     overflow: hidden;
   }
@@ -482,7 +482,7 @@
     transition: background 0.3s;
     position: relative;
   }
-  .result-item:hover { background: rgba(34,21,16,0.8); }
+  .result-item:hover { background: rgba(14,32,20,0.8); }
 
   .result-item__icon {
     font-size: 1.6rem;
@@ -502,7 +502,7 @@
 
   .result-item__text {
     font-size: 0.85rem;
-    color: rgba(245,238,230,0.55);
+    color: rgba(237,240,236,0.55);
     line-height: 1.7;
   }
 
@@ -528,7 +528,7 @@
   .prog-item {
     display: flex; gap: 40px;
     padding: 36px 0;
-    border-bottom: 1px solid rgba(245,238,230,0.05);
+    border-bottom: 1px solid rgba(237,240,236,0.05);
     position: relative;
   }
   .prog-item:last-child { border-bottom: none; }
@@ -537,8 +537,8 @@
     flex-shrink: 0;
     width: 80px; height: 80px;
     border-radius: 50%;
-    background: rgba(34,21,16,0.9);
-    border: 1px solid rgba(201,169,110,0.2);
+    background: rgba(14,32,20,0.9);
+    border: 1px solid rgba(120,180,100,0.2);
     display: flex; align-items: center; justify-content: center;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.6rem;
@@ -573,7 +573,7 @@
 
   .prog-item__text {
     font-size: 0.85rem;
-    color: rgba(245,238,230,0.55);
+    color: rgba(237,240,236,0.55);
     line-height: 1.7;
   }
 
@@ -581,8 +581,8 @@
     margin-top: 48px;
     text-align: center;
     padding: 24px 32px;
-    background: rgba(201,169,110,0.05);
-    border: 1px solid rgba(201,169,110,0.15);
+    background: rgba(120,180,100,0.05);
+    border: 1px solid rgba(120,180,100,0.15);
     border-radius: 3px;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.05rem;
@@ -604,14 +604,14 @@
 
   .testi-card {
     padding: 36px 32px;
-    background: rgba(34,21,16,0.6);
-    border: 1px solid rgba(245,238,230,0.06);
+    background: rgba(14,32,20,0.6);
+    border: 1px solid rgba(237,240,236,0.06);
     border-radius: 3px;
     position: relative;
     transition: border-color 0.3s, transform 0.3s;
   }
   .testi-card:hover {
-    border-color: rgba(201,169,110,0.15);
+    border-color: rgba(120,180,100,0.15);
     transform: translateY(-4px);
   }
 
@@ -620,7 +620,7 @@
     position: absolute; top: 20px; right: 28px;
     font-family: 'Cormorant Garamond', serif;
     font-size: 5rem;
-    color: rgba(201,169,110,0.08);
+    color: rgba(120,180,100,0.08);
     line-height: 1;
     font-style: italic;
   }
@@ -629,7 +629,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.1rem;
     font-style: italic;
-    color: rgba(245,238,230,0.85);
+    color: rgba(237,240,236,0.85);
     line-height: 1.6;
     margin-bottom: 24px;
     position: relative; z-index: 1;
@@ -658,9 +658,9 @@
 
   .author__avatar {
     width: 100%; aspect-ratio: 3/4;
-    background: linear-gradient(145deg, rgba(107,61,53,0.4) 0%, rgba(34,21,16,0.9) 100%);
+    background: linear-gradient(145deg, rgba(46,92,66,0.4) 0%, rgba(14,32,20,0.9) 100%);
     border-radius: 3px;
-    border: 1px solid rgba(201,169,110,0.15);
+    border: 1px solid rgba(120,180,100,0.15);
     display: flex; align-items: center; justify-content: center;
     font-size: 6rem;
     position: relative;
@@ -669,7 +669,7 @@
   .author__avatar::after {
     content: '';
     position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(15,10,8,0.8) 0%, transparent 50%);
+    background: linear-gradient(to top, rgba(8,15,12,0.8) 0%, transparent 50%);
   }
 
   .author__avatar-name {
@@ -708,7 +708,7 @@
 
   .author__bio {
     font-size: 0.95rem;
-    color: rgba(245,238,230,0.65);
+    color: rgba(237,240,236,0.65);
     line-height: 1.8;
     margin-bottom: 36px;
   }
@@ -747,8 +747,8 @@
 
   .pricing__card {
     padding: 56px 52px;
-    background: linear-gradient(145deg, rgba(34,21,16,0.95) 0%, rgba(24,15,12,0.98) 100%);
-    border: 1px solid rgba(201,169,110,0.2);
+    background: linear-gradient(145deg, rgba(14,32,20,0.95) 0%, rgba(10,23,15,0.98) 100%);
+    border: 1px solid rgba(120,180,100,0.2);
     border-radius: 4px;
     text-align: center;
     position: relative;
@@ -815,9 +815,9 @@
   .pricing__features li {
     display: flex; gap: 14px; align-items: flex-start;
     font-size: 0.9rem;
-    color: rgba(245,238,230,0.75);
+    color: rgba(237,240,236,0.75);
     padding-bottom: 14px;
-    border-bottom: 1px solid rgba(245,238,230,0.05);
+    border-bottom: 1px solid rgba(237,240,236,0.05);
   }
   .pricing__features li:last-child { border-bottom: none; padding-bottom: 0; }
 
@@ -842,7 +842,7 @@
     width: 100%;
     padding: 14px 18px;
     background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(201,169,110,0.2);
+    border: 1px solid rgba(120,180,100,0.2);
     border-radius: 2px;
     color: var(--cream);
     font-family: 'Inter', sans-serif;
@@ -854,9 +854,9 @@
   .cf7-wrap input[type="email"]:focus,
   .cf7-wrap input[type="tel"]:focus {
     border-color: var(--gold);
-    background: rgba(201,169,110,0.06);
+    background: rgba(120,180,100,0.06);
   }
-  .cf7-wrap input::placeholder { color: rgba(245,238,230,0.3); }
+  .cf7-wrap input::placeholder { color: rgba(237,240,236,0.3); }
 
   .cf7-wrap input[type="submit"] {
     width: 100%;
@@ -871,12 +871,12 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     cursor: pointer;
-    box-shadow: 0 8px 40px rgba(201,169,110,0.25);
+    box-shadow: 0 8px 40px rgba(120,180,100,0.25);
     transition: transform 0.3s, box-shadow 0.3s;
   }
   .cf7-wrap input[type="submit"]:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 50px rgba(201,169,110,0.4);
+    box-shadow: 0 16px 50px rgba(120,180,100,0.4);
   }
 
   .cf7-wrap .wpcf7-not-valid-tip {
@@ -890,9 +890,9 @@
     padding: 12px 16px;
     border-radius: 2px;
     font-size: 0.82rem;
-    border: 1px solid rgba(201,169,110,0.3);
+    border: 1px solid rgba(120,180,100,0.3);
     color: var(--gold-lt);
-    background: rgba(201,169,110,0.06);
+    background: rgba(120,180,100,0.06);
   }
 
   .pricing__note {
@@ -914,7 +914,7 @@
   }
 
   .faq-item {
-    border-bottom: 1px solid rgba(245,238,230,0.06);
+    border-bottom: 1px solid rgba(237,240,236,0.06);
     overflow: hidden;
   }
 
@@ -938,7 +938,7 @@
   .faq-item__icon {
     flex-shrink: 0;
     width: 24px; height: 24px;
-    border: 1px solid rgba(201,169,110,0.3);
+    border: 1px solid rgba(120,180,100,0.3);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-size: 0.8rem;
@@ -950,7 +950,7 @@
 
   .faq-item__a {
     font-size: 0.9rem;
-    color: rgba(245,238,230,0.6);
+    color: rgba(237,240,236,0.6);
     line-height: 1.8;
     max-height: 0;
     overflow: hidden;
@@ -974,7 +974,7 @@
   .final-cta__bg {
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 60% 60% at 50% 50%, rgba(176,123,111,0.12) 0%, transparent 70%);
+      radial-gradient(ellipse 60% 60% at 50% 50%, rgba(92,143,114,0.12) 0%, transparent 70%);
   }
 
   .final-cta__inner { position: relative; z-index: 2; }
@@ -1016,7 +1016,7 @@
   .footer {
     background: var(--bg);
     padding: 40px 0;
-    border-top: 1px solid rgba(245,238,230,0.05);
+    border-top: 1px solid rgba(237,240,236,0.05);
   }
 
   .footer__inner {
@@ -1029,14 +1029,14 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 1rem;
     font-weight: 400;
-    color: rgba(245,238,230,0.4);
+    color: rgba(237,240,236,0.4);
     letter-spacing: 0.06em;
   }
   .footer__logo span { color: var(--gold); opacity: 0.7; }
 
   .footer__copy {
     font-size: 0.78rem;
-    color: rgba(245,238,230,0.25);
+    color: rgba(237,240,236,0.25);
     text-align: center;
   }
 
@@ -1057,7 +1057,7 @@
   .reveal-delay-5 { transition-delay: 0.5s; }
 
   /* ─── FOOTER REDESIGN ─── */
-  .footer { background: var(--bg); border-top: 1px solid rgba(245,238,230,0.05); }
+  .footer { background: var(--bg); border-top: 1px solid rgba(237,240,236,0.05); }
 
   .footer__main { padding: 72px 0 56px; }
 
@@ -1078,7 +1078,7 @@
 
   .footer__brand-desc {
     font-size: 0.85rem;
-    color: rgba(245,238,230,0.4);
+    color: rgba(237,240,236,0.4);
     line-height: 1.7;
     margin-bottom: 28px;
   }
@@ -1088,7 +1088,7 @@
   .footer__contact {
     display: flex; align-items: center; gap: 10px;
     font-size: 0.82rem;
-    color: rgba(245,238,230,0.5);
+    color: rgba(237,240,236,0.5);
     text-decoration: none;
     transition: color 0.25s;
   }
@@ -1116,7 +1116,7 @@
 
   .footer__links a {
     font-size: 0.88rem;
-    color: rgba(245,238,230,0.5);
+    color: rgba(237,240,236,0.5);
     text-decoration: none;
     transition: color 0.25s;
     line-height: 1.4;
@@ -1124,9 +1124,9 @@
   .footer__links a:hover { color: var(--cream); }
 
   .footer__bar {
-    border-top: 1px solid rgba(245,238,230,0.06);
+    border-top: 1px solid rgba(237,240,236,0.06);
     padding: 20px 0;
-    background: rgba(10,6,4,0.6);
+    background: rgba(5,10,7,0.6);
   }
 
   .footer__bar-inner {
@@ -1137,7 +1137,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.05rem;
     font-style: italic;
-    color: rgba(245,238,230,0.6);
+    color: rgba(237,240,236,0.6);
   }
   .footer__bar-text em { color: var(--gold); font-style: italic; }
 
@@ -1261,7 +1261,7 @@
         <div class="rec-card__title">«Куда-то ушло то ощущение живости в теле»</div>
         <div class="rec-card__sub">Чувственность как будто заблокирована</div>
       </div>
-      <div class="rec-card reveal reveal-delay-5" style="display:flex; flex-direction:column; justify-content:center; background: rgba(201,169,110,0.05); border-color: rgba(201,169,110,0.15);">
+      <div class="rec-card reveal reveal-delay-5" style="display:flex; flex-direction:column; justify-content:center; background: rgba(120,180,100,0.05); border-color: rgba(120,180,100,0.15);">
         <div style="font-size:2rem; margin-bottom: 16px;">✦</div>
         <p style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-style:italic; color:var(--blush); line-height:1.5;">Если хотя бы одно — про тебя, ты пришла по адресу.</p>
       </div>
@@ -1310,7 +1310,7 @@
           <div class="why__stat-num">8 лет</div>
           <div class="why__stat-label">практики в психологии и астрологии</div>
         </div>
-        <div class="why__stat reveal reveal-delay-3" style="background: rgba(201,169,110,0.06); border-color: rgba(201,169,110,0.2);">
+        <div class="why__stat reveal reveal-delay-3" style="background: rgba(120,180,100,0.06); border-color: rgba(120,180,100,0.2);">
           <div class="why__stat-num" style="font-size: 2rem;">💛</div>
           <div class="why__stat-label">Без пошлости, без насилия, без осуждения</div>
         </div>
@@ -1353,7 +1353,7 @@
         <div class="result-item__title">Доверие возвращается</div>
         <p class="result-item__text">К себе. К партнёру. К жизни. Ты перестаёшь ждать предательства и начинаешь жить в настоящем.</p>
       </div>
-      <div class="result-item reveal reveal-delay-2" style="background: rgba(201,169,110,0.04);">
+      <div class="result-item reveal reveal-delay-2" style="background: rgba(120,180,100,0.04);">
         <span class="result-item__icon">🌸</span>
         <div class="result-item__title">Ты разрешаешь себе удовольствие</div>
         <p class="result-item__text">Не только в близости — в жизни целиком. Это и есть оргазмичность: способность наслаждаться тем, что есть.</p>
@@ -1722,8 +1722,8 @@
   const nav = document.querySelector('.nav');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 60) {
-      nav.style.background = 'rgba(15,10,8,0.97)';
-      nav.style.borderBottomColor = 'rgba(245,238,230,0.08)';
+      nav.style.background = 'rgba(8,15,12,0.98)';
+      nav.style.borderBottomColor = 'rgba(237,240,236,0.08)';
     } else {
       nav.style.background = '';
       nav.style.borderBottomColor = '';
