@@ -345,135 +345,369 @@
       margin-top: 12px;
     }
 
-    /* ── COURSES LIST ── */
-    .courses-list {
-      max-width: 1300px;
-      margin: 0 auto;
-      border-top: 1px solid var(--border);
+    /* ══════════════════════════════════════
+       COURSES CATALOG — TABS + SECTIONS
+    ══════════════════════════════════════ */
+
+    .catalog-wrap { max-width: 1300px; margin: 0 auto; }
+
+    /* ── TAB BAR ── */
+    .cat-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 72px;
     }
-    .course-row {
+    .cat-tab {
+      padding: 18px 40px;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.3s, border-color 0.3s;
+      user-select: none;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: 'Inter', sans-serif;
+    }
+    .cat-tab.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+    .cat-tab:hover:not(.active) { color: var(--text); }
+
+    /* ── TAB PANELS ── */
+    .cat-panel { display: none; }
+    .cat-panel.active { display: block; }
+
+    /* ── SECTION DIVIDER ── */
+    .cat-section-title {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .cat-section-title h3 {
+      font-size: 10px;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      white-space: nowrap;
+      font-weight: 400;
+    }
+    .cat-section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .cat-section-badge {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+    }
+    .cat-section-badge.live {
+      border-color: rgba(100,200,120,0.4);
+      color: rgba(100,200,120,0.8);
+    }
+
+    /* ── UPCOMING EVENTS (горизонтальные строки) ── */
+    .events-list { margin-bottom: 80px; }
+    .event-row {
       display: grid;
-      grid-template-columns: 80px 1fr auto;
+      grid-template-columns: 160px 1fr auto;
       align-items: center;
       gap: 0 48px;
-      padding: 0 0;
+      padding: 28px 0;
       border-bottom: 1px solid var(--border);
       text-decoration: none;
       color: inherit;
       position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      transition: background 0.4s;
+      transition: background 0.3s;
     }
-    .course-row::after {
+    .event-row::before {
+      content: '';
+      position: absolute;
+      left: -60px; right: -60px; top: 0; bottom: 0;
+      background: rgba(201,169,110,0.03);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .event-row:hover::before { opacity: 1; }
+
+    .event-date-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .event-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .event-month {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .event-format {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(100,200,120,0.8);
+      margin-top: 8px;
+    }
+    .event-format::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(100,200,120,0.8);
+      animation: livePulse 2s ease-in-out infinite;
+    }
+    @keyframes livePulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .event-info { }
+    .event-tag {
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+    .event-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(24px, 2.5vw, 36px);
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 6px;
+      transition: color 0.3s;
+    }
+    .event-row:hover .event-name { color: #fff; }
+    .event-sub {
+      font-size: 13px;
+      color: var(--text-dim);
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .event-action {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+    .event-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--text);
+    }
+    .event-btn {
+      padding: 10px 28px;
+      background: var(--gold);
+      color: var(--void);
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.3s;
+    }
+    .event-btn:hover { background: var(--gold-light); }
+    .event-btn.ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    .event-btn.ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── RECORDINGS GRID (карточки 3 в ряд) ── */
+    .rec-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 80px;
+    }
+    .rec-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 36px 32px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.4s;
+    }
+    .rec-card::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: var(--row-glow, rgba(201,169,110,0.04));
+      background: var(--rec-glow, rgba(201,169,110,0.06));
       opacity: 0;
       transition: opacity 0.4s;
     }
-    .course-row:hover { background: rgba(255,255,255,0.015); }
-    .course-row:hover::after { opacity: 1; }
+    .rec-card:hover { border-color: rgba(201,169,110,0.25); }
+    .rec-card:hover::after { opacity: 1; }
 
-    /* number column */
-    .cr-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--text-dim);
-      letter-spacing: 0.15em;
-      padding: 40px 0 40px 0;
-      align-self: start;
-      padding-top: 44px;
-      transition: color 0.4s;
-      position: relative;
-      z-index: 1;
-    }
-    .course-row:hover .cr-num { color: var(--gold); }
-
-    /* main content */
-    .cr-body {
-      padding: 40px 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 80px;
+    .rec-badge {
+      display: inline-flex;
       align-items: center;
+      gap: 6px;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 28px;
       position: relative;
       z-index: 1;
     }
-    .cr-left { }
-    .cr-tag {
+    .rec-badge svg { opacity: 0.4; }
+    .rec-tag {
       font-size: 9px;
-      letter-spacing: 0.4em;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 12px;
       opacity: 0.7;
-      transition: opacity 0.4s;
-    }
-    .course-row:hover .cr-tag { opacity: 1; }
-    .cr-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(32px, 3.5vw, 52px);
-      font-weight: 300;
-      line-height: 1.05;
-      color: var(--text);
-      transition: color 0.4s;
-    }
-    .course-row:hover .cr-name { color: #fff; }
-    .cr-right {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .cr-sub {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-style: italic;
-      color: var(--text-muted);
-      line-height: 1.45;
-    }
-    .cr-desc {
-      font-size: 13px;
-      color: var(--text-dim);
-      line-height: 1.75;
-      transition: color 0.4s;
-    }
-    .course-row:hover .cr-desc { color: var(--text-muted); }
-
-    /* arrow column */
-    .cr-arrow {
-      padding: 40px 0;
+      margin-bottom: 10px;
       position: relative;
       z-index: 1;
     }
-    .cr-arrow-circle {
-      width: 52px;
-      height: 52px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
+    .rec-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      flex: 1;
+      position: relative;
+      z-index: 1;
+      transition: color 0.3s;
+    }
+    .rec-card:hover .rec-name { color: #fff; }
+    .rec-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.4;
+      position: relative;
+      z-index: 1;
+    }
+    .rec-footer {
       display: flex;
       align-items: center;
-      justify-content: center;
-      transition: border-color 0.4s, background 0.4s, transform 0.4s;
+      justify-content: space-between;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
     }
-    .course-row:hover .cr-arrow-circle {
-      border-color: var(--gold);
-      background: var(--gold);
-      transform: rotate(45deg);
+    .rec-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--gold);
     }
-    .cr-arrow-circle svg { transition: stroke 0.4s; }
-    .course-row:hover .cr-arrow-circle svg path { stroke: var(--void); }
+    .rec-arrow {
+      width: 36px; height: 36px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .rec-card:hover .rec-arrow { border-color: var(--gold); background: var(--gold); }
+    .rec-card:hover .rec-arrow path { stroke: var(--void); }
 
+    /* ── PODCAST special layout ── */
+    .pod-list { margin-bottom: 80px; }
+    .pod-row {
+      display: grid;
+      grid-template-columns: 60px 1fr auto;
+      align-items: center;
+      gap: 0 32px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.3s;
+      position: relative;
+    }
+    .pod-row::before {
+      content: '';
+      position: absolute;
+      left: -60px; right: -60px; top: 0; bottom: 0;
+      background: rgba(201,169,110,0.02);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .pod-row:hover::before { opacity: 1; }
+    .pod-play {
+      width: 44px; height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.3s, background 0.3s;
+      position: relative; z-index: 1;
+    }
+    .pod-row:hover .pod-play { border-color: var(--gold); background: rgba(201,169,110,0.1); }
+    .pod-info { position: relative; z-index: 1; }
+    .pod-ep {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+    }
+    .pod-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 4px;
+      transition: color 0.3s;
+    }
+    .pod-row:hover .pod-title { color: #fff; }
+    .pod-meta {
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+    .pod-dur {
+      font-size: 12px;
+      color: var(--text-dim);
+      position: relative; z-index: 1;
+      white-space: nowrap;
+    }
+
+    /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      .course-row { grid-template-columns: 48px 1fr auto; gap: 0 24px; }
-      .cr-body { grid-template-columns: 1fr; gap: 16px; }
-      .cr-right { display: none; }
-      .cr-name { font-size: 28px; }
-      .cr-body { padding: 28px 0; }
-      .cr-num { padding-top: 32px; padding-bottom: 28px; }
-      .cr-arrow { padding: 28px 0; }
+      .cat-tabs { overflow-x: auto; }
+      .cat-tab { padding: 16px 24px; white-space: nowrap; }
+      .event-row { grid-template-columns: 120px 1fr; gap: 0 24px; }
+      .event-action { display: none; }
+      .rec-grid { grid-template-columns: 1fr 1fr; }
+      .pod-row { grid-template-columns: 44px 1fr; }
+      .pod-dur { display: none; }
+    }
+    @media (max-width: 600px) {
+      .rec-grid { grid-template-columns: 1fr; }
+      .event-row { grid-template-columns: 90px 1fr; }
     }
 
     /* ── PHILOSOPHY ── */
@@ -842,147 +1076,408 @@
       </div>
     </div>
 
-    <div class="courses-list">
+    <div class="catalog-wrap">
 
-      <!-- Row 1 — Импульс -->
-      <a href="https://individual-center.com/impulse/" class="course-row" target="_blank"
-         style="--row-glow: rgba(255,140,60,0.05);">
-        <span class="cr-num">01</span>
-        <div class="cr-body">
-          <div class="cr-left">
-            <p class="cr-tag">Энергия · Действие · Жизнь</p>
-            <h3 class="cr-name">Импульс</h3>
-          </div>
-          <div class="cr-right">
-            <p class="cr-sub">Когда пора — наконец — сдвинуться</p>
-            <p class="cr-desc">Программа для тех, кто готов разблокировать внутреннюю энергию и начать двигаться из самого себя, а не из страха или давления извне.</p>
-          </div>
-        </div>
-        <div class="cr-arrow">
-          <div class="cr-arrow-circle">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-      </a>
+      <!-- ══ TABS ══ -->
+      <div class="cat-tabs" role="tablist">
+        <button class="cat-tab active" data-tab="courses" role="tab">Курсы</button>
+        <button class="cat-tab" data-tab="workshops" role="tab">Практикумы</button>
+        <button class="cat-tab" data-tab="podcasts" role="tab">Аудиоподкасты</button>
+      </div>
 
-      <!-- Row 2 — Прорыв -->
-      <a href="https://individual-center.com/proryv/" class="course-row" target="_blank"
-         style="--row-glow: rgba(100,60,255,0.06);">
-        <span class="cr-num">02</span>
-        <div class="cr-body">
-          <div class="cr-left">
-            <p class="cr-tag">Ограничения · Свобода · Рост</p>
-            <h3 class="cr-name">Прорыв</h3>
-          </div>
-          <div class="cr-right">
-            <p class="cr-sub">Сквозь стены, которые ты сам и построил</p>
-            <p class="cr-desc">Интенсивная работа с убеждениями, паттернами и страхами, которые удерживают тебя в меньшей версии себя.</p>
-          </div>
-        </div>
-        <div class="cr-arrow">
-          <div class="cr-arrow-circle">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-      </a>
+      <!-- ══════════════════════════
+           ПАНЕЛЬ: КУРСЫ
+      ══════════════════════════ -->
+      <div class="cat-panel active" id="tab-courses">
 
-      <!-- Row 3 — Оргазмичность -->
-      <a href="https://individual-center.com/orgazmichnost/" class="course-row" target="_blank"
-         style="--row-glow: rgba(201,169,110,0.07);">
-        <span class="cr-num">03</span>
-        <div class="cr-body">
-          <div class="cr-left">
-            <p class="cr-tag">Тело · Чувственность · Присутствие</p>
-            <h3 class="cr-name">Оргазмичность</h3>
-          </div>
-          <div class="cr-right">
-            <p class="cr-sub">Восстановить связь с телом как источником жизни</p>
-            <p class="cr-desc">Про способность проживать жизнь полностью: ощущать, принимать, отдаваться моменту без зажимов.</p>
-          </div>
+        <!-- Ближайшие мероприятия -->
+        <div class="cat-section-title">
+          <h3>Ближайшие мероприятия</h3>
+          <div class="cat-section-line"></div>
+          <span class="cat-section-badge live">Live</span>
         </div>
-        <div class="cr-arrow">
-          <div class="cr-arrow-circle">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-      </a>
 
-      <!-- Row 4 — Обнуление -->
-      <a href="https://individual-center.com/obnulenie/" class="course-row" target="_blank"
-         style="--row-glow: rgba(60,180,180,0.05);">
-        <span class="cr-num">04</span>
-        <div class="cr-body">
-          <div class="cr-left">
-            <p class="cr-tag">Перезагрузка · Ясность · Начало</p>
-            <h3 class="cr-name">Обнуление</h3>
-          </div>
-          <div class="cr-right">
-            <p class="cr-sub">Когда надо начать с чистого листа</p>
-            <p class="cr-desc">Мягкая, но глубокая перезагрузка идентичности и внутренних ориентиров — через освобождение от старых историй и ролей.</p>
-          </div>
-        </div>
-        <div class="cr-arrow">
-          <div class="cr-arrow-circle">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-      </a>
+        <div class="events-list">
 
-      <!-- Row 5 — Травма насилия -->
-      <a href="https://individual-center.com/travma-nasiliya/" class="course-row" target="_blank"
-         style="--row-glow: rgba(180,60,60,0.05);">
-        <span class="cr-num">05</span>
-        <div class="cr-body">
-          <div class="cr-left">
-            <p class="cr-tag">Исцеление · Безопасность · Сила</p>
-            <h3 class="cr-name">Травма насилия</h3>
-          </div>
-          <div class="cr-right">
-            <p class="cr-sub">Путь от выживания к полноценной жизни</p>
-            <p class="cr-desc">Бережная, структурированная работа с травматическим опытом — чтобы прошлое перестало управлять настоящим.</p>
-          </div>
-        </div>
-        <div class="cr-arrow">
-          <div class="cr-arrow-circle">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-      </a>
+          <a href="https://individual-center.com/proryv/" class="event-row" target="_blank">
+            <div class="event-date-block">
+              <span class="event-date">14</span>
+              <span class="event-month">Июля 2025</span>
+              <span class="event-format">Онлайн</span>
+            </div>
+            <div class="event-info">
+              <p class="event-tag">Личностный рост</p>
+              <h3 class="event-name">Прорыв</h3>
+              <p class="event-sub">Интенсивная работа с ограничивающими убеждениями — 8 недель</p>
+            </div>
+            <div class="event-action">
+              <span class="event-price">от 12 000 ₽</span>
+              <a href="https://individual-center.com/proryv/" class="event-btn" target="_blank">Записаться</a>
+            </div>
+          </a>
 
-      <!-- Row 6 — Сепарация -->
-      <a href="https://individual-center.com/separaciya/" class="course-row" target="_blank"
-         style="--row-glow: rgba(60,100,200,0.05);">
-        <span class="cr-num">06</span>
-        <div class="cr-body">
-          <div class="cr-left">
-            <p class="cr-tag">Автономия · Границы · Я</p>
-            <h3 class="cr-name">Сепарация</h3>
-          </div>
-          <div class="cr-right">
-            <p class="cr-sub">Стать по-настоящему собой рядом с другими</p>
-            <p class="cr-desc">Способность любить, не теряя себя. Программа для тех, кто хочет выстроить зрелые отношения с близкими, оставаясь целостным.</p>
-          </div>
-        </div>
-        <div class="cr-arrow">
-          <div class="cr-arrow-circle">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-      </a>
+          <a href="https://individual-center.com/impulse/" class="event-row" target="_blank">
+            <div class="event-date-block">
+              <span class="event-date">28</span>
+              <span class="event-month">Июля 2025</span>
+              <span class="event-format">Онлайн</span>
+            </div>
+            <div class="event-info">
+              <p class="event-tag">Энергия · Действие</p>
+              <h3 class="event-name">Импульс</h3>
+              <p class="event-sub">Разблокировать внутреннюю энергию и начать двигаться — 4 недели</p>
+            </div>
+            <div class="event-action">
+              <span class="event-price">от 8 000 ₽</span>
+              <a href="https://individual-center.com/impulse/" class="event-btn" target="_blank">Записаться</a>
+            </div>
+          </a>
 
-    </div>
+          <a href="https://individual-center.com/separaciya/" class="event-row" target="_blank">
+            <div class="event-date-block">
+              <span class="event-date">10</span>
+              <span class="event-month">Августа 2025</span>
+              <span class="event-format">Онлайн</span>
+            </div>
+            <div class="event-info">
+              <p class="event-tag">Отношения · Автономия</p>
+              <h3 class="event-name">Сепарация</h3>
+              <p class="event-sub">Стать собой, не разрушая связи с близкими — 6 недель</p>
+            </div>
+            <div class="event-action">
+              <span class="event-price">от 10 000 ₽</span>
+              <a href="https://individual-center.com/separaciya/" class="event-btn" target="_blank">Записаться</a>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- В записи -->
+        <div class="cat-section-title">
+          <h3>Доступно в записи</h3>
+          <div class="cat-section-line"></div>
+          <span class="cat-section-badge">Сразу после оплаты</span>
+        </div>
+
+        <div class="rec-grid">
+
+          <a href="https://individual-center.com/orgazmichnost/" class="rec-card" target="_blank"
+             style="--rec-glow: rgba(201,169,110,0.08);">
+            <span class="rec-badge">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor"/><path d="M5 4l3 2-3 2V4z" fill="currentColor"/></svg>
+              Запись курса
+            </span>
+            <p class="rec-tag">Тело · Чувственность</p>
+            <h3 class="rec-name">Оргазмичность</h3>
+            <p class="rec-sub">Восстановить связь с телом как источником жизни</p>
+            <div class="rec-footer">
+              <span class="rec-price">Узнать цену →</span>
+              <div class="rec-arrow">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://individual-center.com/obnulenie/" class="rec-card" target="_blank"
+             style="--rec-glow: rgba(60,180,180,0.07);">
+            <span class="rec-badge">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor"/><path d="M5 4l3 2-3 2V4z" fill="currentColor"/></svg>
+              Запись курса
+            </span>
+            <p class="rec-tag">Перезагрузка · Ясность</p>
+            <h3 class="rec-name">Обнуление</h3>
+            <p class="rec-sub">Когда надо начать с чистого листа</p>
+            <div class="rec-footer">
+              <span class="rec-price">Узнать цену →</span>
+              <div class="rec-arrow">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://individual-center.com/travma-nasiliya/" class="rec-card" target="_blank"
+             style="--rec-glow: rgba(180,60,60,0.07);">
+            <span class="rec-badge">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor"/><path d="M5 4l3 2-3 2V4z" fill="currentColor"/></svg>
+              Запись курса
+            </span>
+            <p class="rec-tag">Исцеление · Безопасность</p>
+            <h3 class="rec-name">Травма насилия</h3>
+            <p class="rec-sub">Путь от выживания к полноценной жизни</p>
+            <div class="rec-footer">
+              <span class="rec-price">Узнать цену →</span>
+              <div class="rec-arrow">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div><!-- /tab-courses -->
+
+      <!-- ══════════════════════════
+           ПАНЕЛЬ: ПРАКТИКУМЫ
+      ══════════════════════════ -->
+      <div class="cat-panel" id="tab-workshops">
+
+        <!-- Ближайшие -->
+        <div class="cat-section-title">
+          <h3>Ближайшие мероприятия</h3>
+          <div class="cat-section-line"></div>
+          <span class="cat-section-badge live">Live</span>
+        </div>
+
+        <div class="events-list">
+
+          <a href="#" class="event-row">
+            <div class="event-date-block">
+              <span class="event-date">20</span>
+              <span class="event-month">Июля 2025</span>
+              <span class="event-format">Онлайн</span>
+            </div>
+            <div class="event-info">
+              <p class="event-tag">Тело · Практика</p>
+              <h3 class="event-name">Практикум: Голос тела</h3>
+              <p class="event-sub">Однодневный интенсив по работе с телесными зажимами</p>
+            </div>
+            <div class="event-action">
+              <span class="event-price">от 3 500 ₽</span>
+              <a href="#" class="event-btn">Записаться</a>
+            </div>
+          </a>
+
+          <a href="#" class="event-row">
+            <div class="event-date-block">
+              <span class="event-date">05</span>
+              <span class="event-month">Августа 2025</span>
+              <span class="event-format">Онлайн</span>
+            </div>
+            <div class="event-info">
+              <p class="event-tag">Эмоции · Осознанность</p>
+              <h3 class="event-name">Практикум: Эмоциональный интеллект</h3>
+              <p class="event-sub">Как распознавать, принимать и использовать свои чувства</p>
+            </div>
+            <div class="event-action">
+              <span class="event-price">от 3 500 ₽</span>
+              <a href="#" class="event-btn">Записаться</a>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- В записи -->
+        <div class="cat-section-title">
+          <h3>Доступно в записи</h3>
+          <div class="cat-section-line"></div>
+          <span class="cat-section-badge">Сразу после оплаты</span>
+        </div>
+
+        <div class="rec-grid">
+
+          <a href="#" class="rec-card" style="--rec-glow: rgba(100,60,200,0.07);">
+            <span class="rec-badge">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor"/><path d="M5 4l3 2-3 2V4z" fill="currentColor"/></svg>
+              Запись практикума
+            </span>
+            <p class="rec-tag">Границы · Я</p>
+            <h3 class="rec-name">Практикум: Границы без вины</h3>
+            <p class="rec-sub">Как говорить «нет» и оставаться в контакте</p>
+            <div class="rec-footer">
+              <span class="rec-price">Узнать цену →</span>
+              <div class="rec-arrow">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="rec-card" style="--rec-glow: rgba(60,140,200,0.07);">
+            <span class="rec-badge">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor"/><path d="M5 4l3 2-3 2V4z" fill="currentColor"/></svg>
+              Запись практикума
+            </span>
+            <p class="rec-tag">Страх · Свобода</p>
+            <h3 class="rec-name">Практикум: Страх как компас</h3>
+            <p class="rec-sub">Научиться слышать страх, а не убегать от него</p>
+            <div class="rec-footer">
+              <span class="rec-price">Узнать цену →</span>
+              <div class="rec-arrow">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="rec-card" style="--rec-glow: rgba(200,100,60,0.07);">
+            <span class="rec-badge">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor"/><path d="M5 4l3 2-3 2V4z" fill="currentColor"/></svg>
+              Запись практикума
+            </span>
+            <p class="rec-tag">Отношения · Близость</p>
+            <h3 class="rec-name">Практикум: Близость без слияния</h3>
+            <p class="rec-sub">Как быть рядом, не теряя себя</p>
+            <div class="rec-footer">
+              <span class="rec-price">Узнать цену →</span>
+              <div class="rec-arrow">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div><!-- /tab-workshops -->
+
+      <!-- ══════════════════════════
+           ПАНЕЛЬ: АУДИОПОДКАСТЫ
+      ══════════════════════════ -->
+      <div class="cat-panel" id="tab-podcasts">
+
+        <!-- Новые выпуски -->
+        <div class="cat-section-title">
+          <h3>Новые выпуски</h3>
+          <div class="cat-section-line"></div>
+          <span class="cat-section-badge live">Новое</span>
+        </div>
+
+        <div class="pod-list events-list">
+
+          <a href="#" class="pod-row">
+            <div class="pod-play">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M4 3l7 4-7 4V3z" fill="currentColor" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="pod-info">
+              <p class="pod-ep">Выпуск 28 · Июнь 2025</p>
+              <h3 class="pod-title">Почему мы выбираем боль снова и снова</h3>
+              <p class="pod-meta">Травматическая привязанность · Повторяющиеся паттерны</p>
+            </div>
+            <span class="pod-dur">52 мин</span>
+          </a>
+
+          <a href="#" class="pod-row">
+            <div class="pod-play">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M4 3l7 4-7 4V3z" fill="currentColor" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="pod-info">
+              <p class="pod-ep">Выпуск 27 · Май 2025</p>
+              <h3 class="pod-title">Тело помнит: как соматика меняет психику</h3>
+              <p class="pod-meta">Телесно-ориентированная терапия · Нервная система</p>
+            </div>
+            <span class="pod-dur">44 мин</span>
+          </a>
+
+          <a href="#" class="pod-row">
+            <div class="pod-play">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M4 3l7 4-7 4V3z" fill="currentColor" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="pod-info">
+              <p class="pod-ep">Выпуск 26 · Май 2025</p>
+              <h3 class="pod-title">Сепарация: взрослеть — это не предавать</h3>
+              <p class="pod-meta">Отношения с родителями · Автономия · Вина</p>
+            </div>
+            <span class="pod-dur">38 мин</span>
+          </a>
+
+        </div>
+
+        <!-- Все выпуски / В записи -->
+        <div class="cat-section-title">
+          <h3>Все выпуски</h3>
+          <div class="cat-section-line"></div>
+          <span class="cat-section-badge">Бесплатно</span>
+        </div>
+
+        <div class="pod-list">
+
+          <a href="#" class="pod-row">
+            <div class="pod-play">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M4 3l7 4-7 4V3z" fill="currentColor" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="pod-info">
+              <p class="pod-ep">Выпуск 25 · Апрель 2025</p>
+              <h3 class="pod-title">Что такое здоровые границы в отношениях</h3>
+              <p class="pod-meta">Границы · Близость · Уязвимость</p>
+            </div>
+            <span class="pod-dur">41 мин</span>
+          </a>
+
+          <a href="#" class="pod-row">
+            <div class="pod-play">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M4 3l7 4-7 4V3z" fill="currentColor" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="pod-info">
+              <p class="pod-ep">Выпуск 24 · Март 2025</p>
+              <h3 class="pod-title">Контроль как способ не чувствовать тревогу</h3>
+              <p class="pod-meta">Тревога · Контроль · Доверие</p>
+            </div>
+            <span class="pod-dur">35 мин</span>
+          </a>
+
+          <a href="#" class="pod-row">
+            <div class="pod-play">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M4 3l7 4-7 4V3z" fill="currentColor" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="pod-info">
+              <p class="pod-ep">Выпуск 23 · Март 2025</p>
+              <h3 class="pod-title">Оргазмичность — жизнь без анестезии</h3>
+              <p class="pod-meta">Чувственность · Тело · Присутствие</p>
+            </div>
+            <span class="pod-dur">48 мин</span>
+          </a>
+
+          <a href="#" class="pod-row">
+            <div class="pod-play">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M4 3l7 4-7 4V3z" fill="currentColor" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="pod-info">
+              <p class="pod-ep">Выпуск 22 · Февраль 2025</p>
+              <h3 class="pod-title">Как перестать заслуживать любовь</h3>
+              <p class="pod-meta">Самоценность · Любовь · Детские паттерны</p>
+            </div>
+            <span class="pod-dur">56 мин</span>
+          </a>
+
+          <a href="#" class="pod-row">
+            <div class="pod-play">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M4 3l7 4-7 4V3z" fill="currentColor" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="pod-info">
+              <p class="pod-ep">Выпуск 21 · Февраль 2025</p>
+              <h3 class="pod-title">Импульс: откуда берётся внутренняя энергия</h3>
+              <p class="pod-meta">Мотивация · Ресурс · Действие</p>
+            </div>
+            <span class="pod-dur">33 мин</span>
+          </a>
+
+        </div>
+      </div><!-- /tab-podcasts -->
+
+    </div><!-- /catalog-wrap -->
   </section>
 
   <!-- PHILOSOPHY -->
@@ -1197,6 +1692,16 @@
       sf.appendChild(s);
     }
   })();
+
+  /* ── CATALOG TABS ── */
+  document.querySelectorAll('.cat-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.cat-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
 
   /* ── NAV SHRINK ON SCROLL ── */
   const nav = document.querySelector('nav');
