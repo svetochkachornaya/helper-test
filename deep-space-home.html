@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DEEP SPACE — Психологические практики трансформации</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --void: #020408;
+      --deep: #06090f;
+      --dark: #0b1120;
+      --surface: #111827;
+      --border: rgba(255,255,255,0.07);
+      --gold: #c9a96e;
+      --gold-light: #e8c98a;
+      --gold-dim: rgba(201,169,110,0.15);
+      --nebula-1: #3d1f6b;
+      --nebula-2: #1a2f5c;
+      --nebula-3: #0f3d3d;
+      --text: #e8e4dc;
+      --text-muted: rgba(232,228,220,0.5);
+      --text-dim: rgba(232,228,220,0.25);
+      --radius: 2px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--void);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── STARFIELD ── */
+    #starfield {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: #fff;
+      animation: twinkle var(--dur, 3s) ease-in-out infinite;
+      animation-delay: var(--delay, 0s);
+      opacity: 0;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; }
+      50% { opacity: var(--peak, 0.6); }
+    }
+
+    /* ── NEBULA BLOBS ── */
+    .nebula {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .nebula-1 {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(61,31,107,0.35), transparent 70%);
+      top: -200px; left: -200px;
+      animation: drift1 20s ease-in-out infinite alternate;
+    }
+    .nebula-2 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(26,47,92,0.3), transparent 70%);
+      top: 30%; right: -150px;
+      animation: drift2 25s ease-in-out infinite alternate;
+    }
+    .nebula-3 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(15,61,61,0.25), transparent 70%);
+      bottom: 10%; left: 20%;
+      animation: drift1 18s ease-in-out infinite alternate;
+    }
+    @keyframes drift1 {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(60px, 40px) scale(1.1); }
+    }
+    @keyframes drift2 {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(-50px, 60px) scale(0.95); }
+    }
+
+    /* ── LAYOUT ── */
+    .wrapper { position: relative; z-index: 1; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 24px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(20px);
+      background: rgba(2,4,8,0.6);
+      border-bottom: 1px solid var(--border);
+      transition: padding 0.3s;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      padding: 10px 28px;
+      border: 1px solid var(--gold);
+      color: var(--gold) !important;
+      font-size: 11px !important;
+      letter-spacing: 0.25em !important;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s !important;
+    }
+    .nav-cta:hover {
+      background: var(--gold) !important;
+      color: var(--void) !important;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 40px 80px;
+      position: relative;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 1s 0.3s forwards;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(56px, 10vw, 120px);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: fadeUp 1s 0.5s forwards;
+    }
+    .hero-title span {
+      display: block;
+      color: var(--gold);
+      font-style: italic;
+    }
+    .hero-subtitle {
+      font-size: 13px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      max-width: 500px;
+      opacity: 0;
+      animation: fadeUp 1s 0.7s forwards;
+    }
+    .hero-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-style: italic;
+      color: var(--text-muted);
+      max-width: 680px;
+      line-height: 1.6;
+      margin-bottom: 56px;
+      opacity: 0;
+      animation: fadeUp 1s 0.9s forwards;
+    }
+    .hero-cta-group {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 1s 1.1s forwards;
+    }
+    .btn-primary {
+      padding: 16px 48px;
+      background: var(--gold);
+      color: var(--void);
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-ghost {
+      padding: 16px 48px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeUp 1s 1.4s forwards;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    .scroll-label {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTION HEADERS ── */
+    section { padding: 120px 60px; position: relative; }
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .section-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.8;
+    }
+    .section-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 80px;
+      max-width: 1300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .section-header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
+
+    /* ── STATS ── */
+    .stats-bar {
+      max-width: 1300px;
+      margin: 0 auto 100px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .stat-item {
+      background: var(--deep);
+      padding: 48px 40px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+    .stat-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    /* ── COURSES GRID ── */
+    .courses-grid {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .course-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: border-color 0.4s, transform 0.4s;
+      cursor: pointer;
+    }
+    .course-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--card-glow, radial-gradient(circle at 80% 20%, rgba(201,169,110,0.08), transparent 60%));
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .course-card:hover { border-color: rgba(201,169,110,0.3); transform: translateY(-4px); }
+    .course-card:hover::before { opacity: 1; }
+
+    .course-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1;
+      margin-bottom: 32px;
+      transition: color 0.4s;
+    }
+    .course-card:hover .course-num { color: var(--gold-dim); }
+
+    .course-tag {
+      font-size: 9px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .course-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .course-sub {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .course-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      flex: 1;
+      margin-bottom: 36px;
+    }
+    .course-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .course-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--gold);
+    }
+    .course-arrow {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .course-card:hover .course-arrow {
+      border-color: var(--gold);
+      background: var(--gold);
+    }
+    .course-arrow svg { transition: stroke 0.3s; }
+    .course-card:hover .course-arrow svg path { stroke: var(--void); }
+
+    /* FEATURED CARD */
+    .course-card.featured {
+      grid-column: span 2;
+      background: linear-gradient(135deg, #0f1a35 0%, #1a0f35 100%);
+    }
+    .course-card.featured .course-name { font-size: 44px; }
+
+    /* ── PHILOSOPHY ── */
+    .philosophy {
+      background: var(--deep);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .philosophy-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 120px;
+      align-items: center;
+    }
+    .philosophy-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.4;
+      color: var(--text);
+      position: relative;
+    }
+    .philosophy-quote::before {
+      content: '"';
+      font-size: 200px;
+      position: absolute;
+      top: -60px;
+      left: -40px;
+      color: var(--gold-dim);
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .philosophy-content { }
+    .philosophy-content p {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.85;
+    }
+    .philosophy-list {
+      list-style: none;
+      margin-top: 36px;
+    }
+    .philosophy-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .philosophy-list li::before {
+      content: '◆';
+      color: var(--gold);
+      font-size: 8px;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    /* ── APPROACH ── */
+    .approach-grid {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+    .approach-item {
+      padding: 40px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .approach-icon {
+      font-size: 32px;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .approach-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    .approach-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section {
+      background: linear-gradient(180deg, var(--void), var(--deep));
+    }
+    .testimonials-grid {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .testimonial {
+      background: var(--surface);
+      padding: 48px 40px;
+      border: 1px solid var(--border);
+    }
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 14px;
+      letter-spacing: 4px;
+      margin-bottom: 24px;
+    }
+    .testimonial-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 32px;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--nebula-1), var(--nebula-2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .testimonial-name {
+      font-size: 13px;
+      color: var(--text);
+      display: block;
+    }
+    .testimonial-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: linear-gradient(135deg, #0d1a3a 0%, #1f0d3a 50%, #0d2a2a 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .cta-inner { max-width: 800px; margin: 0 auto; }
+    .cta-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .cta-title em { font-style: italic; color: var(--gold); }
+    .cta-sub {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 80px 60px 40px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+    .footer-brand .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .footer-brand p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 300px;
+    }
+    .footer-col h4 {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-col a {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+    .footer-socials {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-socials a {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .footer-socials a:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── DIVIDERS ── */
+    .line-divider {
+      max-width: 1300px;
+      margin: 0 auto;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      opacity: 0.2;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 1024px) {
+      nav { padding: 20px 30px; }
+      .nav-links { display: none; }
+      section { padding: 80px 30px; }
+      .courses-grid { grid-template-columns: 1fr; }
+      .course-card.featured { grid-column: span 1; }
+      .section-header { grid-template-columns: 1fr; gap: 20px; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .philosophy-inner { grid-template-columns: 1fr; gap: 60px; }
+      .approach-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .footer-brand { grid-column: span 2; }
+    }
+    @media (max-width: 600px) {
+      .stats-bar { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: span 1; }
+      footer { padding: 60px 24px 30px; }
+      .hero-cta-group { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- STARFIELD -->
+<div id="starfield"></div>
+<div class="nebula nebula-1"></div>
+<div class="nebula nebula-2"></div>
+<div class="nebula nebula-3"></div>
+
+<div class="wrapper">
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Deep Space</a>
+    <ul class="nav-links">
+      <li><a href="#courses">Курсы</a></li>
+      <li><a href="#philosophy">Философия</a></li>
+      <li><a href="#approach">Подход</a></li>
+      <li><a href="#testimonials">Отзывы</a></li>
+      <li><a href="#contact" class="nav-cta">Записаться</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Психологические практики трансформации</p>
+    <h1 class="hero-title">
+      Deep<br><span>Space</span>
+    </h1>
+    <p class="hero-subtitle">Твоё внутреннее пространство — бесконечно</p>
+    <p class="hero-desc">
+      Мы создаём пространство, где психология встречается с глубиной.
+      Курсы, которые меняют не поведение — а саму природу отношений с собой.
+    </p>
+    <div class="hero-cta-group">
+      <a href="#courses" class="btn-primary">Все программы</a>
+      <a href="#philosophy" class="btn-ghost">Наш подход</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span class="scroll-label">Прокрути</span>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section style="padding: 0 60px 120px;">
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-num">6</span>
+        <p class="stat-label">Авторских программ</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">3000+</span>
+        <p class="stat-label">Выпускников</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">8</span>
+        <p class="stat-label">Лет практики</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">97%</span>
+        <p class="stat-label">Рекомендуют</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSES -->
+  <section id="courses" style="padding-top: 0;">
+    <div class="section-header">
+      <div>
+        <p class="section-label">Программы трансформации</p>
+        <h2 class="section-title">Шесть путей<br>в <em>глубину</em></h2>
+      </div>
+      <div class="section-header-right">
+        <p class="section-desc">
+          Каждая программа — это путешествие в определённое измерение психики.
+          Выбери то, что резонирует прямо сейчас.
+        </p>
+      </div>
+    </div>
+
+    <div class="courses-grid">
+
+      <!-- Card 1 — Импульс -->
+      <a href="https://individual-center.com/impulse/" class="course-card" target="_blank"
+         style="--card-glow: radial-gradient(circle at 80% 20%, rgba(255,140,60,0.1), transparent 60%);">
+        <span class="course-num">01</span>
+        <p class="course-tag">Энергия · Действие · Жизнь</p>
+        <h3 class="course-name">Импульс</h3>
+        <p class="course-sub">Когда пора — наконец — сдвинуться</p>
+        <p class="course-desc">
+          Ты знаешь, чего хочешь — но что-то внутри тормозит. Impulse — это программа
+          для тех, кто готов разблокировать внутреннюю энергию и начать двигаться
+          из самого себя, а не из страха или давления извне.
+        </p>
+        <div class="course-footer">
+          <span class="course-price">Узнать стоимость →</span>
+          <div class="course-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2 — Прорыв -->
+      <a href="https://individual-center.com/proryv/" class="course-card" target="_blank"
+         style="--card-glow: radial-gradient(circle at 20% 80%, rgba(100,60,255,0.12), transparent 60%);">
+        <span class="course-num">02</span>
+        <p class="course-tag">Ограничения · Свобода · Рост</p>
+        <h3 class="course-name">Прорыв</h3>
+        <p class="course-sub">Сквозь стены, которые ты сам и построил</p>
+        <p class="course-desc">
+          Где-то внутри живёт человек больше, чем твоя текущая жизнь. Прорыв —
+          это интенсивная работа с убеждениями, паттернами и страхами, которые
+          удерживают тебя в меньшей версии себя.
+        </p>
+        <div class="course-footer">
+          <span class="course-price">Узнать стоимость →</span>
+          <div class="course-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3 — Оргазмичность (FEATURED) -->
+      <a href="https://individual-center.com/orgazmichnost/" class="course-card featured" target="_blank"
+         style="--card-glow: radial-gradient(circle at 60% 30%, rgba(201,169,110,0.15), transparent 60%);">
+        <span class="course-num">03</span>
+        <p class="course-tag">Тело · Чувственность · Присутствие</p>
+        <h3 class="course-name">Оргазмичность</h3>
+        <p class="course-sub">Восстановить связь с телом как источником жизни</p>
+        <p class="course-desc">
+          Оргазмичность — это не про секс. Это про способность проживать жизнь
+          полностью: ощущать, принимать, отдаваться моменту без зажимов.
+          Курс возвращает телу его природную мудрость и чувствительность.
+        </p>
+        <div class="course-footer">
+          <span class="course-price">Узнать стоимость →</span>
+          <div class="course-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 4 — Обнуление -->
+      <a href="https://individual-center.com/obnulenie/" class="course-card" target="_blank"
+         style="--card-glow: radial-gradient(circle at 50% 50%, rgba(60,180,180,0.1), transparent 60%);">
+        <span class="course-num">04</span>
+        <p class="course-tag">Перезагрузка · Ясность · Начало</p>
+        <h3 class="course-name">Обнуление</h3>
+        <p class="course-sub">Когда надо начать с чистого листа</p>
+        <p class="course-desc">
+          Иногда путь вперёд начинается с полного обнуления: старых историй,
+          ролей, масок. Эта программа — мягкая, но глубокая перезагрузка
+          идентичности и внутренних ориентиров.
+        </p>
+        <div class="course-footer">
+          <span class="course-price">Узнать стоимость →</span>
+          <div class="course-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 5 — Травма насилия -->
+      <a href="https://individual-center.com/travma-nasiliya/" class="course-card" target="_blank"
+         style="--card-glow: radial-gradient(circle at 30% 70%, rgba(180,60,60,0.1), transparent 60%);">
+        <span class="course-num">05</span>
+        <p class="course-tag">Исцеление · Безопасность · Сила</p>
+        <h3 class="course-name">Травма насилия</h3>
+        <p class="course-sub">Путь от выживания к полноценной жизни</p>
+        <p class="course-desc">
+          Специализированная программа для тех, кто пережил насилие. Бережная,
+          структурированная работа с травматическим опытом — чтобы прошлое
+          перестало управлять настоящим.
+        </p>
+        <div class="course-footer">
+          <span class="course-price">Узнать стоимость →</span>
+          <div class="course-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 6 — Сепарация -->
+      <a href="https://individual-center.com/separaciya/" class="course-card" target="_blank"
+         style="--card-glow: radial-gradient(circle at 70% 50%, rgba(60,100,200,0.1), transparent 60%);">
+        <span class="course-num">06</span>
+        <p class="course-tag">Автономия · Границы · Я</p>
+        <h3 class="course-name">Сепарация</h3>
+        <p class="course-sub">Стать по-настоящему собой рядом с другими</p>
+        <p class="course-desc">
+          Психологическая сепарация — это не отдаление. Это способность любить,
+          не теряя себя. Программа для тех, кто хочет выстроить зрелые отношения
+          с близкими, оставаясь целостным.
+        </p>
+        <div class="course-footer">
+          <span class="course-price">Узнать стоимость →</span>
+          <div class="course-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section id="philosophy" class="philosophy">
+    <div class="philosophy-inner">
+      <div>
+        <p class="philosophy-quote">
+          Психика — это не проблема, которую надо решить. Это пространство, которое надо исследовать.
+        </p>
+      </div>
+      <div class="philosophy-content">
+        <p class="section-label">Философия Deep Space</p>
+        <p>
+          Мы верим, что каждый человек несёт внутри себя достаточно ресурсов для глубокой трансформации.
+          Задача терапевта и наставника — не «починить» клиента, а создать безопасное пространство,
+          в котором он сам найдёт свой путь.
+        </p>
+        <p>
+          Наш подход объединяет доказательную психологию, телесно-ориентированные практики
+          и глубинную работу с архетипами. Мы не работаем с симптомами — мы работаем с корнями.
+        </p>
+        <ul class="philosophy-list">
+          <li>Безопасность и конфиденциальность — основа любой работы</li>
+          <li>Темп трансформации определяет сам клиент</li>
+          <li>Тело и психика — единая система</li>
+          <li>Мы не даём готовых ответов — мы помогаем найти свои</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach">
+    <div class="section-header">
+      <div>
+        <p class="section-label">Метод работы</p>
+        <h2 class="section-title">Как это<br><em>работает</em></h2>
+      </div>
+      <div class="section-header-right">
+        <p class="section-desc">
+          Наши программы сочетают онлайн-форматы с глубиной живого присутствия.
+        </p>
+      </div>
+    </div>
+    <div class="approach-grid">
+      <div class="approach-item">
+        <span class="approach-icon">◉</span>
+        <h3 class="approach-title">Видеолекции и практики</h3>
+        <p class="approach-text">
+          Структурированные модули с теорией и заданиями. Каждый урок — это шаг
+          внутрь, а не набор информации для запоминания.
+        </p>
+      </div>
+      <div class="approach-item">
+        <span class="approach-icon">◈</span>
+        <h3 class="approach-title">Живые встречи</h3>
+        <p class="approach-text">
+          Групповые сессии в прямом эфире, где рождается настоящее. Поддержка
+          сообщества и живой контакт с ведущим.
+        </p>
+      </div>
+      <div class="approach-item">
+        <span class="approach-icon">◇</span>
+        <h3 class="approach-title">Индивидуальная работа</h3>
+        <p class="approach-text">
+          В ряде программ предусмотрены личные сессии. Потому что некоторые
+          вещи можно пройти только один на один.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="testimonials-section">
+    <div class="section-header">
+      <div>
+        <p class="section-label">Истории трансформации</p>
+        <h2 class="section-title">Они уже<br>прошли <em>путь</em></h2>
+      </div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">
+          «Прорыв» буквально перевернул моё понимание себя. За три месяца я сделала
+          то, что не могла сдвинуть с места годами. Это не метафора.
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">М</div>
+          <div>
+            <span class="testimonial-name">Мария К.</span>
+            <span class="testimonial-meta">Выпускница «Прорыв»</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">
+          «Сепарация» помогла мне наконец понять, где заканчиваюсь я и начинается
+          мама. Звучит смешно — но это была самая серьёзная работа в моей жизни.
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">А</div>
+          <div>
+            <span class="testimonial-name">Анна Р.</span>
+            <span class="testimonial-meta">Выпускница «Сепарация»</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">
+          После «Обнуления» я впервые за пять лет почувствовала, что живу свою
+          жизнь, а не играю чужую роль. Бесценно.
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">Е</div>
+          <div>
+            <span class="testimonial-name">Елена В.</span>
+            <span class="testimonial-meta">Выпускница «Обнуление»</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section id="contact" class="cta-banner">
+    <div class="cta-inner">
+      <p class="cta-eyebrow">Начни своё путешествие</p>
+      <h2 class="cta-title">Готов<br>войти в <em>глубину?</em></h2>
+      <p class="cta-sub">
+        Выбери программу, которая откликается. Или напиши нам — и мы поможем
+        определить, с чего лучше начать именно тебе.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#courses" class="btn-primary">Выбрать программу</a>
+        <a href="mailto:info@deepspace.ru" class="btn-ghost">Написать нам</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="brand-name">Deep Space</span>
+          <p>
+            Пространство для глубокой психологической трансформации.
+            Авторские программы для тех, кто готов к настоящей работе с собой.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Программы</h4>
+          <ul>
+            <li><a href="https://individual-center.com/impulse/" target="_blank">Импульс</a></li>
+            <li><a href="https://individual-center.com/proryv/" target="_blank">Прорыв</a></li>
+            <li><a href="https://individual-center.com/orgazmichnost/" target="_blank">Оргазмичность</a></li>
+            <li><a href="https://individual-center.com/obnulenie/" target="_blank">Обнуление</a></li>
+            <li><a href="https://individual-center.com/travma-nasiliya/" target="_blank">Травма насилия</a></li>
+            <li><a href="https://individual-center.com/separaciya/" target="_blank">Сепарация</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>О нас</h4>
+          <ul>
+            <li><a href="#philosophy">Философия</a></li>
+            <li><a href="#approach">Метод</a></li>
+            <li><a href="#testimonials">Отзывы</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <ul>
+            <li><a href="mailto:info@deepspace.ru">info@deepspace.ru</a></li>
+            <li><a href="#">Telegram</a></li>
+            <li><a href="#">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2024 Deep Space. Все права защищены.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Telegram">T</a>
+          <a href="#" aria-label="Instagram">I</a>
+          <a href="#" aria-label="VK">V</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /wrapper -->
+
+<script>
+  /* ── STARFIELD ── */
+  (function() {
+    const sf = document.getElementById('starfield');
+    for (let i = 0; i < 180; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const size = Math.random() < 0.8 ? Math.random() * 1.5 + 0.5 : Math.random() * 2.5 + 1.5;
+      s.style.cssText = `
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        width: ${size}px;
+        height: ${size}px;
+        --dur: ${Math.random() * 4 + 2}s;
+        --delay: ${Math.random() * 6}s;
+        --peak: ${Math.random() * 0.5 + 0.2};
+      `;
+      sf.appendChild(s);
+    }
+  })();
+
+  /* ── NAV SHRINK ON SCROLL ── */
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.padding = window.scrollY > 60 ? '14px 60px' : '24px 60px';
+  });
+
+  /* ── SCROLL REVEAL ── */
+  const reveals = document.querySelectorAll(
+    '.course-card, .approach-item, .testimonial, .stat-item, .philosophy-inner > div'
+  );
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(40px)';
+    el.style.transitionDelay = `${(i % 3) * 0.1}s`;
+    io.observe(el);
+  });
+</script>
+
+</body>
+</html>
