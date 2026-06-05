@@ -1530,6 +1530,97 @@
       .approach__box       { padding: 36px 28px; }
     }
 
+    /* ═══════════════════════════════════════
+       OBJECTIONS
+    ═══════════════════════════════════════ */
+    .objections {
+      padding: var(--section-gap) 0;
+      background: var(--cream);
+      overflow: hidden;
+    }
+
+    .objections__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 64px;
+    }
+
+    .obj-card {
+      background: var(--warm);
+      padding: 52px 44px 48px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .obj-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 56px rgba(184,154,106,0.13);
+    }
+
+    /* decorative loop SVG behind the label */
+    .obj-card__loop {
+      position: absolute;
+      top: 28px;
+      left: 28px;
+      width: 120px;
+      height: 72px;
+      pointer-events: none;
+      opacity: 0.55;
+    }
+
+    .obj-card__label {
+      position: relative;
+      z-index: 2;
+      font-size: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold-dk);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .obj-card__quote {
+      position: relative;
+      z-index: 2;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 2.8vw, 36px);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 36px;
+    }
+
+    .obj-card__response {
+      position: relative;
+      z-index: 2;
+      border: 1px solid rgba(184,154,106,0.25);
+      background: rgba(255,255,255,0.6);
+      padding: 28px 28px 28px 32px;
+      border-left: 3px solid var(--gold);
+    }
+
+    .obj-card__response-intro {
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold-dk);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .obj-card__response-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 980px) {
+      .objections__grid { grid-template-columns: 1fr; }
+    }
+
     /* ── FADE-UP ANIMATION ── */
     .fade-up {
       opacity: 0;
@@ -2183,6 +2274,78 @@
         </div>
 
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     OBJECTIONS
+══════════════════════════════════════════ -->
+<section class="objections">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label">Мы слышим вас</span>
+      <h2 class="section-title fade-up">Если кажется, что<br>это не для вас</h2>
+      <p class="section-lead fade-up">Три мысли, которые чаще всего мешают начать</p>
+    </div>
+    <div class="objections__grid">
+
+      <!-- Objection 1 -->
+      <div class="obj-card fade-up">
+        <!-- hand-drawn loop shape -->
+        <svg class="obj-card__loop" viewBox="0 0 120 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M108 18 C115 10, 118 22, 112 32 C104 46, 86 56, 62 58 C38 60, 14 52, 6 40 C-2 28, 4 14, 18 10 C32 6, 52 10, 68 16 C84 22, 100 32, 106 24" stroke="#c4a99a" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        </svg>
+        <span class="obj-card__label">Знакомо?</span>
+        <p class="obj-card__quote">«У меня сейчас нет времени»</p>
+        <div class="obj-card__response">
+          <span class="obj-card__response-intro">Если кажется, что…</span>
+          <p class="obj-card__response-text">
+            …у вас нет времени заниматься собой — это и есть симптом.
+            Когда человек не слышит своих желаний, «у меня нет времени»
+            становится щитом от встречи с собой. Курс занимает столько,
+            сколько вы готовы дать. Одна сессия — это 40–60 минут.
+          </p>
+        </div>
+      </div>
+
+      <!-- Objection 2 -->
+      <div class="obj-card fade-up" style="transition-delay:.15s">
+        <svg class="obj-card__loop" viewBox="0 0 120 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M108 18 C115 10, 118 22, 112 32 C104 46, 86 56, 62 58 C38 60, 14 52, 6 40 C-2 28, 4 14, 18 10 C32 6, 52 10, 68 16 C84 22, 100 32, 106 24" stroke="#c4a99a" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        </svg>
+        <span class="obj-card__label">Знакомо?</span>
+        <p class="obj-card__quote">«Я уже пробовал(а) — не помогло»</p>
+        <div class="obj-card__response">
+          <span class="obj-card__response-intro">Если вы сейчас подумали…</span>
+          <p class="obj-card__response-text">
+            …что курсы не работают — возможно, предыдущий опыт
+            был про знания, а не про трансформацию. Здесь нет лекций,
+            которые нужно «запомнить». Каждая сессия — это работа
+            с вашим состоянием изнутри, а не снаружи.
+          </p>
+        </div>
+      </div>
+
+      <!-- Objection 3 -->
+      <div class="obj-card fade-up" style="transition-delay:.3s">
+        <svg class="obj-card__loop" viewBox="0 0 120 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M108 18 C115 10, 118 22, 112 32 C104 46, 86 56, 62 58 C38 60, 14 52, 6 40 C-2 28, 4 14, 18 10 C32 6, 52 10, 68 16 C84 22, 100 32, 106 24" stroke="#c4a99a" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        </svg>
+        <span class="obj-card__label">Знакомо?</span>
+        <p class="obj-card__quote">«Я не уверен(а), что готов(а)»</p>
+        <div class="obj-card__response">
+          <span class="obj-card__response-intro">Если кажется, что…</span>
+          <p class="obj-card__response-text">
+            …нужно сначала «подготовиться» — это тоже одно из ограничений,
+            которое мы прорабатываем внутри курса. Готовность не приходит
+            сама. Она появляется в процессе. Именно поэтому первый урок
+            можно посмотреть бесплатно — без обязательств.
+          </p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
