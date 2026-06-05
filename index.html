@@ -1721,6 +1721,161 @@
       .objections__grid { grid-template-columns: 1fr; }
     }
 
+    /* ═══════════════════════════════════════
+       MODAL
+    ═══════════════════════════════════════ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(40,32,26,0.62);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      background: var(--cream);
+      max-width: 520px;
+      width: 100%;
+      position: relative;
+      padding: 56px 52px;
+      box-shadow: 0 32px 80px rgba(40,32,26,0.22);
+      transform: translateY(24px) scale(0.98);
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .modal-overlay.open .modal {
+      transform: translateY(0) scale(1);
+    }
+
+    /* gold top line */
+    .modal::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 10%; right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .modal__close {
+      position: absolute;
+      top: 20px; right: 20px;
+      width: 36px; height: 36px;
+      background: none;
+      border: 1px solid rgba(184,154,106,0.3);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-faint);
+      font-size: 16px;
+      line-height: 1;
+      transition: background 0.2s, color 0.2s;
+    }
+    .modal__close:hover {
+      background: var(--gold);
+      color: #fff;
+      border-color: var(--gold);
+    }
+
+    .modal__eyebrow {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-dk);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .modal__title {
+      font-size: clamp(26px, 3vw, 36px);
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .modal__sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: var(--ink-faint);
+      margin-bottom: 36px;
+      line-height: 1.55;
+    }
+
+    /* CF7 overrides inside modal */
+    .modal .wpcf7-form p { margin-bottom: 0; }
+
+    .modal .wpcf7-form input[type="text"],
+    .modal .wpcf7-form input[type="email"],
+    .modal .wpcf7-form input[type="tel"] {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid rgba(184,154,106,0.4);
+      background: transparent;
+      padding: 14px 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--ink);
+      margin-bottom: 20px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .modal .wpcf7-form input:focus {
+      border-bottom-color: var(--gold);
+    }
+    .modal .wpcf7-form input::placeholder { color: var(--ink-faint); }
+
+    .modal .wpcf7-form input[type="submit"] {
+      width: 100%;
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      padding: 18px 40px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .modal .wpcf7-form input[type="submit"]:hover {
+      background: var(--gold-dk);
+      transform: translateY(-2px);
+    }
+
+    .modal .wpcf7-response-output {
+      font-size: 13px;
+      margin-top: 16px;
+      padding: 12px 16px;
+      border: 1px solid rgba(122,148,133,0.4);
+      color: var(--sage-mid);
+    }
+
+    .modal__privacy {
+      margin-top: 20px;
+      font-size: 11px;
+      color: var(--ink-faint);
+      text-align: center;
+      line-height: 1.6;
+    }
+    .modal__privacy a { color: var(--ink-faint); }
+
+    @media (max-width: 600px) {
+      .modal { padding: 44px 28px; }
+    }
+
     /* ── FADE-UP ANIMATION ── */
     .fade-up {
       opacity: 0;
@@ -1748,7 +1903,7 @@
       <li><a href="#testimonials">Отзывы</a></li>
       <li><a href="#faq">Вопросы</a></li>
     </ul>
-    <a href="#pricing" class="btn btn--primary btn--sm nav__cta">Купить курс</a>
+    <a href="#" data-modal class="btn btn--primary btn--sm nav__cta">Купить курс</a>
     <button class="nav__burger" id="nav-burger" aria-label="Меню" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -1813,7 +1968,7 @@
         </div>
       </div>
       <div class="hero__cta-group fade-up" style="transition-delay:.5s">
-        <a href="#pricing" class="btn btn--primary btn--lg">Записаться на курс</a>
+        <a href="#" data-modal class="btn btn--primary btn--lg">Записаться на курс</a>
         <a href="#free-lesson" class="btn btn--outline btn--lg">Первый урок бесплатно</a>
       </div>
     </div>
@@ -2112,7 +2267,7 @@
           Присоединяйтесь, пробуйте,<br>
           получайте свои инсайты и результаты.
         </p>
-        <a href="#" class="btn btn--primary btn--lg">Получить первый модуль бесплатно</a>
+        <a href="#" data-modal class="btn btn--primary btn--lg">Получить первый модуль бесплатно</a>
       </div>
 
     </div>
@@ -2371,7 +2526,7 @@
             <li>Пожизненный доступ ко всем материалам</li>
             <li>Обновления курса бесплатно</li>
           </ul>
-          <a href="#" class="btn btn--outline" style="width:100%;justify-content:center;">Выбрать базовый</a>
+          <a href="#" data-modal class="btn btn--outline" style="width:100%;justify-content:center;">Выбрать базовый</a>
           <p class="pricing__cta-note">Безопасная оплата · Возврат 7 дней</p>
         </div>
 
@@ -2391,7 +2546,7 @@
             <li>Письменная обратная связь на практики</li>
             <li>Приоритетная поддержка куратора</li>
           </ul>
-          <a href="#" class="btn btn--primary" style="width:100%;justify-content:center;">Выбрать расширенный</a>
+          <a href="#" data-modal class="btn btn--primary" style="width:100%;justify-content:center;">Выбрать расширенный</a>
           <p class="pricing__cta-note">Безопасная оплата · Возврат 7 дней</p>
         </div>
 
@@ -2563,7 +2718,7 @@
         Без борьбы с собой. Без давления. Шаг за шагом — к жизни, которую вы выбираете сами.
       </p>
       <div class="final-cta__btns fade-up">
-        <a href="#pricing" class="btn btn--primary btn--lg">Записаться на курс</a>
+        <a href="#" data-modal class="btn btn--primary btn--lg">Записаться на курс</a>
         <a href="#free-lesson" class="btn btn--outline btn--lg">Первый урок бесплатно</a>
       </div>
       <div class="final-cta__guarantee fade-up" style="transition-delay:.15s">
@@ -2625,8 +2780,27 @@
 ══════════════════════════════════════════ -->
 <div class="sticky-bar" id="sticky-bar" role="complementary" aria-label="Быстрая запись">
   <span class="sticky-bar__text">Готовы начать жить жизнью, которую выбираете сами?</span>
-  <a href="#pricing" class="btn btn--primary btn--sm">Записаться на курс</a>
+  <a href="#" data-modal class="btn btn--primary btn--sm">Записаться на курс</a>
   <button class="sticky-bar__close" id="sticky-close" aria-label="Закрыть">✕</button>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     MODAL
+══════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <button class="modal__close" id="modal-close" aria-label="Закрыть">✕</button>
+    <span class="modal__eyebrow">Регистрация на курс</span>
+    <h2 class="modal__title" id="modal-title">Жизнь из<br>Внутреннего Импульса</h2>
+    <p class="modal__sub">Оставьте данные — мы свяжемся с вами и расскажем о старте</p>
+    <!-- CF7 shortcode — WordPress заменит на форму -->
+    [contact-form-7 id="db3439c" title="Жизнь из Внутреннего Импульса"]
+    <p class="modal__privacy">
+      Нажимая кнопку, вы соглашаетесь с
+      <a href="#">политикой конфиденциальности</a>
+    </p>
+  </div>
 </div>
 
 
@@ -2698,6 +2872,41 @@
   stickyClose.addEventListener('click', function() {
     stickyDismissed = true;
     stickyBar.classList.remove('visible');
+  });
+
+  /* ── Modal ── */
+  var overlay = document.getElementById('modal-overlay');
+  var modalClose = document.getElementById('modal-close');
+
+  function openModal() {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    modalClose.focus();
+  }
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* all buttons with data-modal attribute */
+  document.querySelectorAll('[data-modal]').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  /* close on ✕ button */
+  modalClose.addEventListener('click', closeModal);
+
+  /* close on overlay click */
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeModal();
+  });
+
+  /* close on Escape */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
   });
 
   /* ── FAQ accordion ── */
