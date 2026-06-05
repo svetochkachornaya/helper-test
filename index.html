@@ -581,6 +581,70 @@
     }
 
     /* ═══════════════════════════════════════
+       BREAK QUOTE
+    ═══════════════════════════════════════ */
+    .break-quote {
+      background: var(--sage-wash);
+      padding: 80px 0 0;
+    }
+
+    .break-quote__box {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid rgba(184,154,106,0.22);
+      padding: 72px 80px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 8px 48px rgba(90,122,110,0.08);
+    }
+
+    /* top gold line */
+    .break-quote__box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 15%; right: 15%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .break-quote__label {
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--sage-mid);
+      margin-bottom: 32px;
+      display: block;
+    }
+
+    .break-quote__text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    .break-quote__text em {
+      font-style: italic;
+      color: var(--gold-dk);
+    }
+
+    .break-quote__sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(18px, 2vw, 22px);
+      font-style: italic;
+      color: var(--ink-faint);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 700px) {
+      .break-quote__box { padding: 48px 28px; }
+    }
+
+    /* ═══════════════════════════════════════
        LIMITATIONS + RESULTS
     ═══════════════════════════════════════ */
     .limits {
@@ -1832,13 +1896,29 @@
 
 
 <!-- ══════════════════════════════════════════
+     BREAK QUOTE
+══════════════════════════════════════════ -->
+<div class="break-quote">
+  <div class="container">
+    <div class="break-quote__box fade-up">
+      <span class="break-quote__label">Ключевой вопрос</span>
+      <p class="break-quote__text">Что стоит<br>за&nbsp;<em>этим?</em></p>
+      <p class="break-quote__sub">
+        Почти всегда — не лень и не слабость воли.<br>
+        А одно из трёх глубинных ограничений.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
      LIMITATIONS + RESULTS
 ══════════════════════════════════════════ -->
 <section class="limits">
   <div class="limits__inner">
     <div class="container">
-      <span class="section-label">Что стоит за этим?</span>
-      <h2 class="section-title fade-up">
+      <h2 class="section-title fade-up" style="margin-top:8px;">
         Три группы ограничений,<br>которые мы проработаем
       </h2>
 
