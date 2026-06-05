@@ -1,0 +1,2438 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Как начать слышать свои желания | Евгений Декань</title>
+  <meta name="description" content="16 сессий глубинной работы с внутренними ограничениями. Без борьбы с собой. Начните жить жизнью, которую вы выбираете сами." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #28201a;
+      --ink-soft:   #5a4a3a;
+      --ink-faint:  #8a7a6a;
+      --cream:      #fdf8f2;
+      --warm:       #f0e6d8;
+      --stone:      #e4d8c8;
+      --parchment:  #ede4d5;
+      --sage-wash:  #dce8e2;
+      --gold:       #b89a6a;
+      --gold-lt:    #d4b98a;
+      --gold-dk:    #9a7d50;
+      --sage:       #7a9485;
+      --sage-lt:    #a8bfb5;
+      --sage-mid:   #5a7a6e;
+      --dust:       #c4a99a;
+      --nav-h:      72px;
+      --section-gap: 120px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 400;
+      line-height: 1.15;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .text-center { text-align: center; }
+
+    .ornament {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 24px;
+    }
+
+    /* ═══════════════════════════════════════
+       NAV
+    ═══════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      transition: background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(253,248,242,0.92);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(184,154,106,0.18);
+    }
+
+    .nav__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .nav__brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav__links a {
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav__links a:hover { color: var(--gold-dk); }
+
+    .nav__cta {
+      flex-shrink: 0;
+    }
+
+    .nav__burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+    .nav__burger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--ink-soft);
+      transition: all 0.3s;
+    }
+    .nav__burger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav__burger.open span:nth-child(2) { opacity: 0; }
+    .nav__burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .nav__mobile {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0; right: 0;
+      background: rgba(253,248,242,0.97);
+      backdrop-filter: blur(16px);
+      padding: 32px;
+      flex-direction: column;
+      gap: 24px;
+      border-bottom: 1px solid rgba(184,154,106,0.18);
+      z-index: 99;
+    }
+    .nav__mobile.open { display: flex; }
+    .nav__mobile a {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+    }
+
+    @media (max-width: 860px) {
+      .nav__links, .nav__cta { display: none; }
+      .nav__burger { display: flex; }
+    }
+
+    /* ═══════════════════════════════════════
+       STICKY CTA BAR
+    ═══════════════════════════════════════ */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 90;
+      background: rgba(40,32,26,0.96);
+      backdrop-filter: blur(8px);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      transform: translateY(100%);
+      transition: transform 0.45s cubic-bezier(0.16,1,0.3,1);
+      border-top: 1px solid rgba(184,154,106,0.22);
+    }
+    .sticky-bar.visible { transform: translateY(0); }
+    .sticky-bar__text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: rgba(255,255,255,0.75);
+      font-style: italic;
+    }
+    .sticky-bar__close {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.4);
+      font-size: 18px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+    }
+    @media (max-width: 600px) {
+      .sticky-bar { flex-direction: column; gap: 14px; padding: 20px 24px 24px; }
+      .sticky-bar__text { font-size: 15px; text-align: center; }
+      .sticky-bar__close { top: 12px; transform: none; }
+    }
+
+    /* ═══════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 75% 35%, rgba(184,154,106,0.14) 0%, transparent 58%),
+        radial-gradient(ellipse 50% 65% at 15% 85%, rgba(122,148,133,0.09) 0%, transparent 55%),
+        linear-gradient(155deg, #fdf8f2 0%, #f5ebdd 45%, #ede4d5 100%);
+    }
+
+    .hero__grain {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+    }
+
+    /* Decorative line art */
+    .hero__deco {
+      position: absolute;
+      right: -60px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 560px;
+      height: 560px;
+      opacity: 0.06;
+      pointer-events: none;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      padding: 140px 0 120px;
+      width: 100%;
+    }
+
+    .hero__eyebrow {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-dk);
+      margin-bottom: 32px;
+      display: block;
+    }
+
+    .hero__title {
+      font-size: clamp(42px, 6vw, 78px);
+      color: var(--ink);
+      font-weight: 300;
+      margin-bottom: 24px;
+      max-width: 820px;
+    }
+
+    .hero__title em {
+      font-style: italic;
+      color: var(--gold-dk);
+    }
+
+    .hero__subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 3vw, 30px);
+      color: var(--ink-soft);
+      font-weight: 300;
+      font-style: italic;
+      margin-bottom: 16px;
+      max-width: 640px;
+    }
+
+    .hero__desc {
+      font-size: 15px;
+      color: var(--ink-faint);
+      max-width: 540px;
+      margin-bottom: 56px;
+      line-height: 1.85;
+    }
+
+    .hero__badges {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      border: 1px solid rgba(184,154,106,0.35);
+      padding: 20px 32px;
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 32px rgba(184,154,106,0.08);
+    }
+
+    .hero__badge-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .hero__badge-sep {
+      width: 1px;
+      height: 44px;
+      background: rgba(184,154,106,0.3);
+    }
+
+    .hero__badge-text {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      max-width: 210px;
+    }
+
+    .hero__badge--pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(122,148,133,0.3);
+      padding: 12px 22px;
+      background: rgba(220,232,226,0.4);
+      backdrop-filter: blur(6px);
+      font-size: 13px;
+      color: var(--sage-mid);
+      align-self: center;
+    }
+    .hero__badge--pill svg {
+      width: 14px; height: 14px;
+      stroke: var(--sage-mid); fill: none; stroke-width: 1.5; flex-shrink: 0;
+    }
+
+    .hero__cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+      padding: 18px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0);
+      transition: background 0.3s;
+    }
+    .btn:hover::after { background: rgba(255,255,255,0.07); }
+
+    .btn--primary {
+      background: var(--gold);
+      color: #fff;
+    }
+    .btn--primary:hover {
+      background: var(--gold-dk);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(184,154,106,0.28);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--ink-soft);
+      border: 1px solid rgba(40,32,26,0.22);
+    }
+    .btn--outline:hover {
+      border-color: var(--gold);
+      color: var(--gold-dk);
+      transform: translateY(-2px);
+    }
+
+    .btn--sage {
+      background: var(--sage);
+      color: #fff;
+    }
+    .btn--sage:hover {
+      background: var(--sage-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(90,122,110,0.25);
+    }
+
+    .btn--dark {
+      background: var(--ink);
+      color: rgba(255,255,255,0.9);
+    }
+    .btn--dark:hover {
+      background: #1a140f;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(40,32,26,0.25);
+    }
+
+    .btn--sm { padding: 12px 28px; font-size: 11px; }
+    .btn--lg { padding: 22px 52px; font-size: 13px; }
+
+    .hero__scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--ink-faint);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .hero__scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(184,154,106,0.5), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.45; transform: scaleY(1); }
+      50%       { opacity: 1;   transform: scaleY(1.15); }
+    }
+
+    /* ── SOCIAL PROOF STRIP ── */
+    .proof-strip {
+      background: rgba(255,255,255,0.55);
+      border-top: 1px solid rgba(184,154,106,0.15);
+      border-bottom: 1px solid rgba(184,154,106,0.15);
+      padding: 24px 0;
+    }
+    .proof-strip__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .proof-strip__item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+    .proof-strip__item svg {
+      width: 20px; height: 20px;
+      stroke: var(--gold); fill: none; stroke-width: 1.5; flex-shrink: 0;
+    }
+    .proof-strip__sep {
+      width: 1px;
+      height: 28px;
+      background: rgba(184,154,106,0.2);
+    }
+    @media (max-width: 700px) { .proof-strip__sep { display: none; } }
+
+    /* ── SHARED SECTION LABELS ── */
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold-dk);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 4.5vw, 58px);
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+
+    .section-lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(18px, 2.2vw, 24px);
+      color: var(--ink-soft);
+      font-style: italic;
+      margin-bottom: 60px;
+      font-weight: 300;
+    }
+
+    /* ═══════════════════════════════════════
+       PROBLEM
+    ═══════════════════════════════════════ */
+    .problem {
+      padding: var(--section-gap) 0;
+      background: var(--cream);
+    }
+
+    .problem__cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 64px;
+    }
+
+    .problem__card {
+      background: var(--warm);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .problem__card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 56px rgba(184,154,106,0.14);
+    }
+
+    .problem__card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--dust));
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .problem__card:hover::before { opacity: 1; }
+
+    .problem__card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.22;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .problem__card-title {
+      font-size: 19px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      margin-bottom: 14px;
+      line-height: 1.4;
+      color: var(--ink);
+    }
+
+    .problem__card-text {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+    }
+
+    /* ═══════════════════════════════════════
+       LIMITATIONS + RESULTS
+    ═══════════════════════════════════════ */
+    .limits {
+      padding: var(--section-gap) 0;
+      background: var(--sage-wash);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .limits::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 55% 70% at 85% 50%, rgba(184,154,106,0.1) 0%, transparent 60%);
+    }
+
+    .limits__inner { position: relative; z-index: 2; }
+    .limits .section-label { color: var(--sage-mid); }
+
+    .limits__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 64px;
+    }
+
+    .limits__col-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--sage-mid);
+      font-style: italic;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(90,122,110,0.2);
+    }
+
+    .limit-item {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+      align-items: flex-start;
+    }
+
+    .limit-item__icon {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(184,154,106,0.35);
+      background: rgba(255,255,255,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .limit-item__icon svg {
+      width: 14px; height: 14px;
+      stroke: var(--gold-dk); fill: none; stroke-width: 1.5;
+    }
+    .limit-item__text { font-size: 16px; color: var(--ink-soft); line-height: 1.65; }
+    .limit-item__text strong { color: var(--ink); font-weight: 500; }
+
+    .result-list { list-style: none; margin-top: 32px; }
+    .result-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(90,122,110,0.15);
+      font-size: 15px;
+      color: var(--ink-soft);
+    }
+    .result-list li::before {
+      content: '—';
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ═══════════════════════════════════════
+       APPROACH
+    ═══════════════════════════════════════ */
+    .approach {
+      padding: var(--section-gap) 0;
+      background: var(--cream);
+    }
+
+    .approach__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 64px;
+    }
+
+    .approach__box {
+      padding: 52px 48px;
+      position: relative;
+    }
+
+    .approach__box--without {
+      background: var(--warm);
+      border-top: 3px solid var(--dust);
+    }
+
+    .approach__box--with {
+      background: var(--sage);
+      border-top: 3px solid var(--gold);
+    }
+
+    .approach__box-label {
+      font-size: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .approach__box--without .approach__box-label { color: var(--dust); }
+    .approach__box--with    .approach__box-label { color: rgba(255,255,255,0.6); }
+
+    .approach__box-title { font-size: 30px; margin-bottom: 32px; }
+    .approach__box--without .approach__box-title { color: var(--ink); }
+    .approach__box--with    .approach__box-title { color: #fff; }
+
+    .approach__list { list-style: none; }
+    .approach__list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .approach__box--with .approach__list li { border-color: rgba(255,255,255,0.12); }
+    .approach__box--without .approach__list li { color: var(--ink-soft); }
+    .approach__box--with    .approach__list li { color: rgba(255,255,255,0.88); }
+
+    .approach__list li span.bullet {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      margin-top: 1px;
+    }
+    .approach__box--without .approach__list li span.bullet {
+      background: rgba(196,169,154,0.18); color: var(--dust);
+    }
+    .approach__box--with .approach__list li span.bullet {
+      background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7);
+    }
+
+    /* ═══════════════════════════════════════
+       NOT FOR YOU
+    ═══════════════════════════════════════ */
+    .notforyou {
+      padding: var(--section-gap) 0;
+      background: var(--parchment);
+    }
+
+    .notforyou__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .notforyou__list { list-style: none; margin-top: 32px; }
+    .notforyou__list li {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(40,32,26,0.09);
+      font-size: 16px;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .notforyou__list li::before {
+      content: '×';
+      color: var(--dust);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .notforyou__redirect {
+      margin-top: 40px;
+      padding: 36px;
+      background: rgba(255,255,255,0.55);
+      border-left: 3px solid var(--sage);
+      box-shadow: 0 4px 24px rgba(122,148,133,0.08);
+    }
+    .notforyou__redirect p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .notforyou__redirect a {
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--sage-mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--sage-lt);
+      padding-bottom: 3px;
+      transition: color 0.2s;
+    }
+    .notforyou__redirect a:hover { color: var(--sage); }
+
+    /* ═══════════════════════════════════════
+       AUTHOR
+    ═══════════════════════════════════════ */
+    .author {
+      padding: var(--section-gap) 0;
+      background: var(--stone);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .author::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 8% 55%, rgba(122,148,133,0.1) 0%, transparent 55%);
+    }
+
+    .author__inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .author__photo-wrap { position: relative; }
+
+    .author__photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(184,154,106,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .author__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .author__photo-placeholder {
+      text-align: center;
+      color: rgba(40,32,26,0.25);
+    }
+    .author__photo-placeholder svg {
+      width: 72px; height: 72px;
+      stroke: currentColor; fill: none; stroke-width: 0.9;
+      margin-bottom: 14px; display: block; margin-left: auto; margin-right: auto;
+    }
+    .author__photo-placeholder p {
+      font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+    }
+
+    .author__frame {
+      position: absolute;
+      top: 14px; right: -14px;
+      bottom: -14px; left: 14px;
+      border: 1px solid rgba(184,154,106,0.2);
+      z-index: -1;
+    }
+
+    .author__name {
+      font-size: clamp(36px, 4vw, 56px);
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .author__tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-dk);
+      margin-bottom: 28px;
+    }
+
+    .author__divider {
+      width: 48px; height: 1px;
+      background: var(--gold);
+      opacity: 0.4;
+      margin-bottom: 28px;
+    }
+
+    .author__bio {
+      font-size: 16px;
+      color: var(--ink-soft);
+      line-height: 1.9;
+      margin-bottom: 48px;
+    }
+
+    .author__stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(184,154,106,0.2);
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.5);
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .stat__num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .stat__label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    /* ═══════════════════════════════════════
+       PROGRAM
+    ═══════════════════════════════════════ */
+    .program {
+      padding: var(--section-gap) 0;
+      background: var(--cream);
+    }
+
+    .program__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 64px;
+    }
+
+    .session-card {
+      background: var(--warm);
+      padding: 32px 26px;
+      border-top: 2px solid transparent;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+    .session-card:hover {
+      background: var(--stone);
+      border-top-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(184,154,106,0.14);
+    }
+
+    .session-card__num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .session-card__title {
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+
+    .session-card__text {
+      font-size: 13px;
+      color: var(--ink-soft);
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════
+       FREE LESSON
+    ═══════════════════════════════════════ */
+    .free-lesson {
+      padding: 100px 0;
+      background: var(--sage);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .free-lesson::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(255,255,255,0.09) 0%, transparent 60%);
+    }
+
+    .free-lesson__inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .free-lesson__eyebrow {
+      font-size: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .free-lesson__title {
+      font-size: clamp(30px, 3.5vw, 46px);
+      color: #fff;
+      margin-bottom: 24px;
+    }
+
+    .free-lesson__desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.85;
+      margin-bottom: 40px;
+    }
+
+    .free-lesson__topics { list-style: none; }
+    .free-lesson__topics li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      font-size: 15px;
+      color: rgba(255,255,255,0.88);
+    }
+    .free-lesson__topics li::before {
+      content: '→';
+      color: rgba(255,255,255,0.45);
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════
+       TESTIMONIALS
+    ═══════════════════════════════════════ */
+    .testimonials {
+      padding: var(--section-gap) 0;
+      background: var(--parchment);
+      overflow: hidden;
+    }
+
+    .testimonials__track-wrap {
+      position: relative;
+      margin-top: 64px;
+    }
+
+    .testimonials__track-wrap::before,
+    .testimonials__track-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .testimonials__track-wrap::before {
+      left: 0;
+      background: linear-gradient(90deg, var(--parchment), transparent);
+    }
+    .testimonials__track-wrap::after {
+      right: 0;
+      background: linear-gradient(270deg, var(--parchment), transparent);
+    }
+
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(184,154,106,0.18);
+      padding: 36px 32px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(184,154,106,0.12);
+    }
+
+    .review-card__quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      line-height: 0.6;
+      color: var(--gold);
+      opacity: 0.35;
+      margin-bottom: 20px;
+      display: block;
+      user-select: none;
+    }
+
+    .review-card__text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .review-card__author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .review-card__avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--stone);
+      border: 1px solid rgba(184,154,106,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--gold-dk);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .review-card__avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    .review-card__name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .review-card__meta {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    .review-card__stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 16px;
+    }
+    .review-card__stars span {
+      color: var(--gold);
+      font-size: 13px;
+    }
+
+    /* ═══════════════════════════════════════
+       PRICING
+    ═══════════════════════════════════════ */
+    .pricing {
+      padding: var(--section-gap) 0;
+      background: var(--warm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 55% at 50% 100%, rgba(184,154,106,0.1) 0%, transparent 60%);
+    }
+
+    .pricing__inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .pricing__plans {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 820px;
+      margin: 64px auto 0;
+      text-align: left;
+    }
+
+    .pricing__card {
+      border: 1px solid rgba(184,154,106,0.3);
+      background: rgba(255,255,255,0.75);
+      padding: 52px 48px;
+      position: relative;
+      box-shadow: 0 8px 48px rgba(184,154,106,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .pricing__card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 64px rgba(184,154,106,0.16);
+    }
+
+    .pricing__card--featured {
+      border-color: var(--gold);
+      background: rgba(255,255,255,0.9);
+    }
+
+    .pricing__card::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 20%; right: 20%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .pricing__card--featured::before {
+      left: 0; right: 0;
+      background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold-lt) 70%, transparent);
+    }
+
+    .pricing__recommended {
+      position: absolute;
+      top: -1px; right: 28px;
+      background: var(--gold);
+      color: #fff;
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      transform: translateY(-100%);
+      margin-top: 1px;
+    }
+
+    .pricing__badge {
+      display: inline-block;
+      background: rgba(184,154,106,0.1);
+      border: 1px solid rgba(184,154,106,0.3);
+      color: var(--gold-dk);
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      margin-bottom: 28px;
+    }
+
+    .pricing__price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .pricing__price-note {
+      font-size: 12px;
+      color: var(--ink-faint);
+      margin-bottom: 32px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .pricing__includes {
+      list-style: none;
+      margin-bottom: 36px;
+    }
+    .pricing__includes li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(40,32,26,0.07);
+      font-size: 14px;
+      color: var(--ink-soft);
+    }
+    .pricing__includes li::before {
+      content: '✓';
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .pricing__cta-note {
+      margin-top: 16px;
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    .pricing__plan-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .pricing__plan-desc {
+      font-size: 14px;
+      color: var(--ink-faint);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════
+       FAQ
+    ═══════════════════════════════════════ */
+    .faq {
+      padding: var(--section-gap) 0;
+      background: var(--cream);
+    }
+
+    .faq__list {
+      max-width: 760px;
+      margin: 64px auto 0;
+    }
+
+    .faq__item {
+      border-bottom: 1px solid rgba(184,154,106,0.2);
+    }
+
+    .faq__q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 28px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--ink);
+      line-height: 1.35;
+      transition: color 0.2s;
+    }
+    .faq__q:hover { color: var(--gold-dk); }
+
+    .faq__icon {
+      width: 32px; height: 32px;
+      border: 1px solid rgba(184,154,106,0.35);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .faq__icon::before,
+    .faq__icon::after {
+      content: '';
+      position: absolute;
+      width: 12px; height: 1px;
+      background: var(--gold-dk);
+      transition: transform 0.3s;
+    }
+    .faq__icon::after { transform: rotate(90deg); }
+
+    .faq__item.open .faq__icon { background: var(--gold); }
+    .faq__item.open .faq__icon::before { background: #fff; }
+    .faq__item.open .faq__icon::after { transform: rotate(0deg); background: #fff; }
+
+    .faq__a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.16,1,0.3,1), padding 0.3s;
+    }
+    .faq__item.open .faq__a { max-height: 400px; padding-bottom: 28px; }
+
+    .faq__a p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      line-height: 1.85;
+    }
+
+    /* ═══════════════════════════════════════
+       FINAL CTA
+    ═══════════════════════════════════════ */
+    .final-cta {
+      padding: 140px 0;
+      background: var(--stone);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(184,154,106,0.09) 0%, transparent 60%);
+    }
+
+    .final-cta__inner { position: relative; z-index: 2; }
+
+    .final-cta__title {
+      font-size: clamp(36px, 5vw, 66px);
+      max-width: 800px;
+      margin: 0 auto 24px;
+      color: var(--ink);
+    }
+
+    .final-cta__sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(18px, 2.2vw, 26px);
+      color: var(--ink-soft);
+      font-style: italic;
+      margin-bottom: 56px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-cta__btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .final-cta__guarantee {
+      margin-top: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--ink-faint);
+      letter-spacing: 1px;
+    }
+    .final-cta__guarantee svg {
+      width: 18px; height: 18px;
+      stroke: var(--gold); fill: none; stroke-width: 1.5; flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    .footer {
+      padding: 64px 0 40px;
+      background: var(--ink);
+    }
+
+    .footer__top {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 32px;
+    }
+
+    .footer__brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: rgba(255,255,255,0.85);
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+
+    .footer__brand-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.75;
+    }
+
+    .footer__col-title {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .footer__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer__links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer__links a:hover { color: rgba(255,255,255,0.8); }
+
+    .footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer__copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 1px;
+    }
+
+    .footer__legal {
+      display: flex;
+      gap: 24px;
+    }
+    .footer__legal a {
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .footer__legal a:hover { color: rgba(255,255,255,0.55); }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 980px) {
+      :root { --section-gap: 80px; }
+      .problem__cards      { grid-template-columns: 1fr; gap: 2px; }
+      .limits__grid        { grid-template-columns: 1fr; gap: 48px; }
+      .approach__grid      { grid-template-columns: 1fr; }
+      .notforyou__inner    { grid-template-columns: 1fr; gap: 48px; }
+      .author__inner       { grid-template-columns: 1fr; gap: 48px; }
+      .author__photo-wrap  { max-width: 300px; }
+      .program__grid       { grid-template-columns: repeat(2, 1fr); }
+      .free-lesson__inner  { grid-template-columns: 1fr; gap: 48px; }
+      .pricing__plans      { grid-template-columns: 1fr; max-width: 520px; }
+      .testimonials__grid  { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
+      .footer__top         { grid-template-columns: 1fr; gap: 32px; }
+      .footer__bottom      { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .container           { padding: 0 20px; }
+      .program__grid       { grid-template-columns: 1fr; }
+      .author__stats       { grid-template-columns: 1fr; }
+      .hero__badge         { flex-direction: column; text-align: center; }
+      .hero__badge-sep     { width: 44px; height: 1px; }
+      .hero__badges        { flex-direction: column; }
+      .pricing__card       { padding: 40px 28px; }
+      .approach__box       { padding: 36px 28px; }
+    }
+
+    /* ── FADE-UP ANIMATION ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     NAV
+══════════════════════════════════════════ -->
+<nav class="nav" id="main-nav" aria-label="Навигация">
+  <div class="nav__inner">
+    <a href="#" class="nav__brand">Евгений Декань</a>
+    <ul class="nav__links">
+      <li><a href="#problem">Для кого</a></li>
+      <li><a href="#author">Автор</a></li>
+      <li><a href="#program">Программа</a></li>
+      <li><a href="#testimonials">Отзывы</a></li>
+      <li><a href="#faq">Вопросы</a></li>
+    </ul>
+    <a href="#pricing" class="btn btn--primary btn--sm nav__cta">Купить курс</a>
+    <button class="nav__burger" id="nav-burger" aria-label="Меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav__mobile" id="nav-mobile" role="menu">
+  <a href="#problem" role="menuitem">Для кого</a>
+  <a href="#author" role="menuitem">Автор</a>
+  <a href="#program" role="menuitem">Программа</a>
+  <a href="#testimonials" role="menuitem">Отзывы</a>
+  <a href="#faq" role="menuitem">Вопросы</a>
+  <a href="#pricing" role="menuitem">Купить курс</a>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__grain"></div>
+
+  <!-- Decorative circle art -->
+  <svg class="hero__deco" viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="280" cy="280" r="270" stroke="#b89a6a" stroke-width="0.8"/>
+    <circle cx="280" cy="280" r="210" stroke="#b89a6a" stroke-width="0.5"/>
+    <circle cx="280" cy="280" r="150" stroke="#b89a6a" stroke-width="0.4"/>
+    <circle cx="280" cy="280" r="90" stroke="#b89a6a" stroke-width="0.4"/>
+    <line x1="10" y1="280" x2="550" y2="280" stroke="#b89a6a" stroke-width="0.4"/>
+    <line x1="280" y1="10" x2="280" y2="550" stroke="#b89a6a" stroke-width="0.4"/>
+    <line x1="89" y1="89" x2="471" y2="471" stroke="#b89a6a" stroke-width="0.3"/>
+    <line x1="471" y1="89" x2="89" y2="471" stroke="#b89a6a" stroke-width="0.3"/>
+  </svg>
+
+  <div class="hero__content">
+    <div class="container">
+      <span class="hero__eyebrow">Онлайн-курс · Евгений Декань</span>
+      <h1 class="hero__title fade-up">
+        Как начать слышать<br>
+        свои желания и действовать<br>
+        <em>без борьбы с собой?</em>
+      </h1>
+      <p class="hero__subtitle fade-up" style="transition-delay:.1s">
+        Чувствуете, что живёте не свою жизнь?<br>
+        Начните возвращать её себе.
+      </p>
+      <p class="hero__desc fade-up" style="transition-delay:.2s">
+        Курс проработок для тех, кто хочет понять свои желания,
+        начать действовать и перестать сдаваться раньше результата.
+        Без давления и насилия над собой.
+      </p>
+      <div class="hero__badges">
+        <div class="hero__badge fade-up" style="transition-delay:.3s">
+          <span class="hero__badge-num">16</span>
+          <span class="hero__badge-sep"></span>
+          <span class="hero__badge-text">сессий глубинной работы<br>— 16 шагов к жизни,<br>которую вы выбираете сами</span>
+        </div>
+        <div class="hero__badge--pill fade-up" style="transition-delay:.4s">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          7-дневная гарантия возврата
+        </div>
+      </div>
+      <div class="hero__cta-group fade-up" style="transition-delay:.5s">
+        <a href="#pricing" class="btn btn--primary btn--lg">Записаться на курс</a>
+        <a href="#free-lesson" class="btn btn--outline btn--lg">Первый урок бесплатно</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero__scroll" aria-hidden="true">
+    <div class="hero__scroll-line"></div>
+    <span>scroll</span>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF STRIP -->
+<div class="proof-strip">
+  <div class="container">
+    <div class="proof-strip__inner">
+      <div class="proof-strip__item">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        <span>Более 10 000 клиентов в личной терапии</span>
+      </div>
+      <div class="proof-strip__sep"></div>
+      <div class="proof-strip__item">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span>Глубинная работа — не лекции</span>
+      </div>
+      <div class="proof-strip__sep"></div>
+      <div class="proof-strip__item">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Бережно, безопасно, глубоко</span>
+      </div>
+      <div class="proof-strip__sep"></div>
+      <div class="proof-strip__item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Пожизненный доступ</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PROBLEM
+══════════════════════════════════════════ -->
+<section class="problem" id="problem">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label">Узнаёте себя?</span>
+      <h2 class="section-title fade-up">Твоя жизнь не такая,<br>как ты хочешь?</h2>
+      <p class="section-lead fade-up">За каждым симптомом стоит глубокое внутреннее ограничение</p>
+    </div>
+    <div class="problem__cards">
+      <div class="problem__card fade-up">
+        <div class="problem__card-num">01</div>
+        <h3 class="problem__card-title">Не знаешь, чего хочешь</h3>
+        <p class="problem__card-text">
+          Желания словно в тумане. Ты смотришь на других и не понимаешь,
+          как у них получается знать, чего они хотят. Ощущение пустоты
+          или бесконечного перебора вариантов без выбора.
+        </p>
+      </div>
+      <div class="problem__card fade-up" style="transition-delay:0.15s">
+        <div class="problem__card-num">02</div>
+        <h3 class="problem__card-title">Знаешь, но не идёшь</h3>
+        <p class="problem__card-text">
+          Цель есть, направление понятно — но ты снова откладываешь,
+          снова находишь причины. Каждое «завтра» превращается в бесконечную
+          череду несделанных шагов.
+        </p>
+      </div>
+      <div class="problem__card fade-up" style="transition-delay:0.3s">
+        <div class="problem__card-num">03</div>
+        <h3 class="problem__card-title">Идёшь, но не доходишь</h3>
+        <p class="problem__card-text">
+          Ты начинаешь с энтузиазмом, но в какой-то момент что-то
+          обрывается изнутри. Сдаёшься чуть раньше результата — снова
+          и снова по одному и тому же сценарию.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     LIMITATIONS + RESULTS
+══════════════════════════════════════════ -->
+<section class="limits">
+  <div class="limits__inner">
+    <div class="container">
+      <span class="section-label">Что стоит за этим?</span>
+      <h2 class="section-title fade-up">
+        Три группы ограничений,<br>которые мы проработаем
+      </h2>
+
+      <div class="limits__grid">
+        <div class="fade-up">
+          <p class="limits__col-title">Внутренние ограничения</p>
+          <div class="limit-item">
+            <div class="limit-item__icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21.02 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="limit-item__text"><strong>Само желание опасно</strong> — внутренний запрет даже мечтать о том, чего хочешь по-настоящему</p>
+          </div>
+          <div class="limit-item">
+            <div class="limit-item__icon">
+              <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <p class="limit-item__text"><strong>Действие опасно</strong> — страх сделать шаг, ошибиться, стать заметным</p>
+          </div>
+          <div class="limit-item">
+            <div class="limit-item__icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <p class="limit-item__text"><strong>Ошибка / провал опасны</strong> — неудача воспринимается как катастрофа, конец, доказательство «я не тот»</p>
+          </div>
+        </div>
+
+        <div class="fade-up" style="transition-delay:0.2s">
+          <p class="limits__col-title">После курса ты уберёшь то, что мешает тебе…</p>
+          <ul class="result-list">
+            <li>Осознавать свои подлинные желания</li>
+            <li>Делать первый шаг и не застывать</li>
+            <li>Проходить препятствия, не бросая на полпути</li>
+            <li>Доводить желания до реализации</li>
+            <li>Радоваться достигнутому и начинать новое</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     APPROACH
+══════════════════════════════════════════ -->
+<section class="approach">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label">Наш подход</span>
+      <h2 class="section-title fade-up">Как это работает</h2>
+    </div>
+    <div class="approach__grid">
+      <div class="approach__box approach__box--without fade-up">
+        <span class="approach__box-label">Без</span>
+        <h3 class="approach__box-title">Никакого насилия над собой</h3>
+        <ul class="approach__list">
+          <li><span class="bullet">×</span>Морального унижения, стыда или сравнения с «успешными учениками»</li>
+          <li><span class="bullet">×</span>Давления, угроз и манипуляций</li>
+          <li><span class="bullet">×</span>Жёсткого дедлайна и гонки</li>
+          <li><span class="bullet">×</span>Насилия над собой во имя результата</li>
+        </ul>
+      </div>
+      <div class="approach__box approach__box--with fade-up" style="transition-delay:0.2s">
+        <span class="approach__box-label">За счёт</span>
+        <h3 class="approach__box-title">Глубинной трансформации</h3>
+        <ul class="approach__list">
+          <li><span class="bullet">→</span>Работы с состояниями, которые запускают привычные реакции</li>
+          <li><span class="bullet">→</span>Видения и трансформации эмоциональной причины убеждений и страхов</li>
+          <li><span class="bullet">→</span>Работы с образами и переживаниями прошлого</li>
+          <li><span class="bullet">→</span>Не «взяли себя в руки» — а внутри стало меньше напряжения и борьбы</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     NOT FOR YOU
+══════════════════════════════════════════ -->
+<section class="notforyou">
+  <div class="container">
+    <div class="notforyou__inner">
+      <div>
+        <span class="section-label">Честно о границах</span>
+        <h2 class="section-title fade-up">Для кого<br>курс не подойдёт</h2>
+        <ul class="notforyou__list">
+          <li>Если ты ждёшь, что кто-то «разгадает» твои желания и воплотит всё вместо тебя</li>
+          <li>Если ты ищешь того, кто спасёт</li>
+          <li>Если тебе важно, чтобы о тебе позаботились</li>
+          <li>Если ты хочешь, чтобы тебя полюбили и сделали счастливой</li>
+          <li>Если ты ждёшь, что кто-то сделает тебя счастливой</li>
+        </ul>
+      </div>
+      <div class="fade-up" style="padding-top:20px;">
+        <div class="notforyou__redirect">
+          <p>
+            Тебе пока не сюда.<br>
+            Сначала нужно отделить свою психику от других —
+            и только тогда ты захочешь узнать себя,
+            рассмотреть свои желания и воплощать их самостоятельно.
+          </p>
+          <a href="#">→ Перейти на курс «Сепарация»</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     AUTHOR
+══════════════════════════════════════════ -->
+<section class="author" id="author">
+  <div class="container">
+    <div class="author__inner">
+      <div class="author__photo-wrap fade-up">
+        <div class="author__photo">
+          <!-- Замените src на реальное фото автора -->
+          <div class="author__photo-placeholder">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            <p>Фото автора</p>
+          </div>
+        </div>
+        <div class="author__frame"></div>
+      </div>
+
+      <div class="fade-up" style="transition-delay:0.2s">
+        <span class="section-label">Ведущий курса</span>
+        <h2 class="author__name">Евгений Декань</h2>
+        <p class="author__tagline">«Целитель израненных душ»</p>
+        <div class="author__divider"></div>
+        <p class="author__bio">
+          Соединяет мягкость, поддержку и терапевтическую точность.
+          Евгений провёл более 10&nbsp;000 клиентов в личной терапии
+          и отточил практикумы так, чтобы человек мог пройти процесс
+          бережно, безопасно и глубоко.<br><br>
+          Вы не останетесь один на один со своими состояниями.
+          Вас будут вести шаг за шагом — к пониманию себя, проживанию
+          чувств и внутреннему состоянию, из которого становится легче
+          действовать и меняться.
+        </p>
+        <div class="author__stats">
+          <div class="stat">
+            <span class="stat__num">10K+</span>
+            <span class="stat__label">клиентов</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">16</span>
+            <span class="stat__label">сессий</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">∞</span>
+            <span class="stat__label">бережности</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PROGRAM
+══════════════════════════════════════════ -->
+<section class="program" id="program">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label">Содержание курса</span>
+      <h2 class="section-title fade-up">16 сессий — 16 шагов</h2>
+      <p class="section-lead fade-up">Глубинная работа с внутренними ограничениями, которые мешают хотеть, выбирать, действовать и идти до конца</p>
+    </div>
+    <div class="program__grid">
+      <div class="session-card fade-up">
+        <span class="session-card__num">Сессия 01</span>
+        <h4 class="session-card__title">Что не так с желаниями?</h4>
+        <p class="session-card__text">Природа желаний и почему они блокируются</p>
+      </div>
+      <div class="session-card fade-up" style="transition-delay:.08s">
+        <span class="session-card__num">Сессия 02</span>
+        <h4 class="session-card__title">Разная природа желаний</h4>
+        <p class="session-card__text">Как различать истинные и навязанные желания</p>
+      </div>
+      <div class="session-card fade-up" style="transition-delay:.16s">
+        <span class="session-card__num">Сессия 03</span>
+        <h4 class="session-card__title">Уровни зрелости психики</h4>
+        <p class="session-card__text">Желания при разных степенях зрелости. Определи свой уровень</p>
+      </div>
+      <div class="session-card fade-up" style="transition-delay:.24s">
+        <span class="session-card__num">Сессия 04</span>
+        <h4 class="session-card__title">Запрет на желание</h4>
+        <p class="session-card__text">Откуда берётся страх хотеть и как его трансформировать</p>
+      </div>
+      <div class="session-card fade-up" style="transition-delay:.08s">
+        <span class="session-card__num">Сессия 05</span>
+        <h4 class="session-card__title">Страх действия</h4>
+        <p class="session-card__text">Почему первый шаг ощущается как опасность</p>
+      </div>
+      <div class="session-card fade-up" style="transition-delay:.16s">
+        <span class="session-card__num">Сессия 06</span>
+        <h4 class="session-card__title">Страх ошибки</h4>
+        <p class="session-card__text">Трансформация отношений с провалом и неудачей</p>
+      </div>
+      <div class="session-card fade-up" style="transition-delay:.24s">
+        <span class="session-card__num">Сессия 07</span>
+        <h4 class="session-card__title">Сценарий «не доходить»</h4>
+        <p class="session-card__text">Откуда берётся привычка сдаваться раньше результата</p>
+      </div>
+      <div class="session-card fade-up" style="transition-delay:.32s">
+        <span class="session-card__num">Сессия 08</span>
+        <h4 class="session-card__title">Внутренний критик</h4>
+        <p class="session-card__text">Работа с голосом, который говорит «ты не справишься»</p>
+      </div>
+      <div class="session-card fade-up">
+        <span class="session-card__num">Сессия 09</span>
+        <h4 class="session-card__title">Тело и действие</h4>
+        <p class="session-card__text">Как телесные зажимы блокируют движение вперёд</p>
+      </div>
+      <div class="session-card fade-up" style="transition-delay:.08s">
+        <span class="session-card__num">Сессия 10</span>
+        <h4 class="session-card__title">Отношения с целью</h4>
+        <p class="session-card__text">Почему цели пугают и как выстроить с ними контакт</p>
+      </div>
+      <div class="session-card fade-up" style="transition-delay:.16s">
+        <span class="session-card__num">Сессия 11</span>
+        <h4 class="session-card__title">Энергия и мотивация</h4>
+        <p class="session-card__text">Где берётся настоящая внутренняя сила для движения</p>
+      </div>
+      <div class="session-card fade-up" style="transition-delay:.24s">
+        <span class="session-card__num">Сессия 12</span>
+        <h4 class="session-card__title">Препятствия на пути</h4>
+        <p class="session-card__text">Как проходить через трудности, не теряя контакт с собой</p>
+      </div>
+      <div class="session-card fade-up">
+        <span class="session-card__num">Сессия 13</span>
+        <h4 class="session-card__title">Право на результат</h4>
+        <p class="session-card__text">Внутренние запреты на успех и их трансформация</p>
+      </div>
+      <div class="session-card fade-up" style="transition-delay:.08s">
+        <span class="session-card__num">Сессия 14</span>
+        <h4 class="session-card__title">Радость достижения</h4>
+        <p class="session-card__text">Как присваивать результат и позволять себе радоваться</p>
+      </div>
+      <div class="session-card fade-up" style="transition-delay:.16s">
+        <span class="session-card__num">Сессия 15</span>
+        <h4 class="session-card__title">Новое начало</h4>
+        <p class="session-card__text">Как начинать новое дело из состояния лёгкости, не страха</p>
+      </div>
+      <div class="session-card fade-up" style="transition-delay:.24s">
+        <span class="session-card__num">Сессия 16</span>
+        <h4 class="session-card__title">Жизнь, которую я выбираю</h4>
+        <p class="session-card__text">Интеграция — ты сам автор своей жизни</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FREE LESSON
+══════════════════════════════════════════ -->
+<section class="free-lesson" id="free-lesson">
+  <div class="container">
+    <div class="free-lesson__inner">
+      <div class="fade-up">
+        <span class="free-lesson__eyebrow">Бесплатно</span>
+        <h2 class="free-lesson__title">Посмотрите первый урок прямо сейчас</h2>
+        <p class="free-lesson__desc">
+          Без регистрации. Без обязательств. Просто познакомьтесь с подходом
+          и почувствуйте, резонирует ли это с вами.
+        </p>
+        <a href="#" class="btn btn--dark btn--lg">Смотреть первый урок бесплатно</a>
+      </div>
+      <div class="fade-up" style="transition-delay:0.2s">
+        <p style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:20px;">В первом уроке вы узнаете</p>
+        <ul class="free-lesson__topics">
+          <li>Что не так с желаниями и почему они блокируются</li>
+          <li>Разную природу желаний — откуда они приходят</li>
+          <li>Желания при разных степенях зрелости психики</li>
+          <li>Как определить свой уровень и куда нужно вырасти</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════════ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label">Отзывы участников</span>
+      <h2 class="section-title fade-up">Что говорят те,<br>кто прошёл курс</h2>
+      <p class="section-lead fade-up">Настоящие истории — без приукрашивания</p>
+    </div>
+    <div class="testimonials__track-wrap">
+      <div class="testimonials__grid">
+
+        <div class="review-card fade-up">
+          <div class="review-card__stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <span class="review-card__quote">"</span>
+          <p class="review-card__text">
+            Я несколько лет жила с ощущением, что хочу чего-то, но не могу найти что именно.
+            После третьей сессии что-то сдвинулось. Я наконец услышала себя —
+            не то, чего хотят родители или муж, а своё.
+          </p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">А</div>
+            <div>
+              <div class="review-card__name">Анастасия К.</div>
+              <div class="review-card__meta">Прошла полный курс</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card fade-up" style="transition-delay:.12s">
+          <div class="review-card__stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <span class="review-card__quote">"</span>
+          <p class="review-card__text">
+            Я начинал много дел и никогда не доводил до конца. Думал, это лень.
+            Оказалось — страх успеха и запрет на результат. Сессия 13 перевернула
+            что-то фундаментальное внутри.
+          </p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">М</div>
+            <div>
+              <div class="review-card__name">Михаил Р.</div>
+              <div class="review-card__meta">Прошёл полный курс</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card fade-up" style="transition-delay:.24s">
+          <div class="review-card__stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <span class="review-card__quote">"</span>
+          <p class="review-card__text">
+            Этот курс — не про знания, а про ощущения. После каждой сессии
+            что-то менялось внутри незаметно, но накопительно.
+            Через месяц я вдруг поняла, что действую — и мне не страшно.
+          </p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">Е</div>
+            <div>
+              <div class="review-card__name">Екатерина В.</div>
+              <div class="review-card__meta">Прошла полный курс</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card fade-up" style="transition-delay:.08s">
+          <div class="review-card__stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <span class="review-card__quote">"</span>
+          <p class="review-card__text">
+            Евгений ведёт очень бережно. Никакого давления, никаких «ты должен».
+            Я пришёл с огромным внутренним критиком — и постепенно его голос стал тише.
+          </p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">С</div>
+            <div>
+              <div class="review-card__name">Сергей Л.</div>
+              <div class="review-card__meta">Прошёл полный курс</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card fade-up" style="transition-delay:.2s">
+          <div class="review-card__stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <span class="review-card__quote">"</span>
+          <p class="review-card__text">
+            Я была скептиком. Онлайн-курс по психологии? Но уже на свободном уроке
+            что-то зацепило так, что я купила полный доступ в тот же день.
+            Не пожалела ни секунды.
+          </p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">О</div>
+            <div>
+              <div class="review-card__name">Ольга Д.</div>
+              <div class="review-card__meta">Прошла полный курс</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card fade-up" style="transition-delay:.32s">
+          <div class="review-card__stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <span class="review-card__quote">"</span>
+          <p class="review-card__text">
+            Три года индивидуальной терапии дали мне понимание, а этот курс —
+            действие. Сессии про страх ошибки и внутреннего критика —
+            это отдельный шедевр.
+          </p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">Н</div>
+            <div>
+              <div class="review-card__name">Наталья Б.</div>
+              <div class="review-card__meta">Прошла полный курс</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PRICING
+══════════════════════════════════════════ -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="pricing__inner">
+      <span class="section-label">Условия доступа</span>
+      <h2 class="section-title fade-up">Инвестиция в себя</h2>
+      <p class="section-lead fade-up" style="margin-bottom:0">Выберите удобный формат</p>
+
+      <div class="pricing__plans">
+
+        <!-- Plan 1 -->
+        <div class="pricing__card fade-up">
+          <span class="pricing__badge">Базовый доступ</span>
+          <p class="pricing__plan-title">Самостоятельно</p>
+          <p class="pricing__plan-desc">Полный курс в своём темпе</p>
+          <!-- Замените на реальную цену -->
+          <div class="pricing__price">$___</div>
+          <p class="pricing__price-note">Разовый платёж · Доступ навсегда</p>
+          <ul class="pricing__includes">
+            <li>16 видео-сессий глубинной работы</li>
+            <li>Аудио для практик и проработок</li>
+            <li>Рабочие материалы к каждой сессии</li>
+            <li>Пожизненный доступ ко всем материалам</li>
+            <li>Обновления курса бесплатно</li>
+          </ul>
+          <a href="#" class="btn btn--outline" style="width:100%;justify-content:center;">Выбрать базовый</a>
+          <p class="pricing__cta-note">Безопасная оплата · Возврат 7 дней</p>
+        </div>
+
+        <!-- Plan 2 featured -->
+        <div class="pricing__card pricing__card--featured fade-up" style="transition-delay:.15s">
+          <div class="pricing__recommended">Рекомендуем</div>
+          <span class="pricing__badge">Расширенный доступ</span>
+          <p class="pricing__plan-title">С поддержкой</p>
+          <p class="pricing__plan-desc">Курс + живые разборы и обратная связь</p>
+          <!-- Замените на реальную цену -->
+          <div class="pricing__price">$___</div>
+          <p class="pricing__price-note">Разовый платёж · Доступ навсегда</p>
+          <ul class="pricing__includes">
+            <li>Всё из базового тарифа</li>
+            <li>2 живых групповых разбора с автором</li>
+            <li>Закрытый чат участников</li>
+            <li>Письменная обратная связь на практики</li>
+            <li>Приоритетная поддержка куратора</li>
+          </ul>
+          <a href="#" class="btn btn--primary" style="width:100%;justify-content:center;">Выбрать расширенный</a>
+          <p class="pricing__cta-note">Безопасная оплата · Возврат 7 дней</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FAQ
+══════════════════════════════════════════ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label">Часто спрашивают</span>
+      <h2 class="section-title fade-up">Ответы на вопросы</h2>
+    </div>
+    <div class="faq__list">
+
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">
+          Подойдёт ли курс, если я уже хожу к психологу?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__a" role="region">
+          <p>Да, курс прекрасно дополняет индивидуальную терапию. Многие участники отмечают, что материалы курса углубляют и ускоряют работу с личным терапевтом — появляются конкретные темы и переживания, которые можно нести на сессию.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">
+          Как долго у меня будет доступ к материалам?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__a" role="region">
+          <p>Доступ к курсу — пожизненный. Вы можете возвращаться к материалам в любое время. Все обновления и новые материалы, если они появятся, достанутся вам бесплатно.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">
+          Нужно ли проходить сессии строго по порядку?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__a" role="region">
+          <p>Курс выстроен так, что каждая сессия опирается на предыдущую — это последовательный путь. Рекомендуется проходить по порядку, не торопясь, давая себе время между сессиями на интеграцию.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">
+          Это больше про медитации или про работу с психикой?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__a" role="region">
+          <p>Это глубинная психологическая работа — работа с образами, эмоциональными состояниями и переживаниями прошлого. Формат близок к направленной визуализации и эмоционально-образной терапии. Медитацией в классическом смысле это не является.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">
+          Что если мне станет тяжело в процессе?
+          <span class="faq__icon" aria-expanded="false"></span>
+        </button>
+        <div class="faq__a" role="region">
+          <p>Курс создан с учётом безопасности. Евгений ведёт участников бережно, с пониманием, что глубинная работа может быть интенсивной. В расширенном тарифе доступна поддержка куратора. Вы всегда можете сделать паузу и вернуться позже.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">
+          Есть ли возврат средств?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__a" role="region">
+          <p>Да. В течение 7 дней после покупки вы можете запросить полный возврат без объяснения причин. Мы уверены в качестве курса, поэтому предлагаем эту гарантию.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FINAL CTA
+══════════════════════════════════════════ -->
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta__inner">
+      <div class="ornament"></div>
+      <h2 class="final-cta__title fade-up">
+        Присоединяйтесь, чтобы вернуть себе право хотеть, выбирать и действовать
+      </h2>
+      <p class="final-cta__sub fade-up">
+        Без борьбы с собой. Без давления. Шаг за шагом — к жизни, которую вы выбираете сами.
+      </p>
+      <div class="final-cta__btns fade-up">
+        <a href="#pricing" class="btn btn--primary btn--lg">Записаться на курс</a>
+        <a href="#free-lesson" class="btn btn--outline btn--lg">Первый урок бесплатно</a>
+      </div>
+      <div class="final-cta__guarantee fade-up" style="transition-delay:.15s">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        7-дневная гарантия возврата · Безопасная оплата
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand-name">Евгений Декань</div>
+        <p class="footer__brand-desc">
+          Психолог. Практик глубинной работы.<br>
+          Помогает людям слышать себя и действовать<br>
+          без борьбы с собой.
+        </p>
+      </div>
+      <div>
+        <div class="footer__col-title">Навигация</div>
+        <ul class="footer__links">
+          <li><a href="#problem">Для кого курс</a></li>
+          <li><a href="#author">Об авторе</a></li>
+          <li><a href="#program">Программа</a></li>
+          <li><a href="#testimonials">Отзывы</a></li>
+          <li><a href="#faq">Вопросы и ответы</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Другие курсы</div>
+        <ul class="footer__links">
+          <li><a href="#">Курс «Сепарация»</a></li>
+          <li><a href="#">Все программы</a></li>
+          <li><a href="#">Индивидуальная работа</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 Евгений Декань · Все права защищены</span>
+      <div class="footer__legal">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Публичная оферта</a>
+        <a href="#">Возврат</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════
+     STICKY CTA BAR
+══════════════════════════════════════════ -->
+<div class="sticky-bar" id="sticky-bar" role="complementary" aria-label="Быстрая запись">
+  <span class="sticky-bar__text">Готовы начать жить жизнью, которую выбираете сами?</span>
+  <a href="#pricing" class="btn btn--primary btn--sm">Записаться на курс</a>
+  <button class="sticky-bar__close" id="sticky-close" aria-label="Закрыть">✕</button>
+</div>
+
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── Fade-up observer ── */
+  var els = document.querySelectorAll('.fade-up');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(e){ e.classList.add('visible'); });
+  } else {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el){ obs.observe(el); });
+  }
+
+  /* ── Nav scroll ── */
+  var nav = document.getElementById('main-nav');
+  var scrollY = 0;
+  function onScroll() {
+    scrollY = window.scrollY || window.pageYOffset;
+    if (scrollY > 60) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ── Mobile nav ── */
+  var burger = document.getElementById('nav-burger');
+  var mobileNav = document.getElementById('nav-mobile');
+  burger.addEventListener('click', function() {
+    var open = mobileNav.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mobileNav.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      mobileNav.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  /* ── Sticky bar ── */
+  var stickyBar = document.getElementById('sticky-bar');
+  var stickyClose = document.getElementById('sticky-close');
+  var stickyDismissed = false;
+
+  function updateStickyBar() {
+    if (stickyDismissed) return;
+    if (scrollY > window.innerHeight * 0.7) {
+      stickyBar.classList.add('visible');
+    } else {
+      stickyBar.classList.remove('visible');
+    }
+  }
+  window.addEventListener('scroll', updateStickyBar, { passive: true });
+
+  stickyClose.addEventListener('click', function() {
+    stickyDismissed = true;
+    stickyBar.classList.remove('visible');
+  });
+
+  /* ── FAQ accordion ── */
+  document.querySelectorAll('.faq__q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.closest('.faq__item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq__item.open').forEach(function(i) {
+        i.classList.remove('open');
+        i.querySelector('.faq__q').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
