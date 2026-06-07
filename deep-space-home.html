@@ -11,20 +11,20 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --void: #0A0612;
-      --deep: #0d0919;
-      --dark: #120d20;
-      --surface: #18122a;
-      --border: rgba(179,157,219,0.12);
-      --gold: #B39DDB;
-      --gold-light: #CDB8F0;
-      --gold-dim: rgba(179,157,219,0.15);
-      --nebula-1: #2d1654;
-      --nebula-2: #1a0d3d;
-      --nebula-3: #200d35;
-      --text: #E8E0F0;
-      --text-muted: rgba(208,200,220,0.55);
-      --text-dim: rgba(208,200,220,0.25);
+      --void: #1a1035;
+      --deep: #1f1540;
+      --dark: #251a4a;
+      --surface: #2a1e52;
+      --border: rgba(179,157,219,0.18);
+      --gold: #C4AAEE;
+      --gold-light: #DDD0FF;
+      --gold-dim: rgba(196,170,238,0.2);
+      --nebula-1: #4a2a90;
+      --nebula-2: #2d1a70;
+      --nebula-3: #3a2060;
+      --text: #F0ECF8;
+      --text-muted: rgba(230,220,248,0.65);
+      --text-dim: rgba(230,220,248,0.35);
       --radius: 2px;
     }
 
@@ -70,20 +70,20 @@
       z-index: 0;
     }
     .nebula-1 {
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(100,50,180,0.4), transparent 70%);
-      top: -200px; left: -200px;
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(120,70,220,0.45), transparent 70%);
+      top: -250px; left: -200px;
       animation: drift1 20s ease-in-out infinite alternate;
     }
     .nebula-2 {
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(60,20,120,0.3), transparent 70%);
+      width: 650px; height: 650px;
+      background: radial-gradient(circle, rgba(90,50,180,0.35), transparent 70%);
       top: 30%; right: -150px;
       animation: drift2 25s ease-in-out infinite alternate;
     }
     .nebula-3 {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(80,30,140,0.25), transparent 70%);
+      width: 550px; height: 550px;
+      background: radial-gradient(circle, rgba(150,80,200,0.3), transparent 70%);
       bottom: 10%; left: 20%;
       animation: drift1 18s ease-in-out infinite alternate;
     }
@@ -109,7 +109,7 @@
       align-items: center;
       justify-content: space-between;
       backdrop-filter: blur(20px);
-      background: rgba(10,6,18,0.75);
+      background: rgba(26,16,53,0.8);
       border-bottom: 1px solid var(--border);
       transition: padding 0.3s;
     }
@@ -860,7 +860,7 @@
 
     /* ── CTA BANNER ── */
     .cta-banner {
-      background: linear-gradient(135deg, #130922 0%, #1c0f35 50%, #0f0a22 100%);
+      background: linear-gradient(135deg, #231550 0%, #2d1860 50%, #1a1040 100%);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       text-align: center;
