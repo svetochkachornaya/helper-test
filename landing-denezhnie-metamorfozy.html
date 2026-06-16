@@ -279,6 +279,8 @@
     color: var(--white);
     margin-bottom: 12px;
     font-weight: 300;
+    font-size: clamp(22px, 3vw, 38px);
+    letter-spacing: 0;
   }
 
   .hero h1 em {
@@ -299,14 +301,14 @@
   }
 
   .hero-subtitle {
-    font-family: var(--font-serif);
-    font-size: clamp(18px, 2.5vw, 28px);
-    color: rgba(255,255,255,0.65);
+    font-family: var(--font-sans);
+    font-size: clamp(14px, 1.4vw, 17px);
+    color: rgba(255,255,255,0.5);
     font-weight: 300;
-    font-style: italic;
+    font-style: normal;
     margin-bottom: 48px;
-    max-width: 640px;
-    line-height: 1.5;
+    max-width: 600px;
+    line-height: 1.7;
   }
 
   .hero-promise {
@@ -457,23 +459,21 @@
   }
 
   .for-whom-card-stack {
-    position: relative;
-    height: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
   .fw-card {
-    position: absolute;
     background: var(--white);
     border-radius: var(--radius-lg);
-    padding: 28px 32px;
-    box-shadow: 0 20px 60px rgba(26, 22, 18, 0.1);
+    padding: 20px 24px;
+    box-shadow: 0 4px 20px rgba(26, 22, 18, 0.07);
     border: 1px solid rgba(201, 168, 76, 0.15);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
   }
-
-  .fw-card:nth-child(1) { top: 0; left: 0; right: 60px; }
-  .fw-card:nth-child(2) { top: 100px; left: 40px; right: 0; }
-  .fw-card:nth-child(3) { top: 220px; left: 0; right: 80px; }
-  .fw-card:nth-child(4) { top: 340px; left: 60px; right: 0; }
 
   .fw-card-icon {
     width: 36px;
@@ -483,7 +483,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 12px;
+    flex-shrink: 0;
     font-size: 16px;
   }
 
@@ -2644,7 +2644,7 @@
       <div class="author-content">
         <span class="section-label">Автор курса</span>
         <h2 class="reveal">Евгений Декань</h2>
-        <div class="author-title reveal reveal-delay-1">Психолог · Практик глубинной работы</div>
+        <div class="author-title reveal reveal-delay-1">Психолог · Практик глубинной работы · Автор курса</div>
 
         <div class="author-bio">
           <p class="reveal reveal-delay-2">Специализируюсь на работе с внутренними финансовыми сценариями, самосаботажем и психологией роста. Помогаю людям слышать себя и действовать без борьбы с собой — через системную работу с психикой.</p>
@@ -2910,7 +2910,7 @@
       <!-- Бренд + контакты -->
       <div class="footer-brand">
         <span class="footer-logo"><em>Денежные</em> Метаморфозы</span>
-        <p class="footer-brand-desc">Авторский курс по выходу из финансовых тупиков.<br>Психолог · Эксперт по финансовой идентичности.</p>
+        <p class="footer-brand-desc">Авторский курс по выходу из финансовых тупиков через трансформацию денежного мышления.</p>
         <div class="footer-contacts">
           <a href="https://t.me/Otdel_Zaboti_Individual" target="_blank" class="footer-contact-item">
             <div class="footer-contact-icon">✈</div>
@@ -2944,7 +2944,6 @@
       <div>
         <div class="footer-col-title">Другие курсы</div>
         <ul class="footer-nav">
-          <li><a href="#">Курс «Сепарация»</a></li>
           <li><a href="#">Все программы</a></li>
           <li><a href="#">Индивидуальная работа</a></li>
         </ul>
@@ -2954,9 +2953,9 @@
       <div>
         <div class="footer-col-title">Поддержка</div>
         <ul class="footer-nav">
-          <li><a href="#">Политика конфиденциальности</a></li>
-          <li><a href="#">Договор оферты</a></li>
-          <li><a href="#">Условия возврата</a></li>
+          <li><a href="https://individual-center.com/publichnaya-oferta/" target="_blank">Публичная оферта</a></li>
+          <li><a href="https://individual-center.com/privacy-policy/" target="_blank">Договор оферты</a></li>
+          <li><a href="https://individual-center.com/publichnaya-oferta/#:~:text=5.%20%D0%9F%D0%9E%D0%9B%D0%86%D0%A2%D0%98%D0%9A%D0%90%20%D0%9F%D0%9E%D0%92%D0%95%D0%A0%D0%9D%D0%95%D0%9D%D0%9D%D0%AF%20%D0%9A%D0%9E%D0%A8%D0%A2%D0%86%D0%92%C2%A0" target="_blank">Условия возврата</a></li>
           <li><a href="https://t.me/Otdel_Zaboti_Individual" target="_blank">Написать в Telegram</a></li>
         </ul>
       </div>
@@ -2966,8 +2965,8 @@
     <div class="footer-bottom">
       <div class="footer-copy">© 2024 «Денежные Метаморфозы». Все права защищены.</div>
       <ul class="footer-legal">
-        <li><a href="#">Политика конфиденциальности</a></li>
-        <li><a href="#">Оферта</a></li>
+        <li><a href="https://individual-center.com/privacy-policy/" target="_blank">Политика конфиденциальности</a></li>
+        <li><a href="https://individual-center.com/publichnaya-oferta/" target="_blank">Публичная оферта</a></li>
       </ul>
     </div>
 
