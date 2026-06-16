@@ -37,13 +37,13 @@
   :root {
     --cream:    #2A1A12;
     --warm:     #EDD8C8;
-    --blush:    #E8A882;
-    --rose:     #C97A50;
+    --blush:    #C4622A;
+    --rose:     #9E4A18;
     --deep:     #7A3E20;
     --ink:      #1A0E08;
-    --muted:    #8A6A54;
-    --gold:     #E8A060;
-    --gold-lt:  #F5D0A8;
+    --muted:    #6A4830;
+    --gold:     #B85820;
+    --gold-lt:  #7A3E10;
     --bg:       #F5EDE4;
     --bg2:      #EDE0D4;
     --bg3:      #E6D4C4;
@@ -99,11 +99,11 @@
     background: linear-gradient(135deg, var(--gold) 0%, var(--blush) 100%);
     color: var(--ink);
     border: none;
-    box-shadow: 0 8px 40px rgba(232,160,96,0.25);
+    box-shadow: 0 8px 40px rgba(184,88,32,0.3);
   }
   .btn--primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 50px rgba(232,160,96,0.4);
+    box-shadow: 0 16px 50px rgba(184,88,32,0.5);
   }
 
   .btn--ghost {
@@ -153,9 +153,9 @@
   .hero__bg {
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 70% 60% at 70% 40%, rgba(201,122,80,0.18) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 80% at 20% 80%, rgba(122,62,32,0.25) 0%, transparent 60%),
-      radial-gradient(ellipse 80% 40% at 50% 0%, rgba(232,160,96,0.08) 0%, transparent 50%);
+      radial-gradient(ellipse 70% 60% at 70% 40%, rgba(158,74,24,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 20% 80%, rgba(80,40,16,0.2) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 40% at 50% 0%, rgba(184,88,32,0.08) 0%, transparent 50%);
   }
 
   .hero__orb {
@@ -166,7 +166,7 @@
   }
   .hero__orb--1 {
     width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(201,122,80,0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(158,74,24,0.12) 0%, transparent 70%);
     top: -100px; right: -100px;
     animation: float1 12s ease-in-out infinite;
   }
@@ -243,8 +243,8 @@
   .hero__badge {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 8px 16px;
-    background: rgba(232,160,96,0.08);
-    border: 1px solid rgba(232,160,96,0.2);
+    background: rgba(184,88,32,0.08);
+    border: 1px solid rgba(184,88,32,0.22);
     border-radius: 100px;
     font-size: 0.78rem;
     color: var(--gold-lt);
@@ -265,7 +265,7 @@
     width: 360px;
     padding: 48px 40px;
     background: linear-gradient(145deg, rgba(252,243,234,0.97) 0%, rgba(248,238,226,0.99) 100%);
-    border: 1px solid rgba(232,160,96,0.15);
+    border: 1px solid rgba(184,88,32,0.18);
     border-radius: 4px;
     text-align: center;
   }
@@ -366,7 +366,7 @@
     transition: border-color 0.3s, transform 0.3s;
   }
   .rec-card:hover {
-    border-color: rgba(232,160,96,0.2);
+    border-color: rgba(184,88,32,0.22);
     transform: translateY(-4px);
   }
 
@@ -441,7 +441,7 @@
     font-style: italic;
     color: var(--blush);
     line-height: 1.6;
-    background: rgba(232,160,96,0.04);
+    background: rgba(184,88,32,0.05);
     border-radius: 0 3px 3px 0;
   }
   .why__quote cite {
@@ -466,7 +466,7 @@
     border-radius: 3px;
     transition: border-color 0.3s;
   }
-  .why__stat:hover { border-color: rgba(232,160,96,0.2); }
+  .why__stat:hover { border-color: rgba(184,88,32,0.22); }
 
   .why__stat-num {
     font-family: 'Cormorant Garamond', serif;
@@ -492,7 +492,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2px;
-    background: rgba(232,160,96,0.08);
+    background: rgba(184,88,32,0.08);
     border-radius: 4px;
     overflow: hidden;
   }
@@ -559,7 +559,7 @@
     width: 80px; height: 80px;
     border-radius: 50%;
     background: rgba(252,242,230,0.95);
-    border: 1px solid rgba(232,160,96,0.2);
+    border: 1px solid rgba(184,88,32,0.22);
     display: flex; align-items: center; justify-content: center;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.6rem;
@@ -602,8 +602,8 @@
     margin-top: 48px;
     text-align: center;
     padding: 24px 32px;
-    background: rgba(232,160,96,0.05);
-    border: 1px solid rgba(232,160,96,0.15);
+    background: rgba(184,88,32,0.06);
+    border: 1px solid rgba(184,88,32,0.18);
     border-radius: 3px;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.05rem;
@@ -632,7 +632,7 @@
     transition: border-color 0.3s, transform 0.3s;
   }
   .testi-card:hover {
-    border-color: rgba(232,160,96,0.15);
+    border-color: rgba(184,88,32,0.18);
     transform: translateY(-4px);
   }
 
@@ -641,7 +641,7 @@
     position: absolute; top: 20px; right: 28px;
     font-family: 'Cormorant Garamond', serif;
     font-size: 5rem;
-    color: rgba(232,160,96,0.08);
+    color: rgba(184,88,32,0.08);
     line-height: 1;
     font-style: italic;
   }
@@ -681,7 +681,7 @@
     width: 100%; aspect-ratio: 3/4;
     background: linear-gradient(145deg, rgba(122,62,32,0.4) 0%, rgba(252,242,230,0.95) 100%);
     border-radius: 3px;
-    border: 1px solid rgba(232,160,96,0.15);
+    border: 1px solid rgba(184,88,32,0.18);
     display: flex; align-items: center; justify-content: center;
     font-size: 6rem;
     position: relative;
@@ -775,7 +775,7 @@
   .pricing__card {
     padding: 56px 52px;
     background: linear-gradient(145deg, rgba(252,243,234,0.99) 0%, rgba(248,238,226,1.0) 100%);
-    border: 1px solid rgba(232,160,96,0.2);
+    border: 1px solid rgba(184,88,32,0.22);
     border-radius: 4px;
     text-align: center;
     position: relative;
@@ -869,7 +869,7 @@
     width: 100%;
     padding: 14px 18px;
     background: rgba(42,26,18,0.06);
-    border: 1px solid rgba(232,160,96,0.2);
+    border: 1px solid rgba(184,88,32,0.22);
     border-radius: 2px;
     color: var(--cream);
     font-family: 'Inter', sans-serif;
@@ -881,7 +881,7 @@
   .cf7-wrap input[type="email"]:focus,
   .cf7-wrap input[type="tel"]:focus {
     border-color: var(--gold);
-    background: rgba(232,160,96,0.06);
+    background: rgba(184,88,32,0.07);
   }
   .cf7-wrap input::placeholder { color: rgba(42,26,18,0.25); }
 
@@ -898,12 +898,12 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     cursor: pointer;
-    box-shadow: 0 8px 40px rgba(232,160,96,0.25);
+    box-shadow: 0 8px 40px rgba(184,88,32,0.3);
     transition: transform 0.3s, box-shadow 0.3s;
   }
   .cf7-wrap input[type="submit"]:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 50px rgba(232,160,96,0.4);
+    box-shadow: 0 16px 50px rgba(184,88,32,0.5);
   }
 
   .cf7-wrap .wpcf7-not-valid-tip {
@@ -919,7 +919,7 @@
     font-size: 0.82rem;
     border: 1px solid rgba(232,160,96,0.3);
     color: var(--gold-lt);
-    background: rgba(232,160,96,0.06);
+    background: rgba(184,88,32,0.07);
   }
 
   .pricing__note {
@@ -1195,7 +1195,7 @@
     position: relative;
     width: 100%; max-width: 520px;
     background: linear-gradient(145deg, var(--bg3) 0%, var(--bg2) 100%);
-    border: 1px solid rgba(232,160,96,0.2);
+    border: 1px solid rgba(184,88,32,0.22);
     border-radius: 4px;
     padding: 52px 48px;
     transform: translateY(24px) scale(0.97);
@@ -1359,7 +1359,7 @@
         <div class="rec-card__title">«Куда-то ушло то ощущение живости в теле»</div>
         <div class="rec-card__sub">Чувственность как будто заблокирована</div>
       </div>
-      <div class="rec-card reveal reveal-delay-5" style="display:flex; flex-direction:column; justify-content:center; background: rgba(232,160,96,0.05); border-color: rgba(232,160,96,0.15);">
+      <div class="rec-card reveal reveal-delay-5" style="display:flex; flex-direction:column; justify-content:center; background: rgba(184,88,32,0.06); border-color: rgba(184,88,32,0.18);">
         <div style="font-size:2rem; margin-bottom: 16px;">✦</div>
         <p style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-style:italic; color:var(--blush); line-height:1.5;">Если хотя бы одно — про тебя, ты пришла по адресу.</p>
       </div>
@@ -1408,7 +1408,7 @@
           <div class="why__stat-num">8 лет</div>
           <div class="why__stat-label">практики в психологии и астрологии</div>
         </div>
-        <div class="why__stat reveal reveal-delay-3" style="background: rgba(232,160,96,0.06); border-color: rgba(232,160,96,0.2);">
+        <div class="why__stat reveal reveal-delay-3" style="background: rgba(184,88,32,0.07); border-color: rgba(184,88,32,0.22);">
           <div class="why__stat-num" style="font-size: 2rem;">💛</div>
           <div class="why__stat-label">Без пошлости, без насилия, без осуждения</div>
         </div>
@@ -1451,7 +1451,7 @@
         <div class="result-item__title">Доверие возвращается</div>
         <p class="result-item__text">К себе. К партнёру. К жизни. Ты перестаёшь ждать предательства и начинаешь жить в настоящем.</p>
       </div>
-      <div class="result-item reveal reveal-delay-2" style="background: rgba(232,160,96,0.04);">
+      <div class="result-item reveal reveal-delay-2" style="background: rgba(184,88,32,0.05);">
         <span class="result-item__icon">🌸</span>
         <div class="result-item__title">Ты разрешаешь себе удовольствие</div>
         <p class="result-item__text">Не только в близости — в жизни целиком. Это и есть оргазмичность: способность наслаждаться тем, что есть.</p>
@@ -1559,14 +1559,14 @@
           <img src="https://individual-center.com/wp-content/uploads/2026/06/photo_2569-06-03-19.56.36.jpeg" alt="Евгений — психолог, астролог" class="author__photo">
           <div class="author__avatar-name">
             Евгений
-            <span>Психолог · Астролог</span>
+            
           </div>
         </div>
       </div>
 
       <div class="author__info">
         <span class="author__tag reveal">Кто ведёт</span>
-        <h2 class="author__title reveal">Евгений<br><span style="font-style:italic; color:var(--blush);">Психолог · Астролог</span></h2>
+        <h2 class="author__title reveal">Евгений<br></h2>
         <p class="author__bio reveal">
           Я работаю с женщинами — и знаю, как глубоко тема близости связана с контактом с собой. Не с партнёром. С собой.
         </p>
