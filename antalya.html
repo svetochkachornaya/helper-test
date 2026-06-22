@@ -816,6 +816,51 @@
     }
     .lcard p { font-size: .88rem; line-height: 1.9; color: var(--muted); }
 
+    /* ─── HELP BANNER ─── */
+    .help-banner {
+      background: var(--terra);
+      padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
+      text-align: center;
+    }
+    .help-banner__inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .help-banner__icon {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .help-banner__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: #FDF8F0;
+      margin-bottom: 1.2rem;
+    }
+    .help-banner__text {
+      font-size: clamp(.95rem, 1.8vw, 1.1rem);
+      line-height: 1.9;
+      color: rgba(253,248,240,.8);
+      margin-bottom: 2.5rem;
+    }
+    .help-banner__btn {
+      display: inline-block;
+      padding: .9rem 2.8rem;
+      border: 1.5px solid rgba(253,248,240,.7);
+      border-radius: 100px;
+      color: #FDF8F0;
+      font-size: .8rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background .25s, border-color .25s;
+    }
+    .help-banner__btn:hover {
+      background: rgba(253,248,240,.15);
+      border-color: #FDF8F0;
+    }
+
     /* ─── QUOTE ─── */
     .quote {
       background:
@@ -1227,6 +1272,20 @@
       <h3>Сосед по номеру</h3>
       <p>Хотите сэкономить или просто не ехать одному? Поможем найти участника для совместной аренды. Многие приезжают именно так.</p>
     </div>
+  </div>
+</section>
+
+<!-- ═══ HELP BANNER ═══ -->
+<section class="help-banner">
+  <div class="help-banner__inner reveal">
+    <div class="help-banner__icon">🏨</div>
+    <h2 class="help-banner__title">Нужна помощь<br/>с трансфером или жильём?</h2>
+    <p class="help-banner__text">
+      Если вам нужна помощь с выбором отеля или трансфером из аэропорта —
+      просто напишите нам. Мы пришлём готовые варианты <strong style="color:#FDF8F0">на любой бюджет</strong>,
+      чтобы вы могли приехать максимально комфортно.
+    </p>
+    <a href="#cta" class="help-banner__btn">Написать нам</a>
   </div>
 </section>
 
