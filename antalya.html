@@ -411,6 +411,88 @@
       flex-shrink: 0;
     }
 
+    /* ─── WHY LIVE ─── */
+    .why-live {
+      background: var(--cream);
+      padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 5vw, 4rem);
+    }
+    .why-live__inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .why-live__lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+      font-weight: 300;
+      line-height: 1.35;
+      color: var(--text);
+      margin-bottom: 3rem;
+    }
+    .why-live__lead em {
+      font-style: italic;
+      color: var(--terra);
+    }
+    .why-live__lines {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      margin-bottom: 3.5rem;
+    }
+    .why-live__line {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .why-live__divider {
+      width: 40px;
+      height: 1px;
+      background: var(--terra);
+      opacity: .4;
+      margin: 3rem 0;
+    }
+    .why-live__heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      letter-spacing: .02em;
+    }
+    .why-live__body {
+      font-size: clamp(.95rem, 1.8vw, 1.1rem);
+      color: var(--muted);
+      line-height: 2;
+      margin-bottom: 1.2rem;
+    }
+    .why-live__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      margin-bottom: 2rem;
+    }
+    .why-live__list li {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: var(--text);
+      padding-left: 1.4rem;
+      position: relative;
+    }
+    .why-live__list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--terra);
+    }
+    .why-live__closing {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+      font-style: italic;
+      color: var(--terra);
+      line-height: 1.6;
+    }
+
     /* ─── PROGRAM ─── */
     .program {
       background: var(--milk);
@@ -972,6 +1054,45 @@
         <li>Вы хотите почувствовать изменения — не понять, а именно почувствовать</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<!-- ═══ WHY LIVE ═══ -->
+<section class="why-live">
+  <div class="why-live__inner">
+
+    <div class="reveal">
+      <p class="why-live__lead">
+        Три дня живой работы.<br/>
+        Три дня общения.<br/>
+        <em>Три дня, которые невозможно провести через экран.</em>
+      </p>
+    </div>
+
+    <div class="why-live__lines reveal reveal-d1">
+      <p class="why-live__line">До этого момента мы встречались в эфирах, видео, комментариях и чатах.</p>
+      <p class="why-live__line">Теперь появилась возможность увидеться лично.</p>
+      <p class="why-live__line">Познакомиться ближе друг с другом — и с Евгением, создателем системы, которая помогла тысячам людей.</p>
+      <p class="why-live__line">Поговорить. Задать вопросы. Побыть рядом с людьми, которые идут похожим путём.</p>
+      <p class="why-live__line">И уже ради этого стоит приехать.</p>
+    </div>
+
+    <div class="why-live__divider reveal"></div>
+
+    <div class="reveal reveal-d1">
+      <p class="why-live__heading">Почему эта встреча особенная</p>
+      <p class="why-live__body">Мы живём в мире экранов. Общаемся через сообщения. Учимся через видео. Работаем через интернет.</p>
+      <p class="why-live__body">Но есть вещи, которые невозможно передать в цифровом формате:</p>
+      <ul class="why-live__list">
+        <li>Присутствие</li>
+        <li>Контакт</li>
+        <li>Живую реакцию</li>
+        <li>Атмосферу группы</li>
+        <li>Общее поле людей, которые собрались ради внутренних изменений</li>
+      </ul>
+      <p class="why-live__closing">Эта встреча создавалась именно для этого.</p>
+    </div>
+
   </div>
 </section>
 
