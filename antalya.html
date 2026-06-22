@@ -749,6 +749,124 @@
     .reveal-delay-2 { transition-delay: .3s;  }
     .reveal-delay-3 { transition-delay: .45s; }
 
+    /* ── PRICE ── */
+    .price-section {
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .price-block {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--milk);
+      border: 1px solid rgba(201,169,110,.3);
+      border-radius: 28px;
+      padding: 3.5rem 5rem;
+      margin: 3rem auto 0;
+      box-shadow: 0 20px 70px rgba(107,79,58,.08);
+    }
+
+    .price-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 10vw, 7rem);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--text);
+    }
+
+    .price-amount sup {
+      font-size: .35em;
+      vertical-align: super;
+      color: var(--gold);
+    }
+
+    .price-label {
+      font-size: .8rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: .75rem;
+    }
+
+    .price-divider {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 1.5rem auto;
+    }
+
+    .price-includes {
+      list-style: none;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      margin-bottom: 2rem;
+    }
+
+    .price-includes li {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      font-size: .9rem;
+      color: var(--brown);
+      line-height: 1.6;
+    }
+
+    .price-includes li::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .price-note {
+      font-size: .8rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 1rem;
+      line-height: 1.7;
+    }
+
+    /* ── SPOTS ── */
+    .spots-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .75rem;
+      margin: 2.5rem auto 0;
+      max-width: 340px;
+    }
+
+    .spots-track {
+      width: 100%;
+      height: 6px;
+      background: rgba(201,169,110,.15);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .spots-fill {
+      height: 100%;
+      width: 60%;
+      background: linear-gradient(to right, var(--terra), var(--gold));
+      border-radius: 100px;
+      animation: fillIn 1.2s 1s ease-out both;
+    }
+
+    @keyframes fillIn {
+      from { width: 0; }
+      to   { width: 60%; }
+    }
+
+    .spots-label {
+      font-size: .8rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--terra);
+    }
+
     /* ── ORNAMENT ── */
     .ornament {
       display: flex;
@@ -838,7 +956,7 @@
 <section class="hero">
   <div class="hero__bg"></div>
 
-  <span class="hero__badge">21–23 июля · Анталия, Турция</span>
+  <span class="hero__badge">21–23 июля · Анталия · Всего 15 мест</span>
 
   <p class="hero__eyebrow">Поехали вместе</p>
 
@@ -1081,18 +1199,48 @@
       <div class="logistics__card reveal reveal-delay-1">
         <div class="logistics__card-icon">🏛</div>
         <h3>Проживание</h3>
-        <p>Мы не ограничиваем вас конкретным отелем. Старый город предлагает десятки вариантов — от уютных гостевых домов до премиальных отелей. Наша команда поможет с выбором и поиском соседей.</p>
+        <p>Каждый выбирает отель под свой комфорт и бюджет. Мы поможем подобрать подходящий вариант в старом городе — от уютных гостевых домов до премиальных бутик-отелей. Стоимость проживания оплачивается отдельно.</p>
       </div>
       <div class="logistics__card reveal reveal-delay-2">
         <div class="logistics__card-icon">✈️</div>
-        <h3>Перелёт и трансфер</h3>
-        <p>Из аэропорта Анталии до старого города — удобным прямым общественным транспортом. При необходимости поможем организовать комфортный трансфер.</p>
+        <h3>Трансфер из аэропорта</h3>
+        <p>Поможем добраться из аэропорта Анталии до отеля — удобно и без лишних хлопот. Стоимость трансфера оплачивается отдельно. Просто напишите нам после бронирования рейса.</p>
       </div>
       <div class="logistics__card reveal reveal-delay-3">
-        <div class="logistics__card-icon">◎</div>
-        <h3>Место проведения</h3>
-        <p>Конференц-зал в исторической части Анталии. Рядом — набережная, кафе, рестораны и атмосфера настоящего турецкого лета.</p>
+        <div class="logistics__card-icon">🤝</div>
+        <h3>Совместное размещение</h3>
+        <p>Хотите сэкономить или просто не ехать одному? Мы поможем объединиться с другими участниками для совместной аренды номера. Многие приезжают именно так — и это становится частью атмосферы.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="price-section">
+  <div class="container--narrow">
+    <div class="reveal">
+      <span class="section-label">Стоимость участия</span>
+      <h2 class="section-title serif">Три дня.<br/><em>200 долларов.</em></h2>
+    </div>
+
+    <div class="price-block reveal">
+      <div class="price-amount"><sup>$</sup>200</div>
+      <div class="price-label">за три дня · 21–23 июля</div>
+      <div class="price-divider"></div>
+      <ul class="price-includes">
+        <li>6 часов живой работы каждый день</li>
+        <li>Все три дня интенсива с Евгением</li>
+        <li>Кофе-паузы и рефлексия после каждого дня</li>
+        <li>Помощь с подбором отеля и соседа по номеру</li>
+        <li>Помощь с трансфером из аэропорта</li>
+      </ul>
+      <a href="#cta" class="btn btn--gold">Забронировать место</a>
+      <p class="price-note">Проживание и трансфер оплачиваются отдельно</p>
+    </div>
+
+    <div class="spots-bar reveal">
+      <div class="spots-track"><div class="spots-fill"></div></div>
+      <span class="spots-label">Осталось несколько мест из 15</span>
     </div>
   </div>
 </section>
@@ -1113,10 +1261,10 @@
     <div class="reveal">
       <span class="section-label">Следующий шаг</span>
       <h2 class="section-title serif">
-        Оставьте заявку.<br/><em>Мы расскажем всё.</em>
+        Оставьте заявку —<br/><em>мы напишем вам сегодня.</em>
       </h2>
       <p class="lead" style="margin-top:1rem">
-        Мы свяжемся с вами и расскажем все подробности участия.
+        Всего 15 мест. Напишем в Telegram в течение нескольких часов и ответим на все вопросы.
       </p>
     </div>
 
