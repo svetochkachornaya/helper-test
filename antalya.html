@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Живая встреча в Анталии · 21–23 июля</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sand:       #F5EFE4;
+      --cream:      #FAF7F2;
+      --milk:       #FFFDF9;
+      --terra:      #C2714F;
+      --terra-dark: #A05A39;
+      --gold:       #C9A96E;
+      --gold-light: #E8D5A8;
+      --teal:       #4A9B9B;
+      --teal-light: #7ABFBF;
+      --brown:      #6B4F3A;
+      --text:       #2C1F14;
+      --muted:      #8B7355;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      background: var(--milk);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── UTILS ── */
+    .serif { font-family: 'Cormorant Garamond', serif; }
+    .gold  { color: var(--gold); }
+    .terra { color: var(--terra); }
+    .teal  { color: var(--teal); }
+    .muted { color: var(--muted); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: #1a0f08;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(160deg, rgba(26,15,8,.72) 0%, rgba(74,60,42,.55) 50%, rgba(26,15,8,.80) 100%),
+        url('https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=1800&q=80') center/cover no-repeat;
+      transform: scale(1.05);
+      animation: bgZoom 18s ease-out forwards;
+    }
+
+    @keyframes bgZoom {
+      from { transform: scale(1.08); }
+      to   { transform: scale(1.00); }
+    }
+
+    .hero__badge {
+      position: relative;
+      display: inline-block;
+      border: 1px solid rgba(201,169,110,.5);
+      color: var(--gold-light);
+      font-size: .75rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      padding: .55rem 1.5rem;
+      border-radius: 100px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp .9s .3s forwards;
+    }
+
+    .hero__eyebrow {
+      position: relative;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      letter-spacing: .12em;
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeUp .9s .55s forwards;
+    }
+
+    .hero__title {
+      position: relative;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(3rem, 9vw, 7.5rem);
+      line-height: 1.02;
+      color: #FDF8F0;
+      max-width: 900px;
+      margin: 0 auto 2rem;
+      opacity: 0;
+      animation: fadeUp 1s .75s forwards;
+    }
+
+    .hero__title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero__date {
+      position: relative;
+      color: rgba(253,248,240,.7);
+      font-size: clamp(.85rem, 1.8vw, 1rem);
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 3.5rem;
+      opacity: 0;
+      animation: fadeUp .9s .95s forwards;
+    }
+
+    .hero__sub {
+      position: relative;
+      color: rgba(253,248,240,.75);
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      max-width: 560px;
+      line-height: 1.85;
+      margin: 0 auto 3.5rem;
+      opacity: 0;
+      animation: fadeUp .9s 1.1s forwards;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1.1rem 3rem;
+      border-radius: 100px;
+      font-size: .85rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all .35s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn--gold {
+      background: linear-gradient(135deg, var(--gold), #B8894E);
+      color: #1a0f08;
+      font-weight: 500;
+      box-shadow: 0 8px 40px rgba(201,169,110,.35);
+    }
+
+    .btn--gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 50px rgba(201,169,110,.5);
+    }
+
+    .btn--outline {
+      background: transparent;
+      border: 1px solid rgba(201,169,110,.6);
+      color: var(--gold-light);
+    }
+
+    .btn--outline:hover {
+      background: rgba(201,169,110,.1);
+      border-color: var(--gold);
+    }
+
+    .hero__cta {
+      position: relative;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeUp .9s 1.3s forwards;
+    }
+
+    .hero__scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .6rem;
+      color: rgba(253,248,240,.4);
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      animation: fadeIn 1.5s 2s both;
+    }
+
+    .hero__scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, rgba(201,169,110,.6), transparent);
+      animation: scrollPulse 2s 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: .5; transform: scaleY(1); }
+      50%       { opacity: 1;  transform: scaleY(1.1); }
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 5vw, 4rem); }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+    .container--narrow { max-width: 720px; margin: 0 auto; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 0 auto;
+    }
+
+    .divider--left { margin: 0; }
+
+    /* ── WHY SECTION ── */
+    .why {
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: .7rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title em { font-style: italic; color: var(--terra); }
+
+    .lead {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      line-height: 2;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .why__cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 4.5rem;
+    }
+
+    .why__card {
+      background: var(--milk);
+      border: 1px solid rgba(201,169,110,.2);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: left;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .why__card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(107,79,58,.1);
+    }
+
+    .why__card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .why__card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: .75rem;
+      color: var(--text);
+    }
+
+    .why__card p {
+      font-size: .9rem;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    /* ── ANTALYA SPLIT ── */
+    .antalya {
+      background: var(--text);
+      color: var(--sand);
+      overflow: hidden;
+    }
+
+    .antalya__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 600px;
+      border-radius: 24px;
+      overflow: hidden;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .antalya__img {
+      background:
+        linear-gradient(to right, rgba(44,31,20,.4), transparent),
+        url('https://images.unsplash.com/photo-1593696140826-c58b021acf8b?w=900&q=80') center/cover no-repeat;
+      min-height: 500px;
+    }
+
+    .antalya__content {
+      background: #1f1208;
+      padding: clamp(3rem, 6vw, 5rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .antalya__content .section-label { color: var(--gold); }
+
+    .antalya__content .section-title { color: #FDF8F0; }
+
+    .antalya__content .section-title em { color: var(--teal-light); }
+
+    .antalya__content p {
+      font-size: 1rem;
+      line-height: 2;
+      color: rgba(245,239,228,.7);
+      margin-top: 1.5rem;
+    }
+
+    .antalya__features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 2.5rem;
+    }
+
+    .antalya__tag {
+      border: 1px solid rgba(201,169,110,.35);
+      color: var(--gold-light);
+      padding: .45rem 1.1rem;
+      border-radius: 100px;
+      font-size: .8rem;
+      letter-spacing: .1em;
+    }
+
+    /* ── FORMAT ── */
+    .format { background: var(--sand); }
+
+    .format__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .format__img {
+      border-radius: 24px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background:
+        url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80') center/cover no-repeat;
+      box-shadow: 0 30px 80px rgba(44,31,20,.2);
+    }
+
+    .format__list {
+      list-style: none;
+      margin-top: 2.5rem;
+    }
+
+    .format__list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(201,169,110,.2);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--brown);
+    }
+
+    .format__list li:last-child { border-bottom: none; }
+
+    .format__bullet {
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--terra);
+      margin-top: .55rem;
+    }
+
+    /* ── FOR WHOM ── */
+    .whom {
+      background: var(--milk);
+      text-align: center;
+    }
+
+    .whom__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .whom__item {
+      padding: 2.5rem 1.5rem;
+      border-radius: 20px;
+      background: var(--cream);
+      border: 1px solid rgba(201,169,110,.15);
+      font-size: .95rem;
+      line-height: 1.85;
+      color: var(--muted);
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      transition: all .3s ease;
+    }
+
+    .whom__item:hover {
+      background: var(--sand);
+      border-color: rgba(201,169,110,.4);
+      color: var(--brown);
+    }
+
+    /* ── PROGRAM ── */
+    .program { background: var(--cream); }
+
+    .program__intro {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .program__days {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .day {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      padding: 3rem;
+      background: var(--milk);
+      border: 1px solid rgba(201,169,110,.2);
+      border-radius: 24px;
+      transition: box-shadow .3s ease;
+    }
+
+    .day:hover { box-shadow: 0 15px 50px rgba(107,79,58,.08); }
+
+    .day__num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--gold-light);
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .day__label {
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: .6rem;
+    }
+
+    .day h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: .5rem;
+    }
+
+    .day__goal {
+      font-size: .85rem;
+      color: var(--teal);
+      letter-spacing: .08em;
+      margin-bottom: 1.2rem;
+    }
+
+    .day p {
+      font-size: .95rem;
+      line-height: 1.9;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .day__points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    .day__points li {
+      display: flex;
+      align-items: flex-start;
+      gap: .8rem;
+      font-size: .9rem;
+      line-height: 1.7;
+      color: var(--brown);
+    }
+
+    .day__points li::before {
+      content: '—';
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .day__result {
+      margin-top: 1.5rem;
+      padding: 1rem 1.5rem;
+      background: linear-gradient(135deg, rgba(201,169,110,.08), rgba(194,113,79,.06));
+      border-left: 2px solid var(--gold);
+      border-radius: 0 12px 12px 0;
+      font-size: .9rem;
+      line-height: 1.7;
+      color: var(--brown);
+    }
+
+    /* ── PREMIUM ── */
+    .premium {
+      background: linear-gradient(160deg, #1a0f08, #2d1a0e, #1a0f08);
+      color: var(--sand);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .premium::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,169,110,.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .premium .section-title { color: #FDF8F0; }
+    .premium .section-title em { color: var(--gold); }
+    .premium .lead { color: rgba(245,239,228,.65); }
+
+    .premium__cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .premium__card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(201,169,110,.2);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: left;
+      backdrop-filter: blur(8px);
+    }
+
+    .premium__card-tag {
+      display: inline-block;
+      background: rgba(201,169,110,.15);
+      border: 1px solid rgba(201,169,110,.3);
+      color: var(--gold);
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      padding: .35rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .premium__card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 400;
+      color: #FDF8F0;
+      margin-bottom: 1rem;
+    }
+
+    .premium__card p {
+      font-size: .9rem;
+      line-height: 1.9;
+      color: rgba(245,239,228,.6);
+    }
+
+    /* ── LOGISTICS ── */
+    .logistics { background: var(--sand); }
+
+    .logistics__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .logistics__card {
+      background: var(--milk);
+      border-radius: 20px;
+      padding: 2.5rem;
+      border: 1px solid rgba(201,169,110,.2);
+    }
+
+    .logistics__card-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .logistics__card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .logistics__card p {
+      font-size: .9rem;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    /* ── QUOTE ── */
+    .quote-section {
+      background:
+        linear-gradient(rgba(44,31,20,.65), rgba(44,31,20,.78)),
+        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80') center/cover fixed;
+      padding: clamp(6rem, 12vw, 11rem) clamp(1.5rem, 5vw, 4rem);
+      text-align: center;
+    }
+
+    .quote-section blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.7rem, 4vw, 3rem);
+      font-weight: 300;
+      color: #FDF8F0;
+      max-width: 820px;
+      margin: 0 auto 2rem;
+      line-height: 1.5;
+    }
+
+    .quote-section cite {
+      font-size: .85rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--milk);
+      text-align: center;
+    }
+
+    .cta-section .section-title { max-width: 600px; margin: 0 auto 1.5rem; }
+
+    .cta__form {
+      max-width: 480px;
+      margin: 3rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .cta__input {
+      width: 100%;
+      padding: 1.1rem 1.5rem;
+      border: 1px solid rgba(107,79,58,.25);
+      border-radius: 12px;
+      background: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-size: .95rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color .3s;
+    }
+
+    .cta__input::placeholder { color: var(--muted); }
+
+    .cta__input:focus { border-color: var(--gold); }
+
+    .cta__note {
+      font-size: .8rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-top: .5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text);
+      color: rgba(245,239,228,.4);
+      text-align: center;
+      padding: 3rem 2rem;
+      font-size: .8rem;
+      letter-spacing: .1em;
+    }
+
+    footer span { color: var(--gold); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: .15s; }
+    .reveal-delay-2 { transition-delay: .3s;  }
+    .reveal-delay-3 { transition-delay: .45s; }
+
+    /* ── ORNAMENT ── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      justify-content: center;
+      margin: 1.5rem 0;
+      color: var(--gold);
+      font-size: .9rem;
+      letter-spacing: .3em;
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: '';
+      flex: 1;
+      max-width: 80px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background .4s, backdrop-filter .4s;
+    }
+
+    nav.scrolled {
+      background: rgba(26,15,8,.85);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav__logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--gold-light);
+      letter-spacing: .08em;
+    }
+
+    .nav__cta {
+      font-size: .75rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid rgba(201,169,110,.4);
+      padding: .5rem 1.2rem;
+      border-radius: 100px;
+      transition: all .3s;
+    }
+
+    .nav__cta:hover { background: rgba(201,169,110,.15); border-color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .antalya__inner { grid-template-columns: 1fr; }
+      .antalya__img   { min-height: 300px; }
+      .format__inner  { grid-template-columns: 1fr; }
+      .format__img    { aspect-ratio: 3/2; }
+
+      .day {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 2rem 1.5rem;
+      }
+
+      .day__num { font-size: 3.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav__logo">Живая встреча · Анталия</div>
+  <a href="#cta" class="nav__cta">Оставить заявку</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg"></div>
+
+  <span class="hero__badge">Впервые · Живая встреча</span>
+
+  <p class="hero__eyebrow">Трансформационный интенсив</p>
+
+  <h1 class="hero__title">
+    Анталия<br/><em>21 — 23 июля</em>
+  </h1>
+
+  <p class="hero__date">Турция &nbsp;·&nbsp; Старый город &nbsp;·&nbsp; Три дня</p>
+
+  <p class="hero__sub">
+    Три дня живой работы.<br/>
+    Три дня общения.<br/>
+    Три дня, которые невозможно провести через экран.
+  </p>
+
+  <div class="hero__cta">
+    <a href="#cta" class="btn btn--gold">Оставить заявку</a>
+    <a href="#program" class="btn btn--outline">Программа</a>
+  </div>
+
+  <div class="hero__scroll">
+    <div class="hero__scroll-line"></div>
+    <span>Узнать больше</span>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Почему эта встреча особенная</span>
+      <h2 class="section-title serif">
+        Есть вещи, которые<br/><em>невозможно передать</em><br/>через экран
+      </h2>
+      <div class="ornament">✦</div>
+      <p class="lead">
+        Мы живем в мире экранов. Но присутствие, контакт, живую реакцию
+        и атмосферу группы нельзя оцифровать.<br/>
+        Эта встреча создавалась именно для этого.
+      </p>
+    </div>
+
+    <div class="why__cards">
+      <div class="why__card reveal reveal-delay-1">
+        <div class="why__card-icon">◎</div>
+        <h3>Живое присутствие</h3>
+        <p>Три дня в одном пространстве с людьми, которые идут похожим путём. Атмосфера, которую невозможно создать онлайн.</p>
+      </div>
+      <div class="why__card reveal reveal-delay-2">
+        <div class="why__card-icon">◈</div>
+        <h3>Глубокий контакт</h3>
+        <p>Познакомиться ближе, поговорить, задать вопросы. Настоящие разговоры — не в чате, а глаза в глаза.</p>
+      </div>
+      <div class="why__card reveal reveal-delay-3">
+        <div class="why__card-icon">◇</div>
+        <h3>Выход из привычной среды</h3>
+        <p>Несколько дней вне повседневности. Другое пространство открывает другой взгляд на себя и свою жизнь.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANTALYA -->
+<section class="antalya" style="padding: clamp(5rem,10vw,9rem) clamp(1.5rem,5vw,4rem);">
+  <div class="antalya__inner reveal">
+    <div class="antalya__img"></div>
+    <div class="antalya__content">
+      <span class="section-label">Место</span>
+      <h2 class="section-title serif">
+        Анталия.<br/><em>Старый город.</em><br/>Летнее море.
+      </h2>
+      <p>
+        Мы будем встречаться в конференц-зале в исторической части Анталии —
+        одном из самых красивых районов города.
+      </p>
+      <p>
+        Узкие улочки. Старинная архитектура. Кафе и рестораны. Набережная.
+        Летний воздух и ощущение отдыха. Сюда хочется приезжать не только
+        ради программы. Сюда хочется приезжать за состоянием.
+      </p>
+      <div class="antalya__features">
+        <span class="antalya__tag">Исторический центр</span>
+        <span class="antalya__tag">Набережная</span>
+        <span class="antalya__tag">Средиземное море</span>
+        <span class="antalya__tag">Летняя атмосфера</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMAT -->
+<section class="format">
+  <div class="container">
+    <div class="format__inner">
+      <div class="format__img reveal"></div>
+      <div class="reveal reveal-delay-1">
+        <span class="section-label">Формат</span>
+        <h2 class="section-title serif">
+          21–23 июля<br/><em>Три дня</em> живой работы
+        </h2>
+        <p class="lead" style="max-width:100%; margin:1.5rem 0 0;">
+          Вторник, среда, четверг. Каждый день наполнен смыслом.
+        </p>
+        <ul class="format__list">
+          <li><span class="format__bullet"></span> 6 часов живой групповой работы ежедневно</li>
+          <li><span class="format__bullet"></span> Перерыв на обед в атмосфере старого города</li>
+          <li><span class="format__bullet"></span> Кофе-паузы и живое общение между участниками</li>
+          <li><span class="format__bullet"></span> Обмен опытом и рефлексия после каждого дня</li>
+          <li><span class="format__bullet"></span> При хорошей погоде — практики кундалини-йоги</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<section class="whom">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Для кого</span>
+      <h2 class="section-title serif">Эта встреча — <em>для вас</em>,<br/>если...</h2>
+    </div>
+    <div class="whom__grid">
+      <div class="whom__item reveal reveal-delay-1">Вам важно живое окружение и настоящие разговоры</div>
+      <div class="whom__item reveal reveal-delay-2">Вы хотите выйти из привычной среды и посмотреть на жизнь под другим углом</div>
+      <div class="whom__item reveal reveal-delay-3">Вы устали получать ответы только головой</div>
+      <div class="whom__item reveal reveal-delay-1">Вы хотите не просто понимать себя, а чувствовать изменения внутри</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="program" id="program">
+  <div class="container">
+    <div class="program__intro reveal">
+      <span class="section-label">Программа интенсива</span>
+      <h2 class="section-title serif">Три дня.<br/><em>Три внутренних перехода.</em></h2>
+      <div class="ornament">✦</div>
+    </div>
+
+    <div class="program__days">
+
+      <div class="day reveal">
+        <div class="day__num">1</div>
+        <div>
+          <div class="day__label">День первый</div>
+          <h3 class="serif">Мой немой путь.<br/>Путь дефицитов</h3>
+          <div class="day__goal">Цель: обрести Покой и научиться входить в него</div>
+          <p>В этот день мы будем исследовать внутренние дефициты, которые создают напряжение, неудовлетворённость и постоянную внутреннюю борьбу.</p>
+          <ul class="day__points">
+            <li>Что на самом деле управляет вашими желаниями и решениями</li>
+            <li>Какие потребности стоят за вашими переживаниями</li>
+            <li>Какие жизненные сценарии повторяются снова и снова</li>
+            <li>Почему напряжение не исчезает даже после достижения целей</li>
+          </ul>
+          <div class="day__result">
+            Главный результат — обнаружить источник внутреннего напряжения и начать возвращаться в состояние Покоя.
+          </div>
+        </div>
+      </div>
+
+      <div class="day reveal">
+        <div class="day__num">2</div>
+        <div>
+          <div class="day__label">День второй</div>
+          <h3 class="serif">В поисках силы<br/>в отражениях других</h3>
+          <div class="day__goal">Цель: вернуть себе внутреннюю Силу и обрести Полноту</div>
+          <p>Мы будем исследовать не то, чего вам не хватает, а то, что уже есть внутри вас, но по каким-то причинам оказалось забыто или потеряно.</p>
+          <ul class="day__points">
+            <li>Какая внутренняя Сила сейчас необходима именно вам</li>
+            <li>Какие потребности требуют внимания</li>
+            <li>Почему внешнее признание не даёт устойчивой опоры</li>
+            <li>Как перестать искать подтверждение своей ценности во внешнем мире</li>
+          </ul>
+          <div class="day__result">
+            Главный результат — переход от дефицита к внутренней достаточности.
+          </div>
+        </div>
+      </div>
+
+      <div class="day reveal">
+        <div class="day__num">3</div>
+        <div>
+          <div class="day__label">День третий</div>
+          <h3 class="serif">Переход и Ясность</h3>
+          <div class="day__goal">Цель: увидеть направление дальнейшего движения</div>
+          <p>К этому моменту у вас уже появятся две опоры: Покой и Полнота. Мы направим их на решение вопросов, которые долгое время оставались без ответа.</p>
+          <ul class="day__points">
+            <li>Что удерживает вас в старом</li>
+            <li>Какой страх мешает перейти в новое</li>
+            <li>Где находится следующий этап вашей жизни</li>
+            <li>На что действительно стоит направить внимание и энергию</li>
+          </ul>
+          <div class="day__result">
+            Главный результат — внутренний Переход и Ясность дальнейшего Пути.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PREMIUM OPTIONS -->
+<section class="premium">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label" style="color:var(--gold)">Премиальный формат</span>
+      <h2 class="section-title serif">
+        Особые форматы<br/><em>участия</em>
+      </h2>
+      <p class="lead" style="margin-top:1.5rem">
+        Для тех, кто хочет большего — приватности, близости и личного внимания.
+      </p>
+    </div>
+
+    <div class="premium__cards">
+      <div class="premium__card reveal reveal-delay-1">
+        <span class="premium__card-tag">Закрытый ужин</span>
+        <h3>Вечер с Евгением</h3>
+        <p>После завершения программы — закрытый ужин в небольшом кругу. Без сцены. Без дистанции. Без формальностей. Возможность поговорить лично, задать вопросы и получить обратную связь. Стоимость блюд — по меню ресторана.</p>
+      </div>
+      <div class="premium__card reveal reveal-delay-2">
+        <span class="premium__card-tag">Индивидуально</span>
+        <h3>Личная терапевтическая сессия</h3>
+        <p>Не более 1–2 человек в день. Количество мест строго ограничено. Проводится между групповой работой и вечерней программой. Подробности — по запросу.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGISTICS -->
+<section class="logistics">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <span class="section-label">Практическое</span>
+      <h2 class="section-title serif">Всё, что нужно<br/>для <em>комфортного приезда</em></h2>
+    </div>
+
+    <div class="logistics__grid">
+      <div class="logistics__card reveal reveal-delay-1">
+        <div class="logistics__card-icon">🏛</div>
+        <h3>Проживание</h3>
+        <p>Мы не ограничиваем вас конкретным отелем. Старый город предлагает десятки вариантов — от уютных гостевых домов до премиальных отелей. Наша команда поможет с выбором и поиском соседей.</p>
+      </div>
+      <div class="logistics__card reveal reveal-delay-2">
+        <div class="logistics__card-icon">✈️</div>
+        <h3>Перелёт и трансфер</h3>
+        <p>Из аэропорта Анталии до старого города — удобным прямым общественным транспортом. При необходимости поможем организовать комфортный трансфер.</p>
+      </div>
+      <div class="logistics__card reveal reveal-delay-3">
+        <div class="logistics__card-icon">◎</div>
+        <h3>Место проведения</h3>
+        <p>Конференц-зал в исторической части Анталии. Рядом — набережная, кафе, рестораны и атмосфера настоящего турецкого лета.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <div class="container--narrow">
+    <blockquote class="reveal">
+      «Возможно, через несколько лет вы забудете часть информации. Но вы точно будете помнить людей, которых встретили. Разговоры, которые состоялись. И тот момент, когда вы наконец оказались не по разные стороны экрана.»
+    </blockquote>
+    <div class="ornament" style="color:var(--gold-light)">✦</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="container--narrow">
+    <div class="reveal">
+      <span class="section-label">Следующий шаг</span>
+      <h2 class="section-title serif">
+        Оставьте заявку.<br/><em>Мы расскажем всё.</em>
+      </h2>
+      <p class="lead" style="margin-top:1rem">
+        Мы свяжемся с вами и расскажем все подробности участия.
+      </p>
+    </div>
+
+    <form class="cta__form reveal" onsubmit="handleSubmit(event)">
+      <input class="cta__input" type="text" placeholder="Ваше имя" required />
+      <input class="cta__input" type="tel" placeholder="Телефон или Telegram" required />
+      <button type="submit" class="btn btn--gold" style="width:100%; font-family:inherit">
+        Оставить заявку
+      </button>
+      <p class="cta__note">
+        Нажимая кнопку, вы соглашаетесь на обработку персональных данных.<br/>
+        Мы не рассылаем спам.
+      </p>
+    </form>
+
+    <div id="success" style="display:none; text-align:center; padding:3rem 0;">
+      <div class="ornament">✦</div>
+      <p class="serif" style="font-size:1.5rem; color:var(--terra); margin-bottom:1rem">Заявка принята</p>
+      <p class="muted">Мы свяжемся с вами в течение нескольких часов</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Живая встреча в Анталии &nbsp;·&nbsp; <span>21–23 июля 2025</span> &nbsp;·&nbsp; Старый город, Турция</p>
+</footer>
+
+<script>
+  // NAV scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    e.target.style.display = 'none';
+    document.getElementById('success').style.display = 'block';
+  }
+</script>
+</body>
+</html>
