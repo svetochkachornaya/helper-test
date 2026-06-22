@@ -927,8 +927,42 @@
 
     .nav__cta:hover { background: rgba(201,169,110,.15); border-color: var(--gold); }
 
-    /* ── RESPONSIVE ── */
+    /* ── PEOPLE PHOTO ── */
+    .people-photo {
+      width: 100%;
+      max-width: 900px;
+      margin: 4rem auto 0;
+      border-radius: 24px;
+      overflow: hidden;
+      aspect-ratio: 16/7;
+      background:
+        linear-gradient(to bottom, rgba(44,31,20,.15), rgba(44,31,20,.35)),
+        url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80') center/cover no-repeat;
+      box-shadow: 0 20px 60px rgba(44,31,20,.15);
+    }
+
+    /* ── STICKY MOBILE CTA ── */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 1rem 1.5rem;
+      background: rgba(26,15,8,.95);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(201,169,110,.2);
+    }
+
+    .sticky-cta a {
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
+
     @media (max-width: 768px) {
+      .sticky-cta { display: block; }
+      body { padding-bottom: 80px; }
+
       .antalya__inner { grid-template-columns: 1fr; }
       .antalya__img   { min-height: 300px; }
       .format__inner  { grid-template-columns: 1fr; }
@@ -941,15 +975,22 @@
       }
 
       .day__num { font-size: 3.5rem; }
+
+      .price-block { padding: 2.5rem 2rem; }
     }
   </style>
 </head>
 <body>
 
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="#cta" class="btn btn--gold">Занять моё место — $200</a>
+</div>
+
 <!-- NAV -->
 <nav id="nav">
   <div class="nav__logo">Живая встреча · Анталия</div>
-  <a href="#cta" class="nav__cta">Оставить заявку</a>
+  <a href="#cta" class="nav__cta">Занять моё место</a>
 </nav>
 
 <!-- HERO -->
@@ -972,13 +1013,30 @@
   </p>
 
   <div class="hero__cta">
-    <a href="#cta" class="btn btn--gold">Оставить заявку</a>
+    <a href="#cta" class="btn btn--gold">Занять моё место</a>
     <a href="#program" class="btn btn--outline">Программа</a>
   </div>
 
   <div class="hero__scroll">
     <div class="hero__scroll-line"></div>
     <span>Узнать больше</span>
+  </div>
+</section>
+
+<!-- FOR WHOM (moved to 2nd position) -->
+<section class="whom">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Эта встреча для вас, если...</span>
+      <h2 class="section-title serif">Вы узнаёте<br/><em>себя здесь?</em></h2>
+    </div>
+    <div class="whom__grid">
+      <div class="whom__item reveal reveal-delay-1">Вы давно в работе с Евгением — и хотите наконец встретиться лично</div>
+      <div class="whom__item reveal reveal-delay-2">Вы хотите выйти из привычной среды и посмотреть на жизнь под другим углом</div>
+      <div class="whom__item reveal reveal-delay-3">Вы устали получать ответы только головой и хотите почувствовать изменения</div>
+      <div class="whom__item reveal reveal-delay-1">Вы хотите провести несколько дней рядом с людьми, которые идут похожим путём</div>
+    </div>
+    <div class="people-photo reveal"></div>
   </div>
 </section>
 
@@ -1071,22 +1129,6 @@
   </div>
 </section>
 
-<!-- FOR WHOM -->
-<section class="whom">
-  <div class="container">
-    <div class="reveal">
-      <span class="section-label">Для кого</span>
-      <h2 class="section-title serif">Эта встреча — <em>для вас</em>,<br/>если...</h2>
-    </div>
-    <div class="whom__grid">
-      <div class="whom__item reveal reveal-delay-1">Вам важно живое окружение и настоящие разговоры</div>
-      <div class="whom__item reveal reveal-delay-2">Вы хотите выйти из привычной среды и посмотреть на жизнь под другим углом</div>
-      <div class="whom__item reveal reveal-delay-3">Вы устали получать ответы только головой</div>
-      <div class="whom__item reveal reveal-delay-1">Вы хотите не просто понимать себя, а чувствовать изменения внутри</div>
-    </div>
-  </div>
-</section>
-
 <!-- PROGRAM -->
 <section class="program" id="program">
   <div class="container">
@@ -1101,18 +1143,11 @@
       <div class="day reveal">
         <div class="day__num">1</div>
         <div>
-          <div class="day__label">День первый</div>
+          <div class="day__label">День первый · Покой</div>
           <h3 class="serif">Мой немой путь.<br/>Путь дефицитов</h3>
-          <div class="day__goal">Цель: обрести Покой и научиться входить в него</div>
-          <p>В этот день мы будем исследовать внутренние дефициты, которые создают напряжение, неудовлетворённость и постоянную внутреннюю борьбу.</p>
-          <ul class="day__points">
-            <li>Что на самом деле управляет вашими желаниями и решениями</li>
-            <li>Какие потребности стоят за вашими переживаниями</li>
-            <li>Какие жизненные сценарии повторяются снова и снова</li>
-            <li>Почему напряжение не исчезает даже после достижения целей</li>
-          </ul>
+          <p>Исследуем внутренние дефициты, которые создают напряжение и неудовлетворённость — даже когда всё, казалось бы, в порядке. Почему напряжение не исчезает после достижения целей. Что на самом деле стоит за нашими желаниями.</p>
           <div class="day__result">
-            Главный результат — обнаружить источник внутреннего напряжения и начать возвращаться в состояние Покоя.
+            Результат — обнаружить источник напряжения и начать возвращаться в состояние Покоя.
           </div>
         </div>
       </div>
@@ -1120,18 +1155,11 @@
       <div class="day reveal">
         <div class="day__num">2</div>
         <div>
-          <div class="day__label">День второй</div>
+          <div class="day__label">День второй · Сила</div>
           <h3 class="serif">В поисках силы<br/>в отражениях других</h3>
-          <div class="day__goal">Цель: вернуть себе внутреннюю Силу и обрести Полноту</div>
-          <p>Мы будем исследовать не то, чего вам не хватает, а то, что уже есть внутри вас, но по каким-то причинам оказалось забыто или потеряно.</p>
-          <ul class="day__points">
-            <li>Какая внутренняя Сила сейчас необходима именно вам</li>
-            <li>Какие потребности требуют внимания</li>
-            <li>Почему внешнее признание не даёт устойчивой опоры</li>
-            <li>Как перестать искать подтверждение своей ценности во внешнем мире</li>
-          </ul>
+          <p>Ищем не то, чего не хватает, а то, что уже есть внутри — но по каким-то причинам оказалось забыто. Почему внешнее признание не даёт устойчивой опоры. Как вернуть опору на себя.</p>
           <div class="day__result">
-            Главный результат — переход от дефицита к внутренней достаточности.
+            Результат — переход от ощущения дефицита к внутренней достаточности.
           </div>
         </div>
       </div>
@@ -1139,18 +1167,11 @@
       <div class="day reveal">
         <div class="day__num">3</div>
         <div>
-          <div class="day__label">День третий</div>
+          <div class="day__label">День третий · Ясность</div>
           <h3 class="serif">Переход и Ясность</h3>
-          <div class="day__goal">Цель: увидеть направление дальнейшего движения</div>
-          <p>К этому моменту у вас уже появятся две опоры: Покой и Полнота. Мы направим их на решение вопросов, которые долгое время оставались без ответа.</p>
-          <ul class="day__points">
-            <li>Что удерживает вас в старом</li>
-            <li>Какой страх мешает перейти в новое</li>
-            <li>Где находится следующий этап вашей жизни</li>
-            <li>На что действительно стоит направить внимание и энергию</li>
-          </ul>
+          <p>К третьему дню появятся две опоры: Покой и Полнота. Направим их на вопросы, которые долго оставались без ответа. Что удерживает в старом. Где находится следующий этап жизни.</p>
           <div class="day__result">
-            Главный результат — внутренний Переход и Ясность дальнейшего Пути.
+            Результат — внутренний Переход и ясность дальнейшего Пути.
           </div>
         </div>
       </div>
@@ -1252,6 +1273,7 @@
       «Возможно, через несколько лет вы забудете часть информации. Но вы точно будете помнить людей, которых встретили. Разговоры, которые состоялись. И тот момент, когда вы наконец оказались не по разные стороны экрана.»
     </blockquote>
     <div class="ornament" style="color:var(--gold-light)">✦</div>
+    <cite style="display:block; text-align:center; margin-top:.5rem; font-size:.85rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold)">— Евгений</cite>
   </div>
 </section>
 
@@ -1272,7 +1294,7 @@
       <input class="cta__input" type="text" placeholder="Ваше имя" required />
       <input class="cta__input" type="tel" placeholder="Телефон или Telegram" required />
       <button type="submit" class="btn btn--gold" style="width:100%; font-family:inherit">
-        Оставить заявку
+        Занять моё место
       </button>
       <p class="cta__note">
         Нажимая кнопку, вы соглашаетесь на обработку персональных данных.<br/>
@@ -1296,8 +1318,15 @@
 <script>
   // NAV scroll effect
   const nav = document.getElementById('nav');
+  const stickyCta = document.getElementById('stickyCta');
+  const ctaSection = document.getElementById('cta');
+
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
+    if (stickyCta && ctaSection) {
+      const ctaTop = ctaSection.getBoundingClientRect().top;
+      stickyCta.style.display = ctaTop < window.innerHeight ? 'none' : 'block';
+    }
   });
 
   // Reveal on scroll
