@@ -293,27 +293,25 @@
     }
     .mosaic__item:first-child {
       grid-row: span 2;
-      /* ФОТО 2 — старый город, набережная */
       background-image: url('https://7d9e88a8-f178-4098-bea5-48d960920605.selcdn.net/407592bc-694e-451d-bccd-31bed48c1cff//-/resize/x833/-/quality/lighter/');
     }
     .mosaic__item:nth-child(2) {
-      /* ФОТО 3 — улочки, архитектура */
       background-image: url('https://7d9e88a8-f178-4098-bea5-48d960920605.selcdn.net/dae96295-9e91-4769-bd10-89a489e2fb81//-/resize/x833/-/quality/lighter/');
     }
     .mosaic__item:nth-child(3) {
-      /* МЕСТО ДЛЯ ВАШЕГО ФОТО 4 — море, закат, ещё один вид */
-      background: linear-gradient(135deg, #2a4a5e, #1a3040);
-      display: flex; align-items: center; justify-content: center;
+      /* Улица Анталии с деревьями — помечена как Antalya на Unsplash */
+      background-image: url('https://source.unsplash.com/CWQi__XV85M/800x600');
+      display: block;
     }
     .mosaic__item:nth-child(4) {
-      /* МЕСТО ДЛЯ ВАШЕГО ФОТО 5 — узкая улочка или набережная */
-      background: linear-gradient(135deg, #3a2010, #241408);
-      display: flex; align-items: center; justify-content: center;
+      /* Терраса с видом на море — пара сидит спиной, Средиземное море */
+      background-image: url('https://source.unsplash.com/0BxvQW6KJPA/800x600');
+      display: block;
     }
     .mosaic__item:nth-child(5) {
-      /* МЕСТО ДЛЯ ВАШЕГО ФОТО 6 — терраса, кофе, вид */
-      background: linear-gradient(135deg, #2e3a1a, #1a2410);
-      display: flex; align-items: center; justify-content: center;
+      /* Столик у окна с видом на океан */
+      background-image: url('https://source.unsplash.com/jYjHvTkBLA0/800x600');
+      display: block;
     }
     .mosaic__placeholder {
       color: rgba(255,255,255,.25);
@@ -366,19 +364,16 @@
     }
     .together__photo:first-child {
       grid-column: span 2;
-      /* МЕСТО ДЛЯ ВАШЕГО ФОТО — живое общение, разговоры в группе */
-      background: linear-gradient(135deg, #8b7355, #6b4f3a);
-      display: flex; align-items: center; justify-content: center;
+      /* Живое общение — группа друзей разговаривает на улице в солнечный день */
+      background-image: url('https://source.unsplash.com/LV44jbUvki0/1200x600');
     }
     .together__photo:nth-child(2) {
-      /* МЕСТО ДЛЯ ВАШЕГО ФОТО — прогулка, тёплые эмоции */
-      background: linear-gradient(135deg, #7a9b9b, #4a7070);
-      display: flex; align-items: center; justify-content: center;
+      /* Прогулка — группа друзей идёт по пляжу */
+      background-image: url('https://source.unsplash.com/P10Hgjq9cfc/600x500');
     }
     .together__photo:nth-child(3) {
-      /* МЕСТО ДЛЯ ВАШЕГО ФОТО — небольшой круг людей */
-      background: linear-gradient(135deg, #c2714f, #9a5035);
-      display: flex; align-items: center; justify-content: center;
+      /* Ужин на свежем воздухе, дружеская атмосфера */
+      background-image: url('https://source.unsplash.com/k2KSfLsxN6Q/600x500');
     }
     .together__placeholder {
       color: rgba(255,255,255,.4);
@@ -513,7 +508,7 @@
       border-radius: 20px;
       aspect-ratio: 4/5;
       background:
-        url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80')
+        url('https://source.unsplash.com/o1OHWIMjD_M/800x1000')
         center/cover no-repeat;
       box-shadow: 0 24px 70px rgba(44,31,20,.18);
     }
@@ -554,17 +549,10 @@
     .premium__bg {
       position: absolute;
       inset: 0;
-      /* МЕСТО ДЛЯ ВАШЕГО ФОТО — яхта, закат, вечер на море */
-      background: linear-gradient(135deg, #1a2a3a, #0d1a26);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .premium__bg-placeholder {
-      color: rgba(255,255,255,.15);
-      font-size: .8rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      text-align: center;
-      line-height: 2;
+      /* Силуэты людей на пляже на закате — тёплый вечер у воды */
+      background:
+        url('https://source.unsplash.com/rRkbu-Q3se8/1800x900')
+        center/cover no-repeat;
     }
     .premium__bg::after {
       content: '';
@@ -959,21 +947,9 @@
   <div class="mosaic reveal">
     <div class="mosaic__item"></div>
     <div class="mosaic__item"></div>
-    <div class="mosaic__item">
-      <div class="mosaic__placeholder">
-        ↑ добавьте фото<br/>море / закат / вид
-      </div>
-    </div>
-    <div class="mosaic__item">
-      <div class="mosaic__placeholder">
-        ↑ добавьте фото<br/>улочки Калеичи
-      </div>
-    </div>
-    <div class="mosaic__item">
-      <div class="mosaic__placeholder">
-        ↑ добавьте фото<br/>терраса / кофе
-      </div>
-    </div>
+    <div class="mosaic__item"></div>
+    <div class="mosaic__item"></div>
+    <div class="mosaic__item"></div>
   </div>
 
   <div class="antalya-visual__caption reveal">
@@ -986,21 +962,9 @@
 <section class="together">
   <div class="together__inner">
     <div class="together__photos reveal">
-      <div class="together__photo">
-        <div class="together__placeholder">
-          добавьте фото:<br/>живое общение, разговоры в группе
-        </div>
-      </div>
-      <div class="together__photo">
-        <div class="together__placeholder">
-          прогулка вместе / тёплые эмоции
-        </div>
-      </div>
-      <div class="together__photo">
-        <div class="together__placeholder">
-          небольшой круг людей
-        </div>
-      </div>
+      <div class="together__photo"></div>
+      <div class="together__photo"></div>
+      <div class="together__photo"></div>
     </div>
 
     <div class="together__text reveal reveal-d1">
@@ -1077,11 +1041,7 @@
 
 <!-- ═══ PREMIUM ═══ -->
 <section class="premium">
-  <div class="premium__bg">
-    <div class="premium__bg-placeholder">
-      добавьте фото:<br/>яхта · закат · море · вечер среди близких
-    </div>
-  </div>
+  <div class="premium__bg"></div>
   <div class="premium__content">
     <div class="reveal">
       <span class="section-label section-label--gold">Особые форматы</span>
