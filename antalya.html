@@ -934,6 +934,91 @@
       font-style: normal;
     }
 
+    /* ─── EVENT SUMMARY ─── */
+    .event-summary {
+      background: var(--text);
+      padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+      text-align: center;
+    }
+    .event-summary__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+      font-weight: 400;
+      color: #FDF8F0;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: .8rem;
+    }
+    .event-summary__title em { color: var(--gold); font-style: normal; }
+    .event-summary__date {
+      font-size: .8rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 3rem;
+    }
+    .event-summary__stats {
+      display: flex;
+      justify-content: center;
+      gap: clamp(2rem, 6vw, 5rem);
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .event-summary__stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-weight: 300;
+      color: #FDF8F0;
+      line-height: 1;
+    }
+    .event-summary__stat-label {
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(245,239,228,.5);
+      margin-top: .4rem;
+    }
+    .event-summary__desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+      color: rgba(245,239,228,.7);
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    /* ─── LEGACY QUOTE ─── */
+    .legacy-quote {
+      background: var(--cream);
+      padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+      text-align: center;
+    }
+    .legacy-quote__inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .legacy-quote__lines {
+      display: flex;
+      flex-direction: column;
+      gap: .3rem;
+      margin-bottom: 2.5rem;
+    }
+    .legacy-quote__line {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.7rem);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .legacy-quote__line strong { color: var(--terra); font-weight: 400; }
+    .legacy-quote__accent {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.3rem, 2.8vw, 2rem);
+      color: var(--terra);
+      line-height: 1.4;
+    }
+
     /* ─── CTA ─── */
     .cta-section {
       background: var(--milk);
@@ -1120,7 +1205,7 @@
 
   <div class="antalya-visual__caption reveal">
     <p>«Сюда хочется приезжать <em>за состоянием</em>.<br/>
-    И это состояние начинается ещё в аэропорту.»</p>
+    И это состояние мы усилим ещё и глубинной работой с Евгением!»</p>
   </div>
 </section>
 
@@ -1244,6 +1329,34 @@
   </div>
 </section>
 
+<!-- ═══ PRICE ═══ -->
+<section class="price-section">
+  <div class="reveal">
+    <span class="section-label">Стоимость</span>
+    <h2 class="section-title">Три дня.<br/><em>$200.</em></h2>
+  </div>
+  <div class="price-box reveal">
+    <div class="price-num"><sup>$</sup>200</div>
+    <div class="price-sub">за три дня · 21–23 июля</div>
+    <div class="price-rule"></div>
+    <ul class="price-includes">
+      <li>Все три дня интенсива с Евгением</li>
+      <li>6 часов живого погружения ежедневно</li>
+      <li>Обед в старом городе каждый день</li>
+      <li>Кофе-паузы и рефлексия</li>
+      <li>Помощь с подбором отеля</li>
+      <li>Помощь с трансфером из аэропорта</li>
+      <li>Помощь найти соседа по номеру</li>
+    </ul>
+    <a href="#cta" class="btn btn--gold">Занять моё место</a>
+    <p class="price-note">Проживание и перелёт оплачиваются отдельно</p>
+  </div>
+  <div class="spots-wrap reveal">
+    <div class="spots-track"><div class="spots-fill"></div></div>
+    <span class="spots-label">Осталось несколько мест из 15</span>
+  </div>
+</section>
+
 <!-- ═══ PREMIUM BRIDGE ═══ -->
 <div class="premium-bridge reveal">
   <p class="premium-bridge__text">
@@ -1268,71 +1381,13 @@
         <p>Небольшой круг. Без сцены. Без дистанции. Живой разговор, вопросы, обратная связь — за общим столом у моря.</p>
         <a href="#cta" class="pcard__btn">Зарегистрироваться</a>
       </div>
-      <div class="pcard reveal reveal-d2">
-        <span class="pcard__tag">Индивидуально</span>
-        <h3>Личная сессия</h3>
-        <p>Не более 1–2 человек в день. Строго ограничено. Проводится между групповой работой и вечерней программой.</p>
-        <a href="#cta" class="pcard__btn">Зарегистрироваться</a>
-      </div>
-      <div class="pcard reveal reveal-d3" style="grid-column: 1 / -1;">
+      <div class="pcard reveal reveal-d2" style="grid-column: 1 / -1;">
         <span class="pcard__tag">Только 3 места</span>
         <div class="pcard__badge">⚡ Осталось 3 места</div>
         <h3>Личная консультация</h3>
         <p>Глубокая индивидуальная работа с Евгением. Один на один. Продолжительность — по договорённости. Строго ограничено: всего 3 места на весь формат.</p>
         <a href="#cta" class="pcard__btn">Узнать подробности</a>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ PRICE ═══ -->
-<section class="price-section">
-  <div class="reveal">
-    <span class="section-label">Стоимость</span>
-    <h2 class="section-title">Три дня.<br/><em>$200.</em></h2>
-  </div>
-  <div class="price-box reveal">
-    <div class="price-num"><sup>$</sup>200</div>
-    <div class="price-sub">за три дня · 21–23 июля</div>
-    <div class="price-rule"></div>
-    <ul class="price-includes">
-      <li>Все три дня интенсива с Евгением</li>
-      <li>6 часов живого погружения ежедневно</li>
-      <li>Кофе-паузы и рефлексия</li>
-      <li>Помощь с подбором отеля</li>
-      <li>Помощь с трансфером из аэропорта</li>
-      <li>Помощь найти соседа по номеру</li>
-    </ul>
-    <a href="#cta" class="btn btn--gold">Занять моё место</a>
-    <p class="price-note">Проживание и перелёт оплачиваются отдельно</p>
-  </div>
-  <div class="spots-wrap reveal">
-    <div class="spots-track"><div class="spots-fill"></div></div>
-    <span class="spots-label">Осталось несколько мест из 15</span>
-  </div>
-</section>
-
-<!-- ═══ LOGISTICS ═══ -->
-<section class="logistics">
-  <div style="max-width:1100px; margin:0 auto; text-align:center;" class="reveal">
-    <span class="section-label">Практическое</span>
-    <h2 class="section-title">Всё, что нужно<br/>для <em>комфортного приезда</em></h2>
-  </div>
-  <div class="logistics__grid">
-    <div class="lcard reveal reveal-d1">
-      <div class="lcard__icon">🏛</div>
-      <h3>Проживание</h3>
-      <p>Каждый выбирает отель под свой комфорт. Поможем подобрать вариант в старом городе — от уютных гестхаусов до бутик-отелей. Стоимость — отдельно.</p>
-    </div>
-    <div class="lcard reveal reveal-d2">
-      <div class="lcard__icon">✈️</div>
-      <h3>Трансфер из аэропорта</h3>
-      <p>Поможем добраться от аэропорта Анталии до отеля удобно и без лишних хлопот. Стоимость трансфера оплачивается отдельно.</p>
-    </div>
-    <div class="lcard reveal reveal-d3">
-      <div class="lcard__icon">🤝</div>
-      <h3>Сосед по номеру</h3>
-      <p>Хотите сэкономить или просто не ехать одному? Поможем найти участника для совместной аренды. Многие приезжают именно так.</p>
     </div>
   </div>
 </section>
@@ -1347,6 +1402,9 @@
       просто напишите нам. Мы пришлём готовые варианты <strong style="color:#FDF8F0">на любой бюджет</strong>,
       чтобы вы могли приехать максимально комфортно.
     </p>
+    <p class="help-banner__text" style="margin-top:-1rem">
+      Хотите сэкономить или просто не ехать одному? Поможем найти участника для совместной аренды номера. Многие приезжают именно так.
+    </p>
     <a href="#cta" class="help-banner__btn">Написать нам</a>
   </div>
 </section>
@@ -1359,6 +1417,41 @@
     </blockquote>
     <div class="orn reveal">✦</div>
     <cite class="reveal">— Евгений</cite>
+  </div>
+</section>
+
+<!-- ═══ EVENT SUMMARY ═══ -->
+<section class="event-summary">
+  <div class="reveal">
+    <p class="event-summary__title">Живая встреча у моря<br/>с <em>Евгением Деканём</em></p>
+    <p class="event-summary__date">21–23 июля · Вт, Ср, Чт · Анталия</p>
+    <div class="event-summary__stats">
+      <div>
+        <div class="event-summary__stat-num">3</div>
+        <div class="event-summary__stat-label">дня живой работы</div>
+      </div>
+      <div>
+        <div class="event-summary__stat-num">18</div>
+        <div class="event-summary__stat-label">часов трансформации</div>
+      </div>
+      <div>
+        <div class="event-summary__stat-num">15</div>
+        <div class="event-summary__stat-label">мест всего</div>
+      </div>
+    </div>
+    <p class="event-summary__desc">Море, лето, общение и пространство людей, которые наконец встретятся не через экран, а лично.</p>
+  </div>
+</section>
+
+<!-- ═══ LEGACY QUOTE ═══ -->
+<section class="legacy-quote">
+  <div class="legacy-quote__inner reveal">
+    <div class="legacy-quote__lines">
+      <p class="legacy-quote__line">У Евгения <strong>тысячи клиентов.</strong></p>
+      <p class="legacy-quote__line"><strong>4 года</strong> работы онлайн.</p>
+      <p class="legacy-quote__line">Но вы войдёте в историю как первые,<br/>с кем Евгений встретился <strong>вживую.</strong></p>
+    </div>
+    <p class="legacy-quote__accent">Особенная встреча.<br/>Стань её частью.</p>
   </div>
 </section>
 
