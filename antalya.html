@@ -1260,13 +1260,155 @@
       nav { padding: .9rem 1.2rem; }
       .nav__logo { font-size: .75rem; }
     }
+    /* ─── POPUP MODAL ─── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(21,13,6,.7);
+      backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--milk);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 520px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 40px 100px rgba(21,13,6,.35);
+      animation: modalIn .3s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(20px) scale(.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal__close {
+      position: absolute;
+      top: 1.2rem; right: 1.4rem;
+      width: 2.2rem; height: 2.2rem;
+      border: none;
+      background: rgba(44,31,20,.08);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      color: var(--muted);
+      transition: background .2s;
+      line-height: 1;
+    }
+    .modal__close:hover { background: rgba(44,31,20,.16); color: var(--text); }
+    .modal__header {
+      padding: 2.5rem 2.5rem 0;
+      border-bottom: 1px solid rgba(201,169,110,.15);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .modal__badge {
+      display: inline-block;
+      font-size: .62rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--terra);
+      border: 1px solid rgba(194,113,79,.3);
+      padding: .25rem .9rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+    .modal__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: .4rem;
+    }
+    .modal__title em { font-style: italic; color: var(--terra); }
+    .modal__subtitle {
+      font-size: .85rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .modal__body { padding: 0 2.5rem 2.5rem; }
+    .modal__price-row {
+      display: flex;
+      align-items: baseline;
+      gap: .5rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem 1.2rem;
+      background: rgba(245,239,228,.5);
+      border-radius: 12px;
+    }
+    .modal__price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1;
+    }
+    .modal__price sup { font-size: .45em; vertical-align: super; color: var(--terra); }
+    .modal__price-note { font-size: .78rem; color: var(--muted); line-height: 1.5; }
+    /* CF7 form styles inside modal */
+    .modal__body .wpcf7-form p { margin-bottom: .9rem; }
+    .modal__body .wpcf7-form input[type="text"],
+    .modal__body .wpcf7-form input[type="email"],
+    .modal__body .wpcf7-form input[type="tel"],
+    .modal__body .wpcf7-form textarea {
+      width: 100%;
+      padding: .95rem 1.2rem;
+      border: 1.5px solid rgba(44,31,20,.12);
+      border-radius: 12px;
+      font-family: 'Jost', sans-serif;
+      font-size: .95rem;
+      font-weight: 300;
+      color: var(--text);
+      background: #fff;
+      outline: none;
+      transition: border-color .25s;
+    }
+    .modal__body .wpcf7-form input:focus,
+    .modal__body .wpcf7-form textarea:focus { border-color: var(--gold); }
+    .modal__body .wpcf7-form input[type="submit"] {
+      width: 100%;
+      padding: 1rem;
+      background: var(--gold);
+      color: #fff;
+      font-family: 'Jost', sans-serif;
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: opacity .25s, transform .2s;
+      margin-top: .5rem;
+    }
+    .modal__body .wpcf7-form input[type="submit"]:hover { opacity: .88; transform: translateY(-1px); }
+    .modal__note {
+      font-size: .72rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.7;
+      margin-top: 1rem;
+    }
+    @media (max-width: 768px) {
+      .modal { border-radius: 16px; }
+      .modal__header { padding: 2rem 1.5rem 0; padding-bottom: 1.2rem; }
+      .modal__body { padding: 0 1.5rem 2rem; }
+    }
   </style>
 </head>
 <body>
 
 <!-- STICKY MOBILE -->
 <div class="sticky-cta" id="stickyCta">
-  <a href="#cta" class="btn btn--gold">Занять моё место — $200</a>
+  <a href="#" class="btn btn--gold open-modal">Занять моё место — $200</a>
 </div>
 
 <!-- NAV -->
@@ -1299,7 +1441,7 @@
     </div>
     <p class="hero__sub" style="margin-bottom:2.5rem;font-size:clamp(.95rem,1.8vw,1.2rem)">Море, лето, общение и пространство людей,<br/>которые наконец встретятся не через экран, а лично.</p>
     <div class="hero__cta">
-      <a href="#cta" class="btn btn--gold">Занять моё место</a>
+      <a href="#" class="btn btn--gold open-modal">Занять моё место</a>
       <a href="#program" class="btn btn--ghost">Программа</a>
     </div>
   </div>
@@ -1483,7 +1625,7 @@
       <li>Помощь с трансфером из аэропорта</li>
       <li>Помощь найти соседа по номеру</li>
     </ul>
-    <a href="#cta" class="btn btn--gold">Занять моё место</a>
+    <a href="#" class="btn btn--gold open-modal">Занять моё место</a>
     <p class="price-note">Проживание и перелёт оплачиваются отдельно</p>
   </div>
   <div class="spots-wrap reveal">
@@ -1586,6 +1728,26 @@
   </div>
 </section>
 
+<!-- ═══ POPUP MODAL ═══ -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button class="modal__close" id="modalClose" aria-label="Закрыть">✕</button>
+    <div class="modal__header">
+      <span class="modal__badge">21–23 июля · Анталия</span>
+      <h2 class="modal__title" id="modalTitle">Регистрация на<br/><em>Живую встречу у моря</em></h2>
+      <p class="modal__subtitle">Всего 15 мест. После отправки заявки мы напишем вам в Telegram в течение нескольких часов.</p>
+    </div>
+    <div class="modal__body">
+      <div class="modal__price-row">
+        <div class="modal__price"><sup>$</sup>200</div>
+        <div class="modal__price-note">за 3 дня участия<br/>Проживание и перелёт — отдельно</div>
+      </div>
+      [contact-form-7 id="1c34773" title="Встреча в Анталии"]
+      <p class="modal__note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Мы не рассылаем спам.</p>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <p>Живая встреча в Анталии &nbsp;·&nbsp; <span>21–23 июля 2026</span> &nbsp;·&nbsp; Старый город, Турция</p>
@@ -1595,11 +1757,22 @@
   const nav = document.getElementById('nav');
   const sticky = document.getElementById('stickyCta');
   const ctaSec = document.getElementById('cta');
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalClose = document.getElementById('modalClose');
+
+  /* Modal open/close */
+  function openModal(e) { e.preventDefault(); modalOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeModal() { modalOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+
+  document.querySelectorAll('.open-modal').forEach(btn => btn.addEventListener('click', openModal));
+  modalClose.addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
-    if (sticky && ctaSec) {
-      sticky.style.display = ctaSec.getBoundingClientRect().top < window.innerHeight ? 'none' : 'block';
+    if (sticky) {
+      sticky.style.display = window.scrollY > 300 ? 'block' : 'none';
     }
   });
 
