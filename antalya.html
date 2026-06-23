@@ -1147,20 +1147,118 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
-      .together__inner { grid-template-columns: 1fr; gap: 3rem; }
-      .format__inner   { grid-template-columns: 1fr; }
-      .format__img     { aspect-ratio: 3/2; }
-      .premium__cards  { grid-template-columns: 1fr; }
-      .price-box       { padding: 2.5rem 1.8rem; }
-      .mosaic {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 220px 160px 160px;
-      }
-      .mosaic__item:first-child { grid-column: span 2; }
+
+      /* Sticky + body */
       .sticky-cta { display: block; }
       body { padding-bottom: 70px; }
-      .day-card { grid-template-columns: 1fr; gap: 1rem; }
-      .day-card__num { font-size: 3.5rem; }
+
+      /* Nav */
+      nav { padding: 1rem 1.5rem; }
+      .nav__logo { font-size: .85rem; letter-spacing: .04em; }
+      .nav__btn  { padding: .4rem 1rem; font-size: .65rem; }
+
+      /* Hero */
+      .hero__title { font-size: clamp(2.4rem, 9vw, 4rem); margin-bottom: 1rem; }
+      .hero__title em { display: inline; }
+      .hero__sub  { font-size: clamp(.9rem, 3.5vw, 1.1rem); margin-bottom: 1.2rem; }
+      .hero__stats { gap: 1.2rem; margin-bottom: 1.5rem; }
+      .hero__stat-num { font-size: clamp(2rem, 8vw, 2.8rem); }
+      .hero__stat-label { font-size: .6rem; }
+      .hero__cta  { flex-direction: column; align-items: center; gap: .7rem; }
+      .hero__cta .btn { width: 100%; max-width: 300px; text-align: center; }
+      .hero__scroll { display: none; }
+
+      /* Feel strip */
+      .feel { padding: 3rem 1.5rem; }
+
+      /* Antalya visual */
+      .antalya-visual { padding: 0 0 3rem; }
+      .antalya-visual__header { padding: 3rem 1.5rem 2rem; }
+      .antalya-visual__caption { padding: 2rem 1.5rem 0; }
+      .mosaic {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 200px 140px 140px;
+        gap: 4px;
+        padding: 0 4px;
+      }
+      .mosaic__item:first-child { grid-column: span 2; }
+
+      /* Together */
+      .together__inner { grid-template-columns: 1fr; gap: 2rem; }
+      .together__photos {
+        grid-template-columns: 1fr;
+        grid-template-rows: 220px 160px 160px;
+        height: auto;
+      }
+      .together__photo:first-child { grid-column: auto; }
+
+      /* Why Live */
+      .why-live { padding: 3rem 1.5rem; }
+      .why-live__inner { max-width: 100%; }
+      .why-live__divider { margin: 1.5rem 0; }
+
+      /* Program */
+      .program { padding: 3rem 1.5rem; }
+      .program__header { margin-bottom: 2rem; }
+      .days { gap: 1rem; }
+      .day-card { grid-template-columns: 1fr; gap: .8rem; padding: 1.5rem; }
+      .day-card__num { font-size: clamp(2.5rem, 8vw, 3.5rem); text-align: left; }
+
+      /* Format */
+      .format__inner { grid-template-columns: 1fr; gap: 2rem; }
+      .format { padding: 3rem 1.5rem; }
+      .format__img { aspect-ratio: 4/3; }
+      .format__list { gap: .8rem; }
+      .format__list li { padding: .7rem 0; }
+
+      /* Premium */
+      .premium__cards { grid-template-columns: 1fr; gap: 1rem; }
+      .premium__content { padding: 3rem 1.5rem; }
+      .pcard { padding: 1.5rem; }
+
+      /* Premium bridge */
+      .premium-bridge { padding: 3rem 1.5rem 2rem; }
+
+      /* Price */
+      .price-section { padding: 3rem 1.5rem; }
+      .price-box { padding: 2rem 1.5rem; }
+
+      /* Help banner */
+      .help-banner { padding: 3rem 1.5rem; }
+      .help-banner__title { font-size: clamp(1.5rem, 5vw, 2rem); }
+
+      /* Quote */
+      .quote { padding: 5rem 1.5rem; }
+
+      /* Legacy quote */
+      .legacy-quote { padding: 3.5rem 1.5rem; }
+      .legacy-quote__line { font-size: clamp(1.05rem, 4vw, 1.4rem); }
+      .legacy-quote__accent { font-size: clamp(1.15rem, 4.5vw, 1.6rem); }
+
+      /* CTA */
+      .cta-section { padding: 3rem 1.5rem; }
+      .cta-form { padding: 0; }
+      .cta-input { padding: .9rem 1.1rem; }
+
+      /* Section shared */
+      .section-title { line-height: 1.15; }
+
+      /* Footer */
+      footer { padding: 2rem 1.5rem; letter-spacing: .06em; }
+    }
+
+    /* Extra small screens */
+    @media (max-width: 390px) {
+      .hero__stats { gap: .8rem; }
+      .hero__stat-num { font-size: 2rem; }
+      .hero__stat-label { font-size: .55rem; letter-spacing: .1em; }
+      .mosaic {
+        grid-template-columns: 1fr;
+        grid-template-rows: 220px 160px 160px 160px 160px;
+      }
+      .mosaic__item:first-child { grid-column: auto; }
+      nav { padding: .9rem 1.2rem; }
+      .nav__logo { font-size: .75rem; }
     }
   </style>
 </head>
