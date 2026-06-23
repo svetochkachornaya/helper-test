@@ -635,7 +635,7 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to top, rgba(21,13,6,.6) 0%, rgba(21,13,6,.2) 55%, rgba(21,13,6,.08) 100%);
+        linear-gradient(to bottom, rgba(21,13,6,.55) 0%, rgba(21,13,6,.6) 40%, rgba(21,13,6,.7) 100%);
     }
     .premium__content {
       position: relative;
@@ -649,7 +649,7 @@
     .premium__content p {
       font-size: clamp(.95rem, 1.8vw, 1.1rem);
       line-height: 2;
-      color: rgba(245,239,228,.6);
+      color: rgba(245,239,228,.85);
       margin-top: 1.5rem;
       max-width: 580px;
       margin-left: auto;
@@ -690,9 +690,54 @@
     .pcard p {
       font-size: .87rem;
       line-height: 1.9;
-      color: rgba(245,239,228,.55);
-      margin: 0;
+      color: rgba(245,239,228,.75);
+      margin: 0 0 1.5rem;
     }
+    .pcard__badge {
+      display: inline-block;
+      background: rgba(201,169,110,.15);
+      border: 1px solid rgba(201,169,110,.35);
+      color: var(--gold);
+      font-size: .65rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: .25rem .8rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+    .pcard__btn {
+      display: inline-block;
+      margin-top: .5rem;
+      padding: .7rem 1.8rem;
+      border: 1.5px solid rgba(201,169,110,.6);
+      border-radius: 100px;
+      color: #FDF8F0;
+      font-size: .72rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background .25s, border-color .25s;
+    }
+    .pcard__btn:hover {
+      background: rgba(201,169,110,.15);
+      border-color: var(--gold);
+    }
+    /* ─── PREMIUM BRIDGE ─── */
+    .premium-bridge {
+      background: var(--cream);
+      padding: 5rem clamp(1.5rem, 5vw, 4rem) 4rem;
+      text-align: center;
+    }
+    .premium-bridge__text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.4;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .premium-bridge__text em { font-style: italic; color: var(--terra); }
 
     /* ─── PRICE ─── */
     .price-section {
@@ -1079,6 +1124,25 @@
   </div>
 </section>
 
+<!-- ═══ FORMAT ═══ -->
+<section class="format">
+  <div class="format__inner">
+    <div class="format__img reveal"></div>
+    <div class="reveal reveal-d1">
+      <span class="section-label">Как устроены дни</span>
+      <h2 class="section-title">21–23 июля<br/><em>Три дня</em> живого погружения</h2>
+      <ul class="format__list">
+        <li><span class="format__dot"></span>Три дня по 6 часов живого погружения</li>
+        <li><span class="format__dot"></span>Перерыв на обед в атмосфере старого города <strong>(обед включён в стоимость)</strong></li>
+        <li><span class="format__dot"></span>Кофе-паузы и живое общение</li>
+        <li><span class="format__dot"></span>Рефлексия в конце каждого дня</li>
+        <li><span class="format__dot"></span>При хорошей погоде — практики кундалини-йоги</li>
+        <li><span class="format__dot"></span>Вечера свободны — море, прогулки, общение. Можно провести с друзьями и родными, а можно — с нами.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ TOGETHER ═══ -->
 <section class="together">
   <div class="together__inner">
@@ -1180,24 +1244,13 @@
   </div>
 </section>
 
-<!-- ═══ FORMAT ═══ -->
-<section class="format">
-  <div class="format__inner">
-    <div class="format__img reveal"></div>
-    <div class="reveal reveal-d1">
-      <span class="section-label">Как устроены дни</span>
-      <h2 class="section-title">21–23 июля<br/><em>Три дня</em> живого погружения</h2>
-      <ul class="format__list">
-        <li><span class="format__dot"></span>6 часов живого погружения каждый день</li>
-        <li><span class="format__dot"></span>Перерыв на обед в атмосфере старого города</li>
-        <li><span class="format__dot"></span>Кофе-паузы и живое общение</li>
-        <li><span class="format__dot"></span>Рефлексия в конце каждого дня</li>
-        <li><span class="format__dot"></span>При хорошей погоде — практики кундалини-йоги</li>
-        <li><span class="format__dot"></span>Вечера свободны — море, прогулки, общение</li>
-      </ul>
-    </div>
-  </div>
-</section>
+<!-- ═══ PREMIUM BRIDGE ═══ -->
+<div class="premium-bridge reveal">
+  <p class="premium-bridge__text">
+    Хотите провести <em>больше времени с нами?</em><br/>
+    Для этого есть несколько особых форматов.
+  </p>
+</div>
 
 <!-- ═══ PREMIUM ═══ -->
 <section class="premium">
@@ -1213,11 +1266,20 @@
         <span class="pcard__tag">Закрытый ужин</span>
         <h3>Вечер с Евгением</h3>
         <p>Небольшой круг. Без сцены. Без дистанции. Живой разговор, вопросы, обратная связь — за общим столом у моря.</p>
+        <a href="#cta" class="pcard__btn">Зарегистрироваться</a>
       </div>
       <div class="pcard reveal reveal-d2">
         <span class="pcard__tag">Индивидуально</span>
         <h3>Личная сессия</h3>
         <p>Не более 1–2 человек в день. Строго ограничено. Проводится между групповой работой и вечерней программой.</p>
+        <a href="#cta" class="pcard__btn">Зарегистрироваться</a>
+      </div>
+      <div class="pcard reveal reveal-d3" style="grid-column: 1 / -1;">
+        <span class="pcard__tag">Только 3 места</span>
+        <div class="pcard__badge">⚡ Осталось 3 места</div>
+        <h3>Личная консультация</h3>
+        <p>Глубокая индивидуальная работа с Евгением. Один на один. Продолжительность — по договорённости. Строго ограничено: всего 3 места на весь формат.</p>
+        <a href="#cta" class="pcard__btn">Узнать подробности</a>
       </div>
     </div>
   </div>
