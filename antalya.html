@@ -163,6 +163,29 @@
       opacity: 0;
       animation: up .9s .95s forwards;
     }
+    .hero__stats {
+      display: flex;
+      gap: clamp(2rem, 6vw, 4.5rem);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: up .9s .6s forwards;
+    }
+    .hero__stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 300;
+      color: #FDF8F0;
+      line-height: 1;
+    }
+    .hero__stat-label {
+      font-size: .68rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(245,239,228,.55);
+      margin-top: .3rem;
+    }
 
     .hero__scroll {
       position: absolute;
@@ -1158,11 +1181,25 @@
 <section class="hero">
   <div class="hero__photo"></div>
   <div class="hero__content">
-    <span class="hero__pill">21–23 июля · Анталия · 15 мест</span>
     <h1 class="hero__title">
-      Живая встреча<br/><em>у моря</em>
+      Живая встреча у моря<br/><em>с Евгением Деканём</em>
     </h1>
-    <p class="hero__sub">Тёплый воздух, свои люди и несколько дней настоящей жизни.</p>
+    <p class="hero__sub">21–23 июля &nbsp;·&nbsp; Вт, Ср, Чт &nbsp;·&nbsp; Анталия</p>
+    <div class="hero__stats">
+      <div>
+        <div class="hero__stat-num">3</div>
+        <div class="hero__stat-label">дня живой работы</div>
+      </div>
+      <div>
+        <div class="hero__stat-num">18</div>
+        <div class="hero__stat-label">часов трансформации</div>
+      </div>
+      <div>
+        <div class="hero__stat-num">15</div>
+        <div class="hero__stat-label">мест всего</div>
+      </div>
+    </div>
+    <p class="hero__sub" style="margin-bottom:2.5rem;font-size:clamp(.95rem,1.8vw,1.2rem)">Море, лето, общение и пространство людей,<br/>которые наконец встретятся не через экран, а лично.</p>
     <div class="hero__cta">
       <a href="#cta" class="btn btn--gold">Занять моё место</a>
       <a href="#program" class="btn btn--ghost">Программа</a>
@@ -1381,7 +1418,7 @@
         <p>Небольшой круг. Без сцены. Без дистанции. Живой разговор, вопросы, обратная связь — за общим столом у моря.</p>
         <a href="#cta" class="pcard__btn">Зарегистрироваться</a>
       </div>
-      <div class="pcard reveal reveal-d2" style="grid-column: 1 / -1;">
+      <div class="pcard reveal reveal-d2">
         <span class="pcard__tag">Только 3 места</span>
         <div class="pcard__badge">⚡ Осталось 3 места</div>
         <h3>Личная консультация</h3>
@@ -1417,29 +1454,6 @@
     </blockquote>
     <div class="orn reveal">✦</div>
     <cite class="reveal">— Евгений</cite>
-  </div>
-</section>
-
-<!-- ═══ EVENT SUMMARY ═══ -->
-<section class="event-summary">
-  <div class="reveal">
-    <p class="event-summary__title">Живая встреча у моря<br/>с <em>Евгением Деканём</em></p>
-    <p class="event-summary__date">21–23 июля · Вт, Ср, Чт · Анталия</p>
-    <div class="event-summary__stats">
-      <div>
-        <div class="event-summary__stat-num">3</div>
-        <div class="event-summary__stat-label">дня живой работы</div>
-      </div>
-      <div>
-        <div class="event-summary__stat-num">18</div>
-        <div class="event-summary__stat-label">часов трансформации</div>
-      </div>
-      <div>
-        <div class="event-summary__stat-num">15</div>
-        <div class="event-summary__stat-label">мест всего</div>
-      </div>
-    </div>
-    <p class="event-summary__desc">Море, лето, общение и пространство людей, которые наконец встретятся не через экран, а лично.</p>
   </div>
 </section>
 
