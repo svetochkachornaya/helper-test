@@ -19,6 +19,8 @@
     --accent:#b97a4c;
     --accent-2:#8c5a35;
     --accent-soft:#d9a978;
+    --teal:#2a8a80;
+    --teal-soft:#4fb3a6;
     --line:rgba(255,255,255,.14);
     --line-dark:rgba(34,29,25,.12);
     --shadow:0 20px 60px rgba(20,17,16,.35);
@@ -101,7 +103,9 @@
   .hero{
     position:relative;
     min-height:100vh;
-    background:radial-gradient(120% 100% at 15% 0%, #241d18 0%, var(--bg-dark) 45%, var(--bg-dark-2) 100%);
+    background:
+      radial-gradient(45% 55% at 88% 82%, rgba(42,138,128,.22) 0%, transparent 100%),
+      radial-gradient(120% 100% at 15% 0%, #241d18 0%, var(--bg-dark) 45%, var(--bg-dark-2) 100%);
     color:#f2ece1;
     display:flex;align-items:center;
     padding:170px 0 120px;
@@ -132,15 +136,16 @@
   }
   .hero .cta-row{display:flex;gap:16px;flex-wrap:wrap;}
   .location-card{
+    position:relative;
     background:rgba(246,241,232,.06);
     border:1px solid rgba(246,241,232,.18);
     border-radius:var(--radius);
-    padding:32px;
+    padding:32px 32px 40px;
     backdrop-filter:blur(6px);
   }
   .location-card .tag{
     display:inline-block;padding:6px 14px;border-radius:100px;
-    background:rgba(185,122,76,.18);color:var(--accent-soft);
+    background:rgba(42,138,128,.2);color:var(--teal-soft);
     font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
     margin-bottom:16px;
   }
@@ -154,6 +159,11 @@
   }
   .scroll-cue .line{width:1px;height:36px;background:linear-gradient(to bottom, rgba(242,236,225,.6), transparent);animation:pulse 2.2s ease infinite;}
   @keyframes pulse{0%,100%{opacity:.3;}50%{opacity:1;}}
+
+  .location-card::after{
+    content:"";position:absolute;left:32px;right:32px;bottom:0;height:3px;border-radius:3px;
+    background:linear-gradient(90deg,var(--teal),var(--accent-soft),#f2a856);
+  }
 
   /* ---------- SECTION GENERIC ---------- */
   section{padding:120px 0;position:relative;}
