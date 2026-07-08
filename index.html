@@ -297,6 +297,84 @@
   .final .note{color:rgba(242,236,225,.55);font-size:14.5px;margin-bottom:40px;}
   .final .cta-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
 
+  /* ---------- PRICING ---------- */
+  #pricing .wrap{max-width:1040px;}
+  .price-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:28px;
+    margin-top:52px;text-align:left;
+  }
+  .price-card{
+    position:relative;overflow:hidden;
+    background:rgba(246,241,232,.05);
+    border:1px solid rgba(246,241,232,.16);
+    border-radius:var(--radius);
+    padding:44px 38px;
+  }
+  .price-card.featured{
+    border-color:rgba(185,122,76,.55);
+    background:linear-gradient(160deg,rgba(185,122,76,.16),rgba(185,122,76,.03));
+  }
+  .price-card .badge{
+    position:absolute;top:30px;right:30px;
+    background:var(--accent);color:#fff;
+    font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;
+    padding:6px 14px;border-radius:100px;
+  }
+  .price-card .fmt{
+    font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--accent-soft);font-weight:600;margin-bottom:18px;
+  }
+  .price-card .amount{
+    font-family:'Fraunces',serif;font-size:52px;color:#f2ece1;line-height:1;
+  }
+  .price-card .bonus{
+    display:flex;gap:10px;align-items:flex-start;
+    background:rgba(185,122,76,.14);border:1px solid rgba(185,122,76,.32);
+    border-radius:12px;padding:14px 16px;margin:22px 0 4px;
+    font-size:14.5px;color:var(--accent-soft);
+  }
+  .price-card ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin:26px 0 32px;}
+  .price-card ul li{position:relative;padding-left:24px;font-size:15px;color:rgba(242,236,225,.8);}
+  .price-card ul li::before{content:"✓";position:absolute;left:0;color:var(--accent-soft);}
+  .cf7-wrap{border-top:1px solid rgba(246,241,232,.14);padding-top:26px;}
+  .cf7-wrap .form-label{
+    font-size:13px;text-transform:uppercase;letter-spacing:.08em;
+    color:rgba(242,236,225,.5);margin-bottom:16px;font-weight:600;
+  }
+  /* Contact Form 7 styling to match the section */
+  .cf7-wrap .wpcf7-form p{margin-bottom:14px;}
+  .cf7-wrap .wpcf7-form-control-wrap{display:block;}
+  .cf7-wrap input[type="text"],
+  .cf7-wrap input[type="email"],
+  .cf7-wrap input[type="tel"],
+  .cf7-wrap textarea,
+  .cf7-wrap select{
+    width:100%;padding:14px 18px;border-radius:12px;
+    background:rgba(246,241,232,.06);
+    border:1px solid rgba(246,241,232,.22);
+    color:#f2ece1;font-family:'Manrope',sans-serif;font-size:15px;
+    transition:.25s ease;
+  }
+  .cf7-wrap input::placeholder,
+  .cf7-wrap textarea::placeholder{color:rgba(242,236,225,.4);}
+  .cf7-wrap input:focus,
+  .cf7-wrap textarea:focus,
+  .cf7-wrap select:focus{
+    outline:none;border-color:var(--accent);background:rgba(246,241,232,.1);
+  }
+  .cf7-wrap input[type="submit"]{
+    width:100%;padding:16px 32px;border-radius:100px;
+    background:var(--accent);border:1px solid var(--accent);
+    color:#fff;font-family:'Manrope',sans-serif;font-weight:600;font-size:15px;
+    cursor:pointer;transition:.3s ease;
+  }
+  .cf7-wrap input[type="submit"]:hover{background:var(--accent-2);border-color:var(--accent-2);}
+  .cf7-wrap .wpcf7-not-valid-tip{color:#e2a58a;font-size:13px;margin-top:6px;}
+  .cf7-wrap .wpcf7-response-output{
+    margin-top:16px;border-radius:12px;font-size:14px;
+    border-color:rgba(246,241,232,.3) !important;color:rgba(242,236,225,.85);
+  }
+
   /* ---------- FOOTER ---------- */
   footer{background:#100d0c;color:rgba(242,236,225,.55);padding:56px 0 40px;font-size:14px;}
   footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
@@ -326,6 +404,7 @@
     .check-grid{grid-template-columns:1fr;}
     .acc-cols{grid-template-columns:1fr;}
     .after-grid{grid-template-columns:1fr;}
+    .price-grid{grid-template-columns:1fr;}
     nav.main-nav{display:none;}
     .burger{display:flex;}
   }
@@ -339,6 +418,8 @@
     .logo{font-size:14px;letter-spacing:.01em;}
     header .actions{gap:10px;}
     header .actions .btn{padding:11px 20px;font-size:13px;}
+    .price-card .badge{position:static;display:inline-block;margin-bottom:16px;}
+    .price-card .fmt{margin-bottom:12px;}
   }
 </style>
 </head>
@@ -353,9 +434,10 @@
       <a href="#program">Программа</a>
       <a href="#days">Три дня</a>
       <a href="#result">Результат</a>
+      <a href="#pricing">Стоимость</a>
     </nav>
     <div class="actions">
-      <a href="#buy" class="btn">Купить</a>
+      <a href="#pricing" class="btn">Купить</a>
       <div class="burger" id="burger"><span></span><span></span><span></span></div>
     </div>
   </div>
@@ -368,7 +450,7 @@
       <h1>Сепарация. Я<br><span class="accent">Самодостаточный</span></h1>
       <p class="lead">Подготовка к новому курсу по возвращению внутренней опоры — три дня глубокой психологической трансформации.</p>
       <div class="cta-row">
-        <a href="#buy" class="btn">Купить участие</a>
+        <a href="#pricing" class="btn">Купить участие</a>
         <a href="#program" class="btn ghost on-dark">Смотреть программу</a>
       </div>
     </div>
@@ -577,20 +659,48 @@
       <div class="serif">Что в итоге</div>
       <p>За три дня вы поймёте, почему снова и снова оказываетесь в одних и тех же внутренних состояниях, вернёте ощущение опоры на себя и научитесь выходить из тревоги, самокритики и постоянной борьбы.</p>
       <p>Теория и глубокая терапевтическая работа с телесными зажимами — в единой системе трёх дней. Вы можете быть в Анталии на живом интенсиве или присоединиться к онлайн-трансляции.</p>
-      <a href="#buy" class="btn">Купить участие</a>
+      <a href="#pricing" class="btn">Купить участие</a>
     </div>
   </div>
 </section>
 
-<section class="final" id="buy">
+<section class="final" id="pricing">
   <div class="wrap">
-    <span class="eyebrow">Сепарация. Я Самодостаточный</span>
+    <span class="eyebrow">Стоимость участия</span>
     <h2>Пора вернуть себе опору</h2>
-    <p class="lead">Три дня, которые изменят то, как вы живёте с собой — в Анталии вживую или онлайн из любой точки мира.</p>
+    <p class="lead">Выберите формат участия — в Анталии вживую или онлайн из любой точки мира.</p>
     <p class="note">Места на живую встречу в Анталии ограничены</p>
-    <div class="cta-row">
-      <a href="#" class="btn">Купить участие</a>
-      <a href="#" class="btn ghost on-dark">Задать вопрос</a>
+
+    <div class="price-grid reveal">
+      <div class="price-card featured">
+        <span class="badge">Подарок</span>
+        <div class="fmt">Оффлайн · живая встреча в Анталии</div>
+        <div class="amount">$200</div>
+        <div class="bonus">🎁 Участие в программе «Сепарация», второй этап — в подарок</div>
+        <ul>
+          <li>Все три дня очно, рядом с ведущим и группой</li>
+          <li>Живые телесные и терапевтические практики</li>
+          <li>Второй этап программы «Сепарация» включён в стоимость</li>
+        </ul>
+        <div class="cf7-wrap">
+          <div class="form-label">Оставить заявку</div>
+          [contact-form-7 id="1c34773" title="Встреча в Анталии"]
+        </div>
+      </div>
+
+      <div class="price-card">
+        <div class="fmt">Онлайн · из любой точки мира</div>
+        <div class="amount">$39</div>
+        <ul>
+          <li>Прямая трансляция всех трёх дней интенсива</li>
+          <li>Участие во всех практиках в реальном времени</li>
+          <li>Доступ из любой точки мира</li>
+        </ul>
+        <div class="cf7-wrap">
+          <div class="form-label">Оставить заявку</div>
+          [contact-form-7 id="b8998d0" title="Встреча в Анталии_online"]
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -601,7 +711,7 @@
     <nav>
       <a href="#about">О программе</a>
       <a href="#days">Три дня</a>
-      <a href="#buy">Купить</a>
+      <a href="#pricing">Купить</a>
     </nav>
     <div>&copy; <span id="year"></span> Все права защищены</div>
   </div>
@@ -609,7 +719,7 @@
 
 <div class="sticky-cta" id="stickyCta">
   <span>Интенсив «Сепарация. Я Самодостаточный»</span>
-  <a href="#buy" class="btn">Купить</a>
+  <a href="#pricing" class="btn">Купить</a>
 </div>
 
 <script>
