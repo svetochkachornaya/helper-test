@@ -344,43 +344,72 @@
   .price-card ul li{position:relative;padding-left:24px;font-size:15px;color:rgba(242,236,225,.8);}
   .price-card ul li::before{content:"✓";position:absolute;left:0;color:var(--accent-soft);}
   .cf7-wrap{border-top:1px solid rgba(246,241,232,.14);padding-top:26px;}
-  .cf7-wrap .form-label{
-    font-size:13px;text-transform:uppercase;letter-spacing:.08em;
-    color:rgba(242,236,225,.5);margin-bottom:16px;font-weight:600;
+
+  /* ---------- MODAL (CF7 popups) ---------- */
+  .modal-overlay{
+    display:none;position:fixed;inset:0;z-index:1000;
+    background:rgba(20,17,16,.72);backdrop-filter:blur(8px);
+    align-items:center;justify-content:center;padding:24px;
   }
-  /* Contact Form 7 styling to match the section */
-  .cf7-wrap .wpcf7-form p{margin-bottom:14px;}
-  .cf7-wrap .wpcf7-form-control-wrap{display:block;}
-  .cf7-wrap input[type="text"],
-  .cf7-wrap input[type="email"],
-  .cf7-wrap input[type="tel"],
-  .cf7-wrap textarea,
-  .cf7-wrap select{
-    width:100%;padding:14px 18px;border-radius:12px;
-    background:rgba(246,241,232,.06);
-    border:1px solid rgba(246,241,232,.22);
-    color:#f2ece1;font-family:'Manrope',sans-serif;font-size:15px;
-    transition:.25s ease;
+  .modal-overlay.open{display:flex;}
+  .modal{
+    background:var(--paper);border-radius:24px;width:100%;max-width:480px;
+    max-height:90vh;overflow-y:auto;position:relative;
+    box-shadow:0 40px 100px rgba(20,17,16,.4);
+    animation:modalIn .3s ease;
   }
-  .cf7-wrap input::placeholder,
-  .cf7-wrap textarea::placeholder{color:rgba(242,236,225,.4);}
-  .cf7-wrap input:focus,
-  .cf7-wrap textarea:focus,
-  .cf7-wrap select:focus{
-    outline:none;border-color:var(--accent);background:rgba(246,241,232,.1);
+  @keyframes modalIn{
+    from{opacity:0;transform:translateY(20px) scale(.97);}
+    to{opacity:1;transform:translateY(0) scale(1);}
   }
-  .cf7-wrap input[type="submit"]{
+  .modal-close{
+    position:absolute;top:20px;right:20px;width:36px;height:36px;border:none;
+    background:rgba(34,29,25,.08);border-radius:50%;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:15px;color:#5b5349;
+    transition:background .2s,color .2s;
+  }
+  .modal-close:hover{background:rgba(34,29,25,.16);color:var(--ink);}
+  .modal-header{padding:40px 40px 20px;border-bottom:1px solid rgba(185,122,76,.18);margin-bottom:8px;}
+  .modal-badge{
+    display:inline-block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--accent-2);border:1px solid rgba(185,122,76,.35);padding:5px 14px;border-radius:100px;
+    margin-bottom:14px;font-weight:600;
+  }
+  .modal-title{font-size:26px;margin-bottom:8px;color:var(--ink);}
+  .modal-subtitle{font-size:14.5px;color:#5b5349;line-height:1.6;}
+  .modal-body{padding:24px 40px 40px;}
+  .modal-price-row{
+    display:flex;align-items:baseline;gap:10px;margin-bottom:24px;
+    padding:16px 20px;background:rgba(185,122,76,.08);border-radius:14px;
+  }
+  .modal-price{font-family:'Fraunces',serif;font-size:34px;color:var(--ink);}
+  .modal-price-note{font-size:13px;color:#5b5349;line-height:1.5;}
+
+  /* Contact Form 7 styling inside modal */
+  .modal-body .wpcf7-form p{margin-bottom:14px;}
+  .modal-body .wpcf7-form-control-wrap{display:block;}
+  .modal-body input[type="text"],
+  .modal-body input[type="email"],
+  .modal-body input[type="tel"],
+  .modal-body textarea,
+  .modal-body select{
+    width:100%;padding:14px 16px;border-radius:12px;
+    background:#fff;border:1.5px solid rgba(34,29,25,.14);
+    color:var(--ink);font-family:'Manrope',sans-serif;font-size:15px;
+    outline:none;transition:border-color .25s;
+  }
+  .modal-body input:focus,
+  .modal-body textarea:focus,
+  .modal-body select:focus{border-color:var(--accent);}
+  .modal-body input[type="submit"]{
     width:100%;padding:16px 32px;border-radius:100px;
     background:var(--accent);border:1px solid var(--accent);
     color:#fff;font-family:'Manrope',sans-serif;font-weight:600;font-size:15px;
-    cursor:pointer;transition:.3s ease;
+    cursor:pointer;transition:.3s ease;margin-top:4px;
   }
-  .cf7-wrap input[type="submit"]:hover{background:var(--accent-2);border-color:var(--accent-2);}
-  .cf7-wrap .wpcf7-not-valid-tip{color:#e2a58a;font-size:13px;margin-top:6px;}
-  .cf7-wrap .wpcf7-response-output{
-    margin-top:16px;border-radius:12px;font-size:14px;
-    border-color:rgba(246,241,232,.3) !important;color:rgba(242,236,225,.85);
-  }
+  .modal-body input[type="submit"]:hover{background:var(--accent-2);border-color:var(--accent-2);}
+  .modal-body .wpcf7-not-valid-tip{color:#b8492e;font-size:13px;margin-top:6px;}
+  .modal-body .wpcf7-response-output{margin-top:16px;border-radius:12px;font-size:14px;color:#5b5349;}
 
   /* ---------- FOOTER ---------- */
   footer{background:#100d0c;color:rgba(242,236,225,.55);padding:56px 0 40px;font-size:14px;}
@@ -428,6 +457,10 @@
     .price-card .badge{position:static;display:inline-block;margin-bottom:16px;}
     .price-card .badge + .fmt{padding-right:0;margin-bottom:12px;}
     .price-card h3{padding-right:0;}
+    .modal{border-radius:18px;}
+    .modal-header{padding:32px 24px 16px;}
+    .modal-body{padding:20px 24px 32px;}
+    .modal-title{font-size:22px;}
   }
 </style>
 </head>
@@ -691,8 +724,7 @@
           <li>Второй этап программы «Сепарация» включён в стоимость</li>
         </ul>
         <div class="cf7-wrap">
-          <div class="form-label">Оставить заявку</div>
-          [contact-form-7 id="1c34773" title="Встреча в Анталии"]
+          <button type="button" class="btn open-modal" data-modal="modal-offline" style="width:100%;">Оставить заявку</button>
         </div>
       </div>
 
@@ -705,8 +737,7 @@
           <li>Доступ из любой точки мира</li>
         </ul>
         <div class="cf7-wrap">
-          <div class="form-label">Оставить заявку</div>
-          [contact-form-7 id="b8998d0" title="Встреча в Анталии_online"]
+          <button type="button" class="btn open-modal" data-modal="modal-online" style="width:100%;">Оставить заявку</button>
         </div>
       </div>
 
@@ -722,13 +753,66 @@
           <li>Продление доступа к «Сепарации I» и «ПТСР / Насилие» до января 2027</li>
         </ul>
         <div class="cf7-wrap">
-          <div class="form-label">Оставить заявку</div>
-          [contact-form-7 id="56578be" title="Сепарация II + Анталия онлайн"]
+          <button type="button" class="btn open-modal" data-modal="modal-course" style="width:100%;">Оставить заявку</button>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<div class="modal-overlay" id="modal-offline">
+  <div class="modal">
+    <button type="button" class="modal-close" aria-label="Закрыть">✕</button>
+    <div class="modal-header">
+      <span class="modal-badge">Оффлайн · Анталия</span>
+      <h3 class="modal-title">Живая встреча в Анталии</h3>
+      <p class="modal-subtitle">Три дня очно, рядом с ведущим и группой. Второй этап программы «Сепарация» — в подарок.</p>
+    </div>
+    <div class="modal-body">
+      <div class="modal-price-row">
+        <div class="modal-price">$200</div>
+        <div class="modal-price-note">за участие в интенсиве</div>
+      </div>
+      [contact-form-7 id="1c34773" title="Встреча в Анталии"]
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-online">
+  <div class="modal">
+    <button type="button" class="modal-close" aria-label="Закрыть">✕</button>
+    <div class="modal-header">
+      <span class="modal-badge">Онлайн · из любой точки мира</span>
+      <h3 class="modal-title">Онлайн-трансляция интенсива</h3>
+      <p class="modal-subtitle">Прямая трансляция всех трёх дней и участие во всех практиках в реальном времени.</p>
+    </div>
+    <div class="modal-body">
+      <div class="modal-price-row">
+        <div class="modal-price">$39</div>
+        <div class="modal-price-note">за участие в интенсиве</div>
+      </div>
+      [contact-form-7 id="b8998d0" title="Встреча в Анталии_online"]
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-course">
+  <div class="modal">
+    <button type="button" class="modal-close" aria-label="Закрыть">✕</button>
+    <div class="modal-header">
+      <span class="modal-badge">Ранняя цена</span>
+      <h3 class="modal-title">Сепарация II + Анталия онлайн</h3>
+      <p class="modal-subtitle">20 часов курса за 4–5 недель и 18 часов интенсива в прямом эфире — бесплатно. Продление доступа к «Сепарации I» и «ПТСР / Насилие» до января 2027.</p>
+    </div>
+    <div class="modal-body">
+      <div class="modal-price-row">
+        <div class="modal-price">$59</div>
+        <div class="modal-price-note">ранняя цена · 3 месяца доступа</div>
+      </div>
+      [contact-form-7 id="56578be" title="Сепарация II + Анталия онлайн"]
+    </div>
+  </div>
+</div>
 
 <footer>
   <div class="wrap">
@@ -779,6 +863,26 @@
         });
       }
     });
+  });
+
+  function closeModal(overlay) {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.open-modal').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const overlay = document.getElementById(btn.dataset.modal);
+      if (!overlay) return;
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(overlay); });
+    overlay.querySelector('.modal-close')?.addEventListener('click', () => closeModal(overlay));
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(closeModal);
   });
 </script>
 </body>
