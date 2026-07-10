@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Сепарация. Я Самодостаточный — трёхдневный интенсив</title>
-<meta name="description" content="Трёхдневный интенсив «Сепарация. Я Самодостаточный» — подготовка к курсу по возвращению внутренней опоры. Живая встреча в Анталии или онлайн-трансляция.">
+<title>Возврат к своей Силе — 3-дневный терапевтический интенсив</title>
+<meta name="description" content="«Возврат к своей Силе» — 3-дневный терапевтический интенсив 21–23 июля 2026 года. Живое участие в Анталии, онлайн-трансляция и запись всех трёх дней.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -146,6 +146,7 @@
   }
   .location-card h3{font-size:26px;margin-bottom:12px;color:#f2ece1;}
   .location-card p{color:rgba(242,236,225,.75);font-size:15px;}
+  .location-card .chip{background:rgba(242,236,225,.08);border-color:rgba(242,236,225,.22);color:rgba(242,236,225,.85);}
   .scroll-cue{
     position:absolute;left:50%;bottom:34px;transform:translateX(-50%);
     display:flex;flex-direction:column;align-items:center;gap:10px;
@@ -167,20 +168,39 @@
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease, transform .9s ease;}
   .reveal.visible{opacity:1;transform:translateY(0);}
 
-  /* ---------- ABOUT ---------- */
-  .about{background:var(--bg-cream);}
+  /* ---------- SECTION BACKGROUND UTILITIES ---------- */
+  .sec-cream{background:var(--bg-cream);}
+  .sec-cream-2{background:var(--bg-cream-2);}
+  .sec-dark{background:var(--ink);color:#f2ece1;}
+  .sec-dark .section-head p{color:rgba(242,236,225,.7);}
+  .sec-dark .eyebrow{color:var(--accent-soft);}
+  .sec-dark .eyebrow::before{background:var(--accent-soft);}
+  .center-narrow{max-width:700px;margin:0 auto;text-align:center;}
+
+  /* ---------- LEAD / REFRAIN / PROSE ---------- */
   .about-lead{
     font-family:'Fraunces',serif;font-size:clamp(24px,3vw,32px);
     font-weight:400;font-style:italic;color:var(--accent-2);
     border-left:2px solid var(--accent);padding-left:28px;margin-top:30px;max-width:780px;
   }
+  .refrain{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+    font-size:clamp(22px,3vw,30px);color:var(--accent-2);margin:16px 0;
+  }
+  .sec-dark .refrain{color:var(--accent-soft);}
+  .prose{display:flex;flex-direction:column;gap:9px;max-width:720px;margin-top:8px;}
+  .center-narrow .prose{margin-left:auto;margin-right:auto;}
+  .prose p{font-size:17px;color:#4c453c;line-height:1.85;}
+  .sec-dark .prose p{color:rgba(242,236,225,.82);}
+  .chip-row{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0;}
+  .chip{
+    padding:9px 18px;border-radius:100px;font-size:14.5px;
+    background:rgba(185,122,76,.1);border:1px solid rgba(185,122,76,.28);color:var(--accent-2);
+  }
+  .sec-dark .chip{background:rgba(242,236,225,.08);border-color:rgba(242,236,225,.22);color:rgba(242,236,225,.85);}
 
-  /* ---------- RECOGNIZE ---------- */
-  .recognize{background:var(--ink);color:#f2ece1;}
-  .recognize .section-head p{color:rgba(242,236,225,.7);}
-  .recognize .section-head .eyebrow{color:var(--accent-soft);}
-  .recognize .section-head .eyebrow::before{background:var(--accent-soft);}
-  .check-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(242,236,225,.12);border-radius:var(--radius);overflow:hidden;border:1px solid rgba(242,236,225,.12);}
+  /* ---------- CHECK GRID (contrast pairs) ---------- */
+  .check-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(242,236,225,.12);border-radius:var(--radius);overflow:hidden;border:1px solid rgba(242,236,225,.12);margin-top:8px;}
   .check-item{
     background:var(--ink);padding:30px 32px;display:flex;gap:18px;align-items:flex-start;
   }
@@ -190,14 +210,9 @@
     display:flex;align-items:center;justify-content:center;font-size:14px;font-family:'Fraunces',serif;
   }
   .check-item p{font-size:16px;color:rgba(242,236,225,.88);}
-  .recognize-foot{
-    margin-top:44px;font-family:'Fraunces',serif;font-style:italic;font-size:21px;
-    color:var(--accent-soft);max-width:680px;
-  }
 
-  /* ---------- STEPS ---------- */
-  .steps{background:var(--bg-cream-2);}
-  .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  /* ---------- STEP / FORMAT CARDS ---------- */
+  .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:8px;}
   .step-card{
     background:var(--paper);border-radius:var(--radius);padding:38px 32px;
     border:1px solid var(--line-dark);
@@ -206,28 +221,11 @@
   }
   .step-card:hover{transform:translateY(-6px);box-shadow:0 20px 46px rgba(34,29,25,.09);}
   .step-num{
-    font-family:'Fraunces',serif;font-size:44px;color:var(--accent);font-style:italic;line-height:1;
+    font-family:'Fraunces',serif;font-size:38px;color:var(--accent);font-style:normal;line-height:1;
     margin-bottom:20px;
   }
   .step-card h3{font-size:21px;margin-bottom:12px;}
   .step-card p{color:#5b5349;font-size:15.5px;}
-
-  /* ---------- OVERVIEW DAYS ---------- */
-  .overview{background:var(--bg-cream);}
-  .overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
-  .day-mini{
-    border-radius:var(--radius);padding:36px 30px;
-    background:linear-gradient(160deg,#1c1815,#241d18);
-    color:#f2ece1;position:relative;overflow:hidden;
-    min-height:230px;display:flex;flex-direction:column;justify-content:flex-end;
-  }
-  .day-mini::before{
-    content:"";position:absolute;top:-40%;right:-30%;width:220px;height:220px;border-radius:50%;
-    background:radial-gradient(circle, rgba(185,122,76,.35), transparent 70%);
-  }
-  .day-mini .day-label{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:10px;position:relative;z-index:1;}
-  .day-mini h3{font-size:25px;margin-bottom:10px;position:relative;z-index:1;}
-  .day-mini p{color:rgba(242,236,225,.72);font-size:15px;position:relative;z-index:1;}
 
   /* ---------- ACCORDION DETAIL ---------- */
   .detail{background:var(--bg-cream-2);}
@@ -268,21 +266,18 @@
   .result-strip p{font-size:15.5px;color:#3a342d;}
 
   /* ---------- AFTER ---------- */
-  .after{background:var(--ink);color:#f2ece1;}
-  .after-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;}
-  .after-list{display:flex;flex-direction:column;gap:20px;}
+  .after-list{display:flex;flex-direction:column;gap:20px;max-width:720px;margin-top:8px;}
   .after-list .row{display:flex;gap:16px;align-items:flex-start;}
   .after-list .row .ico{
     flex:none;width:34px;height:34px;border-radius:50%;background:rgba(185,122,76,.16);
     color:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-size:15px;
   }
   .after-list .row p{color:rgba(242,236,225,.85);font-size:16px;}
-  .after-card{
-    background:linear-gradient(160deg,rgba(185,122,76,.14),rgba(185,122,76,.03));
-    border:1px solid rgba(185,122,76,.3);border-radius:var(--radius);padding:44px;
-  }
-  .after-card .serif{font-size:26px;margin-bottom:16px;}
-  .after-card p{color:rgba(242,236,225,.75);font-size:15.5px;margin-bottom:26px;}
+
+  /* ---------- DASH LIST (result) ---------- */
+  .dash-list{list-style:none;display:flex;flex-direction:column;gap:12px;max-width:640px;margin:20px 0;}
+  .dash-list li{position:relative;padding-left:26px;font-size:17px;color:#3a342d;}
+  .dash-list li::before{content:"—";position:absolute;left:0;color:var(--accent);}
 
   /* ---------- FINAL CTA ---------- */
   .final{
@@ -436,10 +431,8 @@
     .hero-grid{grid-template-columns:1fr;gap:44px;}
     .location-card{max-width:520px;}
     .steps-grid{grid-template-columns:1fr;}
-    .overview-grid{grid-template-columns:1fr;}
     .check-grid{grid-template-columns:1fr;}
     .acc-cols{grid-template-columns:1fr;}
-    .after-grid{grid-template-columns:1fr;}
     .price-grid{grid-template-columns:1fr;}
     nav.main-nav{display:none;}
     .burger{display:flex;}
@@ -468,13 +461,13 @@
 
 <header id="siteHeader">
   <div class="wrap">
-    <div class="logo">Сепарация. <b>Я</b></div>
+    <div class="logo">Возврат к <b>Силе</b></div>
     <nav class="main-nav">
-      <a href="#about">О программе</a>
-      <a href="#steps">Три шага</a>
+      <a href="#idea">Идея</a>
+      <a href="#why">Причина</a>
       <a href="#program">Программа</a>
-      <a href="#days">Три дня</a>
       <a href="#result">Результат</a>
+      <a href="#format">Формат</a>
       <a href="#pricing">Стоимость</a>
     </nav>
     <div class="actions">
@@ -487,219 +480,288 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow">Трёхдневный интенсив</span>
-      <h1>Сепарация. Я<br><span class="accent">Самодостаточный</span></h1>
-      <p class="lead">Подготовка к новому курсу по возвращению внутренней опоры — три дня глубокой психологической трансформации.</p>
+      <span class="eyebrow">3-дневный терапевтический интенсив</span>
+      <h1>Возврат к <span class="accent">своей Силе</span></h1>
+      <p class="lead">21–23 июля 2026 года. Живое участие в Анталии + онлайн-трансляция + запись всех трёх дней.</p>
       <div class="cta-row">
         <a href="#pricing" class="btn">Купить участие</a>
         <a href="#program" class="btn ghost on-dark">Смотреть программу</a>
       </div>
     </div>
     <div class="location-card">
-      <span class="tag">Впервые · живая встреча</span>
-      <h3>Анталия</h3>
-      <p>Вы можете быть с нами в Анталии или присоединиться к уникальной живой работе через онлайн-трансляцию — из любой точки мира.</p>
+      <span class="tag">21–23 июля 2026</span>
+      <h3>Формат участия</h3>
+      <div class="chip-row" style="margin:0;">
+        <span class="chip">📍 Анталия</span>
+        <span class="chip">🎥 Онлайн</span>
+        <span class="chip">▶️ Запись</span>
+      </div>
     </div>
   </div>
   <div class="scroll-cue"><span>Листайте</span><div class="line"></div></div>
 </section>
 
-<section class="about" id="about">
+<section class="sec-cream" id="idea">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">О программе</span>
-      <h2>Три дня глубокой<br>психологической трансформации</h2>
-      <p class="about-lead">Возвращаем себе то, что незаметно отдали внешнему миру — способность опираться на себя.</p>
+      <span class="eyebrow">Идея интенсива</span>
+      <h2>Можно ли жить с ощущением:</h2>
+      <div class="refrain">«Со мной всё в порядке.»</div>
+    </div>
+    <div class="prose reveal">
+      <p>Независимо от того, сколько денег сейчас на счету.</p>
+      <p>Независимо от того, что происходит в отношениях.</p>
+      <p>Независимо от успехов, ошибок, мнения окружающих или обстоятельств.</p>
+      <p>Большинство людей никогда не испытывали этого состояния.</p>
+      <p>Вместо этого они живут в постоянной попытке заслужить право быть хорошими.</p>
+    </div>
+    <div class="chip-row reveal">
+      <span class="chip">Хорошим мужчиной.</span>
+      <span class="chip">Хорошей женщиной.</span>
+      <span class="chip">Хорошей мамой.</span>
+      <span class="chip">Успешным человеком.</span>
+      <span class="chip">Достойным любви.</span>
+    </div>
+    <div class="prose reveal">
+      <p>Кажется, что стоит еще немного постараться — и наконец получится почувствовать внутреннее спокойствие.</p>
+      <p>Но проходит год за годом.</p>
+      <p>Меняются работа, отношения, доход, место жительства…</p>
+      <p>А внутреннее напряжение остается.</p>
     </div>
   </div>
 </section>
 
-<section class="recognize" id="recognize">
+<section class="sec-dark" id="why">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Возможно, вы узнаете себя</span>
-      <h2>Знакомые состояния</h2>
-      <p>Если хотя бы часть из этого откликается — вероятно, дело не в обстоятельствах, а в том, как устроено ваше внимание.</p>
+      <span class="eyebrow">Причина</span>
+      <h2>Почему это происходит?</h2>
+      <p>Потому что человек незаметно начинает отождествлять себя со своими результатами.</p>
     </div>
     <div class="check-grid reveal">
-      <div class="check-item"><span class="mark">1</span><p>Не получается расслабиться, даже когда всё относительно хорошо</p></div>
-      <div class="check-item"><span class="mark">2</span><p>Мысли постоянно возвращаются к одной и той же проблеме</p></div>
-      <div class="check-item"><span class="mark">3</span><p>Кажется, что счастье наступит после следующего результата</p></div>
-      <div class="check-item"><span class="mark">4</span><p>Вы много делаете, но внутреннее напряжение не проходит</p></div>
-      <div class="check-item"><span class="mark">5</span><p>Часто оцениваете себя через успехи, ошибки и мнение других</p></div>
-      <div class="check-item"><span class="mark">6</span><p>Внутренний критик звучит громче, чем собственное спокойствие</p></div>
+      <div class="check-item"><span class="mark">1</span><p>Есть деньги — «я успешный».</p></div>
+      <div class="check-item"><span class="mark">2</span><p>Нет денег — «со мной что-то не так».</p></div>
+      <div class="check-item"><span class="mark">3</span><p>Получилось сохранить отношения — «я хороший».</p></div>
+      <div class="check-item"><span class="mark">4</span><p>Произошел конфликт — «я плохой партнер».</p></div>
+      <div class="check-item"><span class="mark">5</span><p>Ребенок ведет себя идеально — «я хорошая мама».</p></div>
+      <div class="check-item"><span class="mark">6</span><p>Что-то пошло не так — «я ужасная мать».</p></div>
     </div>
-    <p class="recognize-foot reveal">Причина может быть не в обстоятельствах, а в том, как работает ваше внимание.</p>
-  </div>
-</section>
-
-<section class="steps" id="steps">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Три шага</span>
-      <h2>За три дня вы пройдёте три шага</h2>
+    <div class="prose reveal" style="margin-top:36px;">
+      <p>Любая неудача становится ударом не по ситуации, а по собственной личности.</p>
+      <p>Человек перестает решать задачи.</p>
+      <p>Он начинает спасать самого себя.</p>
+      <p>Именно поэтому появляется тревога.</p>
     </div>
-    <div class="steps-grid reveal">
-      <div class="step-card">
-        <div class="step-num">01</div>
-        <h3>Вернёте своё внимание</h3>
-        <p>Перестанете жить в постоянной тревоге и увидите, что именно управляет вашим поведением.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">02</div>
-        <h3>Вернёте ощущение «Со мной всё в порядке»</h3>
-        <p>Ослабите влияние внутреннего критика и перестанете доказывать себе собственную ценность.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">03</div>
-        <h3>Закрепите изменения</h3>
-        <p>Перенесёте новое состояние в обычную жизнь и поймёте, куда двигаться дальше.</p>
-      </div>
+    <div class="chip-row reveal">
+      <span class="chip">Перфекционизм.</span>
+      <span class="chip">Прокрастинация.</span>
+      <span class="chip">Страх ошибок.</span>
+      <span class="chip">Потребность всем нравиться.</span>
+      <span class="chip">Постоянная усталость.</span>
+    </div>
+    <div class="prose reveal">
+      <p>Вся энергия уходит не на создание жизни, а на защиту собственной ценности.</p>
     </div>
   </div>
 </section>
 
-<section class="overview" id="program">
+<section class="sec-cream-2" id="path">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Краткое содержание</span>
-      <h2>Три дня — три опоры</h2>
+      <span class="eyebrow">Другой путь</span>
+      <h2>Мы пойдем другим путем</h2>
     </div>
-    <div class="overview-grid reveal">
-      <div class="day-mini">
-        <div class="day-label">День 1</div>
-        <h3>Осознание</h3>
-        <p>Выявляем скрытые дефициты. Учимся выходить из тревоги через навык осознанного наблюдения за собой.</p>
-      </div>
-      <div class="day-mini">
-        <div class="day-label">День 2</div>
-        <h3>Тело</h3>
-        <p>Работаем с внутренней самокритикой. Восстанавливаем базовое чувство собственной ценности через соматические практики.</p>
-      </div>
-      <div class="day-mini">
-        <div class="day-label">День 3</div>
-        <h3>Действие</h3>
-        <p>Закрепляем результат в реальной жизни. Формируем чёткий план действий на основе нового опыта внутренней силы.</p>
-      </div>
+    <div class="prose reveal">
+      <p>На этом интенсиве мы не будем учиться становиться лучше.</p>
+      <p>Мы будем возвращаться к себе.</p>
+      <p>Вы постепенно перестанете воспринимать себя как сумму своих ролей, достижений, денег, отношений и обстоятельств.</p>
+      <p>Появится новое внутреннее переживание:</p>
+    </div>
+    <div class="refrain">«Со мной всё в порядке.»</div>
+    <div class="prose reveal">
+      <p>А деньги, отношения, здоровье, дети, работа, реализация — это лишь сферы жизни, которыми можно управлять.</p>
+      <p>Это не вы.</p>
+      <p>Когда происходит это разделение, появляется удивительная свобода.</p>
+      <p>Можно ошибаться — и не переставать уважать себя.</p>
+      <p>Можно терять деньги — и не терять себя.</p>
+      <p>Можно менять жизнь — без страха разрушить собственную ценность.</p>
+      <p>Именно отсюда начинается настоящая внутренняя сила.</p>
     </div>
   </div>
 </section>
 
-<section class="detail" id="days">
+<section class="sec-dark" id="change">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Что будет на интенсиве</span>
-      <h2>Программа по дням</h2>
-      <p>Разверните каждый день, чтобы увидеть, что именно вы будете проходить.</p>
+      <span class="eyebrow">Что изменится</span>
+      <h2>Что изменится за три дня</h2>
+    </div>
+    <div class="after-list reveal">
+      <div class="row"><span class="ico">✓</span><p>Вы перестанете жить из постоянного напряжения.</p></div>
+      <div class="row"><span class="ico">✓</span><p>Перестанете бесконечно заслуживать любовь, признание и право быть собой.</p></div>
+      <div class="row"><span class="ico">✓</span><p>Вернете ощущение внутренней опоры.</p></div>
+      <div class="row"><span class="ico">✓</span><p>Начнете действовать не из страха, а из спокойствия.</p></div>
+      <div class="row"><span class="ico">✓</span><p>Увидите, что ваша ценность больше не зависит от внешних обстоятельств.</p></div>
+    </div>
+    <div class="refrain reveal" style="font-size:clamp(19px,2.4vw,23px);">Именно из этого состояния начинают по-настоящему меняться отношения, доход, здоровье и качество жизни.</div>
+  </div>
+</section>
+
+<section class="detail" id="program">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Программа</span>
+      <h2>Программа интенсива</h2>
+      <p>Разверните каждый день, чтобы увидеть, что именно вас ждёт.</p>
     </div>
 
     <div class="acc reveal">
       <details class="acc-item" open>
         <summary>
-          <div class="acc-head"><span class="tag-day">День 1</span><h3>Карта ложного пути</h3></div>
+          <div class="acc-head"><span class="tag-day">День 1</span><h3>Возвращение внутренней опоры</h3></div>
           <span class="acc-toggle">+</span>
         </summary>
         <div class="acc-body">
-          <p class="intro"><b>Почему внимание перестаёт принадлежать вам.</b> Большинство людей уверены, что их проблемы связаны с обстоятельствами. На самом деле внимание захватывает внутренний дефицит. Именно он заставляет тревожиться, контролировать, бесконечно думать и искать решение.</p>
-          <div class="acc-cols">
-            <div class="acc-block">
-              <h4>На занятии вы</h4>
-              <ul>
-                <li>Увидите, какой дефицит управляет вашим поведением</li>
-                <li>Найдёте главный страх, который удерживает этот сценарий</li>
-                <li>Поймёте, куда ежедневно уходит ваша энергия</li>
-                <li>Обнаружите, какое состояние на самом деле пытаетесь получить через внешние результаты</li>
-              </ul>
-            </div>
-            <div class="acc-block">
-              <h4>Практика дня</h4>
-              <ul>
-                <li>Глубокая соматическая практика проживания главного страха и восстановления связи со своей внутренней Силой</li>
-              </ul>
-            </div>
+          <p class="intro">Мы найдем все места, где вы бессознательно отдали свою ценность внешнему миру.</p>
+          <div class="chip-row">
+            <span class="chip">Деньгам.</span>
+            <span class="chip">Отношениям.</span>
+            <span class="chip">Работе.</span>
+            <span class="chip">Детям.</span>
+            <span class="chip">Статусу.</span>
+            <span class="chip">Мнению окружающих.</span>
           </div>
-          <div class="result-strip"><span class="lbl">Результат</span><p>Вместо постоянной внутренней борьбы появится ощущение покоя, ясности и возвращения внимания к себе.</p></div>
+          <p class="intro">Вы увидите, как именно сформировалась эта зависимость.</p>
+          <p class="intro">И начнете возвращать право определять свою ценность себе.</p>
+          <p class="intro">В конце первого дня появляется глубокое внутреннее ощущение:</p>
+          <div class="result-strip"><span class="lbl">Итог дня</span><p>«Со мной всё в порядке.» Не потому, что всё идеально. А потому, что моя ценность больше не зависит от обстоятельств.</p></div>
         </div>
       </details>
 
       <details class="acc-item">
         <summary>
-          <div class="acc-head"><span class="tag-day">День 2</span><h3>«Я не ОК»</h3></div>
+          <div class="acc-head"><span class="tag-day">День 2</span><h3>От внутренней нехватки — к внутренней наполненности</h3></div>
           <span class="acc-toggle">+</span>
         </summary>
         <div class="acc-body">
-          <p class="intro"><b>Как вернуть внутреннюю достаточность.</b> Многие оценивают не свои поступки, а самих себя. Ошибка превращается в доказательство собственной недостаточности. Разберём, почему это происходит и как перестать жить под управлением внутреннего критика.</p>
-          <div class="acc-cols">
-            <div class="acc-block">
-              <h4>На занятии вы</h4>
-              <ul>
-                <li>Найдёте идеал, с которым постоянно себя сравниваете</li>
-                <li>Увидите, как сформировался внутренний критик</li>
-                <li>Поймёте, почему невозможно заслужить ощущение собственной ценности</li>
-                <li>Вернёте контакт с состояниями, которые дают ощущение нормальности и полноты</li>
-              </ul>
-            </div>
-            <div class="acc-block">
-              <h4>Практики дня</h4>
-              <ul>
-                <li>Растождествление с внутренним критиком</li>
-                <li>Глубокая работа со страхом «Если я останусь неидеальным»</li>
-              </ul>
-            </div>
+          <p class="intro">Мы исследуем, что на самом деле стоит за желанием денег, любви, признания, успеха и реализации.</p>
+          <p class="intro">Потому что человеку редко нужны сами деньги.</p>
+          <p class="intro">За ними всегда стоят чувства.</p>
+          <div class="chip-row">
+            <span class="chip">Безопасность.</span>
+            <span class="chip">Любовь.</span>
+            <span class="chip">Свобода.</span>
+            <span class="chip">Покой.</span>
+            <span class="chip">Принятие.</span>
+            <span class="chip">Значимость.</span>
           </div>
-          <div class="result-strip"><span class="lbl">Результат</span><p>Появится переживание: «Со мной всё в порядке». Не как мысль, а как внутренний опыт.</p></div>
+          <p class="intro">Когда человек наполняется этими состояниями внутри, исчезает ощущение вечного дефицита.</p>
+          <p class="intro">Он перестает жить с протянутой рукой.</p>
+          <p class="intro">Появляется состояние человека, который уже наполнен.</p>
+          <p class="intro">И именно из этого состояния начинает создавать свою жизнь.</p>
+          <p class="intro">Мы также будем освобождаться от ложных убеждений:</p>
+          <div class="acc-block">
+            <ul>
+              <li>«Я недостаточно хорош.»</li>
+              <li>«Я недостаточно красив.»</li>
+              <li>«Я недостаточно профессионален.»</li>
+              <li>«Со мной что-то не так.»</li>
+              <li>«Мне всегда будет трудно.»</li>
+            </ul>
+          </div>
+          <div class="result-strip"><span class="lbl">Итог дня</span><p>Все эти внутренние определения незаметно управляют жизнью. Именно с ними мы будем глубоко работать.</p></div>
         </div>
       </details>
 
       <details class="acc-item">
         <summary>
-          <div class="acc-head"><span class="tag-day">День 3</span><h3>Новая карта реальности</h3></div>
+          <div class="acc-head"><span class="tag-day">День 3</span><h3>Новая идентичность</h3></div>
           <span class="acc-toggle">+</span>
         </summary>
         <div class="acc-body">
-          <p class="intro"><b>Как жить из состояния достаточности.</b> Даже глубокие изменения быстро исчезают, если человек возвращается к прежнему способу жить. Поэтому третий день посвящён закреплению нового состояния.</p>
-          <div class="acc-cols">
-            <div class="acc-block">
-              <h4>На занятии вы</h4>
-              <ul>
-                <li>Пересмотрите свои текущие задачи</li>
-                <li>Определите новый фокус внимания</li>
-                <li>Увидите решения, которые раньше были скрыты тревогой</li>
-                <li>Составите понятный план дальнейших действий</li>
-              </ul>
-            </div>
-            <div class="acc-block">
-              <h4>Практики дня</h4>
-              <ul>
-                <li>Поиск решений из нового внутреннего состояния</li>
-                <li>Закрепление новой модели поведения</li>
-              </ul>
-            </div>
-          </div>
-          <div class="result-strip"><span class="lbl">Результат</span><p>Вы уйдёте не только с новым опытом, но и с пониманием, как сохранить его в повседневной жизни.</p></div>
+          <p class="intro">Когда старая система уже перестанет управлять вами, мы начнем создавать новую.</p>
+          <p class="intro">Мы сформируем образ человека, которым вы становитесь.</p>
+          <p class="intro">Поймем, какие желания действительно ваши.</p>
+          <p class="intro">Какие цели рождаются уже не из страха, а из внутренней полноты.</p>
+          <p class="intro">Какие решения теперь будут естественными.</p>
+          <p class="intro">Как изменится ваша жизнь, отношения, работа, деньги и ежедневные действия.</p>
+          <div class="result-strip"><span class="lbl">Итог дня</span><p>Это день интеграции новой личности. Чтобы после интенсива изменения не остались красивой идеей, а стали новой реальностью.</p></div>
         </div>
       </details>
     </div>
   </div>
 </section>
 
-<section class="after" id="result">
-  <div class="wrap after-grid">
-    <div class="reveal">
-      <span class="eyebrow">После интенсива вы</span>
-      <h2 class="serif" style="font-size:clamp(28px,3.6vw,40px);margin:18px 0 30px;">Что изменится за три дня</h2>
-      <div class="after-list">
-        <div class="row"><span class="ico">✓</span><p>Поймёте, почему раньше постоянно возвращались в одни и те же состояния</p></div>
-        <div class="row"><span class="ico">✓</span><p>Перестанете жить только из тревоги и внутренней нехватки</p></div>
-        <div class="row"><span class="ico">✓</span><p>Почувствуете внутреннюю опору</p></div>
-        <div class="row"><span class="ico">✓</span><p>Научитесь самостоятельно возвращаться в состояние покоя</p></div>
-        <div class="row"><span class="ico">✓</span><p>Получите ясность в отношении своих следующих шагов</p></div>
+<section class="sec-dark" id="result">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Результат</span>
+      <h2>Результат</h2>
+      <p>За три дня вы пройдете 18 часов глубокой терапевтической работы.</p>
+    </div>
+    <div class="prose reveal">
+      <p>Возможно, впервые за долгие годы вы почувствуете:</p>
+    </div>
+    <div class="refrain">«Со мной всё в порядке.»</div>
+    <div class="prose reveal">
+      <p>Не потому, что жизнь стала идеальной.</p>
+      <p>А потому, что вы перестали путать себя со своими обстоятельствами.</p>
+      <p>Именно из этого состояния рождаются:</p>
+    </div>
+    <ul class="dash-list reveal">
+      <li>спокойствие вместо тревоги;</li>
+      <li>свобода вместо постоянной борьбы;</li>
+      <li>зрелость вместо необходимости что-то доказывать;</li>
+      <li>действия вместо бесконечных внутренних сомнений;</li>
+      <li>настоящая самодостаточность.</li>
+    </ul>
+    <div class="prose reveal">
+      <p>И тогда деньги, отношения, здоровье, предназначение и успех становятся не способом почувствовать свою ценность.</p>
+      <p>А естественным продолжением вашей внутренней целостности.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec-cream" id="format">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Формат участия</span>
+      <h2>21–23 июля 2026 года</h2>
+      <p>18 часов глубокой терапевтической работы.</p>
+    </div>
+    <div class="steps-grid reveal">
+      <div class="step-card">
+        <div class="step-num">📍</div>
+        <h3>Живое участие</h3>
+        <p>Анталия.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">🎥</div>
+        <h3>Онлайн-трансляция</h3>
+        <p>Из любой точки мира.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">▶️</div>
+        <h3>Запись</h3>
+        <p>Запись всех трех дней останется у участников.</p>
       </div>
     </div>
-    <div class="after-card reveal">
-      <div class="serif">Что в итоге</div>
-      <p>За три дня вы поймёте, почему снова и снова оказываетесь в одних и тех же внутренних состояниях, вернёте ощущение опоры на себя и научитесь выходить из тревоги, самокритики и постоянной борьбы.</p>
-      <p>Теория и глубокая терапевтическая работа с телесными зажимами — в единой системе трёх дней. Вы можете быть в Анталии на живом интенсиве или присоединиться к онлайн-трансляции.</p>
+    <p class="about-lead reveal">Для тех, кто хочет прожить этот опыт максимально глубоко, еще доступны несколько мест на живое участие.</p>
+  </div>
+</section>
+
+<section class="sec-cream-2" id="closing">
+  <div class="wrap center-narrow">
+    <div class="prose reveal">
+      <p>Если вы давно чувствуете, что устали бороться…</p>
+      <p>Если устали постоянно доказывать себе и миру, что достойны…</p>
+      <p>Если хотите наконец почувствовать внутренний покой, который не зависит от обстоятельств…</p>
+    </div>
+    <div class="refrain reveal">Тогда мы будем рады пройти этот путь вместе.</div>
+    <div class="prose reveal">
+      <p>Возможно, именно эти три дня станут точкой, после которой изменится не только ваше состояние, но и вся дальнейшая жизнь.</p>
+    </div>
+    <div class="cta-row reveal" style="justify-content:center;margin-top:30px;">
       <a href="#pricing" class="btn">Купить участие</a>
     </div>
   </div>
@@ -816,10 +878,10 @@
 
 <footer>
   <div class="wrap">
-    <div class="logo">Сепарация. Я</div>
+    <div class="logo">Возврат к Силе</div>
     <nav>
-      <a href="#about">О программе</a>
-      <a href="#days">Три дня</a>
+      <a href="#idea">Идея</a>
+      <a href="#program">Программа</a>
       <a href="#pricing">Купить</a>
     </nav>
     <div>&copy; <span id="year"></span> Все права защищены</div>
@@ -827,7 +889,7 @@
 </footer>
 
 <div class="sticky-cta" id="stickyCta">
-  <span>Интенсив «Сепарация. Я Самодостаточный»</span>
+  <span>Интенсив «Возврат к своей Силе»</span>
   <a href="#pricing" class="btn">Купить</a>
 </div>
 
