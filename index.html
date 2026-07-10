@@ -109,14 +109,17 @@
     overflow:hidden;
   }
   .hero-photo{
-    position:absolute;inset:0;z-index:0;
-    background:url('https://individual-center.com/wp-content/uploads/2026/07/photo_2569-07-10-18.36.37.jpeg') center 14% / cover no-repeat;
+    position:absolute;top:0;right:0;bottom:0;width:52%;z-index:0;
+    background:url('https://individual-center.com/wp-content/uploads/2026/07/photo_2569-07-10-18.36.37.jpeg') center 22% / cover no-repeat;
   }
   .hero-photo::after{
     content:"";position:absolute;inset:0;
     background:
-      linear-gradient(90deg, rgba(20,17,16,.97) 0%, rgba(20,17,16,.88) 30%, rgba(20,17,16,.6) 52%, rgba(20,17,16,.28) 72%, rgba(20,17,16,.12) 100%),
-      linear-gradient(to top, rgba(20,17,16,.55) 0%, transparent 32%);
+      linear-gradient(90deg, rgba(20,17,16,.95) 0%, rgba(20,17,16,.55) 20%, rgba(20,17,16,.1) 42%, transparent 60%),
+      linear-gradient(to top, rgba(20,17,16,.5) 0%, transparent 30%);
+  }
+  @media (max-width:960px){
+    .hero-photo{display:none;}
   }
   .hero-grid{
     position:relative;z-index:2;
