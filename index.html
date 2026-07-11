@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ОБНУЛЕНИЕ — гостевое посещение 12 июля</title>
+<meta name="description" content="Гостевое посещение программы «Обнуление». Воскресенье, 12 июля, 8:30 утра по Киеву. Запишись прямо сейчас.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#08090b;
+    --bg-1:#101216;
+    --card:#15171c;
+    --card-border:rgba(255,255,255,.08);
+    --gold:#caa768;
+    --gold-soft:rgba(202,167,104,.14);
+    --ink:#f3efe8;
+    --ink-dim:#9a9ea8;
+    --danger:#e2665a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:'Manrope',sans-serif;
+    background:
+      radial-gradient(1100px 620px at 82% -8%, rgba(202,167,104,.16), transparent 60%),
+      radial-gradient(900px 500px at 8% 108%, rgba(202,167,104,.10), transparent 60%),
+      linear-gradient(180deg, var(--bg-0), var(--bg-1));
+    color:var(--ink);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:28px 16px;
+    overflow-x:hidden;
+  }
+  .screen{
+    width:100%;
+    max-width:1180px;
+    display:grid;
+    grid-template-columns:1.15fr 1fr;
+    gap:56px;
+    align-items:center;
+    min-height:calc(100vh - 56px);
+  }
+  .brand{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:12.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:28px;
+  }
+  .brand::before{
+    content:"";
+    width:7px;height:7px;border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 0 4px var(--gold-soft);
+  }
+  h1{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:700;
+    font-size:clamp(48px, 6.4vw, 84px);
+    line-height:.98;
+    letter-spacing:.01em;
+    margin-bottom:18px;
+    background:linear-gradient(180deg,#fff, #d9dbe0 60%, #b9bcc4);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  h1 em{
+    font-style:normal;
+    background:linear-gradient(120deg,#e9c98a,var(--gold) 55%,#8f7440);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .lead{
+    font-size:17px;
+    line-height:1.6;
+    color:var(--ink-dim);
+    max-width:480px;
+    margin-bottom:28px;
+  }
+  .lead b{color:var(--ink);font-weight:600;}
+  .meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:30px;
+  }
+  .chip{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:11px 16px;
+    background:rgba(255,255,255,.03);
+    border:1px solid var(--card-border);
+    border-radius:12px;
+    font-size:14px;
+    font-weight:600;
+  }
+  .chip .ico{
+    width:18px;height:18px;
+    display:grid;place-items:center;
+    color:var(--gold);
+    flex-shrink:0;
+  }
+  .chip small{
+    display:block;
+    font-weight:500;
+    color:var(--ink-dim);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+  }
+  .points{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .point{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    font-size:14.5px;
+    color:var(--ink-dim);
+  }
+  .point svg{flex-shrink:0;margin-top:2px;color:var(--gold);}
+  .point b{color:var(--ink);font-weight:600;}
+
+  /* Card */
+  .card-wrap{position:relative;}
+  .card{
+    position:relative;
+    background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+    border:1px solid var(--card-border);
+    border-radius:22px;
+    padding:36px 32px;
+    backdrop-filter:blur(18px);
+    box-shadow:0 30px 80px -30px rgba(0,0,0,.6);
+  }
+  .card::before{
+    content:"";
+    position:absolute;inset:0;
+    border-radius:22px;
+    padding:1px;
+    background:linear-gradient(135deg, rgba(202,167,104,.5), transparent 40%, transparent 70%, rgba(202,167,104,.25));
+    -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    pointer-events:none;
+  }
+  .card h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    font-weight:700;
+    margin-bottom:6px;
+  }
+  .card .sub{
+    font-size:13.5px;
+    color:var(--ink-dim);
+    margin-bottom:24px;
+  }
+  .field{margin-bottom:16px;}
+  .field label{
+    display:block;
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:var(--ink-dim);
+    margin-bottom:7px;
+  }
+  .field input{
+    width:100%;
+    padding:14px 15px;
+    background:rgba(0,0,0,.28);
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:11px;
+    color:var(--ink);
+    font-size:15px;
+    font-family:inherit;
+    transition:border-color .15s, box-shadow .15s;
+  }
+  .field input::placeholder{color:#5c606b;}
+  .field input:focus{
+    outline:none;
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px var(--gold-soft);
+  }
+  .field.error input{border-color:var(--danger);}
+  .field .err-msg{
+    display:none;
+    font-size:12px;
+    color:var(--danger);
+    margin-top:6px;
+  }
+  .field.error .err-msg{display:block;}
+
+  .submit-btn{
+    width:100%;
+    padding:16px 18px;
+    margin-top:6px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#e9c98a,var(--gold) 60%,#a5813f);
+    color:#1a1408;
+    font-family:inherit;
+    font-size:15.5px;
+    font-weight:800;
+    letter-spacing:.01em;
+    cursor:pointer;
+    box-shadow:0 14px 30px -10px rgba(202,167,104,.55);
+    transition:transform .12s ease, box-shadow .12s ease, opacity .15s;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+  }
+  .submit-btn:hover{transform:translateY(-1px);box-shadow:0 18px 36px -10px rgba(202,167,104,.7);}
+  .submit-btn:active{transform:translateY(0);}
+  .submit-btn:disabled{opacity:.65;cursor:not-allowed;transform:none;}
+  .spinner{
+    width:16px;height:16px;
+    border:2px solid rgba(26,20,8,.35);
+    border-top-color:#1a1408;
+    border-radius:50%;
+    animation:spin .7s linear infinite;
+    display:none;
+  }
+  .submit-btn.loading .spinner{display:inline-block;}
+  .submit-btn.loading .btn-label{display:none;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  .fineprint{
+    text-align:center;
+    font-size:11.5px;
+    color:var(--ink-dim);
+    margin-top:14px;
+    line-height:1.5;
+  }
+  .spots{
+    display:flex;align-items:center;gap:8px;
+    font-size:12.5px;color:var(--gold);
+    font-weight:700;
+    margin-top:18px;
+    padding-top:18px;
+    border-top:1px solid var(--card-border);
+  }
+  .spots .dot{width:7px;height:7px;border-radius:50%;background:#5cd68a;box-shadow:0 0 0 4px rgba(92,214,138,.16);}
+
+  /* Success state */
+  .success{
+    display:none;
+    text-align:center;
+    padding:6px 2px;
+  }
+  .success.active{display:block;}
+  .form-state.hidden{display:none;}
+  .success .ok-badge{
+    width:64px;height:64px;
+    margin:0 auto 20px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #6be3a1, #2f9d63);
+    display:grid;place-items:center;
+    box-shadow:0 12px 30px -8px rgba(92,214,138,.45);
+  }
+  .success h2{font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:10px;}
+  .success p{font-size:14.5px;color:var(--ink-dim);line-height:1.6;margin-bottom:22px;}
+  .success p b{color:var(--ink);}
+  .tg-btn{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    width:100%;
+    padding:15px 18px;
+    background:linear-gradient(135deg,#3fb6f2,#1a8fd1);
+    color:#fff;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:800;
+    font-size:15px;
+    box-shadow:0 14px 30px -10px rgba(31,150,224,.55);
+    transition:transform .12s ease;
+  }
+  .tg-btn:hover{transform:translateY(-1px);}
+  .success .hint{
+    margin-top:16px;
+    font-size:12.5px;
+    color:var(--ink-dim);
+    background:rgba(255,255,255,.03);
+    border:1px solid var(--card-border);
+    border-radius:10px;
+    padding:12px 14px;
+    text-align:left;
+    line-height:1.55;
+  }
+  .success .hint b{color:var(--gold);}
+
+  @media (max-width: 900px){
+    .screen{grid-template-columns:1fr;gap:34px;min-height:auto;padding:20px 0 8px;}
+    .lead{max-width:none;}
+    h1{font-size:clamp(40px,11vw,58px);}
+  }
+</style>
+</head>
+<body>
+
+<div class="screen">
+  <div class="hero">
+    <div class="brand">Гостевое посещение</div>
+    <h1>ОБНУЛЕНИЕ<br><em>Начни заново</em></h1>
+    <p class="lead">
+      Один день, который перезапускает всё: голову, тело, состояние.
+      Приходи гостем на программу <b>«Обнуление»</b> и почувствуй, каково это —
+      входить в неделю лёгким, ясным и собранным.
+    </p>
+
+    <div class="meta">
+      <div class="chip">
+        <span class="ico">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <div><small>Дата</small>Воскресенье, 12 июля</div>
+      </div>
+      <div class="chip">
+        <span class="ico">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <div><small>Начало</small>8:30, по Киеву</div>
+      </div>
+    </div>
+
+    <div class="points">
+      <div class="point">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span><b>Бесплатное гостевое участие</b> — только для новых людей</span>
+      </div>
+      <div class="point">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>После регистрации тебя лично проведут в закрытый Telegram-канал</span>
+      </div>
+      <div class="point">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Мест на утреннюю группу немного — регистрация закрывается перед стартом</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-wrap">
+    <div class="card">
+
+      <div class="form-state" id="formState">
+        <h2>Записаться гостем</h2>
+        <p class="sub">Заполни данные — подтверждение придёт мгновенно</p>
+
+        <form id="regForm" novalidate>
+          <div class="field" id="fld-firstName">
+            <label for="firstName">Имя</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Ваше имя" autocomplete="given-name">
+            <div class="err-msg">Введите имя</div>
+          </div>
+          <div class="field" id="fld-lastName">
+            <label for="lastName">Фамилия</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Ваша фамилия" autocomplete="family-name">
+            <div class="err-msg">Введите фамилию</div>
+          </div>
+          <div class="field" id="fld-phone">
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="phone" placeholder="+380 xx xxx xx xx" autocomplete="tel">
+            <div class="err-msg">Введите корректный номер телефона</div>
+          </div>
+          <div class="field" id="fld-telegram">
+            <label for="telegram">Аккаунт в Telegram</label>
+            <input type="text" id="telegram" name="telegram" placeholder="@username" autocomplete="off">
+            <div class="err-msg">Укажите ник в Telegram, начиная с @</div>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span class="spinner"></span>
+            <span class="btn-label">Записаться на 12 июля</span>
+          </button>
+
+          <p class="fineprint">Нажимая «Записаться», вы соглашаетесь на обработку данных для связи с вами по поводу мероприятия.</p>
+        </form>
+
+        <div class="spots"><span class="dot"></span> Осталось несколько мест на утреннюю группу</div>
+      </div>
+
+      <div class="success" id="successState">
+        <div class="ok-badge">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#08221a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h2>Заявка принята!</h2>
+        <p>Ты записан(а) как гость на <b>«Обнуление»</b>, 12 июля в 8:30 по Киеву.<br>
+        Последний шаг — попасть в закрытый Telegram-канал.</p>
+
+        <a class="tg-btn" href="https://t.me/Otdel_Zaboti_Individual" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.2 18.6 20c-.2 1-1 1.3-1.9.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.3-.1-.5-.6-.2L6.4 13.1l-4.8-1.5c-1-.3-1-.9.2-1.4L20.5 3.3c.8-.3 1.6.2 1.4 1z"/></svg>
+          Написать в Отдел Заботы
+        </a>
+
+        <div class="hint">
+          Открой чат <b>@Otdel_Zaboti_Individual</b> и напиши сообщение — тебя добавят
+          в закрытый Telegram-канал программы «Обнуление» и пришлют всю информацию перед началом.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // Замените на URL вашего развёрнутого Google Apps Script (см. google-apps-script/Code.gs)
+  var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/REPLACE_WITH_YOUR_DEPLOYMENT_ID/exec';
+
+  var form = document.getElementById('regForm');
+  var submitBtn = document.getElementById('submitBtn');
+  var formState = document.getElementById('formState');
+  var successState = document.getElementById('successState');
+
+  var fields = {
+    firstName: { el: document.getElementById('firstName'), validate: function(v){ return v.trim().length >= 2; } },
+    lastName:  { el: document.getElementById('lastName'),  validate: function(v){ return v.trim().length >= 2; } },
+    phone:     { el: document.getElementById('phone'),     validate: function(v){ return /^[+\d][\d\s()-]{7,}$/.test(v.trim()); } },
+    telegram:  { el: document.getElementById('telegram'),  validate: function(v){ return /^@?[a-zA-Z0-9_]{4,}$/.test(v.trim()); } }
+  };
+
+  function setError(name, hasError){
+    var wrap = document.getElementById('fld-' + name);
+    wrap.classList.toggle('error', hasError);
+  }
+
+  function validateAll(){
+    var ok = true;
+    Object.keys(fields).forEach(function(name){
+      var f = fields[name];
+      var valid = f.validate(f.el.value);
+      setError(name, !valid);
+      if(!valid) ok = false;
+    });
+    return ok;
+  }
+
+  Object.keys(fields).forEach(function(name){
+    fields[name].el.addEventListener('input', function(){
+      setError(name, false);
+    });
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!validateAll()) return;
+
+    var telegram = fields.telegram.el.value.trim();
+    if(telegram[0] !== '@') telegram = '@' + telegram;
+
+    var payload = {
+      firstName: fields.firstName.el.value.trim(),
+      lastName: fields.lastName.el.value.trim(),
+      phone: fields.phone.el.value.trim(),
+      telegram: telegram,
+      event: 'Обнуление — гостевое посещение',
+      eventDate: '2026-07-12 08:30 (Europe/Kyiv)',
+      submittedAt: new Date().toISOString(),
+      source: location.href
+    };
+
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+
+    fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    })
+    .catch(function(err){
+      console.warn('Не удалось отправить заявку в Google Документ:', err);
+    })
+    .finally(function(){
+      formState.classList.add('hidden');
+      successState.classList.add('active');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
