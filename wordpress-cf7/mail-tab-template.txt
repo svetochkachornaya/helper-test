@@ -1,0 +1,10 @@
+Тема письма (Subject):
+Новая заявка «Обнуление» — [your-name] [your-lastname]
+
+Текст письма (Message body):
+Новая заявка на гостевое посещение «Обнуление», 12 июля 8:30 (Киев).
+
+Имя: [your-name]
+Фамилия: [your-lastname]
+Телефон: [your-phone]
+Telegram: [your-telegram]

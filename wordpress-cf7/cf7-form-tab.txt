@@ -1,0 +1,13 @@
+<label>Имя
+    [text* your-name placeholder "Ваше имя"]</label>
+
+<label>Фамилия
+    [text* your-lastname placeholder "Ваша фамилия"]</label>
+
+<label>Телефон
+    [tel* your-phone placeholder "+380 xx xxx xx xx"]</label>
+
+<label>Аккаунт в Telegram
+    [text* your-telegram placeholder "@username"]</label>
+
+[submit "Записаться на 12 июля"]
