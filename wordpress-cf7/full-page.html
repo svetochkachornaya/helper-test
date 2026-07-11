@@ -95,22 +95,22 @@
   .obn-point b{color:var(--ink);font-weight:600;}
 
   .obnulenie-card{
-    position:relative;
-    background:#1b1e25;
-    border:1px solid rgba(255,255,255,.16);
-    border-radius:22px;
-    padding:36px 32px;
-    box-shadow:0 30px 80px -30px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.03);
+    position:relative !important;
+    background:#1b1e25 !important;
+    border:1px solid rgba(255,255,255,.16) !important;
+    border-radius:22px !important;
+    padding:36px 32px !important;
+    box-shadow:0 30px 80px -30px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.03) !important;
   }
   .obnulenie-card h2{
-    font-family:'Cormorant Garamond',Georgia,serif;
-    font-size:30px;font-weight:700;margin:0 0 6px;color:var(--ink);
+    font-family:'Cormorant Garamond',Georgia,serif !important;
+    font-size:30px !important;font-weight:700 !important;margin:0 0 6px !important;color:#f3efe8 !important;
   }
-  .obnulenie-card .obn-sub{font-size:13.5px;color:var(--ink-dim);margin:0 0 24px;}
+  .obnulenie-card .obn-sub{font-size:13.5px !important;color:#9a9ea8 !important;margin:0 0 24px !important;}
 
   .obnulenie-card .wpcf7-form label{
-    display:block;font-size:12px;font-weight:700;text-transform:uppercase;
-    letter-spacing:.05em;color:var(--ink-dim);margin-bottom:16px;
+    display:block !important;font-size:12px !important;font-weight:700 !important;text-transform:uppercase !important;
+    letter-spacing:.05em !important;color:#9a9ea8 !important;margin-bottom:16px !important;
   }
   .obnulenie-card .wpcf7-form-control-wrap{display:block;margin-top:7px;}
   .obnulenie-card .wpcf7-form-control{
@@ -135,15 +135,20 @@
     text-transform:none;letter-spacing:0;font-weight:500;
   }
   .obnulenie-card .wpcf7-response-output{display:none !important;}
-  .obnulenie-card input.wpcf7-submit{
-    width:100%;padding:16px 18px;margin-top:8px;border:none;border-radius:12px;
-    background:linear-gradient(135deg,#e9c98a,var(--gold) 60%,#a5813f);
-    color:#1a1408;font-family:inherit;font-size:15.5px;font-weight:800;
-    letter-spacing:.01em;cursor:pointer;
-    box-shadow:0 14px 30px -10px rgba(202,167,104,.55);
+  .obnulenie-card input.wpcf7-submit,
+  .obnulenie-card button.wpcf7-submit{
+    width:100% !important;padding:16px 18px !important;margin-top:8px !important;
+    border:none !important;border-radius:12px !important;
+    background:linear-gradient(135deg,#e9c98a,#caa768 60%,#a5813f) !important;
+    color:#1a1408 !important;font-family:inherit !important;font-size:15.5px !important;
+    font-weight:800 !important;letter-spacing:.01em;cursor:pointer;
+    box-shadow:0 14px 30px -10px rgba(202,167,104,.55) !important;
     transition:transform .12s ease, box-shadow .12s ease;
+    text-transform:none !important;
+    -webkit-text-fill-color:#1a1408 !important;
   }
-  .obnulenie-card input.wpcf7-submit:hover{transform:translateY(-1px);}
+  .obnulenie-card input.wpcf7-submit:hover,
+  .obnulenie-card button.wpcf7-submit:hover{transform:translateY(-1px);}
 
   .obn-fineprint{text-align:center;font-size:11.5px;color:var(--ink-dim);margin-top:14px;line-height:1.5;}
 
