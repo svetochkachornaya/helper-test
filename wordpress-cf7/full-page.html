@@ -1,0 +1,268 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#08090b;
+    --bg-1:#101216;
+    --card-border:rgba(255,255,255,.08);
+    --gold:#caa768;
+    --gold-soft:rgba(202,167,104,.14);
+    --ink:#f3efe8;
+    --ink-dim:#9a9ea8;
+    --danger:#e2665a;
+  }
+  .obn-page *{box-sizing:border-box;}
+  .obn-page{
+    font-family:'Manrope',sans-serif;
+    background:
+      radial-gradient(1100px 620px at 82% -8%, rgba(202,167,104,.16), transparent 60%),
+      radial-gradient(900px 500px at 8% 108%, rgba(202,167,104,.10), transparent 60%),
+      linear-gradient(180deg, var(--bg-0), var(--bg-1));
+    color:var(--ink);
+    padding:40px 20px;
+    border-radius:18px;
+  }
+  .obn-screen{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1.15fr 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .obn-brand{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:12.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:28px;
+  }
+  .obn-brand::before{
+    content:"";
+    width:7px;height:7px;border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 0 4px var(--gold-soft);
+  }
+  .obn-page h1{
+    font-family:'Cormorant Garamond',Georgia,serif;
+    font-weight:700;
+    font-size:clamp(40px, 6.4vw, 76px);
+    line-height:1;
+    letter-spacing:.01em;
+    margin:0 0 18px;
+    background:linear-gradient(180deg,#fff, #d9dbe0 60%, #b9bcc4);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .obn-page h1 em{
+    font-style:normal;
+    background:linear-gradient(120deg,#e9c98a,var(--gold) 55%,#8f7440);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .obn-lead{
+    font-size:17px;
+    line-height:1.6;
+    color:var(--ink-dim);
+    max-width:480px;
+    margin:0 0 28px;
+  }
+  .obn-lead b{color:var(--ink);font-weight:600;}
+  .obn-meta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px;}
+  .obn-chip{
+    display:flex;align-items:center;gap:9px;
+    padding:11px 16px;
+    background:rgba(255,255,255,.03);
+    border:1px solid var(--card-border);
+    border-radius:12px;
+    font-size:14px;font-weight:600;
+  }
+  .obn-chip small{
+    display:block;font-weight:500;color:var(--ink-dim);
+    font-size:11px;text-transform:uppercase;letter-spacing:.06em;
+  }
+  .obn-points{display:flex;flex-direction:column;gap:12px;}
+  .obn-point{display:flex;align-items:flex-start;gap:12px;font-size:14.5px;color:var(--ink-dim);}
+  .obn-point svg{flex-shrink:0;margin-top:2px;color:var(--gold);}
+  .obn-point b{color:var(--ink);font-weight:600;}
+
+  .obnulenie-card{
+    position:relative;
+    background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+    border:1px solid var(--card-border);
+    border-radius:22px;
+    padding:36px 32px;
+    box-shadow:0 30px 80px -30px rgba(0,0,0,.6);
+  }
+  .obnulenie-card h2{
+    font-family:'Cormorant Garamond',Georgia,serif;
+    font-size:30px;font-weight:700;margin:0 0 6px;color:var(--ink);
+  }
+  .obnulenie-card .obn-sub{font-size:13.5px;color:var(--ink-dim);margin:0 0 24px;}
+
+  .obnulenie-card .wpcf7-form label{
+    display:block;font-size:12px;font-weight:700;text-transform:uppercase;
+    letter-spacing:.05em;color:var(--ink-dim);margin-bottom:16px;
+  }
+  .obnulenie-card .wpcf7-form-control-wrap{display:block;margin-top:7px;}
+  .obnulenie-card .wpcf7-form-control{
+    width:100%;padding:14px 15px;
+    background:rgba(0,0,0,.28);
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:11px;color:var(--ink);font-size:15px;font-family:inherit;
+    transition:border-color .15s, box-shadow .15s;
+  }
+  .obnulenie-card .wpcf7-form-control::placeholder{color:#5c606b;}
+  .obnulenie-card .wpcf7-form-control:focus{
+    outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-soft);
+  }
+  .obnulenie-card .wpcf7-not-valid-tip{
+    display:block;font-size:12px;color:var(--danger);margin-top:6px;
+    text-transform:none;letter-spacing:0;font-weight:500;
+  }
+  .obnulenie-card .wpcf7-response-output{display:none !important;}
+  .obnulenie-card input.wpcf7-submit{
+    width:100%;padding:16px 18px;margin-top:8px;border:none;border-radius:12px;
+    background:linear-gradient(135deg,#e9c98a,var(--gold) 60%,#a5813f);
+    color:#1a1408;font-family:inherit;font-size:15.5px;font-weight:800;
+    letter-spacing:.01em;cursor:pointer;
+    box-shadow:0 14px 30px -10px rgba(202,167,104,.55);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .obnulenie-card input.wpcf7-submit:hover{transform:translateY(-1px);}
+
+  .obn-fineprint{text-align:center;font-size:11.5px;color:var(--ink-dim);margin-top:14px;line-height:1.5;}
+
+  .obnulenie-success{display:none;text-align:center;}
+  .obnulenie-success.active{display:block;}
+  .obnulenie-success .ok-badge{
+    width:64px;height:64px;margin:0 auto 20px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #6be3a1, #2f9d63);
+    display:grid;place-items:center;
+    box-shadow:0 12px 30px -8px rgba(92,214,138,.45);
+  }
+  .obnulenie-success h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:28px;margin:0 0 10px;}
+  .obnulenie-success p{font-size:14.5px;color:var(--ink-dim);line-height:1.6;margin:0 0 22px;}
+  .obnulenie-success p b{color:var(--ink);}
+  .obnulenie-success .tg-btn{
+    display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    padding:15px 18px;background:linear-gradient(135deg,#3fb6f2,#1a8fd1);
+    color:#fff;border-radius:12px;text-decoration:none;font-weight:800;font-size:15px;
+    box-shadow:0 14px 30px -10px rgba(31,150,224,.55);
+  }
+  .obnulenie-success .hint{
+    margin-top:16px;font-size:12.5px;color:var(--ink-dim);
+    background:rgba(255,255,255,.03);border:1px solid var(--card-border);
+    border-radius:10px;padding:12px 14px;text-align:left;line-height:1.55;
+  }
+  .obnulenie-success .hint b{color:var(--gold);}
+
+  @media (max-width: 900px){
+    .obn-screen{grid-template-columns:1fr;gap:34px;}
+    .obn-lead{max-width:none;}
+  }
+</style>
+
+<div class="obn-page">
+  <div class="obn-screen">
+    <div class="obn-hero">
+      <div class="obn-brand">Гостевое посещение</div>
+      <h1>ОБНУЛЕНИЕ<br><em>Начни заново</em></h1>
+      <p class="obn-lead">
+        Один день, который перезапускает всё: голову, тело, состояние.
+        Приходи гостем на программу <b>«Обнуление»</b> и почувствуй, каково это —
+        входить в неделю лёгким, ясным и собранным.
+      </p>
+
+      <div class="obn-meta">
+        <div class="obn-chip"><div><small>Дата</small>Воскресенье, 12 июля</div></div>
+        <div class="obn-chip"><div><small>Начало</small>8:30, по Киеву</div></div>
+      </div>
+
+      <div class="obn-points">
+        <div class="obn-point">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><b>Бесплатное гостевое участие</b> — только для новых людей</span>
+        </div>
+        <div class="obn-point">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>После регистрации тебя лично проведут в закрытый Telegram-канал</span>
+        </div>
+        <div class="obn-point">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Мест на утреннюю группу немного — регистрация закрывается перед стартом</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="obnulenie-card" id="obnulenieFormCard">
+        <h2>Записаться гостем</h2>
+        <p class="obn-sub">Заполни данные — подтверждение придёт мгновенно</p>
+
+        [contact-form-7 id="6673d89" title="Обнуление. Гостевой визит"]
+
+        <p class="obn-fineprint">Нажимая «Записаться», вы соглашаетесь на обработку данных для связи с вами по поводу мероприятия.</p>
+      </div>
+
+      <div class="obnulenie-card obnulenie-success" id="obnulenieSuccess">
+        <div class="ok-badge">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#08221a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h2>Заявка принята!</h2>
+        <p>Ты записан(а) как гость на <b>«Обнуление»</b>, 12 июля в 8:30 по Киеву.<br>
+        Последний шаг — попасть в закрытый Telegram-канал.</p>
+
+        <a class="tg-btn" href="https://t.me/Otdel_Zaboti_Individual" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.2 18.6 20c-.2 1-1 1.3-1.9.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.3-.1-.5-.6-.2L6.4 13.1l-4.8-1.5c-1-.3-1-.9.2-1.4L20.5 3.3c.8-.3 1.6.2 1.4 1z"/></svg>
+          Написать в Отдел Заботы
+        </a>
+
+        <div class="hint">
+          Открой чат <b>@Otdel_Zaboti_Individual</b> и напиши сообщение — тебя добавят
+          в закрытый Telegram-канал программы «Обнуление» и пришлют всю информацию перед началом.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyxFBYqwk4xeNTmECCHwYo9JokmL3MRNRxemekxMbcfG_lFhmJg-9GqnTf1TaTmBpa9EQ/exec';
+
+  document.addEventListener('wpcf7mailsent', function(event){
+    var formCard = document.getElementById('obnulenieFormCard');
+    var success = document.getElementById('obnulenieSuccess');
+    if (formCard) formCard.style.display = 'none';
+    if (success) success.classList.add('active');
+
+    var values = {};
+    (event.detail.inputs || []).forEach(function(field){
+      values[field.name] = field.value;
+    });
+
+    fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({
+        firstName: values['your-name'] || '',
+        lastName: values['your-lastname'] || '',
+        phone: values['your-phone'] || '',
+        telegram: values['your-telegram'] || ''
+      })
+    }).catch(function(err){
+      console.warn('Не удалось продублировать заявку в Google Таблицу:', err);
+    });
+  }, false);
+})();
+</script>
