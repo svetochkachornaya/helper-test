@@ -114,15 +114,21 @@
   }
   .obnulenie-card .wpcf7-form-control-wrap{display:block;margin-top:7px;}
   .obnulenie-card .wpcf7-form-control{
-    width:100%;padding:14px 15px;
-    background:rgba(0,0,0,.28);
-    border:1px solid rgba(255,255,255,.09);
-    border-radius:11px;color:var(--ink);font-size:15px;font-family:inherit;
+    width:100% !important;padding:14px 15px !important;
+    background:#1c1e24 !important;
+    border:1px solid rgba(255,255,255,.09) !important;
+    border-radius:11px !important;color:#f3efe8 !important;font-size:15px !important;
+    font-family:inherit !important;-webkit-text-fill-color:#f3efe8 !important;
     transition:border-color .15s, box-shadow .15s;
   }
-  .obnulenie-card .wpcf7-form-control::placeholder{color:#5c606b;}
+  .obnulenie-card .wpcf7-form-control::placeholder{color:#8a8e98 !important;opacity:1 !important;}
   .obnulenie-card .wpcf7-form-control:focus{
-    outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-soft);
+    outline:none;border-color:var(--gold) !important;box-shadow:0 0 0 3px var(--gold-soft);
+  }
+  .obnulenie-card .wpcf7-form-control:-webkit-autofill,
+  .obnulenie-card .wpcf7-form-control:-webkit-autofill:focus{
+    -webkit-box-shadow:0 0 0 1000px #1c1e24 inset !important;
+    -webkit-text-fill-color:#f3efe8 !important;
   }
   .obnulenie-card .wpcf7-not-valid-tip{
     display:block;font-size:12px;color:var(--danger);margin-top:6px;
