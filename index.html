@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Обнуление. Возврат к своей силе</title>
+  <meta name="description" content="Еженедельные живые встречи с Евгением. Вернитесь в исходную точку и начните жить из своей силы." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #f9f6f1;
+      --bg2:      #f2ede5;
+      --ink:      #1b1713;
+      --ink2:     #4a443c;
+      --line:     #ddd6cb;
+      --accent:   #5a3e1b;
+      --accent2:  #a07040;
+      --accent3:  #d4a96a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .c { max-width: 1040px; margin: 0 auto; padding: 0 40px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(249,246,241,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .3s;
+    }
+    nav.on { border-bottom-color: var(--line); }
+    .nav-c {
+      max-width: 1040px; margin: 0 auto; padding: 0 40px;
+      height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px; color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a {
+      font-size: 11px; font-weight: 400; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--ink2);
+      text-decoration: none; transition: color .25s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-btn {
+      background: var(--accent) !important; color: #fff !important;
+      padding: 10px 24px !important;
+    }
+    .nav-btn:hover { background: var(--ink) !important; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-block; text-decoration: none;
+      font-size: 11px; font-weight: 400; letter-spacing: .18em;
+      text-transform: uppercase; padding: 15px 40px;
+      transition: all .25s; cursor: pointer; border: none;
+    }
+    .btn-fill { background: var(--accent); color: #fff; }
+    .btn-fill:hover { background: var(--ink); }
+    .btn-out { border: 1px solid var(--line); color: var(--ink2); background: none; }
+    .btn-out:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      padding-top: 68px;
+      min-height: 100svh;
+      display: flex; flex-direction: column;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-top {
+      flex: 1;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 64px 0 56px;
+    }
+    .hero-tag {
+      font-size: 11px; font-weight: 400; letter-spacing: .35em;
+      text-transform: uppercase; color: var(--accent2);
+      margin-bottom: 24px; display: block;
+    }
+    .hero-h {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 13vw, 180px);
+      line-height: .88; letter-spacing: -.03em;
+      color: var(--ink); margin-bottom: 0;
+      display: flex; flex-direction: column; gap: .15em;
+    }
+    .hero-h em { font-style: italic; color: var(--accent2); }
+    .hero-h-sub {
+      font-size: clamp(18px, 4.5vw, 60px);
+      letter-spacing: -.01em; line-height: 1;
+      color: var(--accent2); font-style: italic;
+    }
+    .hero-desc {
+      font-size: 17px; line-height: 1.8;
+      color: var(--ink2);
+      margin-top: 32px; margin-bottom: 0;
+    }
+    .hero-lower {
+      padding-top: 40px; margin-top: 40px;
+      border-top: 1px solid var(--line);
+    }
+    .hero-meta {
+      display: flex; gap: 40px; flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .hero-meta-label {
+      font-size: 10px; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 5px;
+    }
+    .hero-meta-val {
+      font-size: 14px; color: var(--ink); font-weight: 400;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-btns .btn { text-align: center; }
+    .hero-bottom {
+      padding: 16px 0;
+      display: flex; align-items: center; gap: 20px;
+    }
+    .hero-scroll-label {
+      font-size: 10px; letter-spacing: .35em; text-transform: uppercase;
+      color: var(--accent3);
+    }
+    .hero-scroll-line {
+      width: 80px; height: 1px; background: var(--line);
+    }
+
+    /* ── SECTION LABELS ── */
+    .s-label {
+      font-size: 11px; font-weight: 400; letter-spacing: .35em;
+      text-transform: uppercase; color: var(--accent2);
+      margin-bottom: 20px; display: block;
+    }
+    .s-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 4vw, 52px);
+      line-height: 1.05; color: var(--ink);
+    }
+    .s-title em { font-style: italic; color: var(--accent2); }
+
+    /* ── INTRO ── */
+    .intro {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .intro .c {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .intro-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(32px, 3.5vw, 46px);
+      line-height: 1.1; color: var(--ink);
+      margin-bottom: 28px;
+    }
+    .intro-title em { font-style: italic; color: var(--accent2); }
+    .intro-text {
+      font-size: 17px; line-height: 1.85; color: var(--ink2);
+    }
+    .intro-text p { margin-bottom: 20px; }
+    .intro-text p:last-child { margin-bottom: 0; }
+    .intro-text strong { color: var(--ink); font-weight: 500; }
+
+    .intro-photo {
+      aspect-ratio: 4/5;
+      background: var(--ink);
+      position: relative; overflow: hidden;
+      display: flex; align-items: flex-end;
+    }
+    .intro-photo img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover; object-position: center 35%;
+      display: block;
+    }
+    .intro-photo-overlay {
+      position: relative; z-index: 1;
+      padding: 28px 32px;
+      background: linear-gradient(to top, rgba(27,23,19,.85) 0%, transparent 100%);
+      width: 100%;
+    }
+    .intro-photo-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px; color: #f0ece5;
+      margin-bottom: 4px;
+    }
+    .intro-photo-role {
+      font-size: 12px; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent3);
+    }
+    .intro-photo-caption {
+      display: none;
+      padding: 14px 0 0;
+    }
+    .intro-photo-caption .intro-photo-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px; color: var(--ink); margin-bottom: 3px;
+    }
+    .intro-photo-caption .intro-photo-role {
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent2);
+    }
+    .intro-photo-initial {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 160px; font-style: italic;
+      color: rgba(255,255,255,.06);
+      user-select: none;
+    }
+
+    /* ── QUOTE ── */
+    .quote {
+      background: var(--ink);
+      padding: 100px 0;
+    }
+    .q-mark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 80px; line-height: 1;
+      color: var(--accent3); opacity: .4;
+      margin-bottom: -20px;
+    }
+    .q-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(24px, 3vw, 40px);
+      line-height: 1.45; font-style: italic;
+      color: #f0ece5; max-width: 820px;
+      margin-bottom: 36px;
+    }
+    .q-attr {
+      font-size: 11px; letter-spacing: .3em;
+      text-transform: uppercase; color: var(--accent3);
+    }
+
+    /* ── RESULTS ── */
+    .results {
+      padding: 100px 0;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--line);
+    }
+    .results-head { margin-bottom: 64px; }
+    .results-list { list-style: none; }
+    .result-item {
+      display: grid; grid-template-columns: 56px 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--line);
+      padding: 48px 0;
+      transition: background .2s;
+    }
+    .result-item:last-child { border-bottom: 1px solid var(--line); }
+    .result-idx {
+      font-size: 12px; letter-spacing: .2em;
+      color: var(--accent3); padding-top: 4px;
+      font-weight: 400;
+    }
+    .result-main { padding-right: 48px; }
+    .result-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(22px, 2.4vw, 30px);
+      line-height: 1.1; color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .result-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .result-tag {
+      font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--accent2);
+      border: 1px solid var(--line);
+      padding: 4px 12px;
+      background: var(--bg);
+    }
+    .result-desc {
+      font-size: 15px; color: var(--ink2);
+      line-height: 1.8; padding-top: 4px;
+    }
+
+    /* ── FORMAT ── */
+    .format {
+      background: var(--ink);
+      padding: 100px 0;
+    }
+    .format-head {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .format-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(30px, 3.2vw, 44px);
+      line-height: 1.1; color: #f0ece5;
+      margin-top: 20px;
+    }
+    .format-head-note {
+      font-size: 16px; color: rgba(240,236,229,.5);
+      line-height: 1.7; max-width: 480px; margin: 20px auto 0; text-align: center;
+    }
+    .format-tiles {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border: 1px solid rgba(255,255,255,.1);
+      margin-bottom: 56px;
+    }
+    .format-tile {
+      padding: 40px 32px;
+      border-right: 1px solid rgba(255,255,255,.1);
+    }
+    .format-tile:last-child { border-right: none; }
+    .format-tile-label {
+      font-size: 10px; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--accent3); margin-bottom: 16px; display: block;
+    }
+    .format-tile-val {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(20px, 2vw, 26px);
+      color: #f0ece5; line-height: 1.2;
+    }
+    .format-quote {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(18px, 2vw, 24px);
+      font-style: italic; color: rgba(240,236,229,.45);
+      line-height: 1.6; max-width: 680px;
+    }
+
+    /* ── PRICING ── */
+    .pricing {
+      padding: 100px 0;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--line);
+    }
+    .pricing-head {
+      margin-bottom: 56px;
+    }
+    .pricing-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(30px, 3.2vw, 44px);
+      line-height: 1.1; color: var(--ink);
+      margin-top: 20px; margin-bottom: 16px;
+    }
+    .pricing-sub {
+      font-size: 15px; color: var(--ink2); line-height: 1.75;
+      max-width: 560px;
+    }
+    .pricing-cards {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 24px; align-items: start;
+    }
+    .pricing-guarantee {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 20px 24px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      margin-top: 32px;
+    }
+    .guarantee-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .guarantee-text { font-size: 13px; color: var(--ink2); line-height: 1.6; }
+    .guarantee-text strong { color: var(--ink); font-weight: 500; }
+
+    /* pricing card */
+    .pricing-card {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .pricing-card-top {
+      background: var(--accent);
+      padding: 36px 40px 32px;
+    }
+    .pricing-card--premium .pricing-card-top {
+      background: var(--ink);
+    }
+    .pricing-card--premium .price-badge {
+      display: inline-block;
+      font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent3);
+      border: 1px solid rgba(212,169,106,.35);
+      padding: 4px 12px; margin-bottom: 16px;
+    }
+    .price-eyebrow {
+      font-size: 11px; letter-spacing: .3em; text-transform: uppercase;
+      color: rgba(255,255,255,.5); margin-bottom: 16px;
+    }
+    .price-row {
+      display: flex; align-items: flex-start; gap: 4px;
+    }
+    .price-sup {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px; color: var(--accent3);
+      margin-top: 10px;
+    }
+    .price-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 76px; line-height: 1;
+      letter-spacing: -.03em; color: #fff;
+    }
+    .price-right { padding-top: 16px; margin-left: 8px; }
+    .price-per {
+      font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(255,255,255,.6); margin-bottom: 6px;
+    }
+    .price-start { font-size: 13px; color: var(--accent3); font-weight: 400; }
+    .pricing-card-body { padding: 36px 40px; }
+    .price-list { list-style: none; margin-bottom: 32px; }
+    .price-list li {
+      padding: 12px 0; border-bottom: 1px solid var(--line);
+      font-size: 14px; color: var(--ink2);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .price-list li::before {
+      content: ''; display: block;
+      width: 14px; height: 1px;
+      background: var(--accent2); flex-shrink: 0;
+    }
+    .price-list li.highlight {
+      color: var(--accent); font-weight: 400;
+    }
+    .price-list li.highlight::before { background: var(--accent3); }
+    .price-cancel {
+      text-align: center; font-size: 12px;
+      color: var(--accent2); margin-top: 14px;
+      letter-spacing: .12em;
+    }
+
+    /* ── FAQ ── */
+    .faq {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .faq .c { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; }
+    .faq-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(30px, 3.2vw, 44px);
+      line-height: 1.1; color: var(--ink); margin-top: 20px;
+    }
+    .faq-list { border-top: 1px solid var(--line); }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-q {
+      width: 100%; background: none; border: none; padding: 24px 0;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 20px; text-align: left; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px; font-weight: 400; color: var(--ink);
+      line-height: 1.4; transition: color .25s;
+    }
+    .faq-q:hover { color: var(--accent); }
+    .faq-plus {
+      font-size: 22px; color: var(--accent2); flex-shrink: 0;
+      transition: transform .35s; font-weight: 300; line-height: 1;
+    }
+    .faq-item.open .faq-plus { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .45s ease; }
+    .faq-item.open .faq-a { max-height: 280px; }
+    .faq-a p { font-size: 15px; color: var(--ink2); line-height: 1.8; padding-bottom: 24px; }
+
+    /* ── CONTACTS ── */
+    .contacts {
+      background: var(--ink);
+      padding: 100px 0;
+    }
+    .contacts .c { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; }
+    .contacts-label {
+      font-size: 11px; letter-spacing: .35em; text-transform: uppercase;
+      color: var(--accent3); margin-bottom: 20px; display: block;
+    }
+    .contacts-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(30px, 3.2vw, 44px);
+      line-height: 1.1; color: #f0ece5; margin-bottom: 20px;
+    }
+    .contacts-sub {
+      font-size: 15px; color: rgba(240,236,229,.5); line-height: 1.7;
+    }
+    .c-items {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+    .c-item {
+      padding: 28px 24px;
+      border-right: 1px solid rgba(255,255,255,.1);
+      transition: background .25s;
+    }
+    .c-item:last-child { border-right: none; }
+    .c-item:hover { background: rgba(255,255,255,.04); }
+    .c-item-label {
+      font-size: 10px; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--accent3); margin-bottom: 8px; display: block;
+    }
+    .c-item-val { font-size: 15px; color: #f0ece5; font-weight: 400; }
+    .c-item-val a { color: inherit; text-decoration: none; transition: color .25s; }
+    .c-item-val a:hover { color: var(--accent3); }
+
+    /* CF7 */
+    .cf7 .wpcf7-form { display: flex; flex-direction: column; gap: 0; }
+    .cf7 .wpcf7-form p { margin: 0; }
+    .cf7 input[type=text],
+    .cf7 input[type=email],
+    .cf7 input[type=tel],
+    .cf7 textarea {
+      width: 100%; display: block;
+      background: rgba(255,255,255,.05);
+      border: none; border-bottom: 1px solid rgba(255,255,255,.12);
+      color: #f0ece5; padding: 16px 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px; font-weight: 300;
+      outline: none; margin-bottom: 2px;
+      transition: border-color .25s;
+    }
+    .cf7 input:focus,
+    .cf7 textarea:focus { border-bottom-color: var(--accent3); }
+    .cf7 input::placeholder,
+    .cf7 textarea::placeholder { color: rgba(240,236,229,.28); }
+    .cf7 input[type=submit],
+    .cf7 .wpcf7-submit {
+      margin-top: 24px; width: 100%;
+      background: var(--accent2); color: #fff; border: none; cursor: pointer;
+      padding: 16px; font-family: 'Inter', sans-serif;
+      font-size: 11px; font-weight: 400;
+      letter-spacing: .22em; text-transform: uppercase;
+      transition: background .25s;
+    }
+    .cf7 input[type=submit]:hover,
+    .cf7 .wpcf7-submit:hover { background: var(--accent3); }
+    .cf7 .wpcf7-response-output {
+      border: 1px solid var(--accent3) !important;
+      color: var(--accent3); font-size: 13px;
+      padding: 12px 16px; margin-top: 12px;
+    }
+
+    /* ── FOOTER ── */
+    footer { background: #110f0c; }
+    .footer-c {
+      max-width: 1040px; margin: 0 auto; padding: 0 40px;
+      height: 60px; display: flex; align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,.07);
+    }
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 16px; color: rgba(240,236,229,.3);
+    }
+    .footer-copy { font-size: 12px; color: rgba(240,236,229,.22); }
+
+    /* ── POPUP ── */
+    .popup-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(27,23,19,.7);
+      backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    .popup-overlay.open { opacity: 1; pointer-events: all; }
+    .popup {
+      background: var(--bg);
+      max-width: 560px; width: 100%;
+      padding: 56px 52px;
+      position: relative;
+      transform: translateY(16px);
+      transition: transform .35s ease;
+      max-height: calc(100dvh - 32px); overflow-y: auto;
+    }
+    .popup-overlay.open .popup { transform: none; }
+    .popup-close {
+      position: absolute; top: 20px; right: 24px;
+      background: none; border: none; cursor: pointer;
+      font-size: 24px; color: var(--ink2); line-height: 1;
+      transition: color .2s;
+    }
+    .popup-close:hover { color: var(--accent); }
+    .popup-label {
+      font-size: 11px; letter-spacing: .35em; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 12px; display: block;
+    }
+    .popup-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(26px, 3vw, 36px);
+      line-height: 1.1; color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .popup-sub {
+      font-size: 15px; color: var(--ink2);
+      line-height: 1.7; margin-bottom: 36px;
+    }
+    /* CF7 inside popup (light) */
+    .popup .cf7 input[type=text],
+    .popup .cf7 input[type=email],
+    .popup .cf7 input[type=tel],
+    .popup .cf7 textarea {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--line);
+      color: var(--ink);
+    }
+    .popup .cf7 input:focus,
+    .popup .cf7 textarea:focus { border-bottom-color: var(--accent); }
+    .popup .cf7 input::placeholder,
+    .popup .cf7 textarea::placeholder { color: var(--ink2); opacity: .4; }
+    .popup .cf7 input[type=submit],
+    .popup .cf7 .wpcf7-submit { background: var(--accent); }
+    .popup .cf7 input[type=submit]:hover,
+    .popup .cf7 .wpcf7-submit:hover { background: var(--ink); }
+    .popup .cf7 .wpcf7-response-output { color: var(--accent); border-color: var(--accent) !important; }
+    .popup .cf7 label,
+    .popup .cf7 .wpcf7-acceptance label,
+    .popup .cf7 .wpcf7-list-item label { font-size: 12px; color: var(--ink2); line-height: 1.5; }
+    .popup .cf7 .wpcf7-acceptance { margin-top: 8px; display: block; }
+    .popup .cf7 input[type=checkbox] { width: 13px; height: 13px; margin-right: 6px; flex-shrink: 0; }
+
+    /* ── REVEAL ── */
+    .rv { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+    .rv.in { opacity: 1; transform: none; }
+
+    /* ── TABLET ── */
+    @media (max-width: 820px) {
+      .c, .nav-c { padding: 0 20px; }
+      .nav-links a:not(.nav-btn) { display: none; }
+      .intro { padding: 64px 0; }
+      .intro .c { grid-template-columns: 1fr; gap: 36px; }
+      .intro-photo { aspect-ratio: 3/2; }
+      .intro-text { font-size: 15px; }
+      .format-tiles { grid-template-columns: 1fr 1fr; }
+      .pricing-cards { grid-template-columns: 1fr; gap: 20px; }
+      .faq .c,
+      .contacts .c { grid-template-columns: 1fr; gap: 48px; }
+      .result-item { grid-template-columns: 40px 1fr; }
+      .result-main { padding-right: 0; }
+      .result-desc { display: none; }
+      .c-items { grid-template-columns: 1fr; }
+      .c-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); }
+      .c-item:last-child { border-bottom: none; }
+      .footer-c { padding: 0 20px; }
+      .pricing-card-top, .pricing-card-body { padding: 32px 28px; }
+    }
+
+    /* ── SMALL MOBILE ── */
+    @media (max-width: 540px) {
+      .hero-top { padding: 48px 0 40px; }
+      .hero-lower { padding-top: 28px; margin-top: 28px; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { text-align: center; }
+      .hero-desc { font-size: 15px; }
+      .hero-meta { gap: 24px; }
+      .intro { padding: 48px 0; }
+      .intro-photo { aspect-ratio: 4/3; max-height: 280px; }
+      .intro-photo-overlay { display: none; }
+      .intro-photo-caption { display: block; }
+      .intro-title { font-size: clamp(26px, 6vw, 36px); }
+      .format-tiles { grid-template-columns: 1fr; }
+      .format-tile { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); padding: 20px; }
+      .format-tile:last-child { border-bottom: none; }
+      .format-tile-val { font-size: 18px; }
+      .format { padding: 64px 0; }
+      .format-head { margin-bottom: 36px; }
+      .popup-overlay { align-items: flex-end; padding: 0; }
+      .popup { padding: 28px 20px 32px; max-height: 92dvh; border-radius: 0; }
+      .popup-title { font-size: clamp(20px, 6vw, 28px); margin-bottom: 4px; }
+      .popup-sub { font-size: 13px; margin-bottom: 20px; }
+      .faq-item.open .faq-a { max-height: 520px; }
+      .result-item { grid-template-columns: 36px 1fr; padding: 32px 0; }
+      .pricing-card-top, .pricing-card-body { padding: 24px 20px; }
+      .price-num { font-size: 64px; }
+      footer .footer-c { flex-direction: column; gap: 6px; height: auto; padding: 16px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-c">
+    <a href="#" class="logo">Обнуление</a>
+    <div class="nav-links">
+      <a href="#results">Программа</a>
+      <a href="#pricing">Стоимость</a>
+      <button class="nav-btn btn open-popup">Начать</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="c">
+    <div class="hero-top">
+      <span class="hero-tag rv">Еженедельные встречи с Евгением</span>
+      <h1 class="hero-h rv">
+        <span>Обнуление</span>
+        <span class="hero-h-sub">Возврат к своей силе</span>
+      </h1>
+      <p class="hero-desc rv">Вы живёте на автопилоте — постоянно реагируете, устаёте, теряете себя. Обнуление — живое пространство, где вы возвращаетесь к своей исходной точке.</p>
+      <div class="hero-lower rv">
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <div class="hero-meta-label">Старт</div>
+            <div class="hero-meta-val">19 июля 2026</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-label">Стоимость</div>
+            <div class="hero-meta-val">от $20 / месяц</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-label">Формат</div>
+            <div class="hero-meta-val">Zoom, 4× в месяц</div>
+          </div>
+        </div>
+        <div class="hero-btns">
+          <button class="btn btn-fill open-popup">Присоединиться</button>
+          <a href="#results" class="btn btn-out">Узнать больше</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bottom">
+      <span class="hero-scroll-label">Листать</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO / ЕВГЕНИЙ -->
+<section class="intro" id="about">
+  <div class="c">
+    <div class="intro-photo-wrap rv">
+      <div class="intro-photo">
+        <img src="https://individual-center.com/wp-content/uploads/2026/06/photo_2569-06-03-19.56.36.jpeg" alt="Евгений" />
+        <div class="intro-photo-overlay">
+          <div class="intro-photo-name">Евгений</div>
+          <div class="intro-photo-role">Ведущий программы</div>
+        </div>
+      </div>
+      <div class="intro-photo-caption">
+        <div class="intro-photo-name">Евгений</div>
+        <div class="intro-photo-role">Ведущий программы</div>
+      </div>
+    </div>
+    <div class="intro-content rv">
+      <h2 class="intro-title">О чём <em>программа</em></h2>
+      <div class="intro-text">
+        <p>Большинство из нас живут в постоянном напряжении — под давлением ролей, ожиданий и чужих голосов. Мы давно забыли, каково это — <strong>просто быть собой</strong>.</p>
+        <p>Евгений работает с людьми, которые устали от тревоги и ощущения, что живут не своей жизнью. Его подход — прямой, без лишних слов: встреча с тем, что есть прямо сейчас.</p>
+        <p>Обнуление — это не терапия и не коучинг. Это живое пространство, где шаг за шагом вы возвращаетесь к себе через <strong>разотождествление</strong> с тем, что вами не является.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote">
+  <div class="c rv">
+    <div class="q-mark">"</div>
+    <p class="q-text">Нулевое состояние — не пустота. Это полнота до слов, до ролей, до страхов. Именно отсюда рождается настоящая жизнь.</p>
+    <span class="q-attr">— Евгений, ведущий программы</span>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results" id="results">
+  <div class="c">
+    <div class="results-head rv">
+      <span class="s-label">Что вы получите</span>
+      <h2 class="s-title">Жизнь из <em>внутренней силы</em></h2>
+    </div>
+    <ul class="results-list">
+      <li class="result-item rv">
+        <span class="result-idx">01</span>
+        <div class="result-main">
+          <div class="result-name">Внутренний покой</div>
+          <div class="result-tags">
+            <span class="result-tag">Равновесие</span>
+            <span class="result-tag">Тишина внутри</span>
+          </div>
+        </div>
+        <div class="result-desc">Выход в состояние нулевого равновесия — свободного от ментального шума, тревоги и постоянного внутреннего диалога.</div>
+      </li>
+      <li class="result-item rv">
+        <span class="result-idx">02</span>
+        <div class="result-main">
+          <div class="result-name">Ясность и свобода</div>
+          <div class="result-tags">
+            <span class="result-tag">Решения из себя</span>
+            <span class="result-tag">Границы</span>
+          </div>
+        </div>
+        <div class="result-desc">Способность принимать решения из себя, а не из страха. Умение говорить «нет» без вины и проявляться без масок.</div>
+      </li>
+      <li class="result-item rv">
+        <span class="result-idx">03</span>
+        <div class="result-main">
+          <div class="result-name">Связь с собой</div>
+          <div class="result-tags">
+            <span class="result-tag">Живое присутствие</span>
+            <span class="result-tag">Своя сила</span>
+          </div>
+        </div>
+        <div class="result-desc">Восстановление глубокой связи с собственной силой — той, которая была всегда, но оказалась перекрыта ролями и ожиданиями.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- FORMAT -->
+<section class="format" id="format">
+  <div class="c">
+    <div class="format-head rv">
+      <div>
+        <span class="s-label" style="color:var(--accent3)">Формат</span>
+        <h2 class="format-title">Живые встречи.<br>Каждую неделю.</h2>
+      </div>
+      <p class="format-head-note">Не лекции. Не записи на потом. Живое пространство — где каждая встреча работает с тем, что есть прямо сейчас.</p>
+    </div>
+    <div class="format-tiles rv">
+      <div class="format-tile">
+        <span class="format-tile-label">Платформа</span>
+        <div class="format-tile-val">Zoom</div>
+      </div>
+      <div class="format-tile">
+        <span class="format-tile-label">Периодичность</span>
+        <div class="format-tile-val">1 раз в неделю</div>
+      </div>
+      <div class="format-tile">
+        <span class="format-tile-label">В месяц</span>
+        <div class="format-tile-val">4 встречи</div>
+      </div>
+      <div class="format-tile">
+        <span class="format-tile-label">Старт</span>
+        <div class="format-tile-val">19 июля 2026</div>
+      </div>
+    </div>
+    <p class="format-quote rv">«Каждый приходит со своим. Каждый уходит с чем-то настоящим.»</p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="c">
+    <div class="pricing-head rv">
+      <span class="s-label">Стоимость</span>
+      <h2 class="pricing-title">Выберите свой формат участия</h2>
+      <p class="pricing-sub">Платите за месяц — продолжайте, когда хотите. Каждый месяц оплачивается отдельно.</p>
+    </div>
+    <div class="pricing-cards rv">
+
+      <!-- Карточка 1 -->
+      <div class="pricing-card">
+        <div class="pricing-card-top">
+          <div class="price-eyebrow">Обнуление</div>
+          <div class="price-row">
+            <span class="price-sup">$</span>
+            <span class="price-num">20</span>
+            <div class="price-right">
+              <div class="price-per">в месяц</div>
+              <div class="price-start">Старт — 19 июля</div>
+            </div>
+          </div>
+        </div>
+        <div class="pricing-card-body">
+          <ul class="price-list">
+            <li>4 живые встречи в месяц в Zoom</li>
+            <li>Прямая работа с Евгением</li>
+            <li>Практики разотождествления</li>
+            <li>Доступ к пространству группы</li>
+            <li>Каждый месяц оплачивается отдельно</li>
+          </ul>
+          <button class="btn btn-fill open-popup" style="width:100%;text-align:center;display:block;">
+            Присоединиться
+          </button>
+        </div>
+      </div>
+
+      <!-- Карточка 2 -->
+      <div class="pricing-card pricing-card--premium">
+        <div class="pricing-card-top">
+          <span class="price-badge">Расширенный доступ</span>
+          <div class="price-eyebrow">Обнуление + Интенсив</div>
+          <div class="price-row">
+            <span class="price-sup">$</span>
+            <span class="price-num">39</span>
+            <div class="price-right">
+              <div class="price-per">в месяц</div>
+              <div class="price-start">Старт — 19 июля</div>
+            </div>
+          </div>
+        </div>
+        <div class="pricing-card-body">
+          <ul class="price-list">
+            <li>4 живые встречи в месяц в Zoom</li>
+            <li>Прямая работа с Евгением</li>
+            <li>Практики разотождествления</li>
+            <li>Доступ к пространству группы</li>
+            <li class="highlight">Трансляция Интенсива онлайн</li>
+            <li>Каждый месяц оплачивается отдельно</li>
+          </ul>
+          <button class="btn btn-fill open-popup2" style="width:100%;text-align:center;display:block;background:var(--ink);">
+            Присоединиться
+          </button>
+        </div>
+      </div>
+
+    </div>
+    <div class="pricing-guarantee rv">
+      <span class="guarantee-icon">○</span>
+      <p class="guarantee-text"><strong>Оплата за каждый месяц отдельно.</strong> Хотите продолжить — оплачиваете следующий месяц. Никаких автосписаний и долгосрочных обязательств.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="c">
+    <div class="rv">
+      <span class="s-label">Вопросы</span>
+      <h2 class="faq-title">Часто<br>спрашивают</h2>
+    </div>
+    <div class="faq-list rv">
+      <div class="faq-item">
+        <button class="faq-q">Для кого эта программа? <span class="faq-plus">+</span></button>
+        <div class="faq-a"><p>Для тех, кто чувствует усталость от внутреннего напряжения, тревоги, ощущения потери себя. Не нужно никакого особого опыта — достаточно желания вернуться к себе.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Это терапия или духовная практика? <span class="faq-plus">+</span></button>
+        <div class="faq-a"><p>Ни то, ни другое в привычном смысле. Это живая практическая работа с состояниями — прямая, без ритуалов. Просто ты и твоя исходная точка.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Когда проходят встречи? <span class="faq-plus">+</span></button>
+        <div class="faq-a"><p>Расписание сообщается после регистрации. Встречи проходят еженедельно в Zoom. Присоединиться можно в любой момент.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Как работает оплата? <span class="faq-plus">+</span></button>
+        <div class="faq-a"><p>Каждый месяц оплачивается отдельно. Хотите продолжить — оплачиваете следующий месяц. Никаких автосписаний и долгосрочных обязательств.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Что такое Интенсив? <span class="faq-plus">+</span></button>
+        <div class="faq-a"><p>Интенсив — это более глубокое погружение с Евгением в формате расширенной онлайн-трансляции. Доступен в пакете «Обнуление + Интенсив» за $39 в месяц.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Как быстро я почувствую разницу? <span class="faq-plus">+</span></button>
+        <div class="faq-a"><p>У каждого по-разному. Многие замечают изменения уже после первой встречи — лёгкость, ясность, пространство внутри. Глубина приходит с практикой.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="contacts" id="contact">
+  <div class="c">
+    <div class="rv">
+      <span class="contacts-label">Связаться</span>
+      <h2 class="contacts-title">Напишите нам</h2>
+      <p class="contacts-sub">Выберите удобный мессенджер — мы ответим в течение нескольких часов.</p>
+    </div>
+    <div class="rv">
+      <div class="c-items">
+        <div class="c-item">
+          <span class="c-item-label">Telegram</span>
+          <div class="c-item-val"><a href="https://t.me/Otdel_Zaboti_Individual">@Otdel_Zaboti_Individual</a></div>
+        </div>
+        <div class="c-item">
+          <span class="c-item-label">WhatsApp</span>
+          <div class="c-item-val"><a href="https://wa.me/359876348245">+359 876 348 245</a></div>
+        </div>
+        <div class="c-item">
+          <span class="c-item-label">BIP</span>
+          <div class="c-item-val"><a href="https://bip.to/+359876348245">+359 876 348 245</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POPUP 1: Обнуление $20 -->
+<div class="popup-overlay" id="popup">
+  <div class="popup">
+    <button class="popup-close" id="popup-close">✕</button>
+    <span class="popup-label">Регистрация</span>
+    <h2 class="popup-title">Обнуление</h2>
+    <p class="popup-sub">Старт — 19 июля 2026 · $20 за месяц · Zoom, 4 встречи</p>
+    <div class="cf7">
+      [contact-form-7 id="205121b" title="Обнуление. Возврат к своей силе"]
+    </div>
+  </div>
+</div>
+
+<!-- POPUP 2: Обнуление + Интенсив $39 -->
+<div class="popup-overlay" id="popup2">
+  <div class="popup">
+    <button class="popup-close" id="popup2-close">✕</button>
+    <span class="popup-label">Регистрация</span>
+    <h2 class="popup-title">Обнуление + Интенсив</h2>
+    <p class="popup-sub">Старт — 19 июля 2026 · $39 за месяц · Zoom + трансляция Интенсива</p>
+    <div class="cf7">
+      [contact-form-7 id="af7c3cf" title="Обнуление 2 месяц + 3-х дневный интенсив в Анталии онлайн"]
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-c">
+    <span class="footer-logo">Обнуление</span>
+    <span class="footer-copy">© 2026 Евгений · Все права защищены</span>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('on', scrollY > 30), {passive:true});
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold: .07});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  function openPopup(id) { document.getElementById(id).classList.add('open'); }
+  function closePopup(id) { document.getElementById(id).classList.remove('open'); }
+
+  document.querySelectorAll('.open-popup').forEach(btn => btn.addEventListener('click', () => openPopup('popup')));
+  document.querySelectorAll('.open-popup2').forEach(btn => btn.addEventListener('click', () => openPopup('popup2')));
+  document.getElementById('popup-close').addEventListener('click', () => closePopup('popup'));
+  document.getElementById('popup2-close').addEventListener('click', () => closePopup('popup2'));
+  document.getElementById('popup').addEventListener('click', e => { if (e.target.id === 'popup') closePopup('popup'); });
+  document.getElementById('popup2').addEventListener('click', e => { if (e.target.id === 'popup2') closePopup('popup2'); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closePopup('popup'); closePopup('popup2'); } });
+
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!open) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
