@@ -325,8 +325,8 @@ export const pricingTiers: PricingTier[] = [
   },
   {
     id: "double",
-    title: "2 курса из 3",
-    description: "Пройдите два последовательных уровня и закрепите результат между ними.",
+    title: "Сепарация I + Травма насилия",
+    description: "Пройдите первые два уровня подряд и закрепите результат между ними.",
     price: 109,
     originalPrice: 130,
     savings: 21,
